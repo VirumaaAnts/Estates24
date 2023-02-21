@@ -4,8 +4,8 @@
 <div class='login'>
     <h2>Login</h2>
     <form action="loginRes" method='POST'>
-        <label for="log_email">email</label>
-        <input type="email" name="log_email" id="log_email" placeholder="E-mail" autofocus required>
+        <label for="login">email</label>
+        <input type="text" name="login" id="login" placeholder="Login" autofocus required>
         <label for="log_password">password</label>
         <input type="password" name='log_password' id='log_password' placeholder="password" required>
         <button type="submit" name = 'send'>Login</button>

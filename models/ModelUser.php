@@ -3,15 +3,18 @@
         // password_hash($password, PASSWORD_DEFAULT);
         public static function checkUser() {
             $test=false;
-            $emailFromForm = strtolower($_POST['log_email']);
+            $logFromForm = strtolower($_POST['login']);
             $database = new database();
-            $response = $database -> getOne('SELECT * from users WHERE email = "'.$emailFromForm.'"');
+            $response = $database -> getOne('SELECT * from users WHERE login = "'.$logFromForm.'"');
             if($response != null){
-                if($response['email'] == $emailFromForm && $response['password'] == password_verify($_POST['log_password'], $response['password'])){
+                if($response['login'] == $logFromForm && $response['password'] == password_verify($_POST['log_password'], $response['password'])){
                     $_SESSION['status']=session_id();
-                    $_SESSION['role'] = $response['role'];
                     $_SESSION['email']=$response['email'];
+                    $_SESSION['name']=$response['name'];
+                    $_SESSION['surname']=$response['surname'];
                     $_SESSION['userId']=$response['id'];
+                    $_SESSION['login']=$response['login'];
+                    $_SESSION['photo']=$response['photo'];
                     $test=true;
                 }
             }else{
@@ -22,8 +25,11 @@
         public static function UserLogout(){
             unset($_SESSION['status']);
             unset($_SESSION['userId']);
+            unset($_SESSION['email']);
             unset($_SESSION['name']);
-            unset($_SESSION['role']);
+            unset($_SESSION['surname']);
+            unset($_SESSION['login']);
+            unset($_SESSION['photo']);
             unset($_SESSION['error']);
             session_destroy();
             return;

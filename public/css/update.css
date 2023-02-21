@@ -1,0 +1,57 @@
+.updateForm form {
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(216, 250, 215);
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: 900;
+    border: 2px solid rgba(3, 3, 3, 0.473);
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.486);
+}
+.updateForm input {
+    border: 2px solid rgb(95, 95, 95);
+    border-radius: 5px;
+    height: 30px;
+    padding-left: 10px;
+    font-size: 20px;
+    margin: 10px 10px;
+}
+.updateForm input:focus::placeholder {
+    color: rgb(205, 212, 218);
+}
+.updateForm input[type='button'] {
+    cursor: pointer;
+    background-color: rgba(56, 209, 76, 0.795);
+    color: white;
+    width: 100%;
+    transition-duration: .2s;
+}
+.updateForm input[type='button']:hover {
+    background-color: white;
+    color: black;
+}
+.updateForm input[type='button']:active{
+    background-color: rgb(137, 137, 137);
+}
+.updateForm input[type='submit'] {
+    cursor: pointer;
+    background-color: rgba(6, 116, 21, 0.795);
+    color: white;
+    transition-duration: .2s;
+}
+.updateForm input[type='submit']:hover {
+    background-color: white;
+    color: black;
+}
+.updateForm input[type='submit']:active{
+    background-color: rgb(137, 137, 137);
+}
+.updateForm a{
+    color: black;
+    margin: auto;
+    transition-duration: .2s;
+}
+.updateForm a:hover{
+    color: white;
+    text-shadow: 0px 2px 1px black;
+}

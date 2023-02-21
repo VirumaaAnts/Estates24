@@ -18,32 +18,9 @@
         Controller::Login();
     }
     if (isset($_SESSION['status'])) {
-        if($route == 'table'){
-            Controller::Table();
-        }
-        if($_SESSION['role'] == 'admin'){
-            if($route=='insertTable'){
-                Controller::InsertTable();
-            }
-            elseif($route == 'insertToTable'){
-                Controller::InsertToTable();
-            }
-            elseif($route == 'updateTable'){
-                Controller::UpdateTable($id);
-            }
-            elseif($route == 'updateInTable'){
-                Controller::UpdateInTable($id);
-            }
-            elseif($route == 'deleteTable'){
-                Controller::DeleteTable($id);
-            }
-            elseif($route == 'deleteInTable'){
-                Controller::DeleteInTable($id);
-            }
-        }
-        if($route == 'logout'){
-            Controller::Logout();
-        }
+        // if($route == 'logout'){
+        //     Controller::Logout();
+        // }
     }else{
         Controller::Start();
     } 

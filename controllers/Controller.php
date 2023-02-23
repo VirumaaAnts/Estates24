@@ -3,7 +3,7 @@ class Controller
 {
     public static function Start()
     {
-        include_once 'view/login.php';
+        include_once 'view/osnova.php';
     }
     public static function Login()
     {

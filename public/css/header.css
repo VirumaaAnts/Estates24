@@ -1,12 +1,15 @@
 header {
     width: 100%;
-    height: 100px;
+    height: 8vmin;
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 0 3%;
     box-sizing: border-box;
-    background-color: aliceblue;
+    background-color: white;
+}
+header > div{
+    flex-grow: 1;
 }
 .logo {
     display: flex;
@@ -32,8 +35,7 @@ header {
     display: flex;
     align-items: center;
     height: 100%;
-    width: max-content;
-    background-color: aliceblue;
+    justify-content: space-around;
 }
 .favouritesContainer {
     height: 100%;

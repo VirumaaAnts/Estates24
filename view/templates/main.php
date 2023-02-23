@@ -16,35 +16,34 @@
     <header>
 
         <div class="logo">
-
             <div class="imgHeader">
                 <img src="images/621b8ec9f9fd4955bc17fb7fa56d19a4 (1).avif" alt="">
             </div>
-
             <h1>Estates 24/7</h1>
-
         </div>
 
         <div class="buttonContainer">
-
             <div class="linksContainer">
-                <a href="macklers">Маклеры</a>
+                <a href="/macklers">Маклеры</a>
             </div>
-
             <div class="favouritesContainer">
-                <a href="favourites"><img src="images/pngimg.com - like_PNG61.png" alt=""></a>
+                <a href="/favourites"><img src="images/pngimg.com - like_PNG61.png" alt=""></a>
             </div>
-
-            <a href="addAdv">Добавить объявление</a>
-
+            <div>
+                <a href="addAdv">Добавить объявление</a>
+            </div>
             <?php
                 if(isset($_SESSION['status'])){
                     
                 }else{
-                    echo '<div class="loginContainer"><a class="login" href="login">Войти</a></div>';
+                    echo '
+                    <div class="loginContainer">
+                        <a class="login" href="/login">Войти</a>
+                        <p>/</p>
+                        <a class="login" href="/reg">Регистрация</a>
+                    </div>';
                 }
             ?>
-
         </div>
 
     </header>

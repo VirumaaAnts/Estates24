@@ -62,7 +62,13 @@ header {
     text-decoration: unset;
     color: black;
     font-weight: 900;
-
+    transition-duration: 0.2s;
+}
+a[href="macklers"], a[href="login"] {
+    color: black;
+}
+a[href="macklers"]:hover, a[href="login"]:hover {
+    color: grey;
 }
 a[href="addAdv"] {
     color: white;
@@ -70,7 +76,6 @@ a[href="addAdv"] {
     padding-bottom: 7px;
     background-color: black;
     border-radius: 5px;
-    transition-duration: 0.2s;
 }
 a[href="addAdv"]:hover {
     background-color: lightgrey;

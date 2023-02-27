@@ -8,20 +8,31 @@
     // считает кол-во /
     $route = explode('/', $main)[$num];
     // берет строку после конечной папки полного пути засчет последнего /
-    if(strstr($_SERVER['REQUEST_URI'], '?')){ //если найден символ '?'
+    if(strstr($_SERVER['REQUEST_URI'], '?')) { //если найден символ '?'
         $id = urldecode($host[1]); //прочитаем значение после ? и уберем пробелы
     }
-    if($route == 'index.php' OR $route == ''){
-        Controller::Start();
+    else {}
+
+    switch ($route) {
+        case 'index.php':
+        case '':
+            Controller::start();
+            break;
+        case 'loginRes':
+            Controller::login();
+            break;
+        case 'registration':
+            Controller::registration();
+            break;
+        case 'register':
+            Controller::register();
+            break;
     }
-    elseif ($route == 'loginRes'){
-        Controller::Login();
-    }
-    if (isset($_SESSION['status'])) {
-        // if($route == 'logout'){
-        //     Controller::Logout();
-        // }
-    }else{
-        Controller::Start();
-    } 
+    // if (isset($_SESSION['status'])) {
+    //     if($route == 'logout'){
+    //         Controller::Logout();
+    //     }
+    // } else{
+    //     Controller::Start();
+    // } 
 ?>

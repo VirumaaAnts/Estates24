@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="public/css/style.css">
     <link rel="stylesheet" href="public/css/header.css">
-    <script src="public/js/app.js"></script>
+    <!-- <script src="public/js/app.js"></script> -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet">
@@ -36,8 +36,7 @@
                 <a href="addAdv">Добавить объявление</a>
             </div>
             <?php
-                if(isset($_SESSION['status'])){
-                    
+                if (isset($_SESSION['status'])) {
                 }else{
                     echo '
                     <div class="loginContainer">
@@ -51,7 +50,7 @@
     </header>
     <main>
         <?php
-            if(isset($content)){
+            if (isset($content)) {
                 echo $content;
             }
         ?>

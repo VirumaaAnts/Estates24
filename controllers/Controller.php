@@ -1,11 +1,23 @@
 <?php
 class Controller
 {
-    public static function Start()
+    public static function start()
     {
         include_once 'view/main.php';
     }
-    public static function Login()
+    public static function registration() {
+        include_once 'view/registration.php';
+    }
+    public static function register()
+    {
+        $result = ModelRegistration::register();
+        if($result) {
+            header('Location:registration');
+        } else {
+            $_SESSION['error'] = 'Ошибка регистрации!';
+        }
+    }
+    public static function login()
     {
         $test = ModelUser::checkUser();
         if ($test) {

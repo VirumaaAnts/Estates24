@@ -1,7 +1,10 @@
 <?php
     ob_start();
+    if(isset($message) && $message != null) {
+        echo '<p>' . $message . '</p>';
+    }
 ?>
-<form action="/register" method="POST" enctype="multipart/form-data">
+<form action="register" method="POST" enctype="multipart/form-data">
     <input type="text" value="" name="name" placeholder="Name" required />
     <input type="text" value="" name="surname" placeholder="Surname" required />
     <input type="email" value="" name="email" placeholder="Email" required />

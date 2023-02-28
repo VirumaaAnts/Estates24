@@ -22,7 +22,7 @@
             Controller::login();
             break;
         case 'registration':
-            Controller::registration();
+            Controller::registration(null);
             break;
         case 'register':
             Controller::register();

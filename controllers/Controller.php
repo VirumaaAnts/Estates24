@@ -8,14 +8,16 @@ class Controller
     public static function macklers() {
         include_once 'view/macklers.php';
     }
-    public static function registration() {
+    public static function registration($msg)
+    {
+        $message = $msg;
         include_once 'view/registration.php';
     }
     public static function register()
     {
-        $result = ModelRegistration::register();
-        if($result) {
-            header('Location:registration');
+        $data = ModelRegistration::register();
+        if($data[0]) {
+            Controller::registration($data[1]);
         } else {
             $_SESSION['error'] = 'Ошибка регистрации!';
         }
@@ -26,7 +28,7 @@ class Controller
         if ($test) {
             header('Location:mainLogin');
         } else {
-            $_SESSION['error'] = 'Ошибка ввода данных';
+            $_SESSION['error'] = 'Ошибка ввода данных!';
         }
     }
 }

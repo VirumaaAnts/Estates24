@@ -4,6 +4,7 @@ class ModelRegistration
     public static function register()
     {
         $result = false;
+        $message = '';
         if (isset($_POST['send'])) {
             $name = $_POST['name'];
             $surname = $_POST['surname'];
@@ -12,9 +13,12 @@ class ModelRegistration
             $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
             $photo = $_FILES['file']['name'];
 
-            if ($photo != '') {
-                $uploadFIle = '../public/uploads/' . basename($_FILES['file']['name']);
-                move_uploaded_file($_FILES['file']['name'], $uploadFIle);
+            if(isset($_FILES['file'])) {
+                $folder = 'public/uploads/' . $photo;
+                if(move_uploaded_file($_FILES['file']['tmp_name'], $folder)) {
+                } else {
+                    $message = 'Cannot upload an image!';
+                }
             }
 
             $database = new database();
@@ -23,11 +27,13 @@ class ModelRegistration
             $response = $database -> executeRun($query);
             if ($response == true) {
                 $result = true;
+                $message = 'ALL GOODNESS';
+            } else {
+                $message = 'ERROR! Cannot create a new user!';;
             }
-        } else {
-            echo 'ERROR! Cannot create a new user!';
         }
-        return $result;
+        $data = array($result, $message);
+        return $data;
     }
 }
 ?>

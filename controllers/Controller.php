@@ -3,7 +3,7 @@ class Controller
 {
     public static function start()
     {
-        include_once 'view/osnova.php';
+        include_once 'view/main.php';
     }
     public static function macklers() {
         include_once 'view/macklers.php';

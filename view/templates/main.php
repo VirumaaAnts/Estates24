@@ -11,40 +11,40 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet">
     <title>Estates24/7</title>
+    
+    <link rel="stylesheet" href="public/lib/slider/slider.css">
+    <link rel="stylesheet" href="public/lib/lightbox/lightbox.css">
+    <script src="public/js/jquery.min.js"></script>
+    <script src="public/lib/slider/slider.js"></script>
+    <script src="public/lib/lightbox/lightbox.js"></script>
 </head>
 <body id = "body">
     <header>
 
         <div class="logo">
-
-            <div class="imgHeader">
-                <img src="images/621b8ec9f9fd4955bc17fb7fa56d19a4 (1).avif" alt="">
-            </div>
-
-            <h1>Estates 24/7</h1>
-
+            <a href="/"><img src="images/logo.png" alt=""></a>
         </div>
 
         <div class="buttonContainer">
-
             <div class="linksContainer">
                 <a href="macklers">Маклеры</a>
             </div>
-
             <div class="favouritesContainer">
                 <a href="favourites"><img src="images/pngimg.com - like_PNG61.png" alt=""></a>
             </div>
-
-            <a href="addAdv">Добавить объявление</a>
-
+            <div>
+                <a href="addAdv">Добавить объявление</a>
+            </div>
             <?php
                 if (isset($_SESSION['status'])) {
-                    
-                } else{
-                    echo '<div class="loginContainer"><a id="login" class="login" href="loginForm">Войти</a></div>';
+                }else{
+                    echo '
+                    <div class="loginContainer">
+                        <a class="login" href="loginForm">Войти</a>
+                        <p>/</p>
+                        <a class="login" href="reg">Регистрация</a></div>';
                 }
             ?>
-
         </div>
 
     </header>

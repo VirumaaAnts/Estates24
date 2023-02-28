@@ -1,0 +1,44 @@
+.slider{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.slider ul{
+    width: 90%;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+.slider ul li{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.slider ul li > a{
+    width: max-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.slider ul li > a img{
+    max-width: 100%;
+    max-height: 65vh;
+}
+.slider ul li > img{
+    max-width: 100%;
+    max-height: 65vh;
+}
+.slider ul li > iframe{
+    width: 100%;
+    height: 65vh;
+    max-width: 100%;
+    max-height: 65vh;
+}
+.slider > img{
+    width: 3%;
+    cursor: pointer;
+}

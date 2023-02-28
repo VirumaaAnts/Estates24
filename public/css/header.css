@@ -59,6 +59,9 @@ a, p, h1, h2, h3, h4, h5, h6{
 .buttonContainer .loginContainer{
     display: flex;
 }
+.login:hover {
+    cursor: pointer;
+}
 a[href="addAdv"] {
     color: white;
     padding: 5px 10px;

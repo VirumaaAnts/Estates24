@@ -12,7 +12,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet">
     <title>Estates24/7</title>
 </head>
-<body>
+<body id = "body">
     <header>
 
         <div class="logo">
@@ -41,7 +41,7 @@
                 if (isset($_SESSION['status'])) {
                     
                 } else{
-                    echo '<div class="loginContainer"><a class="login" href="login">Войти</a></div>';
+                    echo '<div class="loginContainer"><a id="login" class="login" href="loginForm">Войти</a></div>';
                 }
             ?>
 

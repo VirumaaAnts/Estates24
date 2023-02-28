@@ -5,6 +5,12 @@ class Controller
     {
         include_once 'view/osnova.php';
     }
+    public static function macklers() {
+        include_once 'view/macklers.php';
+    }
+    public static function loginForm() {
+        include_once 'view/loginForm.php';
+    }
     public static function registration() {
         include_once 'view/registration.php';
     }

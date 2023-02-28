@@ -18,6 +18,9 @@
         case '':
             Controller::start();
             break;
+        case 'macklers':
+            Controller::macklers();
+            break;
         case 'loginRes':
             Controller::login();
             break;

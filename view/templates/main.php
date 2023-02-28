@@ -18,7 +18,7 @@
     <script src="public/lib/slider/slider.js"></script>
     <script src="public/lib/lightbox/lightbox.js"></script>
 </head>
-<body>
+<body id = "body">
     <header>
 
         <div class="logo">
@@ -27,10 +27,10 @@
 
         <div class="buttonContainer">
             <div class="linksContainer">
-                <a href="/macklers">Маклеры</a>
+                <a href="macklers">Маклеры</a>
             </div>
             <div class="favouritesContainer">
-                <a href="/favourites"><img src="images/pngimg.com - like_PNG61.png" alt=""></a>
+                <a href="favourites"><img src="images/pngimg.com - like_PNG61.png" alt=""></a>
             </div>
             <div>
                 <a href="addAdv">Добавить объявление</a>
@@ -40,9 +40,9 @@
                 }else{
                     echo '
                     <div class="loginContainer">
-                        <a class="login" href="/login">Войти</a>
+                        <a class="login" href="loginForm">Войти</a>
                         <p>/</p>
-                        <a class="login" href="/reg">Регистрация</a></div>';
+                        <a class="login" href="reg">Регистрация</a></div>';
                 }
             ?>
         </div>

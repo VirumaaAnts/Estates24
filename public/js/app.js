@@ -1,8 +1,7 @@
-<?php
-    ob_start();
-?>
-<div class='login'>
-    <h2>Login</h2>
+document.getElementById("login").addEventListener("click", function (e) {
+    e.preventDefault();
+    document.getElementById("body").innerHTML += `<div class='login'>
+    <h2>Вход</h2>
     <form action="loginRes" method='POST'>
         <label for="login">email</label>
         <input type="text" name="login" id="login" placeholder="Login" autofocus required>
@@ -13,8 +12,6 @@
             <?php if(isset($_SESSION['error'])) {echo $_SESSION['error']; unset($_SESSION['error']);} ?>
         </p>
     </form>
-</div>
-<?php
-    $content = ob_get_clean();
-    include 'view/templates/main.php';
-?>
+    <div class="registrationContainer"><a class="registration" href="registration">Регистрация</a></div>
+</div>`;
+})

@@ -8,6 +8,8 @@ $(document).ready(function () {
             $($(i).find("ul li")).css("width", (100/$(i).attr("show"))*0.98+"%");
             $($(i).find("ul li")).css("margin-right", (100/$(i).attr("show"))*0.04+"%");
         }
+        $($(i).find("ul")).css("height", ($(document).width()/$(".slider ul").width())*2.3+"vw");
+        $(document).width()/$(".slider ul").width()/1.5
         let index = 0
         for (j of $($(i).children()[0]).children()){
             $(j).attr("order", index);
@@ -25,33 +27,6 @@ $(document).ready(function () {
     $(left).insertBefore(body);
     $(right).insertAfter(body);
 
-    $(".slider #right").click(function (e) {
-        e.preventDefault();
-        let btn = this
-        if($($(btn).parent()).attr("slide") == undefined || $($(btn).parent()).attr("slide") == "on"){
-            let margin = "-"+(100/($($(btn).parent()).attr("show")/$($(btn).parent()).attr("scroll")))
-            if($($(btn).parent()).attr("show") > 1){
-                margin /= 0.98
-            }
-            margin += "%"
-            $($($(btn).prev()).find(`[order='0']`)).animate({"margin-left":margin},+$($(btn).parent()).attr("time"),()=>{
-                for (i = 0; i < $($(btn).parent()).attr("scroll"); i++){
-                    for (j of $($(btn).prev()).children()){
-                        let order =  $(j).attr("order");
-                        order --
-                        if (order < 0){
-                            order = $($(btn).prev()).children().length + order
-                        }
-                        $($($(btn).prev()).find(`[order='0']`)).css("margin-left",0)
-                        $(j).attr("order", order);
-                        $(j).css("order", order);
-                    }
-                }
-                $($(btn).parent()).attr("slide","on")
-            });
-        }
-        $($(btn).parent()).attr("slide","off")
-    });
     $(".slider #left").click(function (e) { 
         e.preventDefault();
         let btn = this
@@ -75,6 +50,33 @@ $(document).ready(function () {
                     for (j of $($(btn).next()).children()){
                         let order =  $(j).attr("order");
                         order ++;
+                        $(j).attr("order", order);
+                        $(j).css("order", order);
+                    }
+                }
+                $($(btn).parent()).attr("slide","on")
+            });
+        }
+        $($(btn).parent()).attr("slide","off")
+    });
+    $(".slider #right").click(function (e) {
+        e.preventDefault();
+        let btn = this
+        if($($(btn).parent()).attr("slide") == undefined || $($(btn).parent()).attr("slide") == "on"){
+            let margin = "-"+(100/($($(btn).parent()).attr("show")/$($(btn).parent()).attr("scroll")))
+            if($($(btn).parent()).attr("show") > 1){
+                margin /= 0.98
+            }
+            margin += "%"
+            $($($(btn).prev()).find(`[order='0']`)).animate({"margin-left":margin},+$($(btn).parent()).attr("time"),()=>{
+                for (i = 0; i < $($(btn).parent()).attr("scroll"); i++){
+                    for (j of $($(btn).prev()).children()){
+                        let order =  $(j).attr("order");
+                        order --
+                        if (order < 0){
+                            order = $($(btn).prev()).children().length + order
+                        }
+                        $($($(btn).prev()).find(`[order='0']`)).css("margin-left",0)
                         $(j).attr("order", order);
                         $(j).css("order", order);
                     }

@@ -3,6 +3,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: relative;
 }
 .slider ul{
     width: 90%;
@@ -17,26 +18,35 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow: hidden;
+    height: 100%;
 }
 .slider ul li > a{
-    width: max-content;
+    width: 100%;
+    height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 .slider ul li > a img{
     max-width: 100%;
-    max-height: 65vh;
+    max-height: 100%;
 }
 .slider ul li > img{
     max-width: 100%;
-    max-height: 65vh;
+    max-height: 100%;
 }
 .slider ul li > iframe{
     width: 100%;
-    height: 65vh;
+    height: 100%;
     max-width: 100%;
-    max-height: 65vh;
+    max-height: 100%;
+}
+.slider ul li .img_slider{
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
 }
 .slider > img{
     width: 3%;

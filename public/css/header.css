@@ -18,14 +18,17 @@ a, p, h1, h2, h3, h4, h5, h6{
     display: flex;
     align-items: center;
     height: 100%;
-    width: 7%;
+    width: 10%;
     flex-grow: unset;
+    position: relative;
+    top: 4vmin;
 }
 .logo a{
     width: 100%;
 }
 .logo img{
     width: 100%;
+    background-color: white;
 }
 .buttonContainer {
     font-size: 20px;

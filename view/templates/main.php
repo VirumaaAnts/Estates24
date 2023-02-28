@@ -19,6 +19,7 @@
     <script src="public/js/app.js" defer></script>
     <script src="public/js/modal.js" defer></script>
     <script src="public/lib/lightbox/lightbox.js"></script>
+    <script src="public/js/filter.js"></script>
 </head>
 <body id = "body">
     <header>

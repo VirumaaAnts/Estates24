@@ -108,6 +108,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    overflow-x: hidden;
 }
 .main_back{
     width: 100%;
@@ -135,8 +136,9 @@ main .content{
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
+    align-items: start;
 }
-main .content h2{
+main .content > h2{
     font-size: 5vmin;
     width: 100%;
     text-align: center;
@@ -145,21 +147,25 @@ main .content h2{
     margin: 30px 0px;
 }
 main aside{
-    width: 20%;
-    border: 1px solid black;
+    width: 25%;
     height: min-content;
+    font-size: 1.8vmin;
+    background-color: white;
+    border-radius: 10px;
+    border: 1px solid black;
+    padding: 20px;
+    box-sizing: border-box;
+    position: sticky;
+    top: 5vmin;
 }
 main aside .types{
     width: 100%;
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    background-color: whitesmoke;
-    padding: 20px;
-    box-sizing: border-box;
 }
 main aside .types .type{
-    width: 30%;
+    width: 23%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -167,20 +173,82 @@ main aside .types .type{
     border: 1px solid black;
     padding: 5px;
     box-sizing: border-box;
+    transition-duration: 0.2s;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-bottom: 1vmin;
 }
-
+main aside .types .type input{
+  display: none;
+}
+main aside .types .type:hover{
+  background-color: whitesmoke;
+}
 main aside .types .type img{
-    width: 100%;
+    width: 80%;
     
 }
 main aside .types .type .name{
     width: 100%;
     text-align: center;
 }
-main .ads{
-    width: 75%;
+main .estates{
+  width: 70%;
 }
-.slider >img{
-    background-color: rgba(0, 0, 0, 0.719);
+main .ads{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-bottom: 2vmin;
+}
+main .ads h1{
+  width: 100%;
+}
+main .ads .ad{
+  width: 31%;
+  background-color: white;
+  cursor: pointer;
+}
+.ads .ad .estate_inf{
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  box-sizing: border-box;
+}
+.ads .ad .estate_inf h2{
+  font-size: 3vmin;
+}
+.ads .ad .estate_inf p{
+  font-size: 2vmin;
+}
+.ads .ad .estate_inf h3{
+  font-size: 2.5vmin;
+  color: darkred;
+  font-weight: 900;
+}
+.ads > a{
+  margin: 10px 0px;
+  text-decoration: none;
+  color: darkred;
+  font-size: 3vmin;
+  background-color: whitesmoke;
+  padding: 10px 20px;
+}
+.slider ul{
+  width: 100% !important;
+}
+.slider > img{
+    background-color: rgba(0, 0, 0, 0.439);
     padding: 5px;
+    position: absolute;
+    width: 8% !important;
+    transition-duration: 0.2s;
+}
+.slider > img:hover{
+  background-color: rgba(0, 0, 0, 0.878);
+  
+}
+.slider >img:nth-child(3){
+  right: 0px;
 }

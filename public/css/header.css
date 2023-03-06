@@ -9,13 +9,25 @@ header {
     padding: 0 3%;
     box-sizing: border-box;
     background-color: white;
+    /* top: 3.4vmin; */
+    transition-duration: 0.2s;
 }
-header > div{
+
+header > div {
     flex-grow: 1;
 }
-a, p, h1, h2, h3, h4, h5, h6{
+
+a,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     margin: 0;
 }
+
 .logo {
     display: flex;
     align-items: center;
@@ -26,13 +38,16 @@ a, p, h1, h2, h3, h4, h5, h6{
     top: 3.4vmin;
     transition-duration: 0.2s;
 }
-.logo a{
+
+.logo a {
     width: 100%;
 }
-.logo img{
+
+.logo img {
     width: 100%;
     background-color: white;
 }
+
 .buttonContainer {
     font-size: 20px;
     display: flex;
@@ -40,34 +55,42 @@ a, p, h1, h2, h3, h4, h5, h6{
     height: 100%;
     justify-content: end;
 }
-.buttonContainer > div{
+
+.buttonContainer>div {
     margin: 1.5vmin;
 }
+
 .favouritesContainer {
     height: 100%;
     display: flex;
     align-items: center;
 }
+
 .favouritesContainer a {
     height: 40%;
     width: auto;
 }
-.favouritesContainer img{
+
+.favouritesContainer img {
     height: 100%;
     width: auto;
 }
-.buttonContainer a{
+
+.buttonContainer a {
     text-decoration: unset;
     color: black;
     font-weight: 900;
     transition-duration: 0.2s;
 }
-.buttonContainer .loginContainer{
+
+.buttonContainer .loginContainer {
     display: flex;
 }
+
 .login:hover {
     cursor: pointer;
 }
+
 a[href="addAdv"] {
     color: white;
     padding: 5px 10px;
@@ -75,6 +98,7 @@ a[href="addAdv"] {
     background-color: black;
     border-radius: 5px;
 }
+
 a[href="addAdv"]:hover {
     background-color: lightgrey;
     color: black;

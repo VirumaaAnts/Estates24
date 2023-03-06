@@ -9,7 +9,7 @@
     window.CustomEvent = CustomEvent;
 })();
 
-$modal = function (options) {
+$modal_window = function (options) {
     var
         _elemModal,
         _eventShowModal,
@@ -21,13 +21,13 @@ $modal = function (options) {
     function _createModal(options) {
         var
             elemModal = document.createElement('div'),
-            modalTemplate = '<div class="modal__backdrop" data-dismiss="modal"><div class="modal__content"><div class="modal__header"><div class="modal__title" data-modal="title">{{title}}</div><span class="modal__btn-close" data-dismiss="modal" title="Закрыть">×</span></div><div class="modal__body" data-modal="content">{{content}}</div>{{footer}}</div></div>',
+            modalTemplate = '<div class="modal__backdrop" data-dismiss="modal_window"><div class="modal__content"><div class="modal__header"><div class="modal__title" data-modal_window="title">{{title}}</div><span class="modal__btn-close" data-dismiss="modal_window" title="Закрыть">×</span></div><div class="modal__body" data-modal_window="content">{{content}}</div>{{footer}}</div></div>',
             modalFooterTemplate = '<div class="modal__footer">{{buttons}}</div>',
             modalButtonTemplate = '<button type="button" class="{{button_class}}" data-handler={{button_handler}}>{{button_text}}</button>',
             modalHTML,
             modalFooterHTML = '';
 
-        elemModal.classList.add('modal');
+        elemModal.classList.add('modal_window');
         modalHTML = modalTemplate.replace('{{title}}', options.title || 'Новое окно');
         modalHTML = modalHTML.replace('{{content}}', options.content || '');
         if (options.footerButtons) {
@@ -64,7 +64,7 @@ $modal = function (options) {
     }
 
     function _handlerCloseModal(e) {
-        if (e.target.dataset.dismiss === 'modal') {
+        if (e.target.dataset.dismiss === 'modal_window') {
             _hideModal();
         }
     }
@@ -73,8 +73,8 @@ $modal = function (options) {
 
 
     _elemModal.addEventListener('click', _handlerCloseModal);
-    _eventShowModal = new CustomEvent('show.modal', { detail: _elemModal });
-    _eventHideModal = new CustomEvent('hide.modal', { detail: _elemModal });
+    _eventShowModal = new CustomEvent('show.modal_window', { detail: _elemModal });
+    _eventHideModal = new CustomEvent('hide.modal_window', { detail: _elemModal });
 
     return {
         show: _showModal,
@@ -85,29 +85,32 @@ $modal = function (options) {
                 _destroyed = true;
         },
         setContent: function (html) {
-            _elemModal.querySelector('[data-modal="content"]').innerHTML = html;
+            _elemModal.querySelector('[data-modal_window="content"]').innerHTML = html;
         },
         setTitle: function (text) {
-            _elemModal.querySelector('[data-modal="title"]').innerHTML = text;
+            _elemModal.querySelector('[data-modal_window="title"]').innerHTML = text;
         }
     }
 };
 
-var login = $modal({
+var login = $modal_window({
     title: 'Вход',
     content: `
-        <div class='login'>
+        <div class='login modal_window'>
             <form action="loginRes" method='POST'>
-                <label for="login">email</label>
-                <input type="text" name="login" id="login" placeholder="Login" autofocus required>
-                <label for="log_password">password</label>
-                <input type="password" name='log_password' id='log_password' placeholder="password" required>
-                <button type="submit" name = 'send'>Login</button>
-                <p style="margin-top:10px;text-align:center">
-                    <?php if(isset($_SESSION['error'])) {echo $_SESSION['error']; unset($_SESSION['error']);} ?>
-                </p>
+                
+                <input type="text" class="form-control" name="email" id="email" placeholder="Email" autofocus required autocomplete="off">
+                
+                <input type="password" class="form-control" name='log_password' id='log_password' placeholder="Password" required autocomplete="off">
+                <div class="btn_container">
+                    <div>
+                        <button type="submit" class="btn btn-primary" name='send'>Login</button>
+                    </div>
+                    <div>
+                        <a class="registration btn btn-outline-secondary w-100" href="registration">Регистрация</a>
+                    </div>
+                </div>
             </form>
-            <div class="registrationContainer"><a class="registration" href="registration">Регистрация</a></div>
         </div>`
 });
 

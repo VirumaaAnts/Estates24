@@ -71,31 +71,31 @@
             </div>
             <div class="parametrs">
                 <div>
-                    <p>Rooms</p>
+                    <label>Rooms</label>
                     <div>
-                        <input type="number" name="min_rooms" id="min_rooms" placeholder="Min">
-                        <p>-</p>
-                        <input type="number" name="max_rooms" id="max_rooms" placeholder="Max">
+                        <input class="form-control" type="number" name="min_rooms" id="min_rooms" placeholder="Min">
+                        <p>—</p>
+                        <input class="form-control"  type="number" name="max_rooms" id="max_rooms" placeholder="Max">
                     </div>
                 </div>
                 <div>
-                    <p>Area</p>
+                    <label>Area</label>
                     <div>
-                        <input type="number" name="min_area" id="min_area" placeholder="Min">
-                        <p>-</p>
-                        <input type="number" name="max_area" id="max_area" placeholder="Max">
+                        <input class="form-control"  type="number" name="min_area" id="min_area" placeholder="Min">
+                        <p>—</p>
+                        <input class="form-control"  type="number" name="max_area" id="max_area" placeholder="Max">
                     </div>
                 </div>
                 <div>
-                    <p>Price</p>
+                    <label>Price</label>
                     <div>
-                        <input type="number" name="min_price" id="min_price" placeholder="Min">
-                        <p>-</p>
-                        <input type="number" name="max_price" id="max_price" placeholder="Max">
+                        <input class="form-control"  type="number" name="min_price" id="min_price" placeholder="Min">
+                        <p>—</p>
+                        <input class="form-control"  type="number" name="max_price" id="max_price" placeholder="Max">
                     </div>
                 </div>
             </div>
-            <button>Find</button>
+            <button class="btn btn-primary">Find</button>
         </form>
     </aside>
     <div class="estates">

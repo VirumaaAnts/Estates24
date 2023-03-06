@@ -10,6 +10,7 @@
 })();
 
 $modal_window = function (options) {
+$modal_window = function (options) {
     var
         _elemModal,
         _eventShowModal,
@@ -22,11 +23,13 @@ $modal_window = function (options) {
         var
             elemModal = document.createElement('div'),
             modalTemplate = '<div class="modal__backdrop" data-dismiss="modal_window"><div class="modal__content"><div class="modal__header"><div class="modal__title" data-modal_window="title">{{title}}</div><span class="modal__btn-close" data-dismiss="modal_window" title="Закрыть">×</span></div><div class="modal__body" data-modal_window="content">{{content}}</div>{{footer}}</div></div>',
+            modalTemplate = '<div class="modal__backdrop" data-dismiss="modal_window"><div class="modal__content"><div class="modal__header"><div class="modal__title" data-modal_window="title">{{title}}</div><span class="modal__btn-close" data-dismiss="modal_window" title="Закрыть">×</span></div><div class="modal__body" data-modal_window="content">{{content}}</div>{{footer}}</div></div>',
             modalFooterTemplate = '<div class="modal__footer">{{buttons}}</div>',
             modalButtonTemplate = '<button type="button" class="{{button_class}}" data-handler={{button_handler}}>{{button_text}}</button>',
             modalHTML,
             modalFooterHTML = '';
 
+        elemModal.classList.add('modal_window');
         elemModal.classList.add('modal_window');
         modalHTML = modalTemplate.replace('{{title}}', options.title || 'Новое окно');
         modalHTML = modalHTML.replace('{{content}}', options.content || '');
@@ -65,6 +68,7 @@ $modal_window = function (options) {
 
     function _handlerCloseModal(e) {
         if (e.target.dataset.dismiss === 'modal_window') {
+        if (e.target.dataset.dismiss === 'modal_window') {
             _hideModal();
         }
     }
@@ -73,6 +77,8 @@ $modal_window = function (options) {
 
 
     _elemModal.addEventListener('click', _handlerCloseModal);
+    _eventShowModal = new CustomEvent('show.modal_window', { detail: _elemModal });
+    _eventHideModal = new CustomEvent('hide.modal_window', { detail: _elemModal });
     _eventShowModal = new CustomEvent('show.modal_window', { detail: _elemModal });
     _eventHideModal = new CustomEvent('hide.modal_window', { detail: _elemModal });
 
@@ -86,16 +92,20 @@ $modal_window = function (options) {
         },
         setContent: function (html) {
             _elemModal.querySelector('[data-modal_window="content"]').innerHTML = html;
+            _elemModal.querySelector('[data-modal_window="content"]').innerHTML = html;
         },
         setTitle: function (text) {
+            _elemModal.querySelector('[data-modal_window="title"]').innerHTML = text;
             _elemModal.querySelector('[data-modal_window="title"]').innerHTML = text;
         }
     }
 };
 
 var login = $modal_window({
+var login = $modal_window({
     title: 'Вход',
     content: `
+        <div class='login modal_window'>
         <div class='login modal_window'>
             <form action="loginRes" method='POST'>
                 

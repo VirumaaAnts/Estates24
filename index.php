@@ -4,7 +4,8 @@
     include_once 'models/ModelEstates.php';
     include_once 'models/ModelUser.php';
     include_once 'models/ModelRegistration.php';
-    include_once 'controllers/Controller.php';
+    include_once 'controllers/RenderController.php';
+    include_once 'controllers/SendController.php';
 
 
 

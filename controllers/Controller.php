@@ -8,7 +8,7 @@ class Controller
         include_once 'view/macklers.php';
     }
     public static function AllEstates() {
-        include_once 'view/all_estates.php';
+        include_once 'view/estates.php';
     }
     public static function registration($msg){
         $message = $msg;

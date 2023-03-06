@@ -34,7 +34,7 @@
         case 'register':
             Controller::register();
             break;
-        case 'all_estates':
+        case 'estates':
             Controller::AllEstates();
             break;
     }

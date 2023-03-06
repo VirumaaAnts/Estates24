@@ -33,6 +33,9 @@
         case 'register':
             Controller::register();
             break;
+        case 'estates':
+            Controller::estatesPage();
+            break;
     }
     // if (isset($_SESSION['status'])) {
     //     if($route == 'logout'){

@@ -8,6 +8,10 @@ class Controller
     public static function macklers() {
         include_once 'view/macklers.php';
     }
+    public static function estatesPage() {
+        $data = ModelEstates::getEstates();
+        include_once 'view/estates.php';
+    }
     public static function registration($msg)
     {
         $message = $msg;

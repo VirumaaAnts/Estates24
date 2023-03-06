@@ -107,7 +107,7 @@
                     <h3>12 000 000€</h3>
                 </div>
             </div>
-            <a href="/all_estates">All estates&#8594;</a>
+            <a href="estates">All estates&#8594;</a>
         </div>
         <div class="ads">
             <h1>Special offers</h1>
@@ -166,7 +166,7 @@
                     <h3>12 000 000€</h3>
                 </div>
             </div>
-            <a href="/all_offers">All offers&#8594;</a>
+            <a href="offers">All offers&#8594;</a>
         </div>
     </div>
 </div>

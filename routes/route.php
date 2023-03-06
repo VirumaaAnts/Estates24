@@ -11,31 +11,27 @@
     if(strstr($_SERVER['REQUEST_URI'], '?')) { //если найден символ '?'
         $id = urldecode($host[1]); //прочитаем значение после ? и уберем пробелы
     }
-    else {}
-
+    
     switch ($route) {
         case 'index.php':
             header('Location: /');
         case '':
-            Controller::start();
-            break;
-        case 'main':
-            Controller::start();
+            RenderController::start();
             break;
         case 'macklers':
-            Controller::macklers();
+            RenderController::macklers();
             break;
         case 'loginRes':
-            Controller::login();
+            SendController::login();
             break;
         case 'registration':
-            Controller::registration(null);
+            RenderController::registration(null);
             break;
         case 'register':
-            Controller::register();
+            SendController::register();
             break;
         case 'estates':
-            Controller::AllEstates();
+            RenderController::AllEstates();
             break;
     }
     // if (isset($_SESSION['status'])) {

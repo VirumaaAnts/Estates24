@@ -1,203 +1,254 @@
 :root {
-    --index: calc(1vw*1vh);
+  --index: calc(1vw*1vh);
 }
 
 /* ------------------------------------------ modal */
 
 .modal__backdrop {
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background: rgba(0, 0, 0, 0.5);
-    opacity: 0;
-    z-index: -1;
-    pointer-events: none;
-    transition: opacity0 .2s ease-in;
-  }
-  
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  z-index: -1;
+  pointer-events: none;
+  transition: opacity0 .2s ease-in;
+}
+
+.modal__content {
+  position: relative;
+  height: fit-content;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: opacity 0.3s ease-in;
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 0.3rem;
+  box-shadow: 0 0 7px 0 rgba(0, 0, 0, 0.3);
+}
+
+.login form {
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center;
+  align-items: center;
+  cursor: auto !important;
+}
+
+.login form input {
+  margin-bottom: 10px;
+}
+
+.login form button {
+  font-size: 1em;
+  width: 40%;
+  background-color: black;
+}
+
+.btn_container {
+  width: 100%;
+  margin-top: 10px;
+  cursor: auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+.btn_container div {
+  width: 48%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn_container div a,
+.btn_container div button {
+  width: 100%;
+}
+
+@media (min-width: 576px) {
   .modal__content {
-    position: relative;
-    height: fit-content;
-    top: 50%;
-    transform: translateY(-50%);
-    transition: opacity 0.3s ease-in;
-    display: flex;
-    flex-direction: column;
-    background-color: #fff;
-    background-clip: padding-box;
-    border: 1px solid rgba(0, 0, 0, 0.2);
-    border-radius: 0.3rem;
-    box-shadow: 0 0 7px 0 rgba(0, 0, 0, 0.3);
+    max-width: 500px;
+    margin: auto auto;
   }
-  
-  @media (min-width: 576px) {
-    .modal__content {
-      max-width: 500px;
-      margin: auto auto;
-    }
-  }
-  
-  .modal__show .modal__backdrop,
-  .modal__show .modal__content {
-    opacity: 1;
-    z-index: 1050;
-    pointer-events: auto;
-    overflow-y: auto;
-  }
-  
-  .modal__header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 15px;
-    border-bottom: 1px solid #eceeef;
-  }
-  
-  .modal__title {
-    margin-top: 0;
-    margin-bottom: 0;
-    line-height: 1.5;
-    font-size: 1.25rem;
-    font-weight: 500;
-  }
-  
-  .modal__btn-close {
-    float: right;
-    font-family: sans-serif;
-    font-size: 24px;
-    font-weight: 700;
-    line-height: 1;
-    color: #000;
-    text-shadow: 0 1px 0 #fff;
-    opacity: 0.5;
-    text-decoration: none;
-  }
-  
-  .modal__btn-close:focus,
-  .modal__btn-close:hover {
-    color: #000;
-    text-decoration: none;
-    cursor: pointer;
-    opacity: 0.75;
-  }
-  
-  .modal__body {
-    position: relative;
-    flex: 1 1 auto;
-    padding: 15px;
-    overflow: auto;
-  }
-  
-  .modal__footer {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    padding: 1rem;
-    border-top: 1px solid #e9ecef;
-    border-bottom-right-radius: 0.3rem;
-    border-bottom-left-radius: 0.3rem;
-  }
+}
+
+.modal__show .modal__backdrop,
+.modal__show .modal__content {
+  opacity: 1;
+  z-index: 1050;
+  pointer-events: auto;
+  overflow-y: auto;
+}
+
+.modal__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px;
+  border-bottom: 1px solid #eceeef;
+}
+
+.modal__title {
+  margin-top: 0;
+  margin-bottom: 0;
+  line-height: 1.5;
+  font-size: 1.25rem;
+  font-weight: 500;
+}
+
+.modal__btn-close {
+  float: right;
+  font-family: sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1;
+  color: #000;
+  text-shadow: 0 1px 0 #fff;
+  opacity: 0.5;
+  text-decoration: none;
+}
+
+.modal__btn-close:focus,
+.modal__btn-close:hover {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+  opacity: 0.75;
+}
+
+.modal__body {
+  position: relative;
+  flex: 1 1 auto;
+  padding: 15px;
+  overflow: auto;
+}
+
+.modal__footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 1rem;
+  border-top: 1px solid #e9ecef;
+  border-bottom-right-radius: 0.3rem;
+  border-bottom-left-radius: 0.3rem;
+}
 
 /* ------------------------------------------ body */
 
 body {
-    margin: 0;
-    font-family: 'Rubik', sans-serif;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    overflow-x: hidden;
-}
-.main_back{
-    width: 100%;
-    position: absolute;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-    box-shadow: inset 0px 0px 10vw 15px black;
-    z-index: -5;
-}
-.main_back img{
-    width: 100%;
-    opacity: 0.5;
-    filter: blur(4px);
-}
-main{
-    width: 100%;
-    
-}
-main .content{
-    width: 100%;
-    padding: 0px 10%;
-    box-sizing: border-box;
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    align-items: start;
-}
-main .content > h2{
-    font-size: 5vmin;
-    width: 100%;
-    text-align: center;
-    align-items: baseline;
-    font-weight: 400;
-    margin: 30px 0px;
-}
-main aside{
-    width: 25%;
-    height: min-content;
-    font-size: 1.8vmin;
-    background-color: white;
-    border-radius: 10px;
-    border: 1px solid black;
-    padding: 20px;
-    box-sizing: border-box;
-    position: sticky;
-    top: 5vmin;
-}
-main aside .types{
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-}
-main aside .types .type{
-    width: 23%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    border: 1px solid black;
-    padding: 5px;
-    box-sizing: border-box;
-    transition-duration: 0.2s;
-    cursor: pointer;
-    border-radius: 5px;
-    margin-bottom: 1vmin;
-}
-main aside .types .type input{
-  display: none;
-}
-main aside .types .type:hover{
-  background-color: whitesmoke;
-}
-main aside .types .type img{
-    width: 80%;
-    
-}
-main aside .types .type .name{
-    width: 100%;
-    text-align: center;
+  margin: 0;
+  font-family: 'Rubik', sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow-x: hidden;
 }
 
-.place{
+.main_back {
+  width: 100%;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  box-shadow: inset 0px 0px 10vw 15px black;
+  z-index: -5;
+}
+
+.main_back img {
+  width: 100%;
+  opacity: 0.5;
+  filter: blur(4px);
+}
+
+main {
+  width: 100%;
+
+}
+
+main .content {
+  width: 100%;
+  padding: 0px 10%;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-items: start;
+}
+
+main .content>h2 {
+  font-size: 5vmin;
+  width: 100%;
+  text-align: center;
+  align-items: baseline;
+  font-weight: 400;
+  margin: 30px 0px;
+}
+
+main aside {
+  width: 25%;
+  height: min-content;
+  font-size: 1.8vmin;
+  background-color: white;
+  border-radius: 10px;
+  border: 1px solid black;
+  padding: 20px;
+  box-sizing: border-box;
+  position: sticky;
+  top: 5vmin;
+}
+
+main aside .types {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+main aside .types .type {
+  width: 23%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid black;
+  padding: 5px;
+  box-sizing: border-box;
+  transition-duration: 0.2s;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-bottom: 1vmin;
+}
+
+main aside .types .type input {
+  display: none;
+}
+
+main aside .types .type:hover {
+  background-color: whitesmoke;
+}
+
+main aside .types .type img {
+  width: 80%;
+
+}
+
+main aside .types .type .name {
+  width: 100%;
+  text-align: center;
+}
+
+.place {
   display: flex;
   flex-direction: column;
 }
-.place select{
+
+.place select {
   height: 4vmin;
   font-size: 2.5vmin;
   text-align: center;
@@ -205,29 +256,34 @@ main aside .types .type .name{
   cursor: pointer;
 }
 
-.parametrs{
+.parametrs {
   width: 100%;
   display: flex;
   flex-direction: column;
 }
-.parametrs > div{
+
+.parametrs>div {
   width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-.parametrs > div div{
+
+.parametrs>div div {
   display: flex;
   width: 65%;
 }
-.parametrs > div div p{
+
+.parametrs>div div p {
   font-size: 5vmin;
 }
-.parametrs p{
+
+.parametrs p {
   font-size: 3vmin;
   font-weight: 300;
 }
-.parametrs input{
+
+.parametrs input {
   width: 48%;
   height: 5vmin;
   font-size: 1.8vmin;
@@ -235,10 +291,12 @@ main aside .types .type .name{
   margin: 0;
   padding: 0;
 }
-.parametrs input::placeholder{
+
+.parametrs input::placeholder {
   font-size: 3vmin;
 }
-#filters button{
+
+#filters button {
   width: 100%;
   height: 5vmin;
   background-color: whitesmoke;
@@ -249,47 +307,57 @@ main aside .types .type .name{
   cursor: pointer;
   transition-duration: 0.2s;
 }
-#filters button:hover{
+
+#filters button:hover {
   background-color: black;
   color: whitesmoke;
   border: 2px solid whitesmoke;
 }
-main .estates{
+
+main .estates {
   width: 72%;
 }
-main .ads{
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    margin-bottom: 2vmin;
+
+main .ads {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-bottom: 2vmin;
 }
-main .ads h1{
+
+main .ads h1 {
   width: 100%;
 }
-main .ads .ad{
+
+main .ads .ad {
   width: 31%;
   background-color: white;
   cursor: pointer;
 }
-.ads .ad .estate_inf{
+
+.ads .ad .estate_inf {
   display: flex;
   flex-direction: column;
   padding: 10px;
   box-sizing: border-box;
 }
-.ads .ad .estate_inf h2{
+
+.ads .ad .estate_inf h2 {
   font-size: 3vmin;
 }
-.ads .ad .estate_inf p{
+
+.ads .ad .estate_inf p {
   font-size: 2vmin;
 }
-.ads .ad .estate_inf h3{
+
+.ads .ad .estate_inf h3 {
   font-size: 2.5vmin;
   color: darkred;
   font-weight: 900;
 }
-.ads > a{
+
+.ads>a {
   margin: 10px 0px;
   text-decoration: none;
   color: darkred;

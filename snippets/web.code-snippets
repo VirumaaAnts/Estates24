@@ -1,0 +1,29 @@
+{
+	"slider":{
+        "prefix": ["slider"],
+        "scope":"html,php,javascript,htm,ejs,jsp",
+        "body": [
+        "<div class='slider' show='${1:1}' scroll='${2:1}' time='${3:1000}'>",
+            "\t<ul>",
+                "\t\t<li><a href='' data-lightbox='' data-title=''><div class='img_slider' style='background-image: url();'></div></a></li>$0",
+            "\t</ul>",
+        "</div>"
+        ],
+        "description": "create slider which work with lib"
+    },
+    "vmc_page_php":{
+        "prefix": ["vmc_page_php"],
+        "scope":"php,html",
+        "body": [
+            "<?php",
+                "\tob_start();",
+           "?>",
+           "$0",
+           "<?php",
+                "\t$$content = ob_get_clean();",
+                "\tinclude 'view/templates/$1';",
+            "?>"
+        ],
+        "description": "create php sample"
+    }
+}

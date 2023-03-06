@@ -8,7 +8,9 @@ class Controller
         include_once 'view/macklers.php';
     }
     public static function AllEstates() {
-        $data = ModelEstates::getEstates();
+        $massive = ModelEstates::getEstates();
+        $photos = $massive[1];
+        $estates = $massive[0];
         include_once 'view/estates.php';
     }
     public static function registration($msg){

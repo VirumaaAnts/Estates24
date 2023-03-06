@@ -8,7 +8,7 @@ $(document).ready(function () {
             $($(i).find("ul li")).css("width", (100/$(i).attr("show"))*0.98+"%");
             $($(i).find("ul li")).css("margin-right", (100/$(i).attr("show"))*0.04+"%");
         }
-        $($(i).find("ul")).css("height", ($(document).width()/$(".slider ul").width())*2.3+"vw");
+        $($(i).find("ul")).css("height", $(".slider ul").width()/$(document).width()*100/1.5+"vw");
         $(document).width()/$(".slider ul").width()/1.5
         let index = 0
         for (j of $($(i).children()[0]).children()){
@@ -17,6 +17,9 @@ $(document).ready(function () {
             index ++
         }
     }
+    console.log($(document).width())
+    console.log($(".slider ul").width())
+    console.log($(".slider ul").width()/$(document).width()*100)
     let body = $(".slider").children()
     let left = document.createElement("img")
     left.src = "public/lib/slider/images/left.svg"

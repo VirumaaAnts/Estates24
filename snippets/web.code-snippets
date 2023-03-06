@@ -21,7 +21,7 @@
            "$0",
            "<?php",
                 "\t$$content = ob_get_clean();",
-                "\tinclude 'view/templates/$1';",
+                "\tinclude 'view/templates/main.php';",
             "?>"
         ],
         "description": "create php sample"

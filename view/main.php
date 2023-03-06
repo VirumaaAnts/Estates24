@@ -46,7 +46,56 @@
                     <p class="name"><?php echo substr("Part",0,5)?></p>
                 </div>
             </div>
-           <select name="" id=""></select>
+            <div class="place">
+                <select name="county" id="county">
+                    <option value="none" selected disabled>County</option>
+                    <option value="Harju">Harju County</option>
+                    <option value="Hiiu">Hiiu County</option>
+                    <option value="Ida-Viru">Ida-Viru County</option>
+                    <option value="Jõgeva">Jõgeva County</option>
+                    <option value="Järva">Järva County</option>
+                    <option value="Lääne">Lääne County</option>
+                    <option value="Lääne-Viru">Lääne-Viru County</option>
+                    <option value="Põlva">Põlva County</option>
+                    <option value="Pärnu">Pärnu County</option>
+                    <option value="Rapla">Rapla County</option>
+                    <option value="Saare">Saare County</option>
+                    <option value="Tartu">Tartu County</option>
+                    <option value="Valga">Valga County</option>
+                    <option value="Viljandi">Viljandi County</option>
+                    <option value="Võru">Võru County</option>
+                </select>
+                <select name="towns" id="towns" disabled>
+                    <option value="none" selected disabled>Towns</option>
+                </select>
+            </div>
+            <div class="parametrs">
+                <div>
+                    <p>Rooms</p>
+                    <div>
+                        <input type="number" name="min_rooms" id="min_rooms" placeholder="Min">
+                        <p>-</p>
+                        <input type="number" name="max_rooms" id="max_rooms" placeholder="Max">
+                    </div>
+                </div>
+                <div>
+                    <p>Area</p>
+                    <div>
+                        <input type="number" name="min_area" id="min_area" placeholder="Min">
+                        <p>-</p>
+                        <input type="number" name="max_area" id="max_area" placeholder="Max">
+                    </div>
+                </div>
+                <div>
+                    <p>Price</p>
+                    <div>
+                        <input type="number" name="min_price" id="min_price" placeholder="Min">
+                        <p>-</p>
+                        <input type="number" name="max_price" id="max_price" placeholder="Max">
+                    </div>
+                </div>
+            </div>
+            <button>Find</button>
         </form>
     </aside>
     <div class="estates">

@@ -1,15 +1,16 @@
 <?php
 class Controller
 {
-    public static function start()
-    {
+    public static function start(){
         include_once 'view/main.php';
     }
     public static function macklers() {
         include_once 'view/macklers.php';
     }
-    public static function registration($msg)
-    {
+    public static function AllEstates() {
+        include_once 'view/all_estates.php';
+    }
+    public static function registration($msg){
         $message = $msg;
         include_once 'view/registration.php';
     }

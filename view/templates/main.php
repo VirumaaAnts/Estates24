@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="public/css/style.css">
+    <link rel="stylesheet" href="public/css/default.css">
     <link rel="stylesheet" href="public/css/header.css">
     <!-- <script src="public/js/app.js"></script> -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,14 +13,16 @@
     <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet">
     <title>Estates24/7</title>
     
-    <link rel="stylesheet" href="public/lib/slider/slider.css">
-    <link rel="stylesheet" href="public/lib/lightbox/lightbox.css">
     <script src="public/js/jquery.min.js"></script>
+
     <script src="public/lib/slider/slider.js" ></script>
+    <link rel="stylesheet" href="public/lib/slider/slider.css">
+    <script src="public/lib/lightbox/lightbox.js"></script>
+    <link rel="stylesheet" href="public/lib/lightbox/lightbox.css">
+
+    <script src="public/js/filter.js"></script>
     <script src="public/js/app.js" defer></script>
     <script src="public/js/modal.js" defer></script>
-    <script src="public/lib/lightbox/lightbox.js"></script>
-    <script src="public/js/filter.js"></script>
 </head>
 <body id = "body">
     <header>

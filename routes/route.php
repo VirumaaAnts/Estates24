@@ -15,6 +15,7 @@
 
     switch ($route) {
         case 'index.php':
+            header('Location: /');
         case '':
             Controller::start();
             break;
@@ -32,6 +33,9 @@
             break;
         case 'register':
             Controller::register();
+            break;
+        case 'all_estates':
+            Controller::AllEstates();
             break;
     }
     // if (isset($_SESSION['status'])) {

@@ -10,7 +10,7 @@ header {
     box-sizing: border-box;
     background-color: white;
     /* top: 3.4vmin; */
-    transition-duration: 0.2s;
+    transition: ease all .5s;
 }
 
 header > div {

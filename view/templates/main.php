@@ -48,7 +48,7 @@
             <div class="linksContainer">
                 <a href="macklers">Маклеры</a>
             </div>
-            <div class="favouritesContainer">0
+            <div class="favouritesContainer">
                 <a href="favourites"><img src="images/pngimg.com - like_PNG61.png" alt=""></a>
             </div>
             <div>

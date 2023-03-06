@@ -165,10 +165,22 @@ body {
   opacity: 0.5;
   filter: blur(4px);
 }
-
-main {
+.back{
   width: 100%;
-
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  box-shadow: inset 0px 0px 10vw 15px black;
+  z-index: -5;
+}
+.back img{
+  width: 100%;
+}
+main{
+    width: 100%;
+    
 }
 
 main .content {
@@ -313,8 +325,16 @@ main aside .types .type .name {
   color: whitesmoke;
   border: 2px solid whitesmoke;
 }
-
-main .estates {
+.all_estates{
+  width: 72%;
+}
+.all_estates .estates{
+  width: 100%;
+}
+.all_estates .ad{
+  width: 48% !important;
+}
+main .estates{
   width: 72%;
 }
 
@@ -334,6 +354,7 @@ main .ads .ad {
   width: 31%;
   background-color: white;
   cursor: pointer;
+  margin: 1%;
 }
 
 .ads .ad .estate_inf {

@@ -9,7 +9,7 @@ class ModelRegistration
             $name = $_POST['name'];
             $surname = $_POST['surname'];
             $email = $_POST['email'];
-            $login = $_POST['login'];
+            $username = $_POST['username'];
             $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
             $photo = $_FILES['file']['name'];
 
@@ -22,8 +22,8 @@ class ModelRegistration
             }
 
             $database = new database();
-            $query = "INSERT INTO `users` (`name`, `surname`, `email`, `login`, `password`, `photo`)" .
-                " VALUES ('$name', '$surname', '$email', '$login', '$password', '$photo')";
+            $query = "INSERT INTO `users` (`name`, `surname`, `email`, `username`, `password`, `photo`)" .
+                " VALUES ('$name', '$surname', '$email', '$username', '$password', '$photo')";
             $response = $database -> executeRun($query);
             if ($response == true) {
                 $result = true;

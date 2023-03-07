@@ -23,8 +23,10 @@ class ModelRegistration
                 if(isset($_FILES['file'])) {
                     $response = $database -> getOne("select id from user where username='".$username."';");
                     if($response == true) {
-                        mkdir("../public/uploads/user_".$response['id']);
                         $folder = 'public/uploads/user_'.$response['id'].'/'.$photo;
+                        if(!is_dir($folder)) {
+                            mkdir("public/uploads/user_".$response['id']);
+                        }
                         if(move_uploaded_file($_FILES['file']['tmp_name'], $folder)) {
                         } else {
                             $message = 'Cannot upload an image!';

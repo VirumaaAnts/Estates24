@@ -36,7 +36,7 @@ h6 {
     flex-grow: unset;
     position: relative;
     top: 3.4vmin;
-    transition-duration: 0.2s;
+    /* transition-duration: 0.2s; */
 }
 
 .logo a {

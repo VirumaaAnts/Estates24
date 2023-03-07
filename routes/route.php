@@ -35,6 +35,12 @@
             break;
         case 'ad':
             RenderController::Ad();
+=======
+        case 'loginRes':
+            RenderController::adForm();
+            break;
+        case 'addAdv':
+            RenderController::adForm();
             break;
     }
     // if (isset($_SESSION['status'])) {

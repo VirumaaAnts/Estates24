@@ -413,6 +413,7 @@ aside form button {
   font-size: 32px;
   width: 100%;
 }
+
 .Ad{
   width: 100%;
   padding: 0px 10%;
@@ -491,4 +492,63 @@ aside form button {
 .Ad .des p{
   font-size: 1.8vmin;
   font-weight: 100;
+=======
+
+
+/* ------------ Registration page --------------- */
+#registrationPage {
+  width: 75%;
+  margin: 0 auto;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 75px;
+}
+#registrationPage h1 {
+  width: 100%;
+  text-align: center;
+  margin: 25px 0;
+}
+#registrationPage form {
+  width: 650px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+
+  box-shadow: 0 0 5px 2px #e1e1e1;
+  border: 2px solid #c5c5c5;
+  border-radius: 5px;
+  padding: 15px;
+}
+#registrationPage form div,
+#registrationPage form div > div {
+  width: 45%;
+}
+#registrationPage form .input-group {
+  width: 100%;
+  margin: 0;
+  display: flex;
+  align-items: center;
+}
+#registrationPage form .input-group input {
+  margin: 0;
+}
+#registrationPage form .input-group-text {
+  height: 100% !important;
+}
+#registrationPage form div input {
+  margin: 20px 0;
+}
+#registrationPage form .btn_container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-top: 0;
+}
+#registrationPage form .btn_container input {
+  margin: 0;
+  width: 30%;
 }

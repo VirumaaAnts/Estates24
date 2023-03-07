@@ -9,7 +9,6 @@ $(document).ready(function () {
             $($(i).find("ul li")).css("margin-right", (100/$(i).attr("show"))*0.04+"%");
         }
         $($(i).find("ul")).css("height", $(".slider ul").width()/$(document).width()*100/1.5+"vw");
-        $(document).width()/$(".slider ul").width()/1.5
         let index = 0
         for (j of $($(i).children()[0]).children()){
             $(j).attr("order", index);

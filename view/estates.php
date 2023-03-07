@@ -5,7 +5,7 @@
     <img src="images/estates_back.jpg" alt="">
 </div>
 <div class="content" >
-    <h2>The best place to sell real estate</h2>
+    <h2 style="color: white; font-weight: 900;">The best place to sell real estate</h2>
     <aside>
         <form id="filters">
             <div class="types">
@@ -100,8 +100,8 @@
     </aside>
     <div class="estates">
         <div class="ads">
-            <h1 >All estates</h1>
-            <div class="ad" page="/user1/1">
+            <h1 style="color: white;">All estates</h1>
+            <div class="ad" page="/ad?user=1&ad=1">
                 <div class="slider" show="1" scroll="1" time="300">
                     <ul>
                         <li><a href="public/uploads/user1/ad1/1.jpg" data-lightbox="user1-1" data-title=""><div class="img_slider" style="background-image: url(public/uploads/user1/ad1/1.jpg);"></div></a></li>
@@ -118,7 +118,7 @@
                     <h3>1 560 700 €</h3>
                 </div>
             </div>
-            <div class="ad" page="/user2/1">
+            <div class="ad" page="/ad?user=2&ad=1">
                 <div class="slider" show="1" scroll="1" time="300">
                     <ul>
                         <li><a href="public/uploads/user2/ad1/1.jpg" data-lightbox="user1-1" data-title=""><div class="img_slider" style="background-image: url(public/uploads/user2/ad1/1.jpg);"></div></a></li>
@@ -137,7 +137,7 @@
                     <h3>1 493 - 469 900 €</h3>
                 </div>
             </div>
-            <div class="ad" page="/user1/2">
+            <div class="ad" page="/ad?user=1&ad=2">
                 <div class="slider" show="1" scroll="1" time="300">
                     <ul>
                         <li><a href="public/uploads/user2/ad2/1.jpg" data-lightbox="user1-1" data-title=""><div class="img_slider" style="background-image: url(public/uploads/user1/ad2/1.jpg);"></div></a></li>
@@ -156,7 +156,7 @@
                     <h3>12 000 000€</h3>
                 </div>
             </div>
-            <div class="ad" page="/user1/1">
+            <div class="ad" page="/ad?user=1&ad=1">
                 <div class="slider" show="1" scroll="1" time="300">
                     <ul>
                         <li><a href="public/uploads/user1/ad1/1.jpg" data-lightbox="user1-1" data-title=""><div class="img_slider" style="background-image: url(public/uploads/user1/ad1/1.jpg);"></div></a></li>
@@ -173,7 +173,7 @@
                     <h3>1 560 700 €</h3>
                 </div>
             </div>
-            <div class="ad" page="/user2/1">
+            <div class="ad" page="/ad?user=2&ad=1">
                 <div class="slider" show="1" scroll="1" time="300">
                     <ul>
                         <li><a href="public/uploads/user2/ad1/1.jpg" data-lightbox="user1-1" data-title=""><div class="img_slider" style="background-image: url(public/uploads/user2/ad1/1.jpg);"></div></a></li>
@@ -192,7 +192,7 @@
                     <h3>1 493 - 469 900 €</h3>
                 </div>
             </div>
-            <div class="ad" page="/user1/2">
+            <div class="ad" page="/ad?user=1&ad=2">
                 <div class="slider" show="1" scroll="1" time="300">
                     <ul>
                         <li><a href="public/uploads/user2/ad2/1.jpg" data-lightbox="user1-1" data-title=""><div class="img_slider" style="background-image: url(public/uploads/user1/ad2/1.jpg);"></div></a></li>
@@ -211,7 +211,7 @@
                     <h3>12 000 000€</h3>
                 </div>
             </div>
-            <div class="ad" page="/user1/1">
+            <div class="ad" page="/ad?user=1&ad=1">
                 <div class="slider" show="1" scroll="1" time="300">
                     <ul>
                         <li><a href="public/uploads/user1/ad1/1.jpg" data-lightbox="user1-1" data-title=""><div class="img_slider" style="background-image: url(public/uploads/user1/ad1/1.jpg);"></div></a></li>
@@ -228,7 +228,7 @@
                     <h3>1 560 700 €</h3>
                 </div>
             </div>
-            <div class="ad" page="/user2/1">
+            <div class="ad" page="/ad?user=2&ad=1">
                 <div class="slider" show="1" scroll="1" time="300">
                     <ul>
                         <li><a href="public/uploads/user2/ad1/1.jpg" data-lightbox="user1-1" data-title=""><div class="img_slider" style="background-image: url(public/uploads/user2/ad1/1.jpg);"></div></a></li>
@@ -247,7 +247,7 @@
                     <h3>1 493 - 469 900 €</h3>
                 </div>
             </div>
-            <div class="ad" page="/user1/2">
+            <div class="ad" page="/ad?user=1&ad=2">
                 <div class="slider" show="1" scroll="1" time="300">
                     <ul>
                         <li><a href="public/uploads/user2/ad2/1.jpg" data-lightbox="user1-1" data-title=""><div class="img_slider" style="background-image: url(public/uploads/user1/ad2/1.jpg);"></div></a></li>

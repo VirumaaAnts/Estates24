@@ -33,6 +33,9 @@
         case 'estates':
             RenderController::AllEstates();
             break;
+        case 'ad':
+            RenderController::Ad();
+            break;
     }
     // if (isset($_SESSION['status'])) {
     //     if($route == 'logout'){

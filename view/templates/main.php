@@ -41,7 +41,7 @@
     <header>
 
         <div class="logo">
-            <a href="/php1love"><img src="images/logo.png" alt=""></a>
+            <a href="/"><img src="images/logo.png" alt=""></a>
         </div>
 
         <div class="buttonContainer">

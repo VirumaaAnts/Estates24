@@ -36,6 +36,11 @@
         // case 'loginRes':
         //     RenderController::adForm();
         //     break;
+        case 'ad':
+            RenderController::Ad();
+        case 'loginRes':
+            RenderController::adForm();
+            break;
         case 'addAdv':
             RenderController::adForm();
             break;

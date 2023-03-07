@@ -10,8 +10,8 @@ $(document).scroll(function () {
     let logoPos = 33.3;
     if ($(document).scrollTop() > 0) {
         $(".logo").css('top', `${logoPos - $(document).scrollTop()}px`);
-        if($(document).scrollTop() >= logoPos) {
-            $(".logo").css("top", "-22px");
+        if($(document).scrollTop() >= 51.3) {
+            $(".logo").css("top", "-18px");
         }
     } else {
         $(".logo").css("top", "3.4vmin");

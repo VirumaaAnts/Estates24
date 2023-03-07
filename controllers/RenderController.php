@@ -15,5 +15,8 @@ class RenderController
         $message = $msg;
         include_once 'view/registration.php';
     }
+    public static function adForm(){
+        include_once 'view/adForm.php';    
+    }
 }
 ?>

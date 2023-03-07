@@ -20,7 +20,7 @@
             <input type="text" value="" class="form-control" name="username" placeholder="Username" required />
             <input type="password" value="" class="form-control" name="password" placeholder="Password" required />
             <input type="phone" value="" class="form-control" name="phone" placeholder="Phone" required />
-            <input type="text" value="" class="form-control" name="mackler" placeholder="You doesn't have a mackler status" disabled />
+            <input type="text" value="" class="form-control" name="mackler" placeholder="You don't have a mackler status" disabled />
         </div>
         
         <div class="btn_container">

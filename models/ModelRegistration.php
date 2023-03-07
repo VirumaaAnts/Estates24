@@ -12,22 +12,25 @@ class ModelRegistration
             $username = $_POST['username'];
             $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
             $photo = $_FILES['file']['name'];
-
-            if(isset($_FILES['file'])) {
-                $folder = 'public/uploads/' . $photo;
-                if(move_uploaded_file($_FILES['file']['tmp_name'], $folder)) {
-                } else {
-                    $message = 'Cannot upload an image!';
-                }
-            }
+            $phone = $_POST['phone'];
 
             $database = new database();
-            $query = "INSERT INTO `users` (`name`, `surname`, `email`, `username`, `password`, `photo`)" .
-                " VALUES ('$name', '$surname', '$email', '$username', '$password', '$photo')";
+            $query = "INSERT INTO `user` (`name`, `surname`, `email`, `username`, `password`, `photo`, `phone`, `mackler`)" .
+                " VALUES ('$name', '$surname', '$email', '$username', '$password', '$photo', '$phone', 0)";
             $response = $database -> executeRun($query);
             if ($response == true) {
                 $result = true;
-                $message = 'ALL GOODNESS';
+                if(isset($_FILES['file'])) {
+                    $response = $database -> getOne("select id from user where username='".$username."';");
+                    if($response == true) {
+                        mkdir("../public/uploads/user_".$response['id']);
+                        $folder = 'public/uploads/user_'.$response['id'].'/'.$photo;
+                        if(move_uploaded_file($_FILES['file']['tmp_name'], $folder)) {
+                        } else {
+                            $message = 'Cannot upload an image!';
+                        }
+                    }
+                }
             } else {
                 $message = 'ERROR! Cannot create a new user!';;
             }

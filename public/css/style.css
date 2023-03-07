@@ -203,6 +203,7 @@ body {
   flex-direction: column;
   justify-content: space-between;
   overflow-x: hidden;
+  min-height: 100vh !important;
 }
 
 .main_back {
@@ -221,10 +222,24 @@ body {
   opacity: 0.5;
   filter: blur(4px);
 }
+.back {
+  width: 100%;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  box-shadow: inset 0px 0px 10vw 15px black;
+  z-index: -5;
+}
 
+.back img {
+  width: 100%;
+}
 main {
   width: 100%;
   margin-top: 8vmin;
+  flex-grow: 1;
 }
 
 main .content {
@@ -246,7 +261,7 @@ main .content>h2 {
   margin: 30px 0px;
 }
 
-main aside {
+.content > aside {
   width: 25%;
   height: min-content;
   font-size: 1.8vmin;
@@ -259,14 +274,14 @@ main aside {
   top: 10vmin;
 }
 
-main aside .types {
+.content > aside .types  {
   width: 100%;
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
 }
 
-main aside .types .type {
+.content > aside .types .type {
   width: 23%;
   display: flex;
   flex-direction: column;
@@ -281,19 +296,19 @@ main aside .types .type {
   margin-bottom: 1vmin;
 }
 
-main aside .types .type input {
+.content > aside .types .type input {
   display: none;
 }
 
-main aside .types .type:hover {
+.content > aside .types .type:hover {
   background-color: whitesmoke;
 }
 
-main aside .types .type img {
+.content > aside .types .type img {
   width: 80%;
 }
 
-main aside .types .type .name {
+.content > aside .types .type .name {
   width: 100%;
   text-align: center;
 }
@@ -362,32 +377,14 @@ main .ads .ad {
   background-color: whitesmoke;
   padding: 10px 20px;
 }
-
-.slider ul {
-  width: 100% !important;
-}
-
-.slider>img {
-  background-color: rgba(0, 0, 0, 0.439);
-  padding: 5px;
-  position: absolute;
-  width: 8% !important;
-  transition-duration: 0.2s;
-}
-
-.slider>img:hover {
-  background-color: rgba(0, 0, 0, 0.878);
-
-}
-
-.slider>img:nth-child(3) {
-  right: 0px;
-}
-
 .place {
   margin: 20px auto;
+  display: flex;
+  justify-content: space-between;
 }
-
+.place select{
+  width: 48%;
+}
 .parametrs div p {
   margin: 0;
   padding: 0;
@@ -416,6 +413,86 @@ aside form button {
   font-size: 32px;
   width: 100%;
 }
+
+.Ad{
+  width: 100%;
+  padding: 0px 10%;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  background-color: rgb(246, 246, 246);
+}
+.Ad h1, .Ad h2{
+  width: 100%;
+  text-align: center;
+}
+.Ad h1{
+  font-size: 5.5vmin;
+  font-weight: 500;
+}
+.Ad h2{
+  font-size: 3.5vmin;
+  color: grey;
+  font-weight: 400;
+
+}
+.Ad .picture{
+  width: 70%;
+}
+.Ad .slider > img{
+  width: 5% !important;
+}
+.Ad .inf{
+  list-style: none;
+  width: 28%;
+  padding: 0;
+}
+.Ad .inf li{
+  font-size: 2.5vmin;
+  width: 100%;
+  margin: 0;
+  padding: 0px 10px;
+}
+.Ad .inf li:nth-child(2n-1){
+  background-color: #0000000e;
+}
+.Ad .inf li p{
+  margin: 0;
+}
+.Ad .inf form{
+  width: 100%;
+  padding: 10px 20px;
+  font-size: 2vmin;
+}
+.Ad .inf input{
+  margin-bottom: 15px;
+  width: 100%;
+}
+.Ad .inf input::placeholder{
+  text-align: center;
+}
+.Ad .inf input:placeholder-shown {
+  text-align: left;
+}
+.Ad .inf textarea{
+  resize: none;
+  width: 100%;
+  height: 15vmin;
+  padding: 10px;
+  box-sizing: border-box;
+}
+.Ad .des{
+  width: 70%;
+  margin-top: 30px;
+}
+.Ad .des h3{
+  font-size: 2.5vmin;
+  font-weight: 300;
+}
+.Ad .des p{
+  font-size: 1.8vmin;
+  font-weight: 100;
+=======
 
 
 /* ------------ Registration page --------------- */

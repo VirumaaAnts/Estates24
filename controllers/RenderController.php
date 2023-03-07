@@ -8,8 +8,11 @@ class RenderController
         include_once 'view/macklers.php';
     }
     public static function AllEstates() {
-        $data = ModelEstates::getEstates();
+        //$data = ModelEstates::getEstates();
         include_once 'view/estates.php';
+    }
+    public static function Ad() {
+        include_once 'view/ad.php';
     }
     public static function registration($msg){
         $message = $msg;

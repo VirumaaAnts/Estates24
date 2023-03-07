@@ -33,6 +33,9 @@
         case 'estates':
             RenderController::AllEstates();
             break;
+        case 'ad':
+            RenderController::Ad();
+=======
         case 'loginRes':
             RenderController::adForm();
             break;

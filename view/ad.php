@@ -1,7 +1,7 @@
 <?php
     ob_start();
 ?>
-<div class="Ad">
+<div class="Ad" data-id="">
     <h1>Summer house</h1>
     <h2>--,Pärne</h2>
     <div class="picture">

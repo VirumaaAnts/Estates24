@@ -41,7 +41,7 @@
     <header>
 
         <div class="logo">
-            <a href="/php1love"><img src="images/logo.png" alt=""></a>
+            <a href="/"><img src="images/logo.png" alt=""></a>
         </div>
 
         <div class="buttonContainer">
@@ -52,7 +52,7 @@
                 <a href="favourites"><img src="images/pngimg.com - like_PNG61.png" alt=""></a>
             </div>
             <div>
-                <a href="addAdv">Добавить объявление</a>
+                <a class="addAdv" href="addAdv">Добавить объявление</a>
             </div>
             <?php
                 if (isset($_SESSION['status'])) {

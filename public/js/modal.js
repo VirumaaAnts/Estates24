@@ -117,3 +117,13 @@ var login = $modal_window({
 document.querySelector(".login").addEventListener("click", function (e) {
     login.show();
 })
+
+document.querySelector(".addAdv").addEventListener("click", function (e) {
+    e.preventDefault();
+    if(sessionStorage.getItem("status") != null){
+        location.href = "addAdv";
+    }
+    else {
+        login.show();
+    }
+})

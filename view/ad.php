@@ -7,10 +7,10 @@
     <div class="picture">
         <div class='slider' show='1' scroll='1' time='200'>
             <ul>
-                <li><a href='../public/uploads/user1/ad1/1.jpg' data-lightbox='' data-title='ad1'><div class='img_slider' style='background-image: url(../public/uploads/user1/ad1/1.jpg);'></div></a></li>
-                <li><a href='../public/uploads/user1/ad1/2.jpg' data-lightbox='' data-title='ad1'><div class='img_slider' style='background-image: url(../public/uploads/user1/ad1/2.jpg);'></div></a></li>
-                <li><a href='../public/uploads/user1/ad1/3.jpg' data-lightbox='' data-title='ad1'><div class='img_slider' style='background-image: url(../public/uploads/user1/ad1/3.jpg);'></div></a></li>
-                <li><a href='../public/uploads/user1/ad1/4.jpg' data-lightbox='' data-title='ad1'><div class='img_slider' style='background-image: url(../public/uploads/user1/ad1/4.jpg);'></div></a></li>
+                <li><a href='../public/uploads/user1/ad1/1.jpg' data-lightbox='ad1'><div class='img_slider' style='background-image: url(../public/uploads/user1/ad1/1.jpg);'></div></a></li>
+                <li><a href='../public/uploads/user1/ad1/2.jpg' data-lightbox='ad1'><div class='img_slider' style='background-image: url(../public/uploads/user1/ad1/2.jpg);'></div></a></li>
+                <li><a href='../public/uploads/user1/ad1/3.jpg' data-lightbox='ad1'><div class='img_slider' style='background-image: url(../public/uploads/user1/ad1/3.jpg);'></div></a></li>
+                <li><a href='../public/uploads/user1/ad1/4.jpg' data-lightbox='ad1'><div class='img_slider' style='background-image: url(../public/uploads/user1/ad1/4.jpg);'></div></a></li>
             </ul>
         </div>
     </div>

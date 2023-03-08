@@ -16,10 +16,8 @@ $(document).ready(function () {
             index ++
         }
     }
-    // console.log($(document).width())
-    // console.log($(".slider ul").width())
-    // console.log($(".slider ul").width()/$(document).width()*100)
     let body = $(".slider").children()
+    console.log($(".slider").children())
     let left = document.createElement("img")
     left.src = "public/lib/slider/images/left.svg"
     left.id = "left"

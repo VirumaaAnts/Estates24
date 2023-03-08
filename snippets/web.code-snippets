@@ -5,14 +5,14 @@
         "body": [
         "<div class='slider' show='${1:1}' scroll='${2:1}' time='${3:1000}'>",
             "\t<ul>",
-                "\t\t<li><a href='' data-lightbox='' data-title=''><div class='img_slider' style='background-image: url();'></div></a></li>$0",
+                "\t\t<li><a href='' data-lightbox=''><div class='img_slider' style='background-image: url();'></div></a></li>$0",
             "\t</ul>",
         "</div>"
         ],
         "description": "create slider which work with lib"
     },
-    "vmc_page_php":{
-        "prefix": ["vmc_page_php"],
+    "page_vmc":{
+        "prefix": ["page_vmc"],
         "scope":"php,html",
         "body": [
             "<?php",
@@ -25,5 +25,26 @@
             "?>"
         ],
         "description": "create php sample"
+    },
+    "render_case":{
+        "prefix": ["render_case"],
+        "scope":"php",
+        "body": [
+            "case '$1':",
+            "\tRenderController::$2();",
+            "break;$0"
+        ],
+        "description": "create route case"
+    },
+    "send_case":{
+        "prefix": ["send_case"],
+        "scope":"php",
+        "body": [
+            "case '$1':",
+            "\tSendController::$2();",
+            "break;$0"
+        ],
+        "description": "create route case"
     }
+    
 }

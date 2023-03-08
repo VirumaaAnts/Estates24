@@ -21,5 +21,8 @@ class RenderController
     public static function adForm(){
         include_once 'view/adForm.php';    
     }
+    public static function Maklers(){
+        include_once 'view/maklers.php';    
+    }
 }
 ?>

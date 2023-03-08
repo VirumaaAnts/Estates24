@@ -205,7 +205,7 @@ body {
   overflow-x: hidden;
   min-height: 100vh !important;
 }
-
+/* ================================back for pages============================= */
 .main_back {
   width: 100%;
   position: absolute;
@@ -236,6 +236,9 @@ body {
 .back img {
   width: 100%;
 }
+/* ================================back for pages============================= */
+
+
 main {
   width: 100%;
   margin-top: 8vmin;
@@ -247,12 +250,12 @@ main .content {
   padding: 0px 10%;
   box-sizing: border-box;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   flex-wrap: wrap;
   align-items: start;
 }
 
-main .content>h2 {
+main .content > h2 {
   font-size: 5vmin;
   width: 100%;
   text-align: center;
@@ -261,6 +264,7 @@ main .content>h2 {
   margin: 30px 0px;
 }
 
+/* ==================================aside for search===========================*/
 .content > aside {
   width: 25%;
   height: min-content;
@@ -312,18 +316,43 @@ main .content>h2 {
   width: 100%;
   text-align: center;
 }
-
-.all_estates {
-  width: 72%;
+.place {
+  margin: 20px auto;
+  display: flex;
+  justify-content: space-between;
+}
+.place select{
+  width: 48%;
+}
+.parametrs div p {
+  margin: 0;
+  padding: 0;
+  width: min-content;
 }
 
-.all_estates .estates {
+.parametrs div label {
+  margin-top: 10px;
+  font-weight: 600;
+}
+
+.parametrs div div {
+  display: flex;
+  justify-content: baseline;
+  width: 100% !important;
+  justify-content: space-between;
+}
+
+.parametrs div div input {
+  width: 40%;
+  text-align: center;
+}
+
+aside form button {
+  margin-top: 15px;
+  font-size: 32px;
   width: 100%;
 }
-
-.all_estates .ad {
-  width: 48% !important;
-}
+/* ==================================aside for search=========================== */
 
 main .estates {
   width: 70%;
@@ -377,43 +406,10 @@ main .ads .ad {
   background-color: whitesmoke;
   padding: 10px 20px;
 }
-.place {
-  margin: 20px auto;
-  display: flex;
-  justify-content: space-between;
-}
-.place select{
-  width: 48%;
-}
-.parametrs div p {
-  margin: 0;
-  padding: 0;
-  width: min-content;
-}
 
-.parametrs div label {
-  margin-top: 10px;
-  font-weight: 600;
-}
 
-.parametrs div div {
-  display: flex;
-  justify-content: baseline;
-  width: 100% !important;
-  justify-content: space-between;
-}
 
-.parametrs div div input {
-  width: 40%;
-  text-align: center;
-}
-
-aside form button {
-  margin-top: 15px;
-  font-size: 32px;
-  width: 100%;
-}
-
+/* =============================ad page=================================== */
 .Ad{
   width: 100%;
   padding: 0px 10%;
@@ -493,7 +489,7 @@ aside form button {
   font-size: 1.8vmin;
   font-weight: 100;
 }
-
+/* =============================ad page=================================== */
 
 /* ------------ Registration page --------------- */
 #registrationPage {
@@ -553,3 +549,71 @@ aside form button {
   margin: 0;
   width: 30%;
 }
+
+/* ==========================================adv form====================================== */
+.createAdv{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.createAdv h1{
+  width: 100%;
+  text-align: center;
+}
+.createAdv .picture{
+  width: 70%;
+  position: sticky;
+}
+.createAdv > ul{
+  list-style: none;
+  width: 25%;
+}
+.createAdv > ul li{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  box-sizing: border-box;
+  position: relative;
+  background-color: whitesmoke;
+}
+.createAdv > ul li:nth-child(2n-1){background-color: rgba(0, 0, 0, 0.02);}
+
+.createAdv p{
+  margin: 0;
+  position: absolute;
+  right: 0px;
+}
+.createAdv input{
+  width: 100%;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid black;
+  height: 5vmin;
+  background: none;
+}
+.createAdv input[type="checkbox"]{
+  height: 3vmin;
+}
+.createAdv input[type="file"]{
+  border: none;
+}
+.createAdv select{
+  width: 100%;
+  height: 5vmin;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid black;
+  background: none;
+}
+.createAdv .des{
+  width: 100%;
+}
+.createAdv .des textarea{
+  width: 100%;
+  height: 45vmin;
+  resize: none;
+  margin-bottom: 20px;
+}
+/* ==========================================adv form====================================== */

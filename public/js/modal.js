@@ -98,7 +98,6 @@ var login = $modal_window({
     content: `
         <div class='login modal_window'>
             <form action="loginRes" method='POST'>
-                
                 <input type="text" class="form-control" name="email" id="email" placeholder="Email" autofocus required autocomplete="off">
                 
                 <input type="password" class="form-control" name='log_password' id='log_password' placeholder="Password" required autocomplete="off">
@@ -118,7 +117,7 @@ document.querySelector(".login").addEventListener("click", function (e) {
     login.show();
 })
 
-document.querySelector(".addAdv").addEventListener("click", function (e) {
+$(".addAdv").click(function (e) {
     e.preventDefault();
     if(sessionStorage.getItem("status") != null){
         location.href = "addAdv";

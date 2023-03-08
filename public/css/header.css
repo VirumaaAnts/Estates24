@@ -90,16 +90,19 @@ h6 {
 .login:hover {
     cursor: pointer;
 }
-
-a[href="addAdv"] {
-    color: white;
+.logout:hover {
+    cursor: pointer;
+}
+.addAdv {
+    color: white !important;
     padding: 5px 10px;
     padding-bottom: 7px;
     background-color: black;
     border-radius: 5px;
+    cursor: pointer;
 }
 
-a[href="addAdv"]:hover {
+.addAdv:hover {
     background-color: lightgrey;
     color: black;
 }

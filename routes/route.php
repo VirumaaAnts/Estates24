@@ -33,16 +33,13 @@
         case 'estates':
             RenderController::AllEstates();
             break;
-        // case 'loginRes':
-        //     RenderController::adForm();
-        //     break;
         case 'ad':
             RenderController::Ad();
-        case 'loginRes':
-            RenderController::adForm();
-            break;
         case 'addAdv':
-            RenderController::adForm();
+            RenderController::AdForm();
+            break;
+        case 'logout':
+            SendController::Logout();
             break;
     }
     // if (isset($_SESSION['status'])) {

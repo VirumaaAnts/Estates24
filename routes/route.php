@@ -21,26 +21,31 @@
         case 'macklers':
             RenderController::macklers();
             break;
-        case 'loginRes':
-            SendController::login();
-            break;
         case 'registration':
             RenderController::registration(null);
-            break;
-        case 'register':
-            SendController::register();
             break;
         case 'estates':
             RenderController::AllEstates();
             break;
         case 'ad':
             RenderController::Ad();
+            break;
         case 'addAdv':
             RenderController::AdForm();
             break;
+
         case 'logout':
             SendController::Logout();
             break;
+        case 'loginRes':
+            SendController::login();
+            break;
+        case 'register':
+            SendController::register();
+            break;
+        case 'maklers':
+            RenderController::Maklers();
+        break;
     }
     // if (isset($_SESSION['status'])) {
     //     if($route == 'logout'){

@@ -517,10 +517,11 @@ aside form button {
   justify-content: space-between;
   flex-wrap: wrap;
 
-  box-shadow: 0 0 5px 2px #e1e1e1;
-  border: 2px solid #c5c5c5;
+  box-shadow: 0 0 5px 2px #7b7b7b;
+  border: 2px solid #7b7b7b;
   border-radius: 5px;
   padding: 15px;
+  background-color: white;
 }
 #registrationPage form div,
 #registrationPage form div > div {

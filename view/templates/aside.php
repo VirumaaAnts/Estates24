@@ -40,7 +40,7 @@
         </div>
         <div class="place">
             <select name="county" id="county">
-                <option value="none" selected>County</option>
+                <option selected disabled value="none">County</option>
                 <option value="Harju">Harju County</option>
                 <option value="Hiiu">Hiiu County</option>
                 <option value="Ida-Viru">Ida-Viru County</option>

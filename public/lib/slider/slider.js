@@ -17,7 +17,6 @@ $(document).ready(function () {
         }
     }
     let body = $(".slider").children()
-    console.log($(".slider").children())
     let left = document.createElement("img")
     left.src = "public/lib/slider/images/left.svg"
     left.id = "left"

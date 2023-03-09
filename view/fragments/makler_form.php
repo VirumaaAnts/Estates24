@@ -1,8 +1,12 @@
-<section>
-    <option value=""></option>
-</section>
+<select name="language" id="language">
+    <option selected disabled value="none">Languages</option>
+    <option value="rus">Russian</option>
+    <option value="eng">English</option>
+    <option value="est">Estonia</option>
+    <option value="jap">Jaopan</option>
+</select>
 <select name="county" id="county">
-    <option value="none" selected>County</option>
+    <option selected disabled value="none">County</option>
     <option value="Harju">Harju County</option>
     <option value="Hiiu">Hiiu County</option>
     <option value="Ida-Viru">Ida-Viru County</option>

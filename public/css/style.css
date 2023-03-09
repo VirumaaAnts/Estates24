@@ -323,6 +323,8 @@ main .content > h2 {
 }
 .place select{
   width: 48%;
+  height: 4vmin;
+  font-size: 2vmin;
 }
 .parametrs div p {
   margin: 0;
@@ -617,3 +619,40 @@ main .ads .ad {
   margin-bottom: 20px;
 }
 /* ==========================================adv form====================================== */
+
+/* ==============================================makler page===================================== */
+.makler .btns{
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+.makler .btns > div{
+  width: 48%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid black;
+  padding: 3%;
+  cursor: pointer;
+}
+.makler .btns img{
+  width: 50%;
+}
+.makler .btns p{
+  font-size: 2.5vmin;
+  text-align: center;
+  margin: 0;
+}
+.makler select{
+  width: 100%;
+  margin-top: 10px;
+  height: 5vmin;
+  font-size: 2.5vmin;
+  text-align: center
+}
+.makler select:blank{
+  max-height: 10vh;
+  overflow-y: scroll;
+}
+/* ==============================================makler page===================================== */

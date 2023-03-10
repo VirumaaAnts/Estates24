@@ -4,6 +4,9 @@
         echo '<p>' . $message . '</p>';
     }
 ?>
+<div class="main_back">
+    <img src="images/home_back.jpg" alt="">
+</div>
 <div id="registrationPage">
     <h1>Регистрация</h1>
     <form action="register" method="POST" enctype="multipart/form-data">

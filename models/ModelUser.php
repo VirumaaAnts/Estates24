@@ -5,11 +5,11 @@ class ModelUser
     public static function checkUser()
     {
         $test = false;
-        $logFromForm = strtolower($_POST['login']);
+        $emailFromForm = strtolower($_POST['email']);
         $database = new database();
-        $response = $database->getOne('SELECT * from user WHERE login = "' . $logFromForm . '"');
+        $response = $database->getOne('SELECT * from user WHERE email = "' . $emailFromForm . '"');
         if ($response != null) {
-            if ($response['login'] == $logFromForm && $response['password'] == password_verify($_POST['log_password'], $response['password'])) {
+            if ($response['email'] == $emailFromForm && $response['password'] == password_verify($_POST['log_password'], $response['password'])) {
                 $_SESSION['status'] = session_id();
                 $_SESSION['userId'] = $response['id'];
                 $test = true;
@@ -23,7 +23,6 @@ class ModelUser
     {
         unset($_SESSION['status']);
         unset($_SESSION['userId']);
-        session_destroy();
         return;
     }
 }

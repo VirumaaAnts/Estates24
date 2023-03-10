@@ -21,32 +21,32 @@
         case 'macklers':
             RenderController::macklers();
             break;
-        case 'loginRes':
-            SendController::login();
-            break;
         case 'registration':
             RenderController::registration(null);
-            break;
-        case 'register':
-            SendController::register();
             break;
         case 'estates':
             RenderController::AllEstates();
             break;
-        // case 'loginRes':
-        //     RenderController::adForm();
-        //     break;
         case 'ad':
             $userValue = explode('&', $host[1]);
             $userId = (int)str_replace('user=', '', $userValue[0]);
             $adId = (int)str_replace('ad=', '', $userValue[1]);
             RenderController::Ad($adId, $userId);
-        case 'loginRes':
-            RenderController::adForm();
-            break;
         case 'addAdv':
-            RenderController::adForm();
+            RenderController::AdForm();
             break;
+        case 'logout':
+            SendController::Logout();
+            break;
+        case 'loginRes':
+            SendController::login();
+            break;
+        case 'register':
+            SendController::register();
+            break;
+        case 'maklers':
+            RenderController::Maklers();
+        break;
     }
     // if (isset($_SESSION['status'])) {
     //     if($route == 'logout'){

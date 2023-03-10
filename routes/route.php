@@ -15,6 +15,7 @@
     switch ($route) {
         case 'index.php':
             header('Location: /');
+            break;
         case '':
             RenderController::start();
             break;
@@ -47,7 +48,7 @@
             break;
         case 'maklers':
             RenderController::Maklers();
-        break;
+            break;
     }
     // if (isset($_SESSION['status'])) {
     //     if($route == 'logout'){

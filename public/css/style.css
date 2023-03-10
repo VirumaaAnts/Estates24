@@ -388,8 +388,12 @@ main .ads .ad {
 
 .ads .ad .estate_inf h2 {
   font-size: 3vmin;
+  text-transform: capitalize;
 }
 
+.ads .ad .estate_inf p:nth-child(2) {
+  text-transform: capitalize;
+}
 .ads .ad .estate_inf p {
   font-size: 2vmin;
 }
@@ -400,7 +404,12 @@ main .ads .ad {
   font-weight: 900;
 }
 
-.ads>a {
+.ads>.btn_container {
+  width: 100%;
+}
+.ads>.btn_container a {
+  width: fit-content;
+  height: 62px;
   margin: 10px 0px;
   text-decoration: none;
   color: darkred;
@@ -408,7 +417,6 @@ main .ads .ad {
   background-color: whitesmoke;
   padding: 10px 20px;
 }
-
 
 
 /* =============================ad page=================================== */

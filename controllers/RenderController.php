@@ -11,7 +11,8 @@ class RenderController
         //$data = ModelEstates::getEstates();
         include_once 'view/estates.php';
     }
-    public static function Ad() {
+    public static function Ad($object, $owner) {
+        $data = ModelAd::getObjectData($object, $owner);
         include_once 'view/ad.php';
     }
     public static function registration($msg){

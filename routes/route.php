@@ -28,12 +28,13 @@
             RenderController::AllEstates();
             break;
         case 'ad':
-            RenderController::Ad();
-            break;
+            $userValue = explode('&', $host[1]);
+            $userId = (int)str_replace('user=', '', $userValue[0]);
+            $adId = (int)str_replace('ad=', '', $userValue[1]);
+            RenderController::Ad($adId, $userId);
         case 'addAdv':
             RenderController::AdForm();
             break;
-
         case 'logout':
             SendController::Logout();
             break;

@@ -2,10 +2,10 @@
 -- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Mar 07, 2023 at 01:15 PM
--- Server version: 10.4.25-MariaDB
--- PHP Version: 8.1.10
+-- Хост: 127.0.0.1
+-- Время создания: Мар 10 2023 г., 18:45
+-- Версия сервера: 10.4.27-MariaDB
+-- Версия PHP: 8.1.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,22 +18,22 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `estate`
+-- База данных: `estate`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `city`
+-- Структура таблицы `city`
 --
 
 CREATE TABLE `city` (
   `id` int(11) NOT NULL,
   `name` varchar(300) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `city`
+-- Дамп данных таблицы `city`
 --
 
 INSERT INTO `city` (`id`, `name`) VALUES
@@ -42,17 +42,17 @@ INSERT INTO `city` (`id`, `name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `fav`
+-- Структура таблицы `fav`
 --
 
 CREATE TABLE `fav` (
   `id` int(11) NOT NULL,
   `userId` int(11) NOT NULL,
   `objectId` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `fav`
+-- Дамп данных таблицы `fav`
 --
 
 INSERT INTO `fav` (`id`, `userId`, `objectId`) VALUES
@@ -61,12 +61,12 @@ INSERT INTO `fav` (`id`, `userId`, `objectId`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `object`
+-- Структура таблицы `object`
 --
 
 CREATE TABLE `object` (
   `id` int(11) NOT NULL,
-  `type` enum('''house'',''flat'',''garage'',''business''') NOT NULL,
+  `type` enum('house','flat','garage','business') NOT NULL,
   `address` varchar(250) NOT NULL,
   `ownerId` int(11) NOT NULL,
   `cityId` int(11) NOT NULL,
@@ -75,17 +75,17 @@ CREATE TABLE `object` (
   `floor` int(11) DEFAULT NULL,
   `area` int(11) NOT NULL,
   `territory` int(11) DEFAULT NULL,
-  `conditions` enum('''good'',''need repair'',''need overhaul''') NOT NULL,
-  `heatSystem` enum('''water'',''air'',''electric'',''gas''') NOT NULL,
+  `conditions` enum('good','need repair','need overhaul') NOT NULL,
+  `heatSystem` enum('water','air','electric','gas') NOT NULL,
   `basement` tinyint(1) NOT NULL,
   `description` varchar(500) DEFAULT NULL,
   `year` int(11) DEFAULT NULL,
   `price` int(11) DEFAULT NULL,
   `active` tinyint(1) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `object`
+-- Дамп данных таблицы `object`
 --
 
 INSERT INTO `object` (`id`, `type`, `address`, `ownerId`, `cityId`, `roomCount`, `floorCount`, `floor`, `area`, `territory`, `conditions`, `heatSystem`, `basement`, `description`, `year`, `price`, `active`) VALUES
@@ -94,7 +94,7 @@ INSERT INTO `object` (`id`, `type`, `address`, `ownerId`, `cityId`, `roomCount`,
 -- --------------------------------------------------------
 
 --
--- Table structure for table `photo`
+-- Структура таблицы `photo`
 --
 
 CREATE TABLE `photo` (
@@ -102,10 +102,10 @@ CREATE TABLE `photo` (
   `photo` text NOT NULL,
   `houseId` int(11) NOT NULL,
   `description` varchar(500) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `photo`
+-- Дамп данных таблицы `photo`
 --
 
 INSERT INTO `photo` (`id`, `photo`, `houseId`, `description`) VALUES
@@ -114,7 +114,7 @@ INSERT INTO `photo` (`id`, `photo`, `houseId`, `description`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user`
+-- Структура таблицы `user`
 --
 
 CREATE TABLE `user` (
@@ -127,10 +127,10 @@ CREATE TABLE `user` (
   `phone` varchar(250) NOT NULL,
   `mackler` tinyint(1) NOT NULL DEFAULT 0,
   `photo` text DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `user`
+-- Дамп данных таблицы `user`
 --
 
 INSERT INTO `user` (`id`, `name`, `surname`, `username`, `email`, `password`, `phone`, `mackler`, `photo`) VALUES
@@ -138,17 +138,17 @@ INSERT INTO `user` (`id`, `name`, `surname`, `username`, `email`, `password`, `p
 (2, 'dima', 'kreivald', '', 'kreivald@gmail.com', 'kreivald', '+37241523698', 0, NULL);
 
 --
--- Indexes for dumped tables
+-- Индексы сохранённых таблиц
 --
 
 --
--- Indexes for table `city`
+-- Индексы таблицы `city`
 --
 ALTER TABLE `city`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `fav`
+-- Индексы таблицы `fav`
 --
 ALTER TABLE `fav`
   ADD PRIMARY KEY (`id`),
@@ -156,7 +156,7 @@ ALTER TABLE `fav`
   ADD KEY `userId` (`userId`);
 
 --
--- Indexes for table `object`
+-- Индексы таблицы `object`
 --
 ALTER TABLE `object`
   ADD PRIMARY KEY (`id`),
@@ -164,72 +164,72 @@ ALTER TABLE `object`
   ADD KEY `ownerId` (`ownerId`);
 
 --
--- Indexes for table `photo`
+-- Индексы таблицы `photo`
 --
 ALTER TABLE `photo`
   ADD PRIMARY KEY (`id`),
   ADD KEY `houseId` (`houseId`);
 
 --
--- Indexes for table `user`
+-- Индексы таблицы `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT для сохранённых таблиц
 --
 
 --
--- AUTO_INCREMENT for table `city`
+-- AUTO_INCREMENT для таблицы `city`
 --
 ALTER TABLE `city`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `fav`
+-- AUTO_INCREMENT для таблицы `fav`
 --
 ALTER TABLE `fav`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `object`
+-- AUTO_INCREMENT для таблицы `object`
 --
 ALTER TABLE `object`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `photo`
+-- AUTO_INCREMENT для таблицы `photo`
 --
 ALTER TABLE `photo`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `user`
+-- AUTO_INCREMENT для таблицы `user`
 --
 ALTER TABLE `user`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- Constraints for dumped tables
+-- Ограничения внешнего ключа сохраненных таблиц
 --
 
 --
--- Constraints for table `fav`
+-- Ограничения внешнего ключа таблицы `fav`
 --
 ALTER TABLE `fav`
   ADD CONSTRAINT `fav_ibfk_1` FOREIGN KEY (`objectId`) REFERENCES `object` (`id`),
   ADD CONSTRAINT `fav_ibfk_2` FOREIGN KEY (`userId`) REFERENCES `user` (`id`);
 
 --
--- Constraints for table `object`
+-- Ограничения внешнего ключа таблицы `object`
 --
 ALTER TABLE `object`
   ADD CONSTRAINT `object_ibfk_1` FOREIGN KEY (`cityId`) REFERENCES `city` (`id`),
   ADD CONSTRAINT `object_ibfk_2` FOREIGN KEY (`ownerId`) REFERENCES `user` (`id`);
 
 --
--- Constraints for table `photo`
+-- Ограничения внешнего ключа таблицы `photo`
 --
 ALTER TABLE `photo`
   ADD CONSTRAINT `photo_ibfk_1` FOREIGN KEY (`houseId`) REFERENCES `object` (`id`);

@@ -12,7 +12,11 @@
             $owner = $database -> getOne(
                 "SELECT * FROM user WHERE id = ".$ownerId
             );
-            if($owner != null) return array($object, $owner);
+            if($owner == null) return;
+            $adPhotos = $database -> getAll(
+                "SELECT * FROM photo WHERE houseId = ".$object['id']
+            );
+            if($adPhotos != null) return array($object, $owner, $adPhotos);
         }
     }
 ?>

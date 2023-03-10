@@ -32,6 +32,7 @@
             $userId = (int)str_replace('user=', '', $userValue[0]);
             $adId = (int)str_replace('ad=', '', $userValue[1]);
             RenderController::Ad($adId, $userId);
+            break;
         case 'addAdv':
             RenderController::AdForm();
             break;

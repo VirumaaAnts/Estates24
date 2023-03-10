@@ -12,7 +12,39 @@
     <div class="estates">
         <div class="ads">
             <h1>Last added estates</h1>
-            <div class="ad" page="/ad?user=1&ad=1">
+
+            <?php
+            foreach ($data[0] as $estate) {
+                echo "
+                <div class='ad' page='/ad?user=".$estate['ownerId']."&ad=".$estate['id']."'>
+                    <div class='slider' show='1' scroll='1' time='300'>
+                        <ul>";
+                            for ($i = 1; $i < count($data[1]) + 1; $i++) { 
+                                echo "
+                                <li>
+                                    <a href='public/uploads/user".$estate['ownerId']."/ad".$estate['id']."/".$i.".jpg' data-lightbox='user".$estate['ownerId']."-1' data-title=''>
+                                        <div class='img_slider' style='background-image: url(public/uploads/user".$estate['ownerId']."/ad".$estate['id']."/".$i.".jpg);'></div>
+                                    </a>
+                                </li>
+                                ";
+                            }; echo "
+                        </ul>
+                    </div>
+                    <div class='estate_inf'>
+                        <h2>".$estate['type']."</h2>
+                        <p>".$estate['city']."</p>
+                        <p>Number of rooms: ".$estate['roomCount']."</p>
+                        <p>Area: ".$estate['area']." m²</p>
+                        <h3>".$estate['price']." €</h3>
+                    </div>
+                </div>
+                ";
+            }
+            ?>
+
+
+            <!-- -------------- Example ---------------- -->
+            <!-- <div class="ad" page="/ad?user=1&ad=1">
                 <div class="slider" show="1" scroll="1" time="300">
                     <ul>
                         <li><a href="public/uploads/user1/ad1/1.jpg" data-lightbox="user1-1" data-title=""><div class="img_slider" style="background-image: url(public/uploads/user1/ad1/1.jpg);"></div></a></li>
@@ -66,8 +98,13 @@
                     <p>Area: 38861.00 m²</p>
                     <h3>12 000 000€</h3>
                 </div>
+            </div> -->
+            <!-- -------------- Example ---------------- -->
+
+
+            <div class="btn_container">
+                <a href="estates">All estates&#8594;</a>
             </div>
-            <a href="estates">All estates&#8594;</a>
         </div>
         <div class="ads">
             <h1>Special offers</h1>
@@ -126,7 +163,9 @@
                     <h3>12 000 000€</h3>
                 </div>
             </div>
-            <a href="offers">All offers&#8594;</a>
+            <div class="btn_container">
+                <a href="offers">All offers&#8594;</a>
+            </div>
         </div>
     </div>
 </div>

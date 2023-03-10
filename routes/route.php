@@ -15,6 +15,7 @@
     switch ($route) {
         case 'index.php':
             header('Location: /');
+            break;
         case '':
             RenderController::start();
             break;
@@ -32,6 +33,7 @@
             $userId = (int)str_replace('user=', '', $userValue[0]);
             $adId = (int)str_replace('ad=', '', $userValue[1]);
             RenderController::Ad($adId, $userId);
+            break;
         case 'addAdv':
             RenderController::AdForm();
             break;
@@ -46,7 +48,7 @@
             break;
         case 'maklers':
             RenderController::Maklers();
-        break;
+            break;
     }
     // if (isset($_SESSION['status'])) {
     //     if($route == 'logout'){

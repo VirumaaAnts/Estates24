@@ -1,5 +1,5 @@
 <?php
-    ob_start();
+ob_start();
 ?>
 <div class="content">
     <form action="addSend" class="createAdv" enctype="multipart/form-data">
@@ -55,6 +55,6 @@
     </form>
 </div>
 <?php
-    $content = ob_get_clean();
-    include 'view/templates/main.php';
+$content = ob_get_clean();
+include 'view/templates/main.php';
 ?>

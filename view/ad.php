@@ -8,15 +8,15 @@ echo "
         <div class='picture'>
             <div class='slider' show='1' scroll='1' time='200'>
                 <ul>";
-                    for ($i = 1; $i < count($data[2]) + 1; $i++) { 
+                    foreach ($data[2] as $photo) { 
                         echo "
                         <li>
                             <a 
-                                href='public/uploads/user".$data[1]['id']."/ad".$data[0]['id']."/".$i.".jpg' 
-                                data-lightbox='user".$data[1]['id']."-1' data-title=''
+                                href='public/uploads/user_".$data[1]['id']."/ad_".$data[0]['id']."/".$photo['photo']."' 
+                                data-lightbox='user".$data[1]['id']."-".count($data[2])."' data-title='".$photo['description']."'
                             >
                                 <div class='img_slider' 
-                                    style='background-image: url(/public/uploads/user".$data[1]['id']."/ad".$data[0]['id']."/".$i.".jpg);'>
+                                    style='background-image: url(/public/uploads/user_".$data[1]['id']."/ad_".$data[0]['id']."/".$photo['photo'].");'>
                                 </div>
                             </a>
                         </li>

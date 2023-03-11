@@ -12,7 +12,7 @@
     <div class="estates">
         
         <div class="ads">
-            <h1 style="color: white;">All estates</h1>
+            <h1 style="color: white;">All offers</h1>
             <?php
             foreach ($data[0] as $estate) {
                 if($estate['offer'] == 1){

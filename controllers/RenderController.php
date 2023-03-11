@@ -12,6 +12,10 @@ class RenderController
         $data = ModelEstates::getEstates();
         include_once 'view/estates.php';
     }
+    public static function AllOffers() {
+        $data = ModelEstates::getEstates();
+        include_once 'view/offers.php';
+    }
     public static function registrationForm() {
         include_once 'view/registration.php';
     }

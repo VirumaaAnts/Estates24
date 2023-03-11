@@ -64,7 +64,17 @@
                 <a href="favourites"><img src="images/pngimg.com - like_PNG61.png" alt=""></a>
             </div>
             <div>
-                <a class="addAdv">Добавить объявление</a>
+                <?php
+                    if (!isset($_SESSION['status'])) {
+                        echo '
+                        <a class="addAdvToLog">Добавить объявление</a>
+                        ';
+                    }else{
+                        echo '
+                        <a class="addAdv" href = "addAdv">Добавить объявление</a>
+                        ';
+                    }
+                ?>
             </div>
             <?php
                 if (isset($_SESSION['status'])) {

@@ -2,7 +2,7 @@
 class RenderController
 {
     public static function start() {
-        $data = ModelEstates::getEstates();
+        $data = ModelEstates::getThreeEstates();
         include_once 'view/main.php';
     }
     public static function macklers() {

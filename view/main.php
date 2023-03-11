@@ -56,10 +56,10 @@
             <div class="ad" page="/ad?user=1&ad=1">
                 <div class="slider" show="1" scroll="1" time="300">
                     <ul>
-                        <li><a href="public/uploads/user1/ad1/1.jpg" data-lightbox="user1-1" data-title=""><div class="img_slider" style="background-image: url(public/uploads/user1/ad1/1.jpg);"></div></a></li>
-                        <li><a href="public/uploads/user1/ad1/2.jpg" data-lightbox="user1-1" data-title=""><div class="img_slider" style="background-image: url(public/uploads/user1/ad1/2.jpg);"></div></a></li>
-                        <li><a href="public/uploads/user1/ad1/3.jpg" data-lightbox="user1-1" data-title=""><div class="img_slider" style="background-image: url(public/uploads/user1/ad1/3.jpg);"></div></a></li>
-                        <li><a href="public/uploads/user1/ad1/4.jpg" data-lightbox="user1-1" data-title=""><div class="img_slider" style="background-image: url(public/uploads/user1/ad1/4.jpg);"></div></a></li>
+                        <li><a href="public/uploads/user_1/ad_1/1.jpg" data-lightbox="user_1-1" data-title=""><div class="img_slider" style="background-image: url(public/uploads/user_1/ad_1/1.jpg);"></div></a></li>
+                        <li><a href="public/uploads/user_1/ad_1/2.jpg" data-lightbox="user_1-1" data-title=""><div class="img_slider" style="background-image: url(public/uploads/user_1/ad_1/2.jpg);"></div></a></li>
+                        <li><a href="public/uploads/user_1/ad_1/3.jpg" data-lightbox="user_1-1" data-title=""><div class="img_slider" style="background-image: url(public/uploads/user_1/ad_1/3.jpg);"></div></a></li>
+                        <li><a href="public/uploads/user_1/ad_1/4.jpg" data-lightbox="user_1-1" data-title=""><div class="img_slider" style="background-image: url(public/uploads/user_1/ad_1/4.jpg);"></div></a></li>
                     </ul>
                 </div>
                 <div class="estate_inf">
@@ -73,12 +73,12 @@
             <div class="ad" page="/ad?user=2&ad=1">
                 <div class="slider" show="1" scroll="1" time="300">
                     <ul>
-                        <li><a href="public/uploads/user2/ad1/1.jpg" data-lightbox="user1-1" data-title=""><div class="img_slider" style="background-image: url(public/uploads/user2/ad1/1.jpg);"></div></a></li>
-                        <li><a href="public/uploads/user2/ad1/2.jpg" data-lightbox="user1-1" data-title=""><div class="img_slider" style="background-image: url(public/uploads/user2/ad1/2.jpg);"></div></a></li>
-                        <li><a href="public/uploads/user2/ad1/3.jpg" data-lightbox="user1-1" data-title=""><div class="img_slider" style="background-image: url(public/uploads/user2/ad1/3.jpg);"></div></a></li>
-                        <li><a href="public/uploads/user2/ad1/4.jpg" data-lightbox="user1-1" data-title=""><div class="img_slider" style="background-image: url(public/uploads/user2/ad1/4.jpg);"></div></a></li>
-                        <li><a href="public/uploads/user2/ad1/5.jpg" data-lightbox="user1-1" data-title=""><div class="img_slider" style="background-image: url(public/uploads/user2/ad1/5.jpg);"></div></a></li>
-                        <li><a href="public/uploads/user2/ad1/6.jpg" data-lightbox="user1-1" data-title=""><div class="img_slider" style="background-image: url(public/uploads/user2/ad1/6.jpg);"></div></a></li>
+                        <li><a href="public/uploads/user_2/ad_2/1.jpg" data-lightbox="user1-1" data-title=""><div class="img_slider" style="background-image: url(public/uploads/user_2/ad_2/1.jpg);"></div></a></li>
+                        <li><a href="public/uploads/user_2/ad_2/2.jpg" data-lightbox="user1-1" data-title=""><div class="img_slider" style="background-image: url(public/uploads/user_2/ad_2/2.jpg);"></div></a></li>
+                        <li><a href="public/uploads/user_2/ad_2/3.jpg" data-lightbox="user1-1" data-title=""><div class="img_slider" style="background-image: url(public/uploads/user_2/ad_2/3.jpg);"></div></a></li>
+                        <li><a href="public/uploads/user_2/ad_2/4.jpg" data-lightbox="user1-1" data-title=""><div class="img_slider" style="background-image: url(public/uploads/user_2/ad_2/4.jpg);"></div></a></li>
+                        <li><a href="public/uploads/user_2/ad_2/5.jpg" data-lightbox="user1-1" data-title=""><div class="img_slider" style="background-image: url(public/uploads/user_2/ad_2/5.jpg);"></div></a></li>
+                        <li><a href="public/uploads/user_2/ad_2/6.jpg" data-lightbox="user1-1" data-title=""><div class="img_slider" style="background-image: url(public/uploads/user_2/ad_2/6.jpg);"></div></a></li>
                     </ul>
                 </div>
                 <div class="estate_inf">
@@ -92,12 +92,12 @@
             <div class="ad" page="/ad?user=1&ad=2">
                 <div class="slider" show="1" scroll="1" time="300">
                     <ul>
-                        <li><a href="public/uploads/user2/ad2/1.jpg" data-lightbox="user1-1" data-title=""><div class="img_slider" style="background-image: url(public/uploads/user1/ad2/1.jpg);"></div></a></li>
-                        <li><a href="public/uploads/user2/ad2/2.jpg" data-lightbox="user1-1" data-title=""><div class="img_slider" style="background-image: url(public/uploads/user1/ad2/2.jpg);"></div></a></li>
-                        <li><a href="public/uploads/user2/ad2/3.jpg" data-lightbox="user1-1" data-title=""><div class="img_slider" style="background-image: url(public/uploads/user1/ad2/3.jpg);"></div></a></li>
-                        <li><a href="public/uploads/user2/ad2/4.jpg" data-lightbox="user1-1" data-title=""><div class="img_slider" style="background-image: url(public/uploads/user1/ad2/4.jpg);"></div></a></li>
-                        <li><a href="public/uploads/user2/ad2/5.jpg" data-lightbox="user1-1" data-title=""><div class="img_slider" style="background-image: url(public/uploads/user1/ad2/5.jpg);"></div></a></li>
-                        <li><a href="public/uploads/user2/ad2/6.jpg" data-lightbox="user1-1" data-title=""><div class="img_slider" style="background-image: url(public/uploads/user1/ad2/6.jpg);"></div></a></li>
+                        <li><a href="public/uploads/user2/ad_3/1.jpg" data-lightbox="user_1-1" data-title=""><div class="img_slider" style="background-image: url(public/uploads/user_1/ad_3/1.jpg);"></div></a></li>
+                        <li><a href="public/uploads/user2/ad_3/2.jpg" data-lightbox="user_1-1" data-title=""><div class="img_slider" style="background-image: url(public/uploads/user_1/ad_3/2.jpg);"></div></a></li>
+                        <li><a href="public/uploads/user2/ad_3/3.jpg" data-lightbox="user_1-1" data-title=""><div class="img_slider" style="background-image: url(public/uploads/user_1/ad_3/3.jpg);"></div></a></li>
+                        <li><a href="public/uploads/user2/ad_3/4.jpg" data-lightbox="user_1-1" data-title=""><div class="img_slider" style="background-image: url(public/uploads/user_1/ad_3/4.jpg);"></div></a></li>
+                        <li><a href="public/uploads/user2/ad_3/5.jpg" data-lightbox="user_1-1" data-title=""><div class="img_slider" style="background-image: url(public/uploads/user_1/ad_3/5.jpg);"></div></a></li>
+                        <li><a href="public/uploads/user2/ad_3/6.jpg" data-lightbox="user_1-1" data-title=""><div class="img_slider" style="background-image: url(public/uploads/user_1/ad_3/6.jpg);"></div></a></li>
                     </ul>
                 </div>
                 <div class="estate_inf">

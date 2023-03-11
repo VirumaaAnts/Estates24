@@ -17,3 +17,6 @@ $(document).scroll(function () {
         $(".logo").css("top", "3.4vmin");
     }
 });
+function register() {
+    location.href = "register";
+}

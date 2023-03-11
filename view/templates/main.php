@@ -42,7 +42,7 @@
     <header>
 
         <div class="logo">
-            <a href="/"><img src="images/logo.png" alt=""></a>
+            <a href="index.php"><img src="images/logo.png" alt=""></a>
         </div>
         <?php
             if(isset($_SESSION['error'])){
@@ -51,6 +51,9 @@
             }elseif (isset($error)) {
                 echo $error;
                 unset($error);
+            }
+            if(isset($message)) {
+                echo $message;
             }
         ?>
         <div class="buttonContainer">

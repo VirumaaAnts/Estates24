@@ -1,23 +1,21 @@
 <?php
 class SendController
 {
-    public static function register()
+    public static function registration()
     {
         $data = ModelRegistration::register();
-        if($data[0]) {
-            RenderController::registration($data[1]);
-        } else {
-            $_SESSION['error'] = 'Ошибка регистрации!';
-        }
+        $message = $data[1];
+        include_once 'view/registration.php';
     }
     public static function Login()
     {
         $test = ModelUser::checkUser();
-        if ($test) {
+        if ($test[0]) {
             $_SESSION['error'] = "<p style='color:green;font-weight:900;margin-left:20px'>Успешный вход!</p>";
             header('Location:'.$_SERVER['HTTP_REFERER']);
         } else {
             $_SESSION['error'] = "<p style='color:red;font-weight:900;margin-left:20px'>Ошибка ввода данных!</p>";
+            $email = $test[1];
             header('Location:'.$_SERVER['HTTP_REFERER']);
         }
     }

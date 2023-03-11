@@ -14,10 +14,8 @@ class ModelUser
                 $_SESSION['userId'] = $response['id'];
                 $test = true;
             }
-        } else {
-            $test = false;
         }
-        return $test;
+        return [$test, $emailFromForm];
     }
     public static function UserLogout()
     {

@@ -16,7 +16,7 @@
             <?php
             foreach ($data[0] as $estate) {
                 echo "
-                <div class='ad' page='/ad?user=".$estate['ownerId']."&ad=".$estate['id']."'>
+                <div class='ad' page='ad?user=".$estate['ownerId']."&ad=".$estate['id']."'>
                     <div class='slider' show='1' scroll='1' time='300'>
                         <ul>";
                             foreach ($data[1] as $photo) {

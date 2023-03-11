@@ -34,12 +34,6 @@
             $adId = (int)str_replace('ad=', '', $userValue[1]);
             RenderController::Ad($adId, $userId);
             break;
-        case 'addAdv':
-            RenderController::AdForm();
-            break;
-        case 'logout':
-            SendController::Logout();
-            break;
         case 'loginRes':
             SendController::login();
             break;
@@ -50,10 +44,16 @@
             RenderController::Maklers();
             break;
     }
-    // if (isset($_SESSION['status'])) {
-    //     if($route == 'logout'){
-    //         Controller::Logout();
-    //     }
+    if (isset($_SESSION['status'])) {
+        switch ($route) {
+            case 'addAdv':
+                RenderController::AdForm();
+                break;
+            case 'logout':
+                SendController::Logout();
+                break;
+        }
+    }
     // } else{
     //     Controller::Start();
     // } 

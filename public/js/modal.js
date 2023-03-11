@@ -117,7 +117,7 @@ document.querySelector(".login").addEventListener("click", function (e) {
     login.show();
 })
 
-$(".addAdv").click(function (e) {
+$(".addAdvToLog").click(function (e) {
     e.preventDefault();
     if(sessionStorage.getItem("status") != null){
         location.href = "addAdv";

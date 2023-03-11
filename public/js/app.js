@@ -98,3 +98,7 @@ async function generateCitiesSqlQuery() {
         })
 };
 // generateCitiesSqlQuery();
+
+function register() {
+    location.href = "register";
+}

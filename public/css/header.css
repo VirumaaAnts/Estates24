@@ -93,7 +93,7 @@ h6 {
 .logout:hover {
     cursor: pointer;
 }
-.addAdv {
+.addAdv, .addAdvToLog {
     color: white !important;
     padding: 5px 10px;
     padding-bottom: 7px;
@@ -102,7 +102,7 @@ h6 {
     cursor: pointer;
 }
 
-.addAdv:hover {
+.addAdv:hover, .addAdvToLog:hover {
     background-color: lightgrey;
     color: black;
 }

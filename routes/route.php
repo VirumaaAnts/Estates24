@@ -14,7 +14,7 @@
     
     switch ($route) {
         case 'index.php':
-            header('Location: /');
+            RenderController::start();
             break;
         case '':
             RenderController::start();
@@ -23,7 +23,7 @@
             RenderController::macklers();
             break;
         case 'registration':
-            RenderController::registration(null);
+            RenderController::registrationForm();
             break;
         case 'estates':
             RenderController::AllEstates();
@@ -44,7 +44,7 @@
             SendController::login();
             break;
         case 'register':
-            SendController::register();
+            SendController::registration();
             break;
         case 'maklers':
             RenderController::Maklers();

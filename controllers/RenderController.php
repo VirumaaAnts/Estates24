@@ -12,13 +12,12 @@ class RenderController
         $data = ModelEstates::getEstates();
         include_once 'view/estates.php';
     }
+    public static function registrationForm() {
+        include_once 'view/registration.php';
+    }
     public static function Ad($object, $owner) {
         $data = ModelAd::getObjectData($object, $owner);
         include_once 'view/ad.php';
-    }
-    public static function registration($msg) {
-        $message = $msg;
-        include_once 'view/registration.php';
     }
     public static function adForm() {
         include_once 'view/adForm.php';    

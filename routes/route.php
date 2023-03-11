@@ -28,6 +28,9 @@
         case 'estates':
             RenderController::AllEstates();
             break;
+        case 'offers':
+            RenderController::AllOffers();
+            break;
         case 'ad':
             $userValue = explode('&', $host[1]);
             $userId = (int)str_replace('user=', '', $userValue[0]);

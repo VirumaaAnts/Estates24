@@ -1,5 +1,5 @@
 <aside>
-    <form id="filters">
+    <form id="filters" action="findByFilters" method="POST">
         <div class="types">
             <div class="type btn_filter">
                 <input type="checkbox" name="type" value="apartmnent">
@@ -41,21 +41,11 @@
         <div class="place">
             <select name="county" id="county">
                 <option selected disabled value="none">County</option>
-                <option value="Harju">Harju County</option>
-                <option value="Hiiu">Hiiu County</option>
-                <option value="Ida-Viru">Ida-Viru County</option>
-                <option value="Jõgeva">Jõgeva County</option>
-                <option value="Järva">Järva County</option>
-                <option value="Lääne">Lääne County</option>
-                <option value="Lääne-Viru">Lääne-Viru County</option>
-                <option value="Põlva">Põlva County</option>
-                <option value="Pärnu">Pärnu County</option>
-                <option value="Rapla">Rapla County</option>
-                <option value="Saare">Saare County</option>
-                <option value="Tartu">Tartu County</option>
-                <option value="Valga">Valga County</option>
-                <option value="Viljandi">Viljandi County</option>
-                <option value="Võru">Võru County</option>
+                <?php
+                    foreach($countiesCities[0] as $county){
+                        echo '<option value="'.$county['id'].'">'.$county['name'].' County</option>';
+                    }
+                ?>
             </select>
             <select name="towns" id="towns" disabled>
                 <option value="none" selected>Towns</option>

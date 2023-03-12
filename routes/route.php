@@ -17,6 +17,7 @@
             RenderController::start();
             break;
         case '':
+            
             RenderController::start();
             break;
         case 'macklers':

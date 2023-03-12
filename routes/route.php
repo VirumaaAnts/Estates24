@@ -17,7 +17,6 @@
             RenderController::start();
             break;
         case '':
-
             RenderController::start();
             break;
         case 'registration':
@@ -29,16 +28,12 @@
         case 'offers':
             RenderController::AllOffers();
             break;
-        case 'profile':
-            RenderController::Profile();
-            break;
         case 'ad':
             $userValue = explode('&', $host[1]);
             $userId = (int)str_replace('user=', '', $userValue[0]);
             $adId = (int)str_replace('ad=', '', $userValue[1]);
             RenderController::Ad($adId, $userId);
             break;
-        
         case 'loginRes':
             SendController::login();
             break;
@@ -55,7 +50,10 @@
                 RenderController::AdForm();
                 break;
             case 'profile':
-                SendController::profile();
+                RenderController::Profile();
+                break;
+            case 'editProfile':
+                SendController::EditProfile();
                 break;
             case 'logout':
                 SendController::Logout();

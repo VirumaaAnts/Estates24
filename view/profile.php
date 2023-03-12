@@ -1,17 +1,19 @@
 <?php
     ob_start();
 ?>
-<form action="" class="profile">
+<script src="public/js/profile.js"></script>
+<form action="editProfile" method="POST" class="profile" enctype="multipart/form-data">
     <h2>Update profile</h2>
     <div class="profile_img">
-        <input type="file" name="picture" id="pictrure">
+        <input type='file' name='picture' accept="image/png, image/jpeg, image/jpg" id='picture'>
         <?php 
             echo "<img src='./public/uploads/user_".$userInfo['id']."/".$userInfo['photo']."' alt=''>"
         ?>
     </div>
-    <div class="datas">
+    <div class="data">
         <?php
         echo "
+            <input type='text' name='prev_picture' value='".$userInfo['photo']."' style='display: none'>
             <input type='text' name='name' placeholder='Name' class='form-control' value='".$userInfo['name']."'>
             <input type='text' name='surname' placeholder='Surname' class='form-control' value='".$userInfo['surname']."'>
             <input type='text' name='username' placeholder='Username' class='form-control' value='".$userInfo['username']."'>
@@ -20,7 +22,7 @@
             <input type='password' name='password' placeholder='Password' class='form-control'>
             "
         ?>
-        <button class="btn btn-primary">Update</button>
+        <button class="btn btn-primary" name="update">Update</button>
     </div>
 </form>
 <?php

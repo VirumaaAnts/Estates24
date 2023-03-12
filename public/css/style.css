@@ -650,6 +650,9 @@ main .ads .ad {
   padding: 3%;
   cursor: pointer;
 }
+.btns input[type="radio"]{
+  display: none;
+}
 .makler .btns img{
   width: 50%;
 }
@@ -670,3 +673,45 @@ main .ads .ad {
   overflow-y: scroll;
 }
 /* ==============================================makler page===================================== */
+
+/* =================================================profile======================================== */
+.profile{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.profile h2{
+  width: 100%;
+  text-align: center;
+  font-size: 7vmin;
+}
+.profile .profile_img{
+  width: 20%;
+  position: sticky;
+  top: 0px;
+  left: 0px;
+  border-radius: 100vw;
+  overflow: hidden;
+  background-position: center;
+  background-size: cover;
+}
+.profile .profile_img input{
+  display: none;
+}
+.profile .profile_img img{
+  width: 100%;
+}
+.profile .datas{
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  margin-left: 5%;
+}
+.profile .datas input{
+  width: 100%;
+  margin-bottom: 10px
+}
+
+/* =================================================profile======================================== */

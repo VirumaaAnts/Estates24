@@ -12,7 +12,6 @@
     <div class="estates">
         <div class="ads">
             <h1>Last added estates</h1>
-
             <?php
             foreach ($data[0] as $estate) {
                 echo "

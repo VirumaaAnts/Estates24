@@ -10,7 +10,6 @@
         require 'templates/aside.php';
     ?>
     <div class="estates">
-        
         <div class="ads">
             <h1 style="color: white;">All estates</h1>
             <?php

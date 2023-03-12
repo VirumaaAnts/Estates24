@@ -29,5 +29,8 @@ class RenderController
     public static function Maklers() {
         include_once 'view/maklers.php';    
     }
+    public static function Profile(){
+        include_once 'view/profile.php';    
+    }
 }
 ?>

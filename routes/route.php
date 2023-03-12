@@ -31,12 +31,16 @@
         case 'offers':
             RenderController::AllOffers();
             break;
+        case 'profile':
+            RenderController::Profile();
+            break;
         case 'ad':
             $userValue = explode('&', $host[1]);
             $userId = (int)str_replace('user=', '', $userValue[0]);
             $adId = (int)str_replace('ad=', '', $userValue[1]);
             RenderController::Ad($adId, $userId);
             break;
+        
         case 'loginRes':
             SendController::login();
             break;
@@ -46,6 +50,8 @@
         case 'maklers':
             RenderController::Maklers();
             break;
+        case 'logout':
+            SendController::Logout();
     }
     if (isset($_SESSION['status'])) {
         switch ($route) {

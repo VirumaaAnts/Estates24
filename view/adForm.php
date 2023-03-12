@@ -13,6 +13,15 @@ ob_start();
             <input type="file" name="files" id="files" multiple>
         </div>
         <ul>
+            <li>
+                <select name="type" id="">
+                    <option selected disabled value="--">Type</option>
+                    <option value="house">House</option>
+                    <option value="flat">Flat</option>
+                    <option value="garage">Garage</option>
+                    <option value="business">Business</option>
+                </select>
+            </li>
             <li><input type="text" name="adress" placeholder="Adress" autocomplete="off"></li>
             <li>
                 <input type="text" name="city" list="cities" placeholder="City" autocomplete="off">
@@ -28,26 +37,23 @@ ob_start();
             <li><label>Basement</label><input type="checkbox" name="basement" id=""></li>
             <li><input type="number" name="year" placeholder="Year"></li>
             <li><input type="number" name="price" placeholder="Price"><p>€</p></li>
-            <li><select name="type" id="">
-                <option selected disabled value="--">Type</option>
-                <option value="house">House</option>
-                <option value="flat">Flat</option>
-                <option value="garage">Garage</option>
-                <option value="business">Business</option>
-            </select></li>
-            <li><select name="conditions" id="">
-                <option selected disabled value="--">Conditions</option>
-                <option value="good">Good</option>
-                <option value="need repair">Need repair</option>
-                <option value="need overhaul">Need overhaul</option>
-            </select></li>
-            <li><select name="heat" id="">
-                <option selected disabled value="--">heat</option>
-                <option value="water">water</option>
-                <option value="air">air</option>
-                <option value="electric">electric</option>
-                <option value="gas">gas</option>
-            </select></li>
+            <li>
+                <select name="conditions" id="">
+                    <option selected disabled value="--">Conditions</option>
+                    <option value="good">Good</option>
+                    <option value="need repair">Need repair</option>
+                    <option value="need overhaul">Need overhaul</option>
+                </select>
+            </li>
+            <li>
+                <select name="heat" id="">
+                    <option selected disabled value="--">heat</option>
+                    <option value="water">water</option>
+                    <option value="air">air</option>
+                    <option value="electric">electric</option>
+                    <option value="gas">gas</option>
+                </select>
+            </li>
         </ul>
         <div class="des">
             <textarea name="desription" id="" cols="30" rows="10" placeholder="Description"></textarea>

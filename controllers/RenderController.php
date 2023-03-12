@@ -38,7 +38,7 @@ class RenderController
         include_once 'view/maklers.php';    
     }
     public static function Profile() {
-        $userInfo = ModelProfile::getProfileInfo();
+        $userInfo = ModelUser::getProfileInfo();
         include_once 'view/profile.php';    
     }
     public static function FilterPage(){

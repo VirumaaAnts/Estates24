@@ -36,9 +36,8 @@
     <script src="public/js/app.js" defer></script>
     <script src="public/js/modal.js" defer></script>
     <script src="public/js/filter.js" defer></script>
-    <script src="public/js/profile.js" defer></script>
     <script src="public/js/advForm.js" defer></script>
-    <script src="../public/js/maklerPage.js" defer></script>
+    <script src="public/js/maklerPage.js" defer></script>
 </head>
 <body id = "body">
     <header>

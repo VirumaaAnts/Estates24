@@ -33,6 +33,9 @@
         case 'addAdv':
             RenderController::AdForm();
             break;
+        case 'profile':
+            RenderController::Profile();
+        break;
 
         case 'logout':
             SendController::Logout();

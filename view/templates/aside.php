@@ -3,37 +3,61 @@
         <div class="types">
             <div class="type btn_filter">
                 <input type="checkbox" name="type" value="apartmnent">
-                <p>200</p>
+                <?php foreach($countiesCities[2] as $types){
+                    if($types['type'] == 'Apartment'){
+                        echo '<p>'.$types['typeCount'].'</p>';
+                    }
+                }?>
                 <img src="images/apartment.png" alt="">
                 <p class="name"><?php echo substr("Apartment",0,5)?>...</p>
             </div>
             <div class="type btn_filter">
                 <input type="checkbox" name="type" value="homes">
-                <p>560</p>
+                <?php foreach($countiesCities[2] as $types){
+                    if($types['type'] == 'House'){
+                        echo '<p>'.$types['typeCount'].'</p>';
+                    }
+                }?>
                 <img src="images/home.png" alt="">
-                <p class="name"><?php echo substr("Home",0,5)?></p>
+                <p class="name"><?php echo substr("House",0,5)?></p>
             </div>
             <div class="type btn_filter">
                 <input type="checkbox" name="type" value="summer">
-                <p>758</p>
+                <?php foreach($countiesCities[2] as $types){
+                    if($types['type'] == 'Summer house'){
+                        echo '<p>'.$types['typeCount'].'</p>';
+                    }
+                }?>
                 <img src="images/country_house.png" alt="">
                 <p class="name"><?php echo substr("Summer house",0,5)?>...</p>
             </div>
             <div class="type btn_filter">
                 <input type="checkbox" name="type" value="garage">
-                <p>323</p>
+                <?php foreach($countiesCities[2] as $types){
+                    if($types['type'] == 'Garage'){
+                        echo '<p>'.$types['typeCount'].'</p>';
+                    }
+                }?>
                 <img src="images/garage.png" alt="">
                 <p class="name"><?php echo substr("Garage",0,5)?>...</p>
             </div>
             <div class="type btn_filter">
                 <input type="checkbox" name="type" value="land">
-                <p>751</p>
+                <?php foreach($countiesCities[2] as $types){
+                    if($types['type'] == 'Land'){
+                        echo '<p>'.$types['typeCount'].'</p>';
+                    }
+                }?>
                 <img src="images/land.png" alt="">
                 <p class="name"><?php echo substr("Land",0,5)?></p>
             </div>
             <div class="type btn_filter">
                 <input type="checkbox" name="type" value="part">
-                <p>560</p>
+                <?php foreach($countiesCities[2] as $types){
+                    if($types['type'] == 'Part'){
+                        echo '<p>'.$types['typeCount'].'</p>';
+                    }
+                }?>
                 <img src="images/part.png" alt="">
                 <p class="name"><?php echo substr("Part",0,5)?></p>
             </div>
@@ -63,17 +87,17 @@
             <div>
                 <label>Area</label>
                 <div>
-                    <input class="form-control"  type="number" name="min_area" id="min_area" placeholder="Min">
+                    <input class="form-control"  type="number" name="min_area" id="min_area" min=0 placeholder="Min">
                     <p>—</p>
-                    <input class="form-control"  type="number" name="max_area" id="max_area" placeholder="Max">
+                    <input class="form-control"  type="number" name="max_area" id="max_area" min=0 placeholder="Max">
                 </div>
             </div>
             <div>
                 <label>Price</label>
                 <div>
-                    <input class="form-control"  type="number" name="min_price" id="min_price" placeholder="Min">
+                    <input class="form-control"  type="number" name="min_price" id="min_price" min=0 placeholder="Min">
                     <p>—</p>
-                    <input class="form-control"  type="number" name="max_price" id="max_price" placeholder="Max">
+                    <input class="form-control"  type="number" name="max_price" id="max_price" min=0 placeholder="Max">
                 </div>
             </div>
         </div>

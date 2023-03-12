@@ -40,5 +40,10 @@ class RenderController
     public static function Profile(){
         include_once 'view/profile.php';    
     }
+    public static function FilterPage(){
+        $dataS = ModelFilters::getFilterObjects();
+        $countiesCities = ModelCountiesCities::getCountiesCities();
+        include_once 'view/estatesByFilter.php';
+    }
 }
 ?>

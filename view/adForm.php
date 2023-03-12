@@ -58,6 +58,7 @@ ob_start();
         <div class="des">
             <textarea name="desription" id="" cols="30" rows="10" placeholder="Description"></textarea>
         </div>
+        <button>Create ad</button>
     </form>
 </div>
 <?php

@@ -14,6 +14,7 @@
     
     switch ($route) {
         case 'index.php':
+            header("Location: /");
             RenderController::start();
             break;
         case '':
@@ -43,6 +44,8 @@
         case 'macklers':
             RenderController::Maklers();
             break;
+        case 'findByFilters':
+            RenderController::FilterPage();
     }
     if (isset($_SESSION['status'])) {
         switch ($route) {

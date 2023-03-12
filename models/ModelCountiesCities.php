@@ -6,7 +6,10 @@
             if($county == null) return;
             $city = $database -> getAll("SELECT * FROM city ORDER BY id ASC");
             if($city == null) return;
-            return [$county, $city];
+
+            $typesCount = $database -> getAll("SELECT type, COUNT(type) as typeCount FROM object GROUP BY type ORDER BY id ASC");
+            if($typesCount == null) return;
+            return [$county, $city, $typesCount];
        }
     }
 ?>

@@ -15,11 +15,11 @@ class SendController
         $test = ModelUser::checkUser();
         if ($test[0]) {
             $_SESSION['error'] = "<p style='color:green;font-weight:900;margin-left:20px'>Успешный вход!</p>";
-            header('Location:'.$_SERVER['HTTP_REFERER']);
+            header('Location: index.php');
         } else {
             $_SESSION['error'] = "<p style='color:red;font-weight:900;margin-left:20px'>Ошибка ввода данных!</p>";
             $email = $test[1];
-            header('Location:'.$_SERVER['HTTP_REFERER']);
+            header('Location: index.php');
         }
     }
     public static function Logout(){

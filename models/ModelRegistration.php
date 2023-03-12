@@ -4,7 +4,7 @@ class ModelRegistration
     public static function register()
     {
         $result = false;
-        $message = '';
+        $message = '<p style="color:green;font-weight:900;margin-left:20px">Успех!</p>';
         if (isset($_POST['send'])) {
             $name = $_POST['name'];
             $surname = $_POST['surname'];
@@ -15,30 +15,39 @@ class ModelRegistration
             $phone = $_POST['phone'];
 
             $database = new database();
-            $query = "INSERT INTO `user` (`name`, `surname`, `email`, `username`, `password`, `photo`, `phone`, `mackler`)" .
-                " VALUES ('$name', '$surname', '$email', '$username', '$password', '$photo', '$phone', 0)";
-            $response = $database -> executeRun($query);
-            if ($response == true) {
-                $result = true;
-                if(isset($_FILES['file'])) {
-                    $response = $database -> getOne("select id from user where username='".$username."';");
-                    if($response == true) {
-                        $folder = 'public/uploads/user_'.$response['id'].'/'.$photo;
-                        if(!is_dir($folder)) {
-                            mkdir("public/uploads/user_".$response['id']);
-                        }
-                        if(move_uploaded_file($_FILES['file']['tmp_name'], $folder)) {
-                        } else {
-                            $message = 'Cannot upload an image!';
+            $response = $database -> getOne("select id from user where `email` = '".$email."';");
+            if($response != null){
+                $message = '<p style="color:red;font-weight:900;margin-left:20px">Email exists!</p>';
+                $data = array($result, $message, [$name,$surname,$email,$username,$password,$_FILES['file']['tmp_name'],$phone]);
+                return $data;
+            }
+            else{
+                $query = "INSERT INTO `user` (`name`, `surname`, `email`, `username`, `password`, `photo`, `phone`, `mackler`)" .
+                    " VALUES ('$name', '$surname', '$email', '$username', '$password', '$photo', '$phone', 0)";
+                $response = $database -> executeRun($query);
+                if ($response != null) {
+                    if(isset($_FILES['file'])) {
+                        $response = $database -> getOne("select id from user where `email` = '".$email."';");
+                        if($response != null) {
+                            $folder = 'public/uploads/user_'.$response['id'].'/'.$photo;
+                            $folderCheck = 'public/uploads/user_'.$response['id'];
+                            if(!is_dir($folderCheck)) {
+                                mkdir($folderCheck);
+                            }
+                            if(move_uploaded_file($_FILES['file']['tmp_name'], $folder)) {
+                                $result = true;
+                            } else {
+                                $message = '<p style="color:red;font-weight:900;margin-left:20px">Cannot upload an image!</p>';
+                            }
                         }
                     }
+                } else {
+                    $message = '<p style="color:red;font-weight:900;margin-left:20px">ERROR! Cannot create a new user!</p>';
                 }
-            } else {
-                $message = 'ERROR! Cannot create a new user!';;
             }
-        }
-        $data = array($result, $message);
-        return $data;
+            $data = array($result, $message);
+            return $data;
+            }
     }
 }
 ?>

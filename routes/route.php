@@ -14,7 +14,8 @@
     
     switch ($route) {
         case 'index.php':
-            header('Location: /');
+            RenderController::start();
+            break;
         case '':
             RenderController::start();
             break;
@@ -22,38 +23,46 @@
             RenderController::macklers();
             break;
         case 'registration':
-            RenderController::registration(null);
+            RenderController::registrationForm();
             break;
         case 'estates':
             RenderController::AllEstates();
             break;
-        case 'ad':
-            RenderController::Ad();
-            break;
-        case 'addAdv':
-            RenderController::AdForm();
+        case 'offers':
+            RenderController::AllOffers();
             break;
         case 'profile':
             RenderController::Profile();
-        break;
-
-        case 'logout':
-            SendController::Logout();
             break;
+        case 'ad':
+            $userValue = explode('&', $host[1]);
+            $userId = (int)str_replace('user=', '', $userValue[0]);
+            $adId = (int)str_replace('ad=', '', $userValue[1]);
+            RenderController::Ad($adId, $userId);
+            break;
+        
         case 'loginRes':
             SendController::login();
             break;
         case 'register':
-            SendController::register();
+            SendController::registration();
             break;
         case 'maklers':
             RenderController::Maklers();
-        break;
+            break;
+        case 'logout':
+            SendController::Logout();
     }
-    // if (isset($_SESSION['status'])) {
-    //     if($route == 'logout'){
-    //         Controller::Logout();
-    //     }
+    if (isset($_SESSION['status'])) {
+        switch ($route) {
+            case 'addAdv':
+                RenderController::AdForm();
+                break;
+            case 'logout':
+                SendController::Logout();
+                break;
+        }
+    }
     // } else{
     //     Controller::Start();
     // } 

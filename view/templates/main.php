@@ -60,6 +60,15 @@
             <div class="linksContainer">
                 <a href="macklers">Маклеры</a>
             </div>
+            <?php
+                if (isset($_SESSION['status'])) {
+                    echo '
+                    <div class="linksContainer">
+                        <a href="profile">Профиль</a>
+                    </div>
+                    ';
+                }
+            ?>
             <div class="favouritesContainer">
                 <a href="favourites"><img src="images/pngimg.com - like_PNG61.png" alt=""></a>
             </div>

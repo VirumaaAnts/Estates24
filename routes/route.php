@@ -17,11 +17,8 @@
             RenderController::start();
             break;
         case '':
-            
+
             RenderController::start();
-            break;
-        case 'macklers':
-            RenderController::macklers();
             break;
         case 'registration':
             RenderController::registrationForm();
@@ -48,16 +45,17 @@
         case 'register':
             SendController::registration();
             break;
-        case 'maklers':
+        case 'macklers':
             RenderController::Maklers();
             break;
-        case 'logout':
-            SendController::Logout();
     }
     if (isset($_SESSION['status'])) {
         switch ($route) {
             case 'addAdv':
                 RenderController::AdForm();
+                break;
+            case 'profile':
+                SendController::profile();
                 break;
             case 'logout':
                 SendController::Logout();

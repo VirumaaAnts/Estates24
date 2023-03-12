@@ -14,9 +14,6 @@ class RenderController
         $countiesCities = ModelCountiesCities::getCountiesCities();
         include_once 'view/main.php';
     }
-    public static function macklers() {
-        include_once 'view/macklers.php';
-    }
     public static function AllEstates() {
         $data = ModelEstates::getEstates();
         $countiesCities = ModelCountiesCities::getCountiesCities();

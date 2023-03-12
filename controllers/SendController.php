@@ -7,6 +7,9 @@ class SendController
         $message = $data[1];
         include_once 'view/registration.php';
     }
+    public static function profile() {
+        include_once 'view/profile.php';
+    }
     public static function Login()
     {
         $test = ModelUser::checkUser();

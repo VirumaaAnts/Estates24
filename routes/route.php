@@ -14,6 +14,7 @@
     
     switch ($route) {
         case 'index.php':
+            header("Location: /");
             RenderController::start();
             break;
         case '':
@@ -32,6 +33,9 @@
         case 'profile':
             RenderController::Profile();
             break;
+        case 'addAdv':
+            RenderController::adForm();
+        break;
         case 'ad':
             $userValue = explode('&', $host[1]);
             $userId = (int)str_replace('user=', '', $userValue[0]);

@@ -63,7 +63,7 @@
             </div>
         </div>
         <div class="place">
-            <select name="county" id="county">
+            <select name="county" id="county" class="form-control">
                 <option selected disabled value="none">County</option>
                 <?php
                     foreach($countiesCities[0] as $county){
@@ -71,7 +71,7 @@
                     }
                 ?>
             </select>
-            <select name="towns" id="towns" disabled>
+            <select name="towns" id="towns" class="form-control" disabled>
                 <option value="none" selected>Towns</option>
             </select>
         </div>

@@ -37,7 +37,8 @@ class RenderController
     public static function Maklers() {
         include_once 'view/maklers.php';    
     }
-    public static function Profile(){
+    public static function Profile() {
+        $userInfo = ModelProfile::getProfileInfo();
         include_once 'view/profile.php';    
     }
 }

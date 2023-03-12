@@ -2,6 +2,7 @@
     session_start();
     include_once 'inc/database.php';
     include_once 'models/ModelEstates.php';
+    include_once 'models/ModelProfile.php';
     include_once 'models/ModelUser.php';
     include_once 'models/ModelRegistration.php';
     include_once 'models/ModelCountiesCities.php';

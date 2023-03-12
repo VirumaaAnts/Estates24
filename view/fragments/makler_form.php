@@ -1,11 +1,11 @@
-<select name="language" id="language">
+<select name="language" id="language" class="form-control">
     <option selected disabled value="none">Languages</option>
     <option value="rus">Russian</option>
     <option value="eng">English</option>
     <option value="est">Estonia</option>
     <option value="jap">Jaopan</option>
 </select>
-<select name="county" id="county">
+<select name="county" id="county" class="form-control">
     <option selected disabled value="none">County</option>
     <option value="Harju">Harju County</option>
     <option value="Hiiu">Hiiu County</option>

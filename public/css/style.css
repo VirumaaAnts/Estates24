@@ -363,7 +363,7 @@ main .estates {
 main .ads {
   width: 100%;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   flex-wrap: wrap;
   margin-bottom: 2vmin;
 }
@@ -504,6 +504,10 @@ main .ads .ad {
 .Ad .des p{
   font-size: 1.8vmin;
   font-weight: 100;
+}
+.no_offers {
+  margin-top: 20px;
+  font-size: 26px;
 }
 /* =============================ad page=================================== */
 
@@ -665,12 +669,15 @@ main .ads .ad {
   width: 100%;
   margin-top: 10px;
   height: 5vmin;
-  font-size: 2.5vmin;
+  font-size: 2.1vmin;
   text-align: center
 }
 .makler select:blank{
   max-height: 10vh;
   overflow-y: scroll;
+}
+#county {
+  margin-bottom: 10px;
 }
 /* ==============================================makler page===================================== */
 

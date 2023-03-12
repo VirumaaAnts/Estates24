@@ -53,8 +53,10 @@
         <div class="ads">
             <h1>Special offers</h1>
             <?php
+                $checkOffers = 0;
                 foreach ($data[0] as $estate) {
-                    if($estate['offer'] == 1){
+                    if($estate['offer'] == 1) {
+                        $checkOffers++;
                         echo "
                         <div class='ad' page='ad?user=".$estate['ownerId']."&ad=".$estate['id']."'>
                             <div class='slider' show='1' scroll='1' time='300'>
@@ -85,6 +87,9 @@
                         </div>
                         ";
                     }
+                }
+                if($checkOffers == 0) {
+                    echo "<p class='no_offers'>There are currently no offers here.</p>";
                 }
             ?> 
 

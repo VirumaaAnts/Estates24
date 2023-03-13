@@ -277,7 +277,9 @@ main .content > h2 {
   position: sticky;
   top: 10vmin;
 }
-
+.content >aside p{
+  margin: 0;
+}
 .content > aside .types  {
   width: 100%;
   display: flex;

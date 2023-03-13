@@ -580,6 +580,7 @@ main .ads .ad {
 .createAdv h1{
   width: 100%;
   text-align: center;
+  margin-bottom: 55px;
 }
 .createAdv .picture{
   width: 70%;

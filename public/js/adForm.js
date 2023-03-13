@@ -19,4 +19,10 @@ $(document).ready(function () {
             }
         }
     });
+
+    $('#adType').change(function(e) {
+        if($(this).val() == 'House') {
+            $('#adFloor').parent().hide();
+        }
+    });
 });

@@ -49,32 +49,32 @@
             if($city != 0 && $city != 'none'){
                 $estates = $database -> getAll("SELECT * FROM object
                 WHERE cityId=".$city."
-                AND roomCount > ".$min_rooms."
-                AND roomCount < ".$max_rooms."
-                AND area > ".$min_area."
-                AND area < ".$max_area."
-                AND price > ".$min_price."
-                AND price < ".$max_price."
+                AND roomCount >= ".$min_rooms."
+                AND roomCount <= ".$max_rooms."
+                AND area >= ".$min_area."
+                AND area <= ".$max_area."
+                AND price >= ".$min_price."
+                AND price <= ".$max_price."
                 ORDER BY id ASC");
             }elseif($county != 0 && $county != 'none') {
                 $estates = $database -> getAll("SELECT * FROM object
                 WHERE cityId IN (SELECT id FROM city WHERE countyId = ".$county.")
-                AND roomCount > ".$min_rooms."
-                AND roomCount < ".$max_rooms."
-                AND area > ".$min_area."
-                AND area < ".$max_area."
-                AND price > ".$min_price."
-                AND price < ".$max_price."
+                AND roomCount >= ".$min_rooms."
+                AND roomCount <= ".$max_rooms."
+                AND area >= ".$min_area."
+                AND area <= ".$max_area."
+                AND price >= ".$min_price."
+                AND price <= ".$max_price."
                 ORDER BY id ASC");
             }
             else{
                 $estates = $database -> getAll("SELECT * FROM object
-                WHERE roomCount > ".$min_rooms."
-                AND roomCount < ".$max_rooms."
-                AND area > ".$min_area."
-                AND area < ".$max_area."
-                AND price > ".$min_price."
-                AND price < ".$max_price."
+                WHERE roomCount >= ".$min_rooms."
+                AND roomCount <= ".$max_rooms."
+                AND area >= ".$min_area."
+                AND area <= ".$max_area."
+                AND price >= ".$min_price."
+                AND price <= ".$max_price."
                 ORDER BY id ASC");
             }
             if($estates == null) return;

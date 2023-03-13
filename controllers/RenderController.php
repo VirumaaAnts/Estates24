@@ -32,6 +32,7 @@ class RenderController
         include_once 'view/ad.php';
     }
     public static function adForm() {
+        $countiesCities = ModelCountiesCities::getCountiesCities();
         include_once 'view/adForm.php';    
     }
     public static function Maklers() {

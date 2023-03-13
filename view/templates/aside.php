@@ -3,61 +3,109 @@
         <div class="types">
             <div class="type btn_filter">
                 <input type="checkbox" name="type" value="apartmnent">
-                <?php foreach($countiesCities[2] as $types){
-                    if($types['type'] == 'Apartment'){
-                        echo '<p>'.$types['typeCount'].'</p>';
+                <?php
+                    $typeCheck = 0;
+                    foreach($countiesCities[2] as $types){
+                        if($types['type'] == 'Apartment'){
+                            echo '<p>'.$types['typeCount'].'</p>';
+                            $typeCheck++;
+                            break;
+                        }
                     }
-                }?>
+                    if($typeCheck == 0) {
+                        echo '<p>0</p>';
+                    }
+                ?>
                 <img src="images/apartment.png" alt="">
                 <p class="name"><?php echo substr("Apartment",0,5)?>...</p>
             </div>
             <div class="type btn_filter">
                 <input type="checkbox" name="type" value="homes">
-                <?php foreach($countiesCities[2] as $types){
-                    if($types['type'] == 'House'){
-                        echo '<p>'.$types['typeCount'].'</p>';
+                <?php 
+                    $typeCheck = 0;
+                    foreach($countiesCities[2] as $types){
+                        if($types['type'] == 'House'){
+                            echo '<p>'.$types['typeCount'].'</p>';
+                            $typeCheck++;
+                            break;
+                        }
                     }
-                }?>
+                    if($typeCheck == 0) {
+                        echo '<p>0</p>';
+                    }
+                ?>
                 <img src="images/home.png" alt="">
                 <p class="name"><?php echo substr("House",0,5)?></p>
             </div>
             <div class="type btn_filter">
                 <input type="checkbox" name="type" value="summer">
-                <?php foreach($countiesCities[2] as $types){
-                    if($types['type'] == 'Summer house'){
-                        echo '<p>'.$types['typeCount'].'</p>';
+                <?php 
+                    $typeCheck = 0;
+                    foreach($countiesCities[2] as $types){
+                        if($types['type'] == 'Summer house'){
+                            echo '<p>'.$types['typeCount'].'</p>';
+                            $typeCheck++;
+                            break;
+                        }
                     }
-                }?>
+                    if($typeCheck == 0) {
+                        echo '<p>0</p>';
+                    }
+                ?>
                 <img src="images/country_house.png" alt="">
                 <p class="name"><?php echo substr("Summer house",0,5)?>...</p>
             </div>
             <div class="type btn_filter">
                 <input type="checkbox" name="type" value="garage">
-                <?php foreach($countiesCities[2] as $types){
-                    if($types['type'] == 'Garage'){
-                        echo '<p>'.$types['typeCount'].'</p>';
+                <?php 
+                    $typeCheck = 0;
+                    foreach($countiesCities[2] as $types){
+                        if($types['type'] == 'Garage'){
+                            echo '<p>'.$types['typeCount'].'</p>';
+                            $typeCheck++;
+                            break;
+                        }
                     }
-                }?>
+                    if($typeCheck == 0) {
+                        echo '<p>0</p>';
+                    }
+                ?>
                 <img src="images/garage.png" alt="">
                 <p class="name"><?php echo substr("Garage",0,5)?>...</p>
             </div>
             <div class="type btn_filter">
                 <input type="checkbox" name="type" value="land">
-                <?php foreach($countiesCities[2] as $types){
-                    if($types['type'] == 'Land'){
-                        echo '<p>'.$types['typeCount'].'</p>';
+                <?php
+                    $typeCheck = 0;
+                    foreach($countiesCities[2] as $types){
+                        if($types['type'] == 'Land'){
+                            echo '<p>'.$types['typeCount'].'</p>';
+                            $typeCheck++;
+                            break;
+                        }
                     }
-                }?>
+                    if($typeCheck == 0) {
+                        echo '<p>0</p>';
+                    }
+                ?>
                 <img src="images/land.png" alt="">
                 <p class="name"><?php echo substr("Land",0,5)?></p>
             </div>
             <div class="type btn_filter">
                 <input type="checkbox" name="type" value="part">
-                <?php foreach($countiesCities[2] as $types){
-                    if($types['type'] == 'Part'){
-                        echo '<p>'.$types['typeCount'].'</p>';
+                <?php
+                    $typeCheck = 0;
+                    foreach($countiesCities[2] as $types){
+                        if($types['type'] == 'Part'){
+                            echo '<p>'.$types['typeCount'].'</p>';
+                            $typeCheck++;
+                            break;
+                        }
                     }
-                }?>
+                    if($typeCheck == 0) {
+                        echo '<p>0</p>';
+                    }
+                ?>
                 <img src="images/part.png" alt="">
                 <p class="name"><?php echo substr("Part",0,5)?></p>
             </div>

@@ -14,7 +14,6 @@
     
     switch ($route) {
         case 'index.php':
-            header("Location: /");
             RenderController::start();
             break;
         case '':
@@ -46,6 +45,7 @@
             break;
         case 'findByFilters':
             RenderController::FilterPage();
+            break;
     }
     if (isset($_SESSION['status'])) {
         switch ($route) {
@@ -60,10 +60,7 @@
                 break;
             case 'logout':
                 SendController::Logout();
-                break;
+                break;  
         }
     }
-    // } else{
-    //     Controller::Start();
-    // } 
 ?>

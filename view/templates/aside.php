@@ -4,6 +4,7 @@
             <div class="type btn_filter">
                 <input type="checkbox" name="type" value="apartmnent">
                 <?php
+                if(is_iterable($countiesCities)){
                     $typeCheck = 0;
                     foreach($countiesCities[2] as $types){
                         if($types['type'] == 'Apartment'){
@@ -15,13 +16,17 @@
                     if($typeCheck == 0) {
                         echo '<p>0</p>';
                     }
+                }else{
+                     echo '<p>0</p>';
+               }
                 ?>
                 <img src="images/apartment.png" alt="">
                 <p class="name"><?php echo substr("Apartment",0,5)?>...</p>
             </div>
             <div class="type btn_filter">
                 <input type="checkbox" name="type" value="homes">
-                <?php 
+                <?php
+                if(is_iterable($countiesCities)){
                     $typeCheck = 0;
                     foreach($countiesCities[2] as $types){
                         if($types['type'] == 'House'){
@@ -33,13 +38,17 @@
                     if($typeCheck == 0) {
                         echo '<p>0</p>';
                     }
+                }else{
+                     echo '<p>0</p>';
+               }
                 ?>
                 <img src="images/home.png" alt="">
                 <p class="name"><?php echo substr("House",0,5)?></p>
             </div>
             <div class="type btn_filter">
                 <input type="checkbox" name="type" value="summer">
-                <?php 
+                <?php
+                if(is_iterable($countiesCities)){
                     $typeCheck = 0;
                     foreach($countiesCities[2] as $types){
                         if($types['type'] == 'Summer house'){
@@ -51,13 +60,17 @@
                     if($typeCheck == 0) {
                         echo '<p>0</p>';
                     }
+                }else{
+                     echo '<p>0</p>';
+               }
                 ?>
                 <img src="images/country_house.png" alt="">
                 <p class="name"><?php echo substr("Summer house",0,5)?>...</p>
             </div>
             <div class="type btn_filter">
                 <input type="checkbox" name="type" value="garage">
-                <?php 
+                <?php
+                if(is_iterable($countiesCities)){
                     $typeCheck = 0;
                     foreach($countiesCities[2] as $types){
                         if($types['type'] == 'Garage'){
@@ -69,6 +82,9 @@
                     if($typeCheck == 0) {
                         echo '<p>0</p>';
                     }
+                }else{
+                     echo '<p>0</p>';
+               }
                 ?>
                 <img src="images/garage.png" alt="">
                 <p class="name"><?php echo substr("Garage",0,5)?>...</p>
@@ -76,6 +92,7 @@
             <div class="type btn_filter">
                 <input type="checkbox" name="type" value="land">
                 <?php
+                if(is_iterable($countiesCities)){
                     $typeCheck = 0;
                     foreach($countiesCities[2] as $types){
                         if($types['type'] == 'Land'){
@@ -87,6 +104,9 @@
                     if($typeCheck == 0) {
                         echo '<p>0</p>';
                     }
+                }else{
+                     echo '<p>0</p>';
+               }
                 ?>
                 <img src="images/land.png" alt="">
                 <p class="name"><?php echo substr("Land",0,5)?></p>
@@ -94,6 +114,7 @@
             <div class="type btn_filter">
                 <input type="checkbox" name="type" value="part">
                 <?php
+                if(is_iterable($countiesCities)){
                     $typeCheck = 0;
                     foreach($countiesCities[2] as $types){
                         if($types['type'] == 'Part'){
@@ -105,6 +126,9 @@
                     if($typeCheck == 0) {
                         echo '<p>0</p>';
                     }
+                }else{
+                     echo '<p>0</p>';
+               }
                 ?>
                 <img src="images/part.png" alt="">
                 <p class="name"><?php echo substr("Part",0,5)?></p>

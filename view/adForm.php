@@ -3,7 +3,7 @@ ob_start();
 ?>
 <script src="public/js/adForm.js"></script>
 <div class="content">
-    <form action="addSend" method="POST" class="createAdv" enctype="multipart/form-data">
+    <form action="addAd" method="POST" class="createAdv" enctype="multipart/form-data">
         <h1>Добавить объявление</h1>
         <div class="picture">
             <div class='slider' show='1' scroll='1' time='200'>
@@ -15,7 +15,7 @@ ob_start();
         </div>
         <ul>
             <li>
-                <select name="type" id="adType">
+                <select name="type" id="adType" required>
                     <option selected disabled value="--">Type</option>
                     <option value="House">House</option>
                     <option value="Apartment">Apartment</option>
@@ -25,7 +25,7 @@ ob_start();
                     <option value="Summer house">Summer house</option>
                 </select>
             </li>
-            <li><input type="text" class="form-control" id="adAddress" name="address" placeholder="Address" autocomplete="off"></li>
+            <li><input type="text" class="form-control" id="adAddress" name="address" placeholder="Address" autocomplete="off" required></li>
             <li>
                 <select name="county" id="adCounty" class="form-control">
                     <option selected disabled value="none">County</option>
@@ -37,7 +37,7 @@ ob_start();
                 </select>
             </li>
             <li>
-                <select name="towns" id="adTowns" class="form-control" disabled>
+                <select name="towns" id="adTowns" class="form-control" disabled required>
                     <option value="none" selected>Towns</option>
                 </select>
             </li>
@@ -82,7 +82,7 @@ ob_start();
         <div class="des">
             <textarea name="desription" class="form-control" id="" cols="30" rows="10" placeholder="Description"></textarea>
         </div>
-        <button>Create ad</button>
+        <button name="send" class="btn btn-primary w-100">Create ad</button>
     </form>
 </div>
 <?php

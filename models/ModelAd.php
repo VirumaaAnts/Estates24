@@ -18,5 +18,45 @@
             );
             if($adPhotos != null) return array($object, $owner, $adPhotos);
         }
+        public static function methodName()
+        {
+            $database = new database();
+            $query = null;
+
+            if(isset($_POST['send'])) {
+                $type = $_POST['type'];
+                $address = $_POST['address'];
+                $city = $_POST['city'];
+                $towns = $_POST['towns'];
+    
+                $roomCount = $_POST['roomCount'];
+                $floorCount = $_POST['floorCount'];
+                $floor = $_POST['floor'];
+                $area = $_POST['area'];
+                $territory = $_POST['territory'];
+                $basement = $_POST['basement'];
+                $year = $_POST['year'];
+                $price = $_POST['price'];
+                $conditions = $_POST['conditions'];
+                $heat = $_POST['heat'];
+                $description = $_POST['description'];
+                // $pictures = $_POST['files'];
+    
+    
+                if($type = 'House') {
+                    $query = "INSERT INTO `object` (
+                        address, cityId, roomCount, floorCount, area, territory, 
+                        basement, year, price, conditions, heat, description)
+                        VALUES ($address, $city, $roomCount, $floorCount, $floor, $area, 
+                        $territory, $basement,$year, $price, $conditions, $heat, $description)";
+                }
+                // if($type = 'House') {
+                //     $query = "INSERT INTO `object` (
+                //         address, cityId, roomCount, floorCount, area, territory, 
+                //         basement, year, price, conditions, heat, description)
+                //         VALUES ()";
+                // }
+            }
+        }
     }
 ?>

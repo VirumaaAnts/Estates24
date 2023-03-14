@@ -57,4 +57,22 @@ $(document).ready(function () {
             $('#adFloorCount').parent().hide();
         }
     });
+
+    $("#adCounty").change(function (e) { 
+        e.preventDefault();
+        $("#adTowns").children().not(':first').remove();
+        $("#adTowns").removeAttr("disabled");
+        fetch('public/data/cities.json')
+        .then((response) => response.json())
+        .then((json) => {
+            for(let city of json){
+                if(city.countyId == $("#adCounty").val()){
+                    let opt = document.createElement("option");
+                    opt.value = city.id;
+                    opt.text = city.name;
+                    $("#adTowns").append(opt);
+                }
+            }
+        });
+    });
 });

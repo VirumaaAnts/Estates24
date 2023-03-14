@@ -52,6 +52,9 @@
             case 'addAdv':
                 RenderController::AdForm();
                 break;
+            case 'addAd':
+                SendController::createAd();
+                break;
             case 'profile':
                 RenderController::Profile();
                 break;

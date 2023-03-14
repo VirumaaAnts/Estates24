@@ -26,7 +26,7 @@ echo "
             </div>
         </div>
         <ul class='inf'>
-            <li><p>Местоположение: ".$data[0]['city'].", Maardu linn</p></li>
+            <li><p>Местоположение: ".$data[0]['city']."</p></li>
             <li><p>Тип недвижимости: ".$data[0]['type']."</p></li>
             <li><p>Количество комнат: ".$data[0]['roomCount']."</p></li>
             <li><p>Этажи: ".$data[0]['floorCount']."</p></li>

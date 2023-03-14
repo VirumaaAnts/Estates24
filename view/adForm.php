@@ -3,7 +3,7 @@ ob_start();
 ?>
 <script src="public/js/adForm.js"></script>
 <div class="content">
-    <form action="addSend" method="POST" class="createAdv" enctype="multipart/form-data">
+    <form action="addAd" method="POST" class="createAdv" enctype="multipart/form-data">
         <h1>Добавить объявление</h1>
         <div class="picture">
             <div class='slider' show='1' scroll='1' time='200'>
@@ -11,11 +11,11 @@ ob_start();
                     <li><div class='img_slider' style='background-image: url();'></div></li>
                 </ul>
             </div>
-            <input type="file" name="files" class="form-control" id="files" multiple>
+            <input type="file" name="files[]" accept="image/png, image/jpeg, image/jpg" class="form-control" id="files" multiple required>
         </div>
         <ul>
             <li>
-                <select name="type" id="adType">
+                <select name="type" id="adType" required>
                     <option selected disabled value="--">Type</option>
                     <option value="House">House</option>
                     <option value="Apartment">Apartment</option>
@@ -25,7 +25,7 @@ ob_start();
                     <option value="Summer house">Summer house</option>
                 </select>
             </li>
-            <li><input type="text" class="form-control" id="adAddress" name="address" placeholder="Address" autocomplete="off"></li>
+            <li><input type="text" class="form-control" id="adAddress" name="address" placeholder="Address" autocomplete="off" required></li>
             <li>
                 <select name="county" id="adCounty" class="form-control">
                     <option selected disabled value="none">County</option>
@@ -37,28 +37,33 @@ ob_start();
                 </select>
             </li>
             <li>
-                <select name="towns" id="adTowns" class="form-control" disabled>
-                    <option value="none" selected>Towns</option>
+                <select name="towns" id="adTowns" class="form-control" disabled required>
+                    <option selected disabled value="none">City</option>
+                    <?php
+                        foreach($countiesCities[0] as $county){
+                            echo '<option value="'.$county['id'].'">'.$county['name'].' County</option>';
+                        }
+                    ?>
                 </select>
             </li>
-            <li><input class="form-control" type="number" id="adRoomCount" name="roomCount" placeholder="Room count"></li>
-            <li><input class="form-control" type="number" id="adFloorCount" name="floorCount" placeholder="Floor count"></li>
-            <li><input class="form-control" type="number" id="adFloor" name="floor" placeholder="Floor"></li>
+            <li><input class="form-control" type="number" id="adRoomCount" name="roomCount" value="" placeholder="Room count"></li>
+            <li><input class="form-control" type="number" id="adFloorCount" name="floorCount" value="" placeholder="Floor count"></li>
+            <li><input class="form-control" type="number" id="adFloor" name="floor" value="" placeholder="Floor"></li>
             <li class="input-group">
-                <input class="form-control" type="number" id="adArea" name="area" placeholder="Area">
+                <input class="form-control" type="number" id="adArea" name="area" placeholder="Area" required>
                 <span class="input-group-text" id="basic-addon1">m²</span>
             </li>
             <li class="input-group">
-                <input class="form-control" type="number" id="adTerritory" name="territory" placeholder="Territory">
+                <input class="form-control" type="number" id="adTerritory" name="territory" value="" placeholder="Territory">
                 <span class="input-group-text" id="basic-addon1">m²</span>
             </li>
             <li>
                 <label>Basement</label>
-                <input type="checkbox" class="form-check-label" name="basement" id="adBasement">
+                <input type="checkbox" class="form-check-label" name="basement" value="" id="adBasement">
             </li>
-            <li><input class="form-control" type="number" name="year" id="adYear" placeholder="Year"></li>
+            <li><input class="form-control" type="number" name="year" id="adYear" value="" placeholder="Year"></li>
             <li class="input-group">
-                <input class="form-control" type="number" id="adPrice" name="price" placeholder="Price">
+                <input class="form-control" type="number" id="adPrice" name="price" step=".01" placeholder="Price" required />
                 <span class="input-group-text" id="basic-addon1">€</span>
             </li>
             <li>
@@ -80,9 +85,9 @@ ob_start();
             </li>
         </ul>
         <div class="des">
-            <textarea name="desription" class="form-control" id="" cols="30" rows="10" placeholder="Description"></textarea>
+            <textarea name="desription" class="form-control" id="" cols="30" rows="10" placeholder="Description" value=""></textarea>
         </div>
-        <button>Create ad</button>
+        <button name="send" class="btn btn-primary w-100">Create ad</button>
     </form>
 </div>
 <?php

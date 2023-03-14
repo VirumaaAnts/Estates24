@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1
--- Время создания: Мар 11 2023 г., 23:49
--- Версия сервера: 10.4.22-MariaDB
--- Версия PHP: 8.1.2
+-- Время создания: Мар 14 2023 г., 17:17
+-- Версия сервера: 10.4.27-MariaDB
+-- Версия PHP: 8.1.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -31,7 +31,7 @@ CREATE TABLE `city` (
   `id` int(11) NOT NULL,
   `name` varchar(300) NOT NULL,
   `countyId` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Дамп данных таблицы `city`
@@ -143,7 +143,7 @@ INSERT INTO `city` (`id`, `name`, `countyId`) VALUES
 CREATE TABLE `county` (
   `id` int(11) NOT NULL,
   `name` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Дамп данных таблицы `county`
@@ -176,14 +176,14 @@ CREATE TABLE `fav` (
   `id` int(11) NOT NULL,
   `userId` int(11) NOT NULL,
   `objectId` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Дамп данных таблицы `fav`
 --
 
 INSERT INTO `fav` (`id`, `userId`, `objectId`) VALUES
-(1, 2, 1);
+(1, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -193,33 +193,33 @@ INSERT INTO `fav` (`id`, `userId`, `objectId`) VALUES
 
 CREATE TABLE `object` (
   `id` int(11) NOT NULL,
-  `type` enum('house','flat','garage','business') NOT NULL,
+  `type` enum('House','Apartment','Garage','Part','Land','Summer house') NOT NULL,
   `address` varchar(250) NOT NULL,
   `ownerId` int(11) NOT NULL,
   `cityId` int(11) NOT NULL,
-  `roomCount` int(11) NOT NULL,
-  `floorCount` int(11) NOT NULL,
+  `roomCount` int(11) DEFAULT NULL,
+  `floorCount` int(11) DEFAULT NULL,
   `floor` int(11) DEFAULT NULL,
-  `area` int(11) NOT NULL,
-  `territory` int(11) DEFAULT NULL,
-  `conditions` enum('good','need repair','need overhaul') NOT NULL,
-  `heatSystem` enum('water','air','electric','gas') NOT NULL,
+  `area` decimal(11,1) DEFAULT NULL,
+  `territory` decimal(11,1) DEFAULT NULL,
+  `conditions` enum('good','need repair','need overhaul') DEFAULT NULL,
+  `heatSystem` enum('water','air','electric','gas') DEFAULT NULL,
   `basement` tinyint(1) NOT NULL,
-  `description` varchar(3000) DEFAULT NULL,
+  `description` text DEFAULT NULL,
   `year` int(11) DEFAULT NULL,
-  `price` int(11) DEFAULT NULL,
-  `active` tinyint(1) NOT NULL,
+  `price` decimal(11,2) DEFAULT 0.00,
+  `active` tinyint(1) NOT NULL DEFAULT 1,
   `offer` tinyint(1) DEFAULT 0
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Дамп данных таблицы `object`
 --
 
 INSERT INTO `object` (`id`, `type`, `address`, `ownerId`, `cityId`, `roomCount`, `floorCount`, `floor`, `area`, `territory`, `conditions`, `heatSystem`, `basement`, `description`, `year`, `price`, `active`, `offer`) VALUES
-(1, 'house', 'Aia tn 17', 1, 1, 20, 2, 2, 127, 1200, 'good', 'electric', 1, 'Это уютное и привлекательное место для проведения зимнего отпуска или отдыха на выходных. Дом расположен в красивом месте, окруженном заснеженными лесами и горами, что создает прекрасную атмосферу для отдыха и расслабления.\n\nВнутри дома есть все необходимое для комфортного проживания: просторная кухня с полным набором кухонной утвари и бытовой техникой, уютная гостиная с дровяной печью, где можно насладиться теплом камина и красивым видом на зимнюю природу.\n\nДом оборудован всеми необходимыми удобствами, включая современную ванную комнату с горячей водой и душем. В спальнях имеются удобные кровати, что обеспечивает хороший сон и отдых.', 1999, 1469900, 1, 1),
-(2, 'house', 'ROCCA TOWERS II-III', 2, 1, 4, 4, 4, 38861, NULL, 'good', 'gas', 0, NULL, 2012, 12000000, 1, 0),
-(3, 'flat', 'Pirnipuu pst 184', 1, 7, 4, 2, 2, 101, NULL, 'good', 'electric', 1, 'Новостройка Пирнипуу Коду - идеальное место для молодых семей с детьми. Это тихий и безопасный район. Каждая квартира имеет продуманную планировку, 2 парковочных места (одно с навесом), собственную террасу и сауну.', 1999, 315000, 1, 0);
+(1, 'House', 'Aia tn 17', 4, 1, 20, 2, 2, '127.0', '1200.0', 'good', 'electric', 1, 'Это уютное и привлекательное место для проведения зимнего отпуска или отдыха на выходных. Дом расположен в красивом месте, окруженном заснеженными лесами и горами, что создает прекрасную атмосферу для отдыха и расслабления.\n\nВнутри дома есть все необходимое для комфортного проживания: просторная кухня с полным набором кухонной утвари и бытовой техникой, уютная гостиная с дровяной печью, где можно насладиться теплом камина и красивым видом на зимнюю природу.\n\nДом оборудован всеми необходимыми удобствами, включая современную ванную комнату с горячей водой и душем. В спальнях имеются удобные кровати, что обеспечивает хороший сон и отдых.', 1999, '115000.00', 1, 1),
+(2, 'Summer house', 'ROCCA TOWERS II-III', 3, 1, 4, 4, 4, '38861.0', NULL, 'good', 'gas', 0, NULL, 2012, '12000000.00', 1, 0),
+(3, 'Apartment', 'Pirnipuu pst 184', 1, 7, 4, 2, 2, '101.0', NULL, 'good', 'electric', 1, 'Новостройка Пирнипуу Коду - идеальное место для молодых семей с детьми. Это тихий и безопасный район. Каждая квартира имеет продуманную планировку, 2 парковочных места (одно с навесом), собственную террасу и сауну.', 1999, '1.89', 1, 0);
 
 -- --------------------------------------------------------
 
@@ -232,7 +232,7 @@ CREATE TABLE `photo` (
   `photo` text NOT NULL,
   `houseId` int(11) NOT NULL,
   `description` varchar(500) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Дамп данных таблицы `photo`
@@ -272,16 +272,17 @@ CREATE TABLE `user` (
   `phone` varchar(250) NOT NULL,
   `mackler` tinyint(1) NOT NULL DEFAULT 0,
   `photo` text DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Дамп данных таблицы `user`
 --
 
 INSERT INTO `user` (`id`, `name`, `surname`, `username`, `email`, `password`, `phone`, `mackler`, `photo`) VALUES
-(1, 'aleksei', 'kozlov', '', 'aleksei22891@gmail.com', '12345', '+37259024698', 0, NULL),
-(2, 'dima', 'kreivald', '', 'kreivald@gmail.com', 'kreivald', '+37241523698', 0, NULL),
-(3, 'max@gmail.com', 'max@gmail.com', 'max@gmail.com', 'max@gmail.com', '$2y$10$gwkfOpuwef1CTKws83J9buTAIf1ECb9xaTtgLsh5m.BZDsE53FasS', 'max@gmail.com', 0, 'photo1674816774.jpeg');
+(1, 'Aleksei', 'Kozlov', 'mifista', 'aleksei22891@gmail.com', '$2y$10$7Gf2Wr/beoXQMc6LvRB4..WuKeiI.eqWej0ZP2pD1lFcwPTCywHj.', '59024698', 0, 'pexels-pixabay-415829.jpg'),
+(2, 'Dima', 'Kreivald', 'djdims', 'kreivald@gmail.com', '$2y$10$2wK1PRHGa6xbm..8n1.M/uP13kKizsrh1R86z25HmV948gRcQ677K', '41523698', 0, 'timothy.png'),
+(3, 'max@gmail.com', 'max@gmail.com', 'max@gmail.com', 'max@gmail.com', '$2y$10$gwkfOpuwef1CTKws83J9buTAIf1ECb9xaTtgLsh5m.BZDsE53FasS', 'max@gmail.com', 0, 'pexels-simon-robben-614810.jpg'),
+(4, 'Maksim', 'Dzjubenko', 'mak7ilenin', 'maksondzjubenko@gmail.com', '$2y$10$vphhGYevPTUyCqqVwmWgTeHT9HRYkZQwU1SA76ou2MI6InhtQdrWi', '+37253005207', 0, 'me.jpg');
 
 --
 -- Индексы сохранённых таблиц
@@ -367,7 +368,7 @@ ALTER TABLE `photo`
 -- AUTO_INCREMENT для таблицы `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- Ограничения внешнего ключа сохраненных таблиц

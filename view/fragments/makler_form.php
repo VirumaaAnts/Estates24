@@ -3,7 +3,7 @@
     <option value="rus">Russian</option>
     <option value="eng">English</option>
     <option value="est">Estonia</option>
-    <option value="jap">Jaopan</option>
+    <option value="jap">Japan</option>
 </select>
 <select name="county" id="county" class="form-control">
     <option selected disabled value="none">County</option>

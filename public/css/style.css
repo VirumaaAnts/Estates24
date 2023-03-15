@@ -277,7 +277,9 @@ main .content > h2 {
   position: sticky;
   top: 10vmin;
 }
-
+.content >aside p{
+  margin: 0;
+}
 .content > aside .types  {
   width: 100%;
   display: flex;
@@ -363,7 +365,7 @@ main .estates {
 main .ads {
   width: 100%;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   flex-wrap: wrap;
   margin-bottom: 2vmin;
 }
@@ -505,6 +507,10 @@ main .ads .ad {
   font-size: 1.8vmin;
   font-weight: 100;
 }
+.no_offers {
+  margin-top: 20px;
+  font-size: 26px;
+}
 /* =============================ad page=================================== */
 
 /* ------------ Registration page --------------- */
@@ -576,6 +582,7 @@ main .ads .ad {
 .createAdv h1{
   width: 100%;
   text-align: center;
+  margin-bottom: 55px;
 }
 .createAdv .picture{
   width: 70%;
@@ -592,9 +599,12 @@ main .ads .ad {
   padding: 10px;
   box-sizing: border-box;
   position: relative;
-  background-color: whitesmoke;
+  background-color: rgba(0, 0, 0, 0.02);
 }
-.createAdv > ul li:nth-child(2n-1){background-color: rgba(0, 0, 0, 0.02);}
+/* .createAdv > ul li:nth-child(2n-1){background-color: rgba(0, 0, 0, 0.02);} */
+.createAdv > ul li span{
+  height: 51.6px !important;
+}
 
 .createAdv p{
   margin: 0;
@@ -665,12 +675,15 @@ main .ads .ad {
   width: 100%;
   margin-top: 10px;
   height: 5vmin;
-  font-size: 2.5vmin;
+  font-size: 2.1vmin;
   text-align: center
 }
 .makler select:blank{
   max-height: 10vh;
   overflow-y: scroll;
+}
+#county {
+  margin-bottom: 10px;
 }
 /* ==============================================makler page===================================== */
 sm
@@ -698,18 +711,21 @@ sm
   background-size: cover;
 }
 .profile .profile_img input{
-  display: none;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
 }
 .profile .profile_img img{
   width: 100%;
 }
-.profile .datas{
+.profile .data{
   width: 30%;
   display: flex;
   flex-direction: column;
   margin-left: 5%;
 }
-.profile .datas input{
+.profile .data input{
   width: 100%;
   margin-bottom: 10px
 }

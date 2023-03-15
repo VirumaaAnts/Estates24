@@ -12,7 +12,7 @@ class ModelRegistration
             $username = $_POST['username'];
             $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
             $photo = $_FILES['file']['name'];
-            $phone = $_POST['phone'];
+            $phone = "+372".$_POST['phone'];
 
             $database = new database();
             $response = $database -> getOne("select id from user where `email` = '".$email."';");
@@ -21,7 +21,7 @@ class ModelRegistration
                 $data = array($result, $message, [$name,$surname,$email,$username,$password,$_FILES['file']['tmp_name'],$phone]);
                 return $data;
             }
-            else{
+            else {
                 $query = "INSERT INTO `user` (`name`, `surname`, `email`, `username`, `password`, `photo`, `phone`, `mackler`)" .
                     " VALUES ('$name', '$surname', '$email', '$username', '$password', '$photo', '$phone', 0)";
                 $response = $database -> executeRun($query);

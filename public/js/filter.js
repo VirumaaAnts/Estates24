@@ -10,19 +10,17 @@ $(document).ready(function () {
     });
     $("#county").change(function (e) { 
         e.preventDefault();
-        $.ajax({
-            url: "/data/ee.json",
-            dataType: "json",
-            success: function (response) {
-                $("#towns").children().not(':first').remove();
-                $("#towns").removeAttr("disabled");
-                for(let i of response){
-                    if(i.admin_name == $("#county").val()){
-                        let opt = document.createElement("option")
-                        opt.value = i.city
-                        opt.text = i.city
-                        $("#towns").append(opt);
-                    }
+        $("#towns").children().not(':first').remove();
+        $("#towns").removeAttr("disabled");
+        fetch('public/data/cities.json')
+        .then((response) => response.json())
+        .then((json) => {
+            for(let city of json){
+                if(city.countyId == $("#county").val()){
+                    let opt = document.createElement("option");
+                    opt.value = city.id;
+                    opt.text = city.name;
+                    $("#towns").append(opt);
                 }
             }
         });

@@ -14,14 +14,10 @@
     
     switch ($route) {
         case 'index.php':
-            header("Location: /");
             RenderController::start();
             break;
         case '':
             RenderController::start();
-            break;
-        case 'macklers':
-            RenderController::macklers();
             break;
         case 'registration':
             RenderController::registrationForm();
@@ -32,45 +28,49 @@
         case 'offers':
             RenderController::AllOffers();
             break;
-        case 'profile':
-            RenderController::Profile();
-            break;
-        case 'addAdv':
-            RenderController::adForm();
-        break;
         case 'ad':
             $userValue = explode('&', $host[1]);
             $userId = (int)str_replace('user=', '', $userValue[0]);
             $adId = (int)str_replace('ad=', '', $userValue[1]);
             RenderController::Ad($adId, $userId);
             break;
-        
         case 'loginRes':
             SendController::login();
             break;
         case 'register':
             SendController::registration();
             break;
-        case 'maklers':
+        case 'macklers':
             RenderController::Maklers();
             break;
-        case 'logout':
-            SendController::Logout();
+        case 'findByFilters':
+            RenderController::FilterPage();
+            break;
     }
     if (isset($_SESSION['status'])) {
         switch ($route) {
             case 'addAdv':
                 RenderController::AdForm();
                 break;
+            case 'addAd':
+                SendController::createAd();
+                break;
+            case 'profile':
+                RenderController::Profile();
+                break;
+            case 'editProfile':
+                SendController::EditProfile();
+                break;
             case 'logout':
                 SendController::Logout();
+<<<<<<< HEAD
                 break;
             case 'createObj':
                 SendController::CreateObj();
                 break;
+=======
+                break;  
+>>>>>>> 817bc6ecbefc1d7ed891eb4e94043c3042bc01cc
         }
     }
-    // } else{
-    //     Controller::Start();
-    // } 
 ?>

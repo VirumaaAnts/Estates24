@@ -19,7 +19,10 @@
         <div>
             <input type="text" class="form-control" name="username" required placeholder="Username"  value=<?php if(isset($data[2][3])){echo '"'.$data[2][3].'"';}else { echo '""';};?> />
             <input type="password" class="form-control" name="password" required placeholder="Password"  value= ""  />
-            <input type="tel"class="form-control" name="phone" required placeholder="Phone"  value=<?php if(isset($data[2][6])){echo '"'.$data[2][6].'"';}else { echo '""';};?>  />
+            <div class="input-group">
+                <span class="input-group-text" id="basic-addon1">+372</span>
+                <input type="tel" class="form-control" pattern="[0-9]{7,9}" name="phone" required placeholder="Phone" value=<?php if(isset($data[2][6])){echo '"'.$data[2][6].'"';}else { echo '""';};?>  />
+            </div>
             <input type="text" class="form-control" name="mackler" disabled placeholder="You don't have a mackler status" />
         </div>
         

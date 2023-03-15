@@ -33,10 +33,10 @@
     <link rel="stylesheet" href="public/lib/lightbox/lightbox.css">
 
     <!-- JavaScript -->
-    <script src="public/js/filter.js"></script>
     <script src="public/js/app.js" defer></script>
     <script src="public/js/modal.js" defer></script>
-    <script src="public/js/advForm.js" defer></script>
+    <script src="public/js/filter.js" defer></script>
+    <script src="public/js/maklerPage.js" defer></script>
 </head>
 <body id = "body">
     <header>
@@ -60,6 +60,15 @@
             <div class="linksContainer">
                 <a href="macklers">Маклеры</a>
             </div>
+            <?php
+                if (isset($_SESSION['status'])) {
+                    echo '
+                    <div class="linksContainer">
+                        <a href="profile">Профиль</a>
+                    </div>
+                    ';
+                }
+            ?>
             <div class="favouritesContainer">
                 <a href="favourites"><img src="images/pngimg.com - like_PNG61.png" alt=""></a>
             </div>

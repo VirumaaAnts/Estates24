@@ -14,6 +14,7 @@
     
     switch ($route) {
         case 'index.php':
+            header("Location: /");
             RenderController::start();
             break;
         case '':
@@ -29,9 +30,8 @@
             RenderController::AllOffers();
             break;
         case 'ad':
-            $userValue = explode('&', $host[1]);
-            $userId = (int)str_replace('user=', '', $userValue[0]);
-            $adId = (int)str_replace('ad=', '', $userValue[1]);
+            $userId = $_GET["user"];
+            $adId = $_GET["ad"];
             RenderController::Ad($adId, $userId);
             break;
         case 'loginRes':
@@ -52,9 +52,6 @@
             case 'addAdv':
                 RenderController::AdForm();
                 break;
-            case 'addAd':
-                SendController::createAd();
-                break;
             case 'profile':
                 RenderController::Profile();
                 break;
@@ -63,7 +60,10 @@
                 break;
             case 'logout':
                 SendController::Logout();
-                break;  
+                break;
+            case 'createObj':
+                SendController::CreateObj();
+                break;
         }
     }
 ?>

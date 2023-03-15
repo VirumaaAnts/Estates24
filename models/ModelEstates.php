@@ -4,7 +4,7 @@
             $database = new database();
             $photo = $database -> getAll("SELECT * FROM photo ORDER BY id ASC");
             if($photo == null) return;
-            $estates = $database -> getAll("SELECT * FROM object ORDER BY id ASC LIMIT 3");
+            $estates = $database -> getAll("SELECT * FROM object ORDER BY id DESC LIMIT 3");
             if($estates == null) return;
             for ($i = 0; $i < count($estates); $i++) { 
                 $cityId = $database -> getOne("SELECT *, city.name as city FROM object 

@@ -30,6 +30,7 @@ class RenderController
     public static function Ad($object, $owner) {
         $data = ModelAd::getObjectData($object, $owner);
         // echo $data[0]['id'];
+        // var_dump($data[0]);
         include_once 'view/ad.php';
     }
     public static function adForm() {

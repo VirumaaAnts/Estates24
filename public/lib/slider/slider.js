@@ -8,7 +8,7 @@ $(document).ready(function () {
             $($(i).find("ul li")).css("width", (100/$(i).attr("show"))*0.98+"%");
             $($(i).find("ul li")).css("margin-right", (100/$(i).attr("show"))*0.04+"%");
         }
-        $($(i).find("ul")).css("height", $(".slider ul").width()/$(document).width()*100/1.5+"vw");
+        $($(i).find("ul")).css("height", $(".slider ul").width()/$(document).width()*100/1.65+"vw");
         let index = 0
         for (j of $($(i).children()[0]).children()){
             $(j).attr("order", index);

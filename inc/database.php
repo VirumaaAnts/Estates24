@@ -20,6 +20,7 @@
                         $this->password, 
                         array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
                         //$this-> conn - идентификатор базы данных
+                
             } catch (Exception $e) {
                 die('Connection failed : '.$e->getMessage());//вывод об ошибке соединения
             }
@@ -69,6 +70,19 @@
             } catch (Exception $ex) {            
                 echo "Error:".$ex->getMessage();
             }   
+        }
+        function createAdv($query) {         
+            try{
+                $result = $this->conn->prepare($query); // метод подготовки запроса
+                $result->execute(); // метод выполнение запроса
+                
+                $result->setFetchMode(PDO::FETCH_ASSOC);// выборка данных по названию полей
+                $response = $result->fetchAll();// на выходе таблица данных (виртуальная) fetchAll()
+                return $this->conn->lastInsertId();
+                
+            } catch (Exception $ex) {            
+                echo "Error:".$ex->getMessage();
+            } 
         }
     }
 

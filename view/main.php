@@ -13,7 +13,7 @@
         <div class="ads">
             <h1>Last added estates</h1>
             <?php
-            if(is_iterable($data)){
+            if (is_iterable($data)) {
                 foreach ($data[0] as $estate) {
                     echo "
                     <div class='ad' page='ad?user=".$estate['ownerId']."&ad=".$estate['id']."'>

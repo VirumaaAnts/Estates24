@@ -4,9 +4,12 @@
         public static function getObjectData($objectId, $ownerId){
             $database = new database();
             $object = $database -> getOne(
-                "SELECT *, city.name as city FROM object 
-                INNER JOIN city on object.cityId = city.id AND object.id = $objectId"
+                "SELECT * FROM object WHERE object.id = $objectId"
             );
+            $city = $database -> getOne(
+                "SELECT name FROM city WHERE id = $object[cityId]"
+            );
+            $object["city"]=$city["name"];
             // echo $objectId;
             // echo $object['id'];
             if($object == null) return;
@@ -14,8 +17,7 @@
                 "SELECT * FROM user WHERE id = ".$ownerId
             );
             if($owner == null) return;
-            $adPhotos = $database -> getAll(
-                "SELECT * FROM photo WHERE houseId = ".$object['id']." ORDER BY id ASC"
+            $adPhotos = $database -> getAll("SELECT * FROM photo WHERE houseId = $objectId ORDER BY id ASC"
             );
             // echo $object['id'];
             // echo $objectId;

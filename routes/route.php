@@ -30,9 +30,8 @@
             RenderController::AllOffers();
             break;
         case 'ad':
-            $userValue = explode('&', $host[1]);
-            $userId = (int)str_replace('user=', '', $userValue[0]);
-            $adId = (int)str_replace('ad=', '', $userValue[1]);
+            $userId = $_GET["user"];
+            $adId = $_GET["ad"];
             RenderController::Ad($adId, $userId);
             break;
         case 'loginRes':

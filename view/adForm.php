@@ -11,23 +11,23 @@ ob_start();
                     <li><div class='img_slider' style='background-image: url();'></div></li>
                 </ul>
             </div>
-            <input type="file" name="files[]" id="files" multiple>
+            <input type="file" name="files[]" accept="image/png, image/jpeg, image/jpg" class="form-control" id="files" multiple required>
         </div>
         <ul>
             <li>
-                <select name="type" id="" required>
-                    <option selected disabled value="--">Type</option>
-                    <option value="house">House</option>
-                    <option value="flat">Flat</option>
-                    <option value="garage">Garage</option>
-                    <option value="business">Business</option>
-                    <option value="land">Land</option>
-                    <option value="part">Part</option>
+                <select name="type" id="adType" class="form-control" required>
+                    <option selected disabled value="">Type</option>
+                    <option value="House">House</option>
+                    <option value="Apartment">Apartment</option>
+                    <option value="Garage">Garage</option>
+                    <option value="Land">Land</option>
+                    <option value="Summer house">Summer house</option>
+                    <option value="Part">Part</option>
                 </select>
             </li>
-            <li><input type="text" name="address" placeholder="Adress" autocomplete="off" required></li>
+            <li><input type="text" id="adAddress" name="address" class="form-control" placeholder="Address" autocomplete="off" required></li>
             <li>
-                <input type="text" name="city" list="cities" placeholder="City" autocomplete="off">
+                <input type="text" name="city" list="cities" id="adTowns" placeholder="City" class="form-control" autocomplete="off">
                 <datalist id="cities">
                     <?php 
                     foreach (ModelAd::GetCities() as $key => $value) {
@@ -36,16 +36,6 @@ ob_start();
                     ?>
                 </datalist>
             </li>
-            <!-- <li>
-                <select name="towns" id="adTowns" class="form-control" disabled required>
-                    <option selected disabled value="none">City</option>
-                    <?php
-                        foreach($countiesCities[0] as $county){
-                            echo '<option value="'.$county['id'].'">'.$county['name'].' County</option>';
-                        }
-                    ?>
-                </select>
-            </li> -->
             <li><input class="form-control" type="number" id="adRoomCount" name="roomCount" value="" placeholder="Room count"></li>
             <li><input class="form-control" type="number" id="adFloorCount" name="floorCount" value="" placeholder="Floor count"></li>
             <li><input class="form-control" type="number" id="adFloor" name="floor" value="" placeholder="Floor"></li>
@@ -57,9 +47,9 @@ ob_start();
                 <input class="form-control" type="number" id="adTerritory" name="territory" value="" placeholder="Territory">
                 <span class="input-group-text" id="basic-addon1">m²</span>
             </li>
-            <li>
+            <li class="adBasement_container">
                 <label>Basement</label>
-                <input type="checkbox" class="form-check-label" name="basement" value="" id="adBasement">
+                <input type="checkbox" class="form-check-label" name="basement" id="adBasement">
             </li>
             <li><input class="form-control" type="number" name="year" id="adYear" value="" placeholder="Year"></li>
             <li class="input-group">
@@ -68,15 +58,15 @@ ob_start();
             </li>
             <li>
                 <select name="conditions" id="adConditions" class="form-control">
-                    <option selected disabled value="--">Conditions</option>
+                    <option selected disabled value="">Conditions</option>
                     <option value="good">Good</option>
                     <option value="need repair">Need repair</option>
                     <option value="need overhaul">Need overhaul</option>
                 </select>
             </li>
             <li>
-                <select name="heatSystem" id="">
-                    <option selected disabled value="--">heat</option>
+                <select name="heatSystem" id="adHeat" class="form-control">
+                    <option selected disabled value="">Heat system</option>
                     <option value="water">water</option>
                     <option value="air">air</option>
                     <option value="electric">electric</option>
@@ -85,9 +75,9 @@ ob_start();
             </li>
         </ul>
         <div class="des">
-            <textarea name="description" id="" cols="30" rows="10" placeholder="Description"></textarea>
+            <textarea name="description" id="" cols="30" rows="10" placeholder="Description" class="form-control"></textarea>
         </div>
-        <button type="submit">Create ad</button>
+        <button type="submit" class="btn btn-primary w-100">Create ad</button>
     </form>
 </div>
 <?php

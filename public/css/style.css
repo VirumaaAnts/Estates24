@@ -2,6 +2,40 @@
   --index: calc(1vw*1vh);
 }
 
+/* ----------------------------- error page ------------------- */
+.error_page {
+  width: 50vw;
+  height: 85vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 0 auto;
+}
+.error_page div {
+  width: 50%;
+  height: 60%;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.error_page div:nth-child(2) {
+  height: 35%;
+}
+.error_page div p {
+  width: 100%;
+  font-size: 24px;
+}
+.error_page div p:first-child {
+  font-size: 42px;
+}
+.error_page div img {
+  height: 100%;
+  object-fit: contain;
+}
+
 /* ------------------------------------------ modal */
 
 .modal__backdrop {
@@ -428,6 +462,7 @@ main .ads .ad {
   justify-content: space-between;
   flex-wrap: wrap;
   background-color: rgb(246, 246, 246);
+  position: relative;
 }
 .Ad h1 {
   width: 100%;
@@ -449,6 +484,32 @@ main .ads .ad {
 }
 .Ad .slider > img{
   width: 5% !important;
+}
+.fav_btn {
+  width: 95px;
+  height: 95px;
+  position: absolute;
+  top: 50px;
+  right: 80px;
+}
+.fav_btn img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  cursor: pointer;
+  filter: brightness(50%);
+  transform: scale(0.90);
+  transition: ease all .3s;
+}
+.fav_btn img:hover {
+  filter: brightness(90%);
+  transform: scale(1.02) rotate(5deg);
+}
+.fav_btn input {
+  display: none;
+}
+.fav-active {
+  filter: brightness(90%) !important;
 }
 .Ad .inf{
   list-style: none;

@@ -1,9 +1,18 @@
 <?php
     ob_start();
 ?>
+<script src="public/js/ad.js"></script>
 <?php
 echo "
     <div class='Ad'>
+        <form action='ad' method='GET' id='favForm' class='fav_btn'>
+            <input type='text' id='adFav' name='ad' value='".$data[0]['id']."'/>
+            <input type='text' id='adFav' name='user' value='".$data[0]['ownerId']."'/>
+            <input type='checkbox' name='fav' id='favCheckbox'/>
+            <label for='favCheckbox'>
+                <img id='favStar' src='images/star-2768.svg'>
+            </label>
+        </form>
         <h1>".$data[0]['address']."</h1>
         <div class='picture'>
             <div class='slider' show='1' scroll='1' time='200'>

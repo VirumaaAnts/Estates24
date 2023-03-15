@@ -72,5 +72,15 @@ class ModelAd
         $database = new database();
         return $database->getAll("SELECT * FROM city");
     }
+    public static function CreateFav($objectId)
+    {
+        $database = new database();
+        $userId = $_SESSION['userId'];
+        $checkExisting = $database->getOne("SELECT * FROM `fav` WHERE objectId = $objectId AND userId = $userId");
+        if($checkExisting == null) {
+            $database->executeRun("INSERT INTO `fav` (userId, objectId) VALUES ($userId, $objectId)");
+        }
+        header('Location:'.$_SERVER['HTTP_REFERER']);
+    }
 }
 ?>

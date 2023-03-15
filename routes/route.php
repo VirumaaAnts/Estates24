@@ -65,6 +65,9 @@
             case 'logout':
                 SendController::Logout();
                 break;
+            case 'createObj':
+                SendController::CreateObj();
+                break;
         }
     }
     // } else{

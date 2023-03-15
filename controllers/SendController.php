@@ -26,5 +26,9 @@ class SendController
             session_destroy();
         }
     }
+    public static function CreateObj(){
+        $obj = ModelAd::createAdv();
+        
+    }
 }
 ?>

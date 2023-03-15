@@ -2,7 +2,7 @@
 ob_start();
 ?>
 <div class="content">
-    <form action="addSend" class="createAdv" enctype="multipart/form-data">
+    <form action="createObj" class="createAdv" enctype="multipart/form-data" method="post">
         <h1>Добавить объявление</h1>
         <div class="picture">
             <div class='slider' show='1' scroll='1' time='200'>
@@ -10,23 +10,29 @@ ob_start();
                     <li><div class='img_slider' style='background-image: url();'></div></li>
                 </ul>
             </div>
-            <input type="file" name="files" id="files" multiple>
+            <input type="file" name="files[]" id="files" multiple>
         </div>
         <ul>
             <li>
-                <select name="type" id="">
+                <select name="type" id="" required>
                     <option selected disabled value="--">Type</option>
                     <option value="house">House</option>
                     <option value="flat">Flat</option>
                     <option value="garage">Garage</option>
                     <option value="business">Business</option>
+                    <option value="land">Land</option>
+                    <option value="part">Part</option>
                 </select>
             </li>
-            <li><input type="text" name="adress" placeholder="Adress" autocomplete="off"></li>
+            <li><input type="text" name="address" placeholder="Adress" autocomplete="off" required></li>
             <li>
                 <input type="text" name="city" list="cities" placeholder="City" autocomplete="off">
                 <datalist id="cities">
-                    <option value="Kivioli"></option>
+                    <?php 
+                    foreach (ModelAd::GetCities() as $key => $value) {
+                        echo "<option value='$value[name]'></option>";
+                    }
+                    ?>
                 </datalist>
             </li>
             <li><input type="number" name="roomCount" placeholder="Room count"></li>
@@ -46,7 +52,7 @@ ob_start();
                 </select>
             </li>
             <li>
-                <select name="heat" id="">
+                <select name="heatSystem" id="">
                     <option selected disabled value="--">heat</option>
                     <option value="water">water</option>
                     <option value="air">air</option>
@@ -56,9 +62,9 @@ ob_start();
             </li>
         </ul>
         <div class="des">
-            <textarea name="desription" id="" cols="30" rows="10" placeholder="Description"></textarea>
+            <textarea name="description" id="" cols="30" rows="10" placeholder="Description"></textarea>
         </div>
-        <button>Create ad</button>
+        <button type="submit">Create ad</button>
     </form>
 </div>
 <?php

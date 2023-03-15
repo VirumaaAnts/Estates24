@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1
--- Время создания: Мар 15 2023 г., 01:54
+-- Время создания: Мар 15 2023 г., 18:22
 -- Версия сервера: 10.4.27-MariaDB
 -- Версия PHP: 8.1.12
 
@@ -210,10 +210,10 @@ CREATE TABLE `object` (
 --
 
 INSERT INTO `object` (`id`, `type`, `address`, `ownerId`, `cityId`, `roomCount`, `floorCount`, `floor`, `area`, `territory`, `conditions`, `heatSystem`, `basement`, `description`, `year`, `price`, `active`, `offer`) VALUES
-(1, 'Land', 'asda 43', 1, 4, NULL, NULL, NULL, NULL, 2147483647, 'good', NULL, 0, 'What is Lorem Ipsum?\r\nLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\"s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.\r\n\r\nWhy do we use it?\r\nIt is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using \"Content here, content here\", making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for \"lorem ipsum\" will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).', 1200, 123220000, 1, 0),
-(2, 'House', 'kgkgk 8t', 1, 2, 10, 20, NULL, 130, 250, 'good', 'water', 0, 'GOOOOOOOOD\"S HOUSE', 1995, 250000, 1, 0),
-(3, 'Garage', 'ffgfh 7', 1, 2, 1, 1, 1, 100, 120, 'need repair', 'electric', 0, 'jggjghjjghjggjgjhgjgj', 1999, 5000, 1, 0),
-(4, 'Apartment', 'ghjkb 667', 1, 9, NULL, NULL, NULL, 100000, 1000000000, NULL, 'water', 0, 'fhh h ghg ghv hgv gvh vgh gvh ghv ', NULL, 2147483647, 1, 0);
+(1, 'House', 'Aia tn 17', 1, 1, 20, 3, NULL, '127.0', '1200.0', 'good', 'air', 0, 'Это уютное и привлекательное место для проведения зимнего отпуска или отдыха на выходных. Дом расположен в красивом месте, окруженном заснеженными лесами и горами, что создает прекрасную атмосферу для отдыха и расслабления.\n\nВнутри дома есть все необходимое для комфортного проживания: просторная кухня с полным набором кухонной утвари и бытовой техникой, уютная гостиная с дровяной печью, где можно насладиться теплом камина и красивым видом на зимнюю природу.\n\nДом оборудован всеми необходимыми удобствами, включая современную ванную комнату с горячей водой и душем. В спальнях имеются удобные кровати, что обеспечивает хороший сон и отдых.', 1999, '115000.00', 1, 0),
+(2, 'Summer house', 'ROCCA TOWERS II-III', 2, 15, 2, NULL, 1, '50.0', '70.0', 'need repair', 'gas', 0, 'Загородный дом АВЛ-50 с полезной площадью 50 м², плюс антресоль 20 м².\r\nДом Pinhouse A53 с полезной площадью 53 м².\r\nДеревня Сааника находится в 10 км от центра Хаапсалу и всего в 1 часе езды от Таллинна.', 2012, '14999.49', 1, 0),
+(3, 'Apartment', 'Sinnimäe 1', 1, 1, 3, NULL, 4, '107.0', NULL, 'good', 'gas', 0, 'На улице Синимяэ в таллиннском районе Ласнамяэ только что построен новый, современный и энергоэффективный десятиэтажный многоквартирный дом Sinimäe Kodud. В доме 48 квартир от одной до пяти комнат площадью от 37,5 до 107 м², все они также имеют балкон.\r\n\r\nКвартиры на верхних этажах имеют интересное решение, состоящее из двух этажей, с гостиной с открытой кухней на нижнем этаже и спальнями на втором этаже.\r\n\r\nСолнечные батареи на крыше дома обеспечивают снижение общих затрат. Принудительная вентиляция с рекуперацией тепла позволяет снизить счета за отопление,\r\n\r\nв некоторых квартирах установлена ​​кухонная мебель.\r\n\r\n​Каждая квартира имеет кладовую на первом этаже здания, и в цену также входит парковочное место, квартиры на верхних этажах имеют два парковочных места, в том числе одно из них под тенью на первом этаже здания.', 2017, '359000.00', 1, 0),
+(4, 'Garage', 'Suur-Kaare 35g', 2, 6, NULL, NULL, NULL, '24.0', NULL, 'good', 'air', 0, 'Продается гараж в хорошем состоянии в Паалалинна, Суур-Кааре 35г.\r\nРазмеры пола гаража 7,25х3,40. Новая электрическая панель, проводка и светодиодные фонари в гараже (январь 2023 г.).\r\nНовая жестяная крыша установлена ​​в январе 2023 года.\r\nГараж свободен, ключи будут получены в день сделки.', 2023, '9000.00', 1, 0);
 
 -- --------------------------------------------------------
 
@@ -237,19 +237,20 @@ INSERT INTO `photo` (`id`, `photo`, `houseId`, `description`) VALUES
 (2, 'gherkin.webp', 1, ''),
 (3, 'p0db81jf.jpg', 1, ''),
 (4, 'p01btjdf.jpg', 1, ''),
-(5, '71k0BMp4U1L._AC_UF894,1000_QL80_.jpg', 2, ''),
-(6, 'flat,750x,075,f-pad,750x1000,f8f8f8.jpg', 2, ''),
-(7, 'DuAbz54WkAES3SD.jpg', 3, ''),
-(8, 'p01btjdf.jpg', 3, ''),
-(9, 'animated-gif-wallpaper-pixel-city-posted-by-michelle-simpson.gif', 4, ''),
-(10, 'blue_robot1.png', 4, ''),
-(11, 'blue_robot2.png', 4, ''),
-(12, 'cipher-chillxpanic-pixel-art-by-weilard-on-deviantart-.gif', 4, ''),
-(13, 'cipher-f9eaf-chillxpanic-542e1-pixel-c6a29-art-78c14-by-6ccea-weilard-203d1-on-365f7-deviantart-195fc-.gif', 4, ''),
-(14, 'ef6f24a8d3ff577a99c19c42026a7a24.gif', 4, ''),
-(15, 'green_robot1.png', 4, ''),
-(16, 'green_robot2.png', 4, ''),
-(17, 'ICO.png', 4, '');
+(5, '72e13ca9-33fd-4076-9655-ea31432ed6a4.jpg', 2, ''),
+(6, 'af0458d6-0c4f-494b-9d4b-0822071bc8e6.jpg', 2, ''),
+(7, '94d11034-1e3b-44fb-aaaa-558f4ea4214c.jpg', 3, ''),
+(8, 'aa4866bd-5c57-4723-a9bc-71ba18eba5d0.jpg', 3, ''),
+(9, '481b6d9a-ac3e-4da4-b945-f6ecb3120d55.jpg', 3, ''),
+(10, '6ebbb717-1632-4c79-bf36-e5df6cb11813.jpg', 3, ''),
+(11, '5b16cfad-616b-4baf-9cf3-6d6fcdfd2a45.jpg', 3, ''),
+(12, 'c03d3653-3f8b-4430-bc9d-4a2ce018d35a.jpg', 3, ''),
+(13, '2058ca94-7730-4923-8839-70c12ee7cfdb.jpg', 3, ''),
+(14, '509743e1-2135-409e-8a33-498383098918.jpg', 4, ''),
+(15, '9eff9cba-3aeb-43dd-9b5a-911660d04153.jpg', 4, ''),
+(16, 'a245a44e-8f6c-4bdd-b7e0-edaf574f13fd.jpg', 4, ''),
+(17, '0da5ad63-74be-4b56-b030-25fa137f969c.jpg', 4, ''),
+(18, '366416ca-4872-4fc8-af03-73f291d9098d.jpg', 4, '');
 
 -- --------------------------------------------------------
 
@@ -274,7 +275,8 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `name`, `surname`, `username`, `email`, `password`, `phone`, `mackler`, `photo`) VALUES
-(1, 'Aleksei', 'Kozlov', 'MiFista', 'aleksei22891@gmail.com', '$2y$10$XOJ.puAWB1KhaApyG7VDfOpPg4ietxLZ/trNfPNLd2tklXgCfZhiC', '59024698', 0, 'about.png');
+(1, 'Aleksei', 'Kozlov', 'MiFista', 'aleksei22891@gmail.com', '$2y$10$XOJ.puAWB1KhaApyG7VDfOpPg4ietxLZ/trNfPNLd2tklXgCfZhiC', '59024698', 0, 'about.png'),
+(2, 'Maksim', 'Dzjubenko', 'mak7ilenin', 'maksondzjubenko@gmail.com', '$2y$10$.aMy6egTJKOf8sk.2LJ5LuxlVJX6yDU71dNFlMKTeZ.uerT3TDCFO', '+37253005207', 0, 'me.jpg');
 
 --
 -- Индексы сохранённых таблиц
@@ -354,13 +356,13 @@ ALTER TABLE `object`
 -- AUTO_INCREMENT для таблицы `photo`
 --
 ALTER TABLE `photo`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT для таблицы `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Ограничения внешнего ключа сохраненных таблиц

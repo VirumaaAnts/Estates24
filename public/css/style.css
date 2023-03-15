@@ -486,6 +486,20 @@ main .ads .ad {
 .Ad .inf input:placeholder-shown {
   text-align: left;
 }
+.adBasement_container {
+  width: 95% !important;
+  padding: 0.375rem 0.60rem !important;
+  margin: 15px 10px;
+  border-bottom: 2px solid #fafafa;
+  border-radius: 3px;
+  display: flex;
+}
+.adBasement_container label {
+  width: 92%;
+}
+.adBasement_container input {
+  width: 8% !important;
+}
 .Ad .inf textarea{
   resize: none;
   width: 100%;

@@ -186,21 +186,21 @@ CREATE TABLE `fav` (
 
 CREATE TABLE `object` (
   `id` int(11) NOT NULL,
-  `type` enum('house','flat','garage','business','land','part') NOT NULL,
+  `type` enum('House','Apartment','Garage','Part','Land','Summer house') NOT NULL,
   `address` varchar(250) NOT NULL,
   `ownerId` int(11) NOT NULL,
-  `cityId` int(11) DEFAULT NULL,
+  `cityId` int(11) NOT NULL,
   `roomCount` int(11) DEFAULT NULL,
   `floorCount` int(11) DEFAULT NULL,
   `floor` int(11) DEFAULT NULL,
-  `area` int(11) DEFAULT NULL,
-  `territory` int(11) DEFAULT NULL,
+  `area` decimal(11,1) DEFAULT NULL,
+  `territory` decimal(11,1) DEFAULT NULL,
   `conditions` enum('good','need repair','need overhaul') DEFAULT NULL,
   `heatSystem` enum('water','air','electric','gas') DEFAULT NULL,
-  `basement` tinyint(1) DEFAULT 0,
-  `description` varchar(3000) DEFAULT NULL,
+  `basement` tinyint(1) NOT NULL,
+  `description` text DEFAULT NULL,
   `year` int(11) DEFAULT NULL,
-  `price` int(11) DEFAULT NULL,
+  `price` decimal(11,2) DEFAULT 0.00,
   `active` tinyint(1) NOT NULL DEFAULT 1,
   `offer` tinyint(1) DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -210,10 +210,10 @@ CREATE TABLE `object` (
 --
 
 INSERT INTO `object` (`id`, `type`, `address`, `ownerId`, `cityId`, `roomCount`, `floorCount`, `floor`, `area`, `territory`, `conditions`, `heatSystem`, `basement`, `description`, `year`, `price`, `active`, `offer`) VALUES
-(1, 'land', 'asda 43', 1, 4, NULL, NULL, NULL, NULL, 2147483647, 'good', NULL, 0, 'What is Lorem Ipsum?\r\nLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\"s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.\r\n\r\nWhy do we use it?\r\nIt is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using \"Content here, content here\", making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for \"lorem ipsum\" will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).', 1200, 123220000, 1, 0),
-(2, 'house', 'kgkgk 8t', 1, 2, 10, 20, NULL, 130, 250, 'good', 'water', 0, 'GOOOOOOOOD\"S HOUSE', 1995, 250000, 1, 0),
-(3, 'garage', 'ffgfh 7', 1, 2, 1, 1, 1, 100, 120, 'need repair', 'electric', 0, 'jggjghjjghjggjgjhgjgj', 1999, 5000, 1, 0),
-(4, 'flat', 'ghjkb 667', 1, 9, NULL, NULL, NULL, 100000, 1000000000, NULL, 'water', 0, 'fhh h ghg ghv hgv gvh vgh gvh ghv ', NULL, 2147483647, 1, 0);
+(1, 'Land', 'asda 43', 1, 4, NULL, NULL, NULL, NULL, 2147483647, 'good', NULL, 0, 'What is Lorem Ipsum?\r\nLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\"s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.\r\n\r\nWhy do we use it?\r\nIt is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using \"Content here, content here\", making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for \"lorem ipsum\" will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).', 1200, 123220000, 1, 0),
+(2, 'House', 'kgkgk 8t', 1, 2, 10, 20, NULL, 130, 250, 'good', 'water', 0, 'GOOOOOOOOD\"S HOUSE', 1995, 250000, 1, 0),
+(3, 'Garage', 'ffgfh 7', 1, 2, 1, 1, 1, 100, 120, 'need repair', 'electric', 0, 'jggjghjjghjggjgjhgjgj', 1999, 5000, 1, 0),
+(4, 'Apartment', 'ghjkb 667', 1, 9, NULL, NULL, NULL, 100000, 1000000000, NULL, 'water', 0, 'fhh h ghg ghv hgv gvh vgh gvh ghv ', NULL, 2147483647, 1, 0);
 
 -- --------------------------------------------------------
 

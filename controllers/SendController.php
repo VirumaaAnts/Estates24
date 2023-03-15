@@ -31,7 +31,7 @@ class SendController
     }
     public static function CreateObj(){
         $obj = ModelAd::createAdv();
-        header("Location: /");
+        header('Location: .');
     }
 }
 ?>

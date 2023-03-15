@@ -12,7 +12,7 @@
             <input type="text" class="form-control" name="surname" required placeholder="Surname"  value=<?php if(isset($data[2][1])){echo '"'.$data[2][1].'"';}else { echo '""';};?>  />
             <div class="input-group">
                 <span class="input-group-text" id="basic-addon1">@</span>
-                <input type="email" class="form-control" name="email" required placeholder="Email"  value=<?php if(isset($data[2][2])){echo '"'.$data[2][2].'"';}else { echo '""';};?> />
+                <input type="email" class="form-control" name="email" required placeholder="Email" value=<?php if(isset($data[2][2])){echo '"'.$data[2][2].'"';}else { echo '""';};?> />
             </div>
             <input type="file" accept="image/png, image/jpeg, image/jpg" class="form-control" required name="file" />
         </div>

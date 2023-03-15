@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1
--- Время создания: Мар 14 2023 г., 17:17
+-- Время создания: Мар 15 2023 г., 01:54
 -- Версия сервера: 10.4.27-MariaDB
 -- Версия PHP: 8.1.12
 
@@ -178,13 +178,6 @@ CREATE TABLE `fav` (
   `objectId` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Дамп данных таблицы `fav`
---
-
-INSERT INTO `fav` (`id`, `userId`, `objectId`) VALUES
-(1, 1, 1);
-
 -- --------------------------------------------------------
 
 --
@@ -193,21 +186,21 @@ INSERT INTO `fav` (`id`, `userId`, `objectId`) VALUES
 
 CREATE TABLE `object` (
   `id` int(11) NOT NULL,
-  `type` enum('House','Apartment','Garage','Part','Land','Summer house') NOT NULL,
+  `type` enum('house','flat','garage','business','land','part') NOT NULL,
   `address` varchar(250) NOT NULL,
   `ownerId` int(11) NOT NULL,
-  `cityId` int(11) NOT NULL,
+  `cityId` int(11) DEFAULT NULL,
   `roomCount` int(11) DEFAULT NULL,
   `floorCount` int(11) DEFAULT NULL,
   `floor` int(11) DEFAULT NULL,
-  `area` decimal(11,1) DEFAULT NULL,
-  `territory` decimal(11,1) DEFAULT NULL,
+  `area` int(11) DEFAULT NULL,
+  `territory` int(11) DEFAULT NULL,
   `conditions` enum('good','need repair','need overhaul') DEFAULT NULL,
   `heatSystem` enum('water','air','electric','gas') DEFAULT NULL,
-  `basement` tinyint(1) NOT NULL,
-  `description` text DEFAULT NULL,
+  `basement` tinyint(1) DEFAULT 0,
+  `description` varchar(3000) DEFAULT NULL,
   `year` int(11) DEFAULT NULL,
-  `price` decimal(11,2) DEFAULT 0.00,
+  `price` int(11) DEFAULT NULL,
   `active` tinyint(1) NOT NULL DEFAULT 1,
   `offer` tinyint(1) DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -217,9 +210,10 @@ CREATE TABLE `object` (
 --
 
 INSERT INTO `object` (`id`, `type`, `address`, `ownerId`, `cityId`, `roomCount`, `floorCount`, `floor`, `area`, `territory`, `conditions`, `heatSystem`, `basement`, `description`, `year`, `price`, `active`, `offer`) VALUES
-(1, 'House', 'Aia tn 17', 4, 1, 20, 2, 2, '127.0', '1200.0', 'good', 'electric', 1, 'Это уютное и привлекательное место для проведения зимнего отпуска или отдыха на выходных. Дом расположен в красивом месте, окруженном заснеженными лесами и горами, что создает прекрасную атмосферу для отдыха и расслабления.\n\nВнутри дома есть все необходимое для комфортного проживания: просторная кухня с полным набором кухонной утвари и бытовой техникой, уютная гостиная с дровяной печью, где можно насладиться теплом камина и красивым видом на зимнюю природу.\n\nДом оборудован всеми необходимыми удобствами, включая современную ванную комнату с горячей водой и душем. В спальнях имеются удобные кровати, что обеспечивает хороший сон и отдых.', 1999, '115000.00', 1, 1),
-(2, 'Summer house', 'ROCCA TOWERS II-III', 3, 1, 4, 4, 4, '38861.0', NULL, 'good', 'gas', 0, NULL, 2012, '12000000.00', 1, 0),
-(3, 'Apartment', 'Pirnipuu pst 184', 1, 7, 4, 2, 2, '101.0', NULL, 'good', 'electric', 1, 'Новостройка Пирнипуу Коду - идеальное место для молодых семей с детьми. Это тихий и безопасный район. Каждая квартира имеет продуманную планировку, 2 парковочных места (одно с навесом), собственную террасу и сауну.', 1999, '1.89', 1, 0);
+(1, 'land', 'asda 43', 1, 4, NULL, NULL, NULL, NULL, 2147483647, 'good', NULL, 0, 'What is Lorem Ipsum?\r\nLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\"s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.\r\n\r\nWhy do we use it?\r\nIt is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using \"Content here, content here\", making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for \"lorem ipsum\" will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).', 1200, 123220000, 1, 0),
+(2, 'house', 'kgkgk 8t', 1, 2, 10, 20, NULL, 130, 250, 'good', 'water', 0, 'GOOOOOOOOD\"S HOUSE', 1995, 250000, 1, 0),
+(3, 'garage', 'ffgfh 7', 1, 2, 1, 1, 1, 100, 120, 'need repair', 'electric', 0, 'jggjghjjghjggjgjhgjgj', 1999, 5000, 1, 0),
+(4, 'flat', 'ghjkb 667', 1, 9, NULL, NULL, NULL, 100000, 1000000000, NULL, 'water', 0, 'fhh h ghg ghv hgv gvh vgh gvh ghv ', NULL, 2147483647, 1, 0);
 
 -- --------------------------------------------------------
 
@@ -239,22 +233,23 @@ CREATE TABLE `photo` (
 --
 
 INSERT INTO `photo` (`id`, `photo`, `houseId`, `description`) VALUES
-(1, '1.jpg', 1, 'Lorem'),
-(2, '2.jpg', 1, ''),
-(3, '3.jpg', 1, ''),
-(4, '4.jpg', 1, ''),
-(5, '1.jpg', 2, ''),
-(6, '2.jpg', 2, ''),
-(7, '3.jpg', 2, ''),
-(8, '4.jpg', 2, ''),
-(9, '5.jpg', 2, ''),
-(10, '6.jpg', 2, ''),
-(11, '1.jpg', 3, ''),
-(12, '2.jpg', 3, ''),
-(13, '3.jpg', 3, ''),
-(14, '4.jpg', 3, ''),
-(15, '5.jpg', 3, ''),
-(16, '6.jpg', 3, '');
+(1, 'buildings-with-trees-001.webp', 1, ''),
+(2, 'gherkin.webp', 1, ''),
+(3, 'p0db81jf.jpg', 1, ''),
+(4, 'p01btjdf.jpg', 1, ''),
+(5, '71k0BMp4U1L._AC_UF894,1000_QL80_.jpg', 2, ''),
+(6, 'flat,750x,075,f-pad,750x1000,f8f8f8.jpg', 2, ''),
+(7, 'DuAbz54WkAES3SD.jpg', 3, ''),
+(8, 'p01btjdf.jpg', 3, ''),
+(9, 'animated-gif-wallpaper-pixel-city-posted-by-michelle-simpson.gif', 4, ''),
+(10, 'blue_robot1.png', 4, ''),
+(11, 'blue_robot2.png', 4, ''),
+(12, 'cipher-chillxpanic-pixel-art-by-weilard-on-deviantart-.gif', 4, ''),
+(13, 'cipher-f9eaf-chillxpanic-542e1-pixel-c6a29-art-78c14-by-6ccea-weilard-203d1-on-365f7-deviantart-195fc-.gif', 4, ''),
+(14, 'ef6f24a8d3ff577a99c19c42026a7a24.gif', 4, ''),
+(15, 'green_robot1.png', 4, ''),
+(16, 'green_robot2.png', 4, ''),
+(17, 'ICO.png', 4, '');
 
 -- --------------------------------------------------------
 
@@ -279,10 +274,7 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `name`, `surname`, `username`, `email`, `password`, `phone`, `mackler`, `photo`) VALUES
-(1, 'Aleksei', 'Kozlov', 'mifista', 'aleksei22891@gmail.com', '$2y$10$7Gf2Wr/beoXQMc6LvRB4..WuKeiI.eqWej0ZP2pD1lFcwPTCywHj.', '59024698', 0, 'pexels-pixabay-415829.jpg'),
-(2, 'Dima', 'Kreivald', 'djdims', 'kreivald@gmail.com', '$2y$10$2wK1PRHGa6xbm..8n1.M/uP13kKizsrh1R86z25HmV948gRcQ677K', '41523698', 0, 'timothy.png'),
-(3, 'max@gmail.com', 'max@gmail.com', 'max@gmail.com', 'max@gmail.com', '$2y$10$gwkfOpuwef1CTKws83J9buTAIf1ECb9xaTtgLsh5m.BZDsE53FasS', 'max@gmail.com', 0, 'pexels-simon-robben-614810.jpg'),
-(4, 'Maksim', 'Dzjubenko', 'mak7ilenin', 'maksondzjubenko@gmail.com', '$2y$10$vphhGYevPTUyCqqVwmWgTeHT9HRYkZQwU1SA76ou2MI6InhtQdrWi', '+37253005207', 0, 'me.jpg');
+(1, 'Aleksei', 'Kozlov', 'MiFista', 'aleksei22891@gmail.com', '$2y$10$XOJ.puAWB1KhaApyG7VDfOpPg4ietxLZ/trNfPNLd2tklXgCfZhiC', '59024698', 0, 'about.png');
 
 --
 -- Индексы сохранённых таблиц
@@ -350,25 +342,25 @@ ALTER TABLE `county`
 -- AUTO_INCREMENT для таблицы `fav`
 --
 ALTER TABLE `fav`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT для таблицы `object`
 --
 ALTER TABLE `object`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT для таблицы `photo`
 --
 ALTER TABLE `photo`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT для таблицы `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Ограничения внешнего ключа сохраненных таблиц

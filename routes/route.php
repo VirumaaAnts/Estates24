@@ -54,6 +54,9 @@
             case 'profile':
                 RenderController::Profile();
                 break;
+            case 'favourites':
+                RenderController::Favourites();
+                break;
             case 'editProfile':
                 SendController::EditProfile();
                 break;

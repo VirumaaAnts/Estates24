@@ -12,11 +12,11 @@ echo "
                         echo "
                         <li>
                             <a 
-                                href='public/uploads/user_".$data[1]['id']."/ad_".$data[0]['id']."/".$photo['photo']."' 
+                                href='public/uploads/user_".$data[0]['ownerId']."/ad_".$data[0]['id']."/".$photo['photo']."' 
                                 data-lightbox='user".$data[1]['id']."-".count($data[2])."' data-title='".$photo['description']."'
                             >
                                 <div class='img_slider' 
-                                    style='background-image: url(public/uploads/user_".$data[1]['id']."/ad_".$data[0]['id']."/".$photo['photo'].");'>
+                                    style='background-image: url(public/uploads/user_".$data[0]['ownerId']."/ad_".$data[0]['id']."/".$photo['photo'].");'>
                                 </div>
                             </a>
                         </li>

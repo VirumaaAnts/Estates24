@@ -15,7 +15,7 @@ class ModelUser
                 $_SESSION['userId'] = $response['id'];
                 $test = true;
             }else{
-                if ($response2['username'] == $user && $response2['password'] == password_verify($_POST['log_password'], $response2['password'])) {
+                if (strtolower($response2['username']) == strtolower($user) && $response2['password'] == password_verify($_POST['log_password'], $response2['password'])) {
                     $_SESSION['status'] = session_id();
                     $_SESSION['userId'] = $response2['id'];
                     $test = true;

@@ -14,7 +14,6 @@
     
     switch ($route) {
         case 'index.php':
-            header("Location: /");
             RenderController::start();
             break;
         case '':

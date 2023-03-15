@@ -1,10 +1,10 @@
-<select name="language" id="language" class="form-control">
+<!-- <select name="language" id="language" class="form-control">
     <option selected disabled value="none">Languages</option>
     <option value="rus">Russian</option>
     <option value="eng">English</option>
     <option value="est">Estonia</option>
     <option value="jap">Japan</option>
-</select>
+</select> -->
 <select name="county" id="county" class="form-control">
     <option selected disabled value="none">County</option>
     <option value="Harju">Harju County</option>

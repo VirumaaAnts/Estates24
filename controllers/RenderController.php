@@ -38,7 +38,7 @@ class RenderController
         include_once 'view/adForm.php';    
     }
     public static function Maklers() {
-        include_once 'view/maklers.php';    
+        include_once 'view/macklers.php';    
     }
     public static function Profile() {
         $userInfo = ModelUser::getProfileInfo();
@@ -48,6 +48,9 @@ class RenderController
         $dataS = ModelFilters::getFilterObjects();
         $countiesCities = ModelCountiesCities::getCountiesCities();
         include_once 'view/estatesByFilter.php';
+    }
+    public static function Favourites(){
+        include_once 'view/favourites.php';
     }
 }
 ?>

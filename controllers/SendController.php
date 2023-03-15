@@ -10,9 +10,6 @@ class SendController
     public static function EditProfile() {
         ModelUser::editProfile();
     }
-    public static function createAd() {
-        ModelAd::createObject();
-    }
     public static function Login()
     {
         $test = ModelUser::checkUser();
@@ -34,7 +31,7 @@ class SendController
     }
     public static function CreateObj(){
         $obj = ModelAd::createAdv();
-        
+        header("Location: /");
     }
 }
 ?>

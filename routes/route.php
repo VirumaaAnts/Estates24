@@ -14,6 +14,7 @@
     
     switch ($route) {
         case 'index.php':
+            header("Location: /");
             RenderController::start();
             break;
         case '':
@@ -52,9 +53,6 @@
             case 'addAdv':
                 RenderController::AdForm();
                 break;
-            case 'addAd':
-                SendController::createAd();
-                break;
             case 'profile':
                 RenderController::Profile();
                 break;
@@ -63,14 +61,10 @@
                 break;
             case 'logout':
                 SendController::Logout();
-<<<<<<< HEAD
                 break;
             case 'createObj':
                 SendController::CreateObj();
                 break;
-=======
-                break;  
->>>>>>> 817bc6ecbefc1d7ed891eb4e94043c3042bc01cc
         }
     }
 ?>

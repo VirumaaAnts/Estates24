@@ -13,11 +13,7 @@
         <div class="ads">
             <h1>Last added estates</h1>
             <?php
-<<<<<<< HEAD
             if (is_iterable($data)) {
-=======
-            if(is_iterable($data)){
->>>>>>> 817bc6ecbefc1d7ed891eb4e94043c3042bc01cc
                 foreach ($data[0] as $estate) {
                     echo "
                     <div class='ad' page='ad?user=".$estate['ownerId']."&ad=".$estate['id']."'>
@@ -59,17 +55,11 @@
         <div class="ads">
             <h1>Special offers</h1>
             <?php
-<<<<<<< HEAD
-                if (is_iterable($data)) {
-                    foreach ($data[0] as $estate) {
-                        if($estate['offer'] == 1){
-=======
                 $checkOffers = 0;
                 if(is_iterable($data)){
                     foreach ($data[0] as $estate) {
                         if($estate['offer'] == 1) {
                             $checkOffers++;
->>>>>>> 817bc6ecbefc1d7ed891eb4e94043c3042bc01cc
                             echo "
                             <div class='ad' page='ad?user=".$estate['ownerId']."&ad=".$estate['id']."'>
                                 <div class='slider' show='1' scroll='1' time='300'>
@@ -100,12 +90,9 @@
                             </div>
                             ";
                         }
-<<<<<<< HEAD
-=======
                     }
                     if($checkOffers == 0) {
                         echo "<p class='no_offers'>There are currently no offers here.</p>";
->>>>>>> 817bc6ecbefc1d7ed891eb4e94043c3042bc01cc
                     }
                 }
                 

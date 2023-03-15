@@ -27,8 +27,11 @@ class RenderController
     public static function registrationForm() {
         include_once 'view/registration.php';
     }
-    public static function Ad($object, $owner) {
+    public static function Ad($object, $owner, $fav) {
         $data = ModelAd::getObjectData($object, $owner);
+        if($fav != null) {
+            ModelAd::CreateFav($object);
+        }
         include_once 'view/ad.php';
     }
     public static function adForm() {
@@ -49,6 +52,9 @@ class RenderController
     }
     public static function Favourites(){
         include_once 'view/favourites.php';
+    }
+    public static function ErrorPage(){
+        include_once 'view/error.php';
     }
 }
 ?>

@@ -33,6 +33,7 @@ class ModelUser
     }
     public static function editProfile()
     {
+        $response = false;
         if (isset($_POST['update'])) {
             $file = 'public/uploads/user_' . $_SESSION['userId'] . '/' . $_POST['prev_picture'];
             $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
@@ -40,9 +41,9 @@ class ModelUser
             // If user has cleared at least one important(NOT NULL) field then return
             if (
                 trim($_POST['name']) == '' || trim($_POST['surname']) == '' || trim($_POST['username']) == ''
-                || trim($_POST['email']) == '' || trim($_POST['password']) == '' || trim($_POST['phone']) == ''
+                || trim($_POST['email']) == '' || trim($_POST['phone']) == ''
             ) {
-                header('Location: /profile');
+                header('Location: ./profile');
                 return;
             } else {
                 $database = new database();
@@ -65,9 +66,13 @@ class ModelUser
                         `password` = '" . $password . "', `photo` = '" . $_FILES['picture']['name'] . "', 
                         `phone` = '" . $_POST['phone'] . "' WHERE `user`.`id` = " . $_SESSION['userId'] . "";
                 }
-                $database->executeRun($query);
+                $runnedQuery = $database->executeRun($query);
+                if($runnedQuery == true) {
+                    $response = true;
+                }
             }
-            header('Location: /profile');
+            header('Location: ./profile');
+            return $response;
         }
     }
     public static function UserLogout()

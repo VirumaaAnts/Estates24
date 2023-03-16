@@ -53,15 +53,16 @@ class RenderController
         $userInfo = ModelUser::getProfileInfo();
         include_once 'view/profile.php';    
     }
-    public static function FilterPage(){
+    public static function FilterPage() {
         $dataS = ModelFilters::getFilterObjects();
         $countiesCities = ModelCountiesCities::getCountiesCities();
         include_once 'view/estatesByFilter.php';
     }
-    public static function Favourites(){
+    public static function Favourites() {
+        $favourites = ModelEstates::getFavourites();
         include_once 'view/favourites.php';
     }
-    public static function ErrorPage(){
+    public static function ErrorPage() {
         include_once 'view/error.php';
     }
 }

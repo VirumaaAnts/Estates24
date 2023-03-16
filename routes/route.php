@@ -36,26 +36,6 @@
             SendController::CreateObj();
             return;
         }
-        // switch ($route) {
-        //     case 'addAdv':
-        //         RenderController::AdForm();
-        //         break;
-        //     case 'profile':
-        //         RenderController::Profile();
-        //         break;
-        //     case 'favourites':
-        //         RenderController::Favourites();
-        //         break;
-        //     case 'editProfile':
-        //         SendController::EditProfile();
-        //         break;
-        //     case 'logout':
-        //         SendController::Logout();
-        //         break;
-        //     case 'createObj':
-        //         SendController::CreateObj();
-        //         break;
-        // }
     }
     if($route == 'index.php') {
         RenderController::start();
@@ -78,21 +58,9 @@
         return;
     }
     else if($route == 'ad') {
-        $userId = $_GET['user'];
-        $adId = $_GET['ad'];
-        $fav = $_GET['fav'];
-        $fav_status = null;
-        if(isset($_GET['fav_status'])) {
-            $fav_status = $_GET['fav_status'];
-        }
-        RenderController::Ad($adId, $userId, $fav, $fav_status);
+        RenderController::Ad();
         return;
     }
-    // else if($route == 'addToFav') {
-    //     SendController::AddToFav();
-    //     header('Location:'.$_SERVER['HTTP_REFERER']);
-    //     return;
-    // }
     else if($route == 'loginRes') {
         SendController::login();
         return;
@@ -114,39 +82,4 @@
         RenderController::ErrorPage();
         return;
     }
-
-    // switch ($route) {
-    //     case 'index.php':
-    //         RenderController::start();
-    //         break;
-    //     case '':
-    //         RenderController::start();
-    //         break;
-    //     case 'registration':
-    //         RenderController::registrationForm();
-    //         break;
-    //     case 'estates':
-    //         RenderController::AllEstates();
-    //         break;
-    //     case 'offers':
-    //         RenderController::AllOffers();
-    //         break;
-    //     case 'ad':
-    //         $userId = $_GET['user'];
-    //         $adId = $_GET['ad'];
-    //         RenderController::Ad($adId, $userId);
-    //         break;
-    //     case 'loginRes':
-    //         SendController::login();
-    //         break;
-    //     case 'register':
-    //         SendController::registration();
-    //         break;
-    //     case 'macklers':
-    //         RenderController::Maklers();
-    //         break;
-    //     case 'findByFilters':
-    //         RenderController::FilterPage();
-    //         break;
-    // }
 ?>

@@ -55,43 +55,39 @@
         <div class="ads">
             <h1>Special offers</h1>
             <?php
-                $checkOffers = 0;
-                if(is_iterable($data)){
-                    foreach ($data[0] as $estate) {
-                        if($estate['offer'] == 1) {
-                            $checkOffers++;
-                            echo "
-                            <div class='ad' page='ad?user=".$estate['ownerId']."&ad=".$estate['id']."'>
-                                <div class='slider' show='1' scroll='1' time='300'>
-                                    <ul>";
-                                        foreach ($data[1] as $photo) {
-                                            if($estate['id'] == $photo['houseId']) {
-                                                echo "
-                                                <li>
-                                                    <a 
-                                                        href='public/uploads/user_".$estate['ownerId']."/ad_".$estate['id']."/".$photo['photo']."' 
-                                                        data-lightbox='user".$estate['ownerId']."-".count($data[1])."' data-title='".$photo['description']."'
-                                                    >
-                                                        <div class='img_slider' style='background-image: url(public/uploads/user_".$estate['ownerId']."/ad_".$estate['id']."/".$photo['photo'].");'></div>
-                                                    </a>
-                                                </li>
-                                                ";
-                                            }
-                                        }; echo "
-                                    </ul>
-                                </div>
-                                <div class='estate_inf'>
-                                    <h2>".$estate['type']."</h2>
-                                    <p>".$estate['city']."</p>
-                                    <p>Number of rooms: ".$estate['roomCount']."</p>
-                                    <p>Area: ".$estate['area']." m²</p>
-                                    <h3>".$estate['price']." €</h3>
-                                </div>
+                if(is_iterable($offers)){
+                    foreach ($offers[0] as $estate) {
+                        echo "
+                        <div class='ad' page='ad?user=".$estate['ownerId']."&ad=".$estate['id']."&fav=".$estate['fav']."'>
+                            <div class='slider' show='1' scroll='1' time='300'>
+                                <ul>";
+                                    foreach ($offers[1] as $photo) {
+                                        if($estate['id'] == $photo['houseId']) {
+                                            echo "
+                                            <li>
+                                                <a 
+                                                    href='public/uploads/user_".$estate['ownerId']."/ad_".$estate['id']."/".$photo['photo']."' 
+                                                    data-lightbox='user".$estate['ownerId']."-".count($offers[1])."' data-title='".$photo['description']."'
+                                                >
+                                                    <div class='img_slider' style='background-image: url(public/uploads/user_".$estate['ownerId']."/ad_".$estate['id']."/".$photo['photo'].");'></div>
+                                                </a>
+                                            </li>
+                                            ";
+                                        }
+                                    }; echo "
+                                </ul>
                             </div>
-                            ";
-                        }
+                            <div class='estate_inf'>
+                                <h2>".$estate['type']."</h2>
+                                <p>".$estate['city']."</p>
+                                <p>Number of rooms: ".$estate['roomCount']."</p>
+                                <p>Area: ".$estate['area']." m²</p>
+                                <h3>".$estate['price']." €</h3>
+                            </div>
+                        </div>
+                        ";
                     }
-                    if($checkOffers == 0) {
+                    if(count($offers[0]) == 0) {
                         echo "<p class='no_offers'>There are currently no offers here.</p>";
                     }
                 }

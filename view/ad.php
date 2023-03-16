@@ -1,11 +1,12 @@
 <?php
     ob_start();
 ?>
+<script src="public/js/ad.js"></script>
 <?php
 echo "
     <div class='Ad'>
         <form action='ad' method='GET' id='favForm' class='fav_btn'>
-            <input type='text' name='fav' id='favBool' value='".$fav."'/>
+            <input type='text' name='fav' id='favBool' value='".$_GET['fav']."'/>
             <input type='text' id='adFav' name='ad' value='".$data[0]['id']."'/>
             <input type='text' name='user' value='".$data[0]['ownerId']."'/>
             <input type='checkbox' name='fav_status' id='favCheckbox'/>

@@ -27,9 +27,12 @@ class RenderController
     public static function registrationForm() {
         include_once 'view/registration.php';
     }
-    public static function Ad($object, $owner, $fav) {
+    public static function Ad($object, $owner, $fav, $fav_status) {
         $data = ModelAd::getObjectData($object, $owner);
-        if($fav != null) {
+        if($fav != 'none') {
+            
+        }
+        if($fav_status != null) {
             ModelAd::CreateFav($object);
         }
         include_once 'view/ad.php';

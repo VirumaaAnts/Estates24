@@ -10,6 +10,12 @@
                 $cityId = $database -> getOne("SELECT *, city.name as city FROM object 
                 INNER JOIN city on object.cityId = city.id AND object.id = ".$estates[$i]['id']);
                 $estates[$i]['city'] = $cityId['name'];
+                $fav = $database->getOne("SELECT * FROM fav 
+                WHERE userId = ".$estates[$i]['id']." AND objectId = ".$estates[$i]['ownerId']);
+                if($fav == null) { 
+                    $fav = 'none'; 
+                } else { $fav = $fav['userId']; }
+                $estates[$i]['fav'] = $fav;
             };
             return [$estates, $photo];
        }

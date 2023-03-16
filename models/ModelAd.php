@@ -80,7 +80,6 @@ class ModelAd
         $checkExisting = $database->getOne("SELECT * FROM `fav` WHERE objectId = $objectId AND userId = $userId");
         if($checkExisting == null) {
             $database->executeRun("INSERT INTO `fav` (userId, objectId) VALUES ($userId, $objectId)");
-            // header('Location:'.$_SERVER['HTTP_REFERER']);
         }
     }
     public static function RemoveFavIfExists($objectId)
@@ -90,7 +89,6 @@ class ModelAd
         $checkExisting = $database->getOne("SELECT * FROM `fav` WHERE `objectId` = $objectId AND `userId` = $userId");
         if($checkExisting != null) {
             $database->executeRun("DELETE FROM `fav` WHERE `userId` = $userId AND `objectId` = $objectId");
-            // header('Location:'.$_SERVER['HTTP_REFERER']);
         }
     }
 }

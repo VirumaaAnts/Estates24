@@ -56,8 +56,10 @@ class ModelFilters
                 WHERE cityId=" . $city . "
                 AND roomCount >= " . $min_rooms . "
                 AND roomCount <= " . $max_rooms . "
+                OR roomCount is NULL
                 AND area >= " . $min_area . "
                 AND area <= " . $max_area . "
+                OR area is NULL
                 AND price >= " . $min_price . "
                 AND price <= " . $max_price . "
                 ORDER BY id ASC");
@@ -66,8 +68,10 @@ class ModelFilters
                 WHERE cityId IN (SELECT id FROM city WHERE countyId = " . $county . ")
                 AND roomCount >= " . $min_rooms . "
                 AND roomCount <= " . $max_rooms . "
+                OR roomCount is NULL
                 AND area >= " . $min_area . "
                 AND area <= " . $max_area . "
+                OR area is NULL
                 AND price >= " . $min_price . "
                 AND price <= " . $max_price . "
                 ORDER BY id ASC");
@@ -75,8 +79,10 @@ class ModelFilters
             $estates = $database->getAll("SELECT * FROM object
                 WHERE roomCount >= " . $min_rooms . "
                 AND roomCount <= " . $max_rooms . "
+                OR roomCount is NULL
                 AND area >= " . $min_area . "
                 AND area <= " . $max_area . "
+                OR area is NULL
                 AND price >= " . $min_price . "
                 AND price <= " . $max_price . "
                 ORDER BY id ASC");

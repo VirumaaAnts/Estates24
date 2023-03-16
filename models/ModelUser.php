@@ -35,7 +35,7 @@ class ModelUser
     {
         $response = false;
         if (isset($_POST['update'])) {
-            $file = 'public/uploads/user_' . $_SESSION['userId'] . '/' . $_POST['prev_picture'];
+            $database = new database();
             $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
 
             // If user has cleared at least one important(NOT NULL) field then return
@@ -46,26 +46,37 @@ class ModelUser
                 header('Location: ./profile');
                 return;
             } else {
-                $database = new database();
-                $query = "UPDATE `user` SET 
-                    `name` = '" . $_POST['name'] . "', `surname` = '" . $_POST['surname'] . "', 
-                    `username` = '" . $_POST['username'] . "', `email` = '" . $_POST['email'] . "', 
-                    `password` = '" . $password . "', `phone` = '" . $_POST['phone'] . "' 
-                    WHERE `user`.`id` = " . $_SESSION['userId'] . "";
-
-                if (($_FILES['picture']['size'] != 0)) {
-                    if (file_exists($file)) {
-                        unlink($file);
+                function photoCheck($query) {
+                    $currentPicture = $_POST['prev_picture'];
+                    $file = 'public/uploads/user_' . $_SESSION['userId'] . '/' . $currentPicture;
+                    if (($_FILES['picture']['size'] != 0)) {
+                        if (file_exists($file)) {
+                            unlink($file);
+                        }
+                        $folder = 'public/uploads/user_' . $_SESSION['userId'] . '/' . $_FILES['picture']['name'];
+                        move_uploaded_file($_FILES['picture']['tmp_name'], $folder);
+                    } else {
+                        $query = str_replace("`photo` = ''", "`photo` = '$currentPicture'", $query);
                     }
-                    $folder = 'public/uploads/user_' . $_SESSION['userId'] . '/' . $_FILES['picture']['name'];
-                    move_uploaded_file($_FILES['picture']['tmp_name'], $folder);
+                    return $query;
+                }
 
+                if(trim($_POST['password']) == '') { 
+                    $query = "UPDATE `user` SET 
+                        `name` = '" . $_POST['name'] . "', `surname` = '" . $_POST['surname'] . "', 
+                        `username` = '" . $_POST['username'] . "', `email` = '" . $_POST['email'] . "', 
+                        `photo` = '" . $_FILES['picture']['name'] . "', `phone` = '" . $_POST['phone'] . "' 
+                        WHERE `user`.`id` = " . $_SESSION['userId'] . "";
+                    $query = photoCheck($query);
+                } else {
                     $query = "UPDATE `user` SET 
                         `name` = '" . $_POST['name'] . "', `surname` = '" . $_POST['surname'] . "', 
                         `username` = '" . $_POST['username'] . "', `email` = '" . $_POST['email'] . "', 
                         `password` = '" . $password . "', `photo` = '" . $_FILES['picture']['name'] . "', 
                         `phone` = '" . $_POST['phone'] . "' WHERE `user`.`id` = " . $_SESSION['userId'] . "";
+                    $query = photoCheck($query);
                 }
+
                 $runnedQuery = $database->executeRun($query);
                 if($runnedQuery == true) {
                     $response = true;

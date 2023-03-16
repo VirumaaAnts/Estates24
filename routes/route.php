@@ -80,11 +80,12 @@
     else if($route == 'ad') {
         $userId = $_GET['user'];
         $adId = $_GET['ad'];
-        $fav = null;
-        if(isset($_GET['fav'])) {
-            $fav = $_GET['fav'];
+        $fav = $_GET['fav'];
+        $fav_status = null;
+        if(isset($_GET['fav_status'])) {
+            $fav_status = $_GET['fav_status'];
         }
-        RenderController::Ad($adId, $userId, $fav);
+        RenderController::Ad($adId, $userId, $fav, $fav_status);
         return;
     }
     // else if($route == 'addToFav') {

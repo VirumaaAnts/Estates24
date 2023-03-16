@@ -21,8 +21,9 @@ class ModelAd
         $adPhotos = $database->getAll(
             "SELECT * FROM photo WHERE houseId = $objectId ORDER BY id ASC"
         );
-        if ($adPhotos != null)
-            return array($object, $owner, $adPhotos);
+        if ($adPhotos == null) return;
+        return array($object, $owner, $adPhotos);
+        
     }
     public static function createAdv()
     {
@@ -79,8 +80,9 @@ class ModelAd
         $checkExisting = $database->getOne("SELECT * FROM `fav` WHERE objectId = $objectId AND userId = $userId");
         if($checkExisting == null) {
             $database->executeRun("INSERT INTO `fav` (userId, objectId) VALUES ($userId, $objectId)");
+            $_GET['fav'] = $userId;
+            // header('Location:'.$_SERVER['HTTP_REFERER']);
         }
-        header('Location:'.$_SERVER['HTTP_REFERER']);
     }
 }
 ?>

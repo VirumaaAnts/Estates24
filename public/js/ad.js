@@ -1,5 +1,6 @@
 $(document).ready(function() {
     let fav = false;
+
     $('#favCheckbox').change(function() {
         if($(this).is(':checked')) {
             fav = true;
@@ -13,4 +14,13 @@ $(document).ready(function() {
     $('#favForm').submit(function(e) {
         e.preventDefault();
     });
-})
+});
+window.addEventListener('locationchange', function () {
+    let favBool = $('#favBool').val();
+    console.log(favBool);
+    if(favBool != 'none') {
+        $('#favStar').addClass('fav-active');
+    } else {
+        $('#favStar').removeClass('fav-active');
+    }
+});

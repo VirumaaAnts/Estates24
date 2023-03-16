@@ -98,7 +98,7 @@ var login = $modal_window({
     content: `
         <div class='login modal_window'>
             <form action="loginRes" method='POST'>
-                <input type="text" class="form-control" name="user" id="email" placeholder="Email" autofocus required>
+                <input type="text" class="form-control" name="user" id="email" placeholder="Email or Username" autofocus required>
                 
                 <input type="password" class="form-control" name='log_password' id='log_password' placeholder="Password" required>
                 <div class="btn_container">

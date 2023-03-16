@@ -37,6 +37,7 @@
     <script src="public/js/modal.js" defer></script>
     <script src="public/js/filter.js" defer></script>
     <script src="public/js/maklerPage.js" defer></script>
+    <script src="public/js/ad.js"></script>
 </head>
 <body id = "body">
     <header>

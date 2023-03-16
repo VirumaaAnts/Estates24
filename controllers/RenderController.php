@@ -11,6 +11,7 @@ class RenderController
         fwrite($myfile, $txt);
         fclose($myfile);
         $data = ModelEstates::getThreeEstates();
+        $offers = ModelEstates::getThreeOffers();
         $countiesCities = ModelCountiesCities::getCountiesCities();
         include_once 'view/main.php';
     }
@@ -27,13 +28,17 @@ class RenderController
     public static function registrationForm() {
         include_once 'view/registration.php';
     }
-    public static function Ad($object, $owner, $fav, $fav_status) {
-        $data = ModelAd::getObjectData($object, $owner);
-        if($fav != 'none') {
-            
+    public static function Ad() {
+        $data = ModelAd::getObjectData($_GET['ad'], $_GET['user']);
+        $fav_status = null;
+        if(isset($_GET['fav_status'])) {
+            $fav_status = $_GET['fav_status'];
         }
         if($fav_status != null) {
-            ModelAd::CreateFav($object);
+            ModelAd::CreateFav($_GET['ad']);
+        }
+        if($_GET['fav'] == 'no') {
+            ModelAd::RemoveFavIfExists($_GET['ad']);
         }
         include_once 'view/ad.php';
     }

@@ -45,67 +45,67 @@
             <a href="index.php"><img src="images/logo.png" alt=""></a>
         </div>
         <?php
-            if(isset($_SESSION['error'])){
-                echo $_SESSION['error'];
-                unset($_SESSION['error']);
-            }elseif (isset($error)) {
-                echo $error;
-                unset($error);
-            }
-            if(isset($message)) {
-                echo $message;
-            }
+        if (isset($_SESSION['error'])) {
+            echo $_SESSION['error'];
+            unset($_SESSION['error']);
+        } elseif (isset($error)) {
+            echo $error;
+            unset($error);
+        }
+        if (isset($message)) {
+            echo $message;
+        }
         ?>
         <div class="buttonContainer">
             <div class="linksContainer">
                 <a href="macklers">Маклеры</a>
             </div>
             <?php
-                if (isset($_SESSION['status'])) {
-                    echo '
+            if (isset($_SESSION['status'])) {
+                echo '
                     <div class="linksContainer">
                         <a href="profile">Профиль</a>
                     </div>
-                    ';
-                }
+                    <div class="favouritesContainer">
+                        <a href="favourites"><img src="images/pngimg.com - like_PNG61.png" alt=""></a>
+                    </div>
+                ';
+            }
             ?>
-            <div class="favouritesContainer">
-                <a href="favourites"><img src="images/pngimg.com - like_PNG61.png" alt=""></a>
-            </div>
             <div>
                 <?php
-                    if (!isset($_SESSION['status'])) {
-                        echo '
+                if (!isset($_SESSION['status'])) {
+                    echo '
                         <a class="addAdvToLog">Добавить объявление</a>
-                        ';
-                    }else{
-                        echo '
+                    ';
+                } else {
+                    echo '
                         <a class="addAdv" href = "addAdv">Добавить объявление</a>
-                        ';
-                    }
+                    ';
+                }
                 ?>
             </div>
             <?php
-                if (isset($_SESSION['status'])) {
-                    echo '
+            if (isset($_SESSION['status'])) {
+                echo '
                     <div class="loginContainer">
                         <a class="logout" href="logout">Выйти</a>
-                    ';
-                }else{
-                    echo '
+                ';
+            } else {
+                echo '
                     <div class="loginContainer">
                         <a class="login">Войти</a>
-                    ';
-                }
+                ';
+            }
             ?>
         </div>
 
     </header>
     <main>
         <?php
-            if (isset($content)) {
-                echo $content;
-            }
+        if (isset($content)) {
+            echo $content;
+        }
         ?>
     </main>
 </body>

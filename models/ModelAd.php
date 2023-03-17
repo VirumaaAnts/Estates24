@@ -76,19 +76,23 @@ class ModelAd
     public static function CreateFav($objectId)
     {
         $database = new database();
-        $userId = $_SESSION['userId'];
-        $checkExisting = $database->getOne("SELECT * FROM `fav` WHERE objectId = $objectId AND userId = $userId");
-        if($checkExisting == null) {
-            $database->executeRun("INSERT INTO `fav` (userId, objectId) VALUES ($userId, $objectId)");
+        if(isset($_SESSION['userId'])) {
+            $userId = $_SESSION['userId'];
+            $checkExisting = $database->getOne("SELECT * FROM `fav` WHERE objectId = $objectId AND userId = $userId");
+            if($checkExisting == null) {
+                $database->executeRun("INSERT INTO `fav` (userId, objectId) VALUES ($userId, $objectId)");
+            }
         }
     }
     public static function RemoveFavIfExists($objectId)
     {
         $database = new database();
-        $userId = $_SESSION['userId'];
-        $checkExisting = $database->getOne("SELECT * FROM `fav` WHERE `objectId` = $objectId AND `userId` = $userId");
-        if($checkExisting != null) {
-            $database->executeRun("DELETE FROM `fav` WHERE `userId` = $userId AND `objectId` = $objectId");
+        if(isset($_SESSION['userId'])) {
+            $userId = $_SESSION['userId'];
+            $checkExisting = $database->getOne("SELECT * FROM `fav` WHERE `objectId` = $objectId AND `userId` = $userId");
+            if($checkExisting != null) {
+                $database->executeRun("DELETE FROM `fav` WHERE `userId` = $userId AND `objectId` = $objectId");
+            }
         }
     }
 }

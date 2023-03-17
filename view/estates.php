@@ -15,8 +15,16 @@
             <?php
             if(is_iterable($data)){
                 foreach ($data[0] as $estate) {
+                    if($estate['fav'] == 'none') {
+                        echo "
+                            <div class='ad' page='ad?user=".$estate['ownerId']."&ad=".$estate['id']."'>
+                        ";
+                    } else {
+                        echo "
+                            <div class='ad' page='ad?user=".$estate['ownerId']."&ad=".$estate['id']."&fav=".$estate['fav']."'>
+                        ";
+                    }
                     echo "
-                    <div class='ad' page='ad?user=".$estate['ownerId']."&ad=".$estate['id']."&fav=".$estate['fav']."'>
                         <div class='slider' show='1' scroll='1' time='300'>
                             <ul>";
                                 foreach ($data[1] as $photo) {

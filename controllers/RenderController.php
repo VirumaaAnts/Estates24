@@ -30,15 +30,17 @@ class RenderController
     }
     public static function Ad() {
         $data = ModelAd::getObjectData($_GET['ad'], $_GET['user']);
-        $fav_status = null;
-        if(isset($_GET['fav_status'])) {
-            $fav_status = $_GET['fav_status'];
-        }
-        if($fav_status != null) {
-            ModelAd::CreateFav($_GET['ad']);
-        }
-        if($_GET['fav'] == 'no') {
-            ModelAd::RemoveFavIfExists($_GET['ad']);
+        if(isset($_SESSION['userId'])) {
+            $fav_status = null;
+            if(isset($_GET['fav_status'])) {
+                $fav_status = $_GET['fav_status'];
+            }
+            if($fav_status != null) {
+                ModelAd::CreateFav($_GET['ad']);
+            }
+            if($_GET['fav'] == 'no') {
+                ModelAd::RemoveFavIfExists($_GET['ad']);
+            }
         }
         include_once 'view/ad.php';
     }

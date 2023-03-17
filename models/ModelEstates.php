@@ -11,12 +11,16 @@
                     INNER JOIN city on object.cityId = city.id AND object.id = ".$estates[$i]['id']);
                 $estates[$i]['city'] = $cityId['name'];
 
-                $fav = $database->getOne("SELECT * FROM fav 
-                    WHERE userId = ".$_SESSION['userId']." AND objectId = ".$estates[$i]['id']);
-                if($fav == null) { 
-                    $estates[$i]['fav'] = 'no'; 
-                } else { 
-                    $estates[$i]['fav'] = 'yes';
+                if(isset($_SESSION['userId'])) {
+                    $fav = $database->getOne("SELECT * FROM fav 
+                        WHERE userId = ".$_SESSION['userId']." AND objectId = ".$estates[$i]['id']);
+                    if($fav == null) { 
+                        $estates[$i]['fav'] = 'no'; 
+                    } else { 
+                        $estates[$i]['fav'] = 'yes';
+                    }
+                } else {
+                    $estates[$i]['fav'] = 'none'; 
                 }
             };
             return [$estates, $photo];
@@ -32,12 +36,16 @@
                     INNER JOIN city on object.cityId = city.id AND object.id = ".$estates[$i]['id']);
                 $estates[$i]['city'] = $cityId['name'];
 
-                $fav = $database->getOne("SELECT * FROM fav 
-                    WHERE userId = ".$_SESSION['userId']." AND objectId = ".$estates[$i]['ownerId']);
-                if($fav == null) { 
-                    $estates[$i]['fav'] = 'no'; 
-                } else { 
-                    $estates[$i]['fav'] = 'yes';
+                if(isset($_SESSION['userId'])) {
+                    $fav = $database->getOne("SELECT * FROM fav 
+                        WHERE userId = ".$_SESSION['userId']." AND objectId = ".$estates[$i]['ownerId']);
+                    if($fav == null) { 
+                        $estates[$i]['fav'] = 'no'; 
+                    } else { 
+                        $estates[$i]['fav'] = 'yes';
+                    }
+                } else {
+                    $estates[$i]['fav'] = 'none';
                 }
             };
             return [$estates, $photo];
@@ -53,12 +61,16 @@
                 INNER JOIN city on object.cityId = city.id AND object.id = ".$estates[$i]['id']);
                 $estates[$i]['city'] = $cityId['name'];
 
-                $fav = $database->getOne("SELECT * FROM fav 
-                    WHERE userId = ".$_SESSION['userId']." AND objectId = ".$estates[$i]['ownerId']);
-                if($fav == null) { 
-                    $estates[$i]['fav'] = 'no'; 
-                } else { 
-                    $estates[$i]['fav'] = 'yes';
+                if(isset($_SESSION['userId'])) {
+                    $fav = $database->getOne("SELECT * FROM fav 
+                        WHERE userId = ".$_SESSION['userId']." AND objectId = ".$estates[$i]['ownerId']);
+                    if($fav == null) { 
+                        $estates[$i]['fav'] = 'no'; 
+                    } else { 
+                        $estates[$i]['fav'] = 'yes';
+                    }
+                } else {
+                    $estates[$i]['fav'] = 'none';
                 }
             };
             return [$estates, $photo];

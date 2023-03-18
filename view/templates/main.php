@@ -66,8 +66,8 @@
                     <div class="linksContainer">
                         <a href="profile">Профиль</a>
                     </div>
-                    <div class="favouritesContainer">
-                        <a href="favourites"><img src="images/pngimg.com - like_PNG61.png" alt=""></a>
+                    <div class="favoritesContainer">
+                        <a href="favorites"><img src="images/pngimg.com - like_PNG61.png" alt=""></a>
                     </div>
                 ';
             }

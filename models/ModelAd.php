@@ -11,18 +11,24 @@ class ModelAd
             "SELECT name FROM city WHERE id = $object[cityId]"
         );
         $object["city"] = $city["name"];
-        if ($object == null)
-            return;
+        if ($object == null) return;
         $owner = $database->getOne(
             "SELECT * FROM user WHERE id = " . $ownerId
         );
-        if ($owner == null)
-            return;
+        if ($owner == null) return;
         $adPhotos = $database->getAll(
             "SELECT * FROM photo WHERE houseId = $objectId ORDER BY id ASC"
         );
         if ($adPhotos == null) return;
-        return array($object, $owner, $adPhotos);
+
+        if(isset($_SESSION['userId'])) {
+            $fav = $database->getOne(
+                "SELECT * FROM fav WHERE objectId = $object[id] AND userId = $_SESSION[userId]"
+            );
+        } else {
+            $fav = null;
+        }
+        return array($object, $owner, $adPhotos, $fav);
         
     }
     public static function createAdv()

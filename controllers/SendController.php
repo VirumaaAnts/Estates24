@@ -30,12 +30,12 @@ class SendController
     public static function Logout(){
         ModelUser::UserLogout();
         $_SESSION['error'] = "<p style='color:black;font-weight:900;margin-left:20px'>Вы вышли жестко!</p>";
-        if(header('Location: .')){
-            session_destroy();
-        }
-        // if(header('Location:'.$_SERVER['HTTP_REFERER'])){
+        // if(header('Location: .')){
         //     session_destroy();
         // }
+        if(header('Location:'.$_SERVER['HTTP_REFERER'])){
+            session_destroy();
+        }
     }
     public static function CreateObj(){
         $obj = ModelAd::createAdv();

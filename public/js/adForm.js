@@ -58,18 +58,17 @@ $(document).ready(function () {
             $('#adHeat').attr('required', 'required');
             $('#adTerritory').attr('required', 'required');
         }
-        else if($(this).val() == 'Apartment') {
-            $('#adFloorCount').parent().hide();       
+        else if($(this).val() == 'Apartment') {   
             $('#adTerritory').parent().hide();
             $('#adBasement').parent().hide();
 
-            $('#adFloorCount').removeAttr('required', 'required');
             $('#adTerritory').removeAttr('required', 'required');
 
             $('#adFloor').attr('required', 'required');
             $('#adYear').attr('required', 'required');
             $('#adConditions').attr('required', 'required');
             $('#adHeat').attr('required', 'required');
+            $('#adFloorCount').attr('required', 'required');
         }
         else if($(this).val() == 'Garage') {
             $('#adRoomCount').parent().hide();
@@ -105,9 +104,23 @@ $(document).ready(function () {
 
             $('#adTerritory').attr('required', 'required');
         }
-        else if($(this).val() == 'Part' || $(this).val() == 'Summer house') {
+        else if($(this).val() == 'Part') {
             $('#adFloorCount').parent().hide();
             $('#adFloorCount').removeAttr('required');
+
+            $('#adRoomCount').attr('required', 'required');
+            $('#adFloor').attr('required', 'required');
+            $('#adTerritory').attr('required', 'required');
+            $('#adYear').attr('required', 'required');
+            $('#adConditions').attr('required', 'required');
+            $('#adHeat').attr('required', 'required');
+        }
+        else if($(this).val() == 'Summer house') {
+            $('#adFloorCount').parent().hide();
+            $('#adFloor').parent().hide();
+
+            $('#adFloorCount').removeAttr('required');
+            $('#adFloor').removeAttr('required', 'required');
 
             $('#adRoomCount').attr('required', 'required');
             $('#adFloor').attr('required', 'required');

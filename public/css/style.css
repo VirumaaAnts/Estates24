@@ -362,6 +362,9 @@ main .content>h2 {
 .content>aside .types .type .name {
   width: 100%;
   text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .place {
@@ -559,6 +562,7 @@ main .ads .ad, main .ads .offer {
 
 .Ad .inf li p {
   margin: 0;
+  text-transform: none;
 }
 
 .Ad .inf form {

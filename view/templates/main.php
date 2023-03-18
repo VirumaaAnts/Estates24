@@ -58,13 +58,13 @@
         ?>
         <div class="buttonContainer">
             <div class="linksContainer">
-                <a href="macklers">Маклеры</a>
+                <a href="macklers">Brokers</a>
             </div>
             <?php
             if (isset($_SESSION['status'])) {
                 echo '
                     <div class="linksContainer">
-                        <a href="profile">Профиль</a>
+                        <a href="profile">Profile</a>
                     </div>
                     <div class="favoritesContainer">
                         <a href="favorites"><img src="images/pngimg.com - like_PNG61.png" alt=""></a>
@@ -76,11 +76,11 @@
                 <?php
                 if (!isset($_SESSION['status'])) {
                     echo '
-                        <a class="addAdvToLog">Добавить объявление</a>
+                        <a class="addAdvToLog">Add advertisement</a>
                     ';
                 } else {
                     echo '
-                        <a class="addAdv" href = "addAdv">Добавить объявление</a>
+                        <a class="addAdv" href="addAdv">Add advertisement</a>
                     ';
                 }
                 ?>
@@ -89,12 +89,12 @@
             if (isset($_SESSION['status'])) {
                 echo '
                     <div class="loginContainer">
-                        <a class="logout" href="logout">Выйти</a>
+                        <a class="logout" href="logout">Log out</a>
                 ';
             } else {
                 echo '
                     <div class="loginContainer">
-                        <a class="login">Войти</a>
+                        <a class="login">Log in</a>
                 ';
             }
             ?>

@@ -8,9 +8,13 @@ class ModelAd
             "SELECT * FROM object WHERE object.id = $objectId"
         );
         $city = $database->getOne(
-            "SELECT name FROM city WHERE id = $object[cityId]"
+            "SELECT name, countyId FROM city WHERE id = $object[cityId]"
+        );
+        $county = $database->getOne(
+            "SELECT name FROM county WHERE id = $city[countyId]"
         );
         $object["city"] = $city["name"];
+        $object["county"] = $county["name"];
         if ($object == null) return;
         $owner = $database->getOne(
             "SELECT * FROM user WHERE id = " . $ownerId

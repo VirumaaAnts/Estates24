@@ -75,18 +75,18 @@
             };
             return [$estates, $photo];
        }
-       public static function getFavourites() {
+       public static function getfavorites() {
             $database = new database();
             $photo = $database -> getAll("SELECT * FROM photo ORDER BY id ASC");
             if($photo == null) return;
-            $favourites = $database -> getAll("SELECT * FROM fav WHERE userId = ".$_SESSION['userId']." ORDER BY id ASC");
-            if($favourites == null) return;
+            $favorites = $database -> getAll("SELECT * FROM fav WHERE userId = ".$_SESSION['userId']." ORDER BY id ASC");
+            if($favorites == null) return;
             $estates = array();
-            for ($i = 0; $i < count($favourites); $i++) {
-                $estate = $database -> getOne("SELECT * FROM object WHERE id = ".$favourites[$i]['objectId']);
+            for ($i = 0; $i < count($favorites); $i++) {
+                $estate = $database -> getOne("SELECT * FROM object WHERE id = ".$favorites[$i]['objectId']);
                 $city = $database -> getOne("SELECT city.name as city FROM object 
                     INNER JOIN city on object.cityId = city.id AND object.id = ".$estate['id']);
-                $estate['cityId'] = $city['name'];
+                $estate['city'] = $city['city'];
                 array_push($estates, $estate);
             };
             return [$estates, $photo];

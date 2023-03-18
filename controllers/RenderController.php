@@ -60,9 +60,9 @@ class RenderController
         $countiesCities = ModelCountiesCities::getCountiesCities();
         include_once 'view/estatesByFilter.php';
     }
-    public static function Favourites() {
-        $favourites = ModelEstates::getFavourites();
-        include_once 'view/favourites.php';
+    public static function Favorites() {
+        $favorites = ModelEstates::getFavorites();
+        include_once 'view/favorites.php';
     }
     public static function ErrorPage() {
         include_once 'view/error.php';

@@ -20,8 +20,8 @@
             RenderController::Profile();
             return;
         }
-        else if($route == 'favourites') {
-            RenderController::Favourites();
+        else if($route == 'favorites') {
+            RenderController::Favorites();
             return;
         }
         else if($route == 'editProfile') {
@@ -77,9 +77,13 @@
         RenderController::FilterPage();
         return;
     }
+    // else if($route == 'error404') {
+    //     RenderController::ErrorPage();
+    // }
 
     else {
-        RenderController::ErrorPage();
+        // header('Location: ./error404');
+        header('Location: .');
         return;
     }
 ?>

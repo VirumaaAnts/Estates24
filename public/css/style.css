@@ -1,5 +1,5 @@
 :root {
-  --index: calc(1vw*1vh);
+  --index: calc(1vw * 1vh);
 }
 
 /* ----------------------------- error page ------------------- */
@@ -12,6 +12,7 @@
   flex-wrap: wrap;
   margin: 0 auto;
 }
+
 .error_page div {
   width: 50%;
   height: 60%;
@@ -21,16 +22,20 @@
   justify-content: center;
   flex-wrap: wrap;
 }
+
 .error_page div:nth-child(2) {
   height: 35%;
 }
+
 .error_page div p {
   width: 100%;
   font-size: 24px;
 }
+
 .error_page div p:first-child {
   font-size: 42px;
 }
+
 .error_page div img {
   height: 100%;
   object-fit: contain;
@@ -48,7 +53,7 @@
   opacity: 0;
   z-index: -1;
   pointer-events: none;
-  transition: opacity .2s ease-in;
+  transition: opacity 0.2s ease-in;
 }
 
 .modal__content {
@@ -227,18 +232,18 @@
   border-bottom-left-radius: 0.3rem;
 }
 
-
 /* ------------------------------------------ body */
 
 body {
   margin: 0;
-  font-family: 'Rubik', sans-serif;
+  font-family: "Rubik", sans-serif;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   overflow-x: hidden;
   min-height: 100vh !important;
 }
+
 /* ================================back for pages============================= */
 .main_back {
   width: 100%;
@@ -256,6 +261,7 @@ body {
   opacity: 0.5;
   filter: blur(4px);
 }
+
 .back {
   width: 100%;
   position: absolute;
@@ -269,9 +275,10 @@ body {
 
 .back img {
   width: 100%;
+  filter: blur(3px) brightness(65%);
 }
-/* ================================back for pages============================= */
 
+/* ================================back for pages============================= */
 
 main {
   width: 100%;
@@ -294,8 +301,9 @@ main .content > h2 {
   width: 100%;
   text-align: center;
   align-items: baseline;
-  font-weight: 400;
+  font-weight: 500;
   margin: 30px 0px;
+  text-transform: capitalize;
 }
 
 /* ==================================aside for search===========================*/
@@ -312,10 +320,12 @@ main .content > h2 {
   top: 10vmin;
   margin-right: 5%;
 }
-.content >aside p{
+
+.content > aside p {
   margin: 0;
 }
-.content > aside .types  {
+
+.content > aside .types {
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -353,16 +363,19 @@ main .content > h2 {
   width: 100%;
   text-align: center;
 }
+
 .place {
   margin: 20px auto;
   display: flex;
   justify-content: space-between;
 }
-.place select{
+
+.place select {
   width: 48%;
   height: 4vmin;
   font-size: 2vmin;
 }
+
 .parametrs div p {
   margin: 0;
   padding: 0;
@@ -391,6 +404,7 @@ aside form button {
   font-size: 32px;
   width: 100%;
 }
+
 /* ==================================aside for search=========================== */
 
 main .estates {
@@ -431,6 +445,7 @@ main .ads .ad {
 .ads .ad .estate_inf p:nth-child(2) {
   text-transform: capitalize;
 }
+
 .ads .ad .estate_inf p {
   font-size: 2vmin;
 }
@@ -441,10 +456,11 @@ main .ads .ad {
   font-weight: 900;
 }
 
-.ads>.btn_container {
+.ads > .btn_container {
   width: 100%;
 }
-.ads>.btn_container a {
+
+.ads > .btn_container a {
   width: fit-content;
   height: 62px;
   margin: 10px 0px;
@@ -453,9 +469,8 @@ main .ads .ad {
   font-size: 3vmin;
 }
 
-
 /* =============================ad page=================================== */
-.Ad{
+.Ad {
   width: 100%;
   padding: 0px 10%;
   display: flex;
@@ -464,27 +479,34 @@ main .ads .ad {
   background-color: rgb(246, 246, 246);
   position: relative;
 }
+
 .Ad h1 {
   width: 100%;
   text-align: center;
   text-transform: capitalize;
+  font-size: 5vmin;
+  margin: 20px 0;
 }
-.Ad h1{
+
+.Ad h1 {
   font-size: 5.5vmin;
   font-weight: 500;
 }
-.Ad h2{
+
+.Ad h2 {
   font-size: 3.5vmin;
   color: grey;
   font-weight: 400;
-
 }
-.Ad .picture{
+
+.Ad .picture {
   width: 70%;
 }
-.Ad .slider > img{
+
+.Ad .slider > img {
   width: 5% !important;
 }
+
 .fav_btn {
   width: 95px;
   height: 95px;
@@ -492,76 +514,93 @@ main .ads .ad {
   top: 50px;
   right: 80px;
 }
+
 .fav_btn img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   cursor: pointer;
   filter: brightness(50%);
-  transform: scale(0.90);
-  transition: ease all .3s;
+  transform: scale(0.9);
+  transition: ease all 0.3s;
 }
+
 .fav_btn img:hover {
   filter: brightness(90%);
   transform: scale(1.02) rotate(5deg);
 }
+
 .fav_btn input {
   display: none;
 }
+
 .fav-active {
   filter: brightness(90%) !important;
 }
-.Ad .inf{
+
+.Ad .inf {
   list-style: none;
   width: 28%;
   padding: 0;
 }
-.Ad .inf li{
+
+.Ad .inf li {
   font-size: 2.5vmin;
   text-transform: capitalize;
   width: 100%;
   margin: 0;
   padding: 0px 10px;
 }
-.Ad .inf li:nth-child(2n-1){
+
+.Ad .inf li:nth-child(2n-1) {
   background-color: #0000000e;
 }
-.Ad .inf li p{
+
+.Ad .inf li p {
   margin: 0;
 }
-.Ad .inf form{
+
+.Ad .inf form {
   width: 100%;
   padding: 10px 20px;
   font-size: 2vmin;
 }
-.Ad .inf form h3{
+
+.Ad .inf form h3 {
   text-transform: none;
 }
-.Ad .inf input{
+
+.Ad .inf input {
   margin-bottom: 15px;
   width: 100%;
 }
-.Ad .inf input::placeholder{
+
+.Ad .inf input::placeholder {
   text-align: center;
 }
+
 .Ad .inf input:placeholder-shown {
   text-align: left;
 }
+
 .adBasement_container {
   width: 95% !important;
-  padding: 0.375rem 0.60rem !important;
+  padding: 0.375rem 0.6rem !important;
   margin: 15px 10px;
   border-bottom: 2px solid #fafafa;
   border-radius: 3px;
   display: flex;
 }
+
 .adBasement_container label {
   width: 92%;
 }
+
 .adBasement_container input {
   width: 8% !important;
 }
-.Ad .inf textarea{
+
+.Ad .inf textarea {
   resize: none;
   width: 100%;
   height: 15vmin;
@@ -569,22 +608,27 @@ main .ads .ad {
   margin-bottom: 10px;
   box-sizing: border-box;
 }
-.Ad .des{
+
+.Ad .des {
   width: 70%;
   margin-top: 30px;
 }
-.Ad .des h3{
+
+.Ad .des h3 {
   font-size: 2.5vmin;
   font-weight: 300;
 }
-.Ad .des p{
+
+.Ad .des p {
   font-size: 1.8vmin;
   font-weight: 100;
 }
+
 .no_offers {
   margin-top: 20px;
   font-size: 26px;
 }
+
 /* =============================ad page=================================== */
 
 /* ------------ Registration page --------------- */
@@ -597,11 +641,13 @@ main .ads .ad {
   flex-wrap: wrap;
   margin-top: 75px;
 }
+
 #registrationPage h1 {
   width: 100%;
   text-align: center;
   margin: 25px 0;
 }
+
 #registrationPage form {
   width: 650px;
   display: flex;
@@ -615,25 +661,31 @@ main .ads .ad {
   padding: 15px;
   background-color: white;
 }
+
 #registrationPage form div,
 #registrationPage form div > div {
   width: 45%;
 }
+
 #registrationPage form .input-group {
   width: 100%;
   margin: 0;
   display: flex;
   align-items: center;
 }
+
 #registrationPage form .input-group input {
   margin: 0;
 }
+
 #registrationPage form .input-group-text {
   height: 100% !important;
 }
+
 #registrationPage form div input {
   margin: 20px 0;
 }
+
 #registrationPage form .btn_container {
   width: 100%;
   display: flex;
@@ -641,32 +693,35 @@ main .ads .ad {
   justify-content: flex-end;
   margin-top: 0;
 }
+
 #registrationPage form .btn_container input {
   margin: 0;
   width: 30%;
 }
 
 /* ==========================================adv form====================================== */
-.createAdv{
+.createAdv {
   width: 100%;
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
 }
-.createAdv h1{
-  width: 100%;
-  text-align: center;
+
+.createAdv h2 {
   margin-bottom: 55px;
 }
-.createAdv .picture{
+
+.createAdv .picture {
   width: 70%;
   position: sticky;
 }
-.createAdv > ul{
+
+.createAdv > ul {
   list-style: none;
   width: 25%;
 }
-.createAdv > ul li{
+
+.createAdv > ul li {
   width: 100%;
   display: flex;
   align-items: center;
@@ -675,17 +730,19 @@ main .ads .ad {
   position: relative;
   background-color: rgba(0, 0, 0, 0.02);
 }
+
 /* .createAdv > ul li:nth-child(2n-1){background-color: rgba(0, 0, 0, 0.02);} */
-.createAdv > ul li span{
+.createAdv > ul li span {
   height: 51.6px !important;
 }
 
-.createAdv p{
+.createAdv p {
   margin: 0;
   position: absolute;
   right: 0px;
 }
-.createAdv input{
+
+.createAdv input {
   width: 100%;
   border: none;
   outline: none;
@@ -693,13 +750,16 @@ main .ads .ad {
   height: 5vmin;
   background: none;
 }
-.createAdv input[type="checkbox"]{
+
+.createAdv input[type="checkbox"] {
   height: 3vmin;
 }
-.createAdv input[type="file"]{
+
+.createAdv input[type="file"] {
   border: none;
 }
-.createAdv select{
+
+.createAdv select {
   width: 100%;
   height: 5vmin;
   border: none;
@@ -707,39 +767,47 @@ main .ads .ad {
   border-bottom: 1px solid black;
   background: none;
 }
-.createAdv .des{
+
+.createAdv .des {
   width: 100%;
 }
-.createAdv .des textarea{
+
+.createAdv .des textarea {
   width: 100%;
   height: 45vmin;
   resize: none;
   margin-bottom: 20px;
 }
+
 /* ==========================================adv form====================================== */
 
 /* ==============================================makler page===================================== */
-.mackler{
+.mackler {
   width: 20% !important;
 }
-.mackler select{
+
+.mackler select {
   width: 100%;
   margin-top: 10px;
   height: 5vmin;
   font-size: 2.1vmin;
-  text-align: center
+  text-align: center;
 }
-.mackler select:blank{
+
+.mackler select:blank {
   max-height: 10vh;
   overflow-y: scroll;
 }
+
 #county {
   margin-bottom: 10px;
 }
-.macklers{
+
+.macklers {
   width: 45%;
 }
-.macklers .agent{
+
+.macklers .agent {
   display: flex;
   justify-content: space-between;
   margin-bottom: 15px;
@@ -748,7 +816,8 @@ main .ads .ad {
   padding: 20px;
   background-color: white;
 }
-.macklers .picture{
+
+.macklers .picture {
   background-size: cover;
   background-position: center;
   width: 7vw;
@@ -756,7 +825,8 @@ main .ads .ad {
   border-radius: 5vw;
   border: 1px solid rgba(0, 0, 0, 0.285);
 }
-.macklers .inf{
+
+.macklers .inf {
   width: 30%;
   display: flex;
   align-items: center;
@@ -764,11 +834,13 @@ main .ads .ad {
   align-items: start;
   justify-content: center;
 }
-.macklers p{
+
+.macklers p {
   margin: 0;
   font-size: 1.8vmin;
 }
-.macklers a{
+
+.macklers a {
   width: 100%;
   text-align: center;
   padding: 10px 20px;
@@ -780,27 +852,31 @@ main .ads .ad {
   border: 2px solid black;
   transition-duration: 0.2s;
 }
-.macklers a:hover{
+
+.macklers a:hover {
   background-color: white;
   color: black;
 }
+
 /* ==============================================makler page===================================== */
 
 /* =================================================profile======================================== */
 
-.profile{
+.profile {
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
 }
-.profile h2{
+
+.profile h2 {
   width: 100%;
   text-align: center;
-  font-size: 7vmin;
+  font-size: 5vmin;
 }
-.profile .profile_img{
+
+.profile .profile_img {
   width: 20%;
   position: sticky;
   top: 0px;
@@ -810,54 +886,82 @@ main .ads .ad {
   background-position: center;
   background-size: cover;
 }
-.profile .profile_img input{
+
+.profile .profile_img input {
   opacity: 0;
   width: 100%;
   height: 100%;
   cursor: pointer;
 }
-.profile .profile_img img{
+
+.profile .profile_img img {
   width: 100%;
 }
-.profile .data{
+
+.profile .data {
   width: 30%;
   display: flex;
   flex-direction: column;
   margin-left: 5%;
 }
-.profile .data input{
+
+.profile .data input {
   width: 100%;
-  margin-bottom: 10px
+  margin-bottom: 10px;
 }
 
 /* =================================================profile======================================== */
 
-/* ==================================================favourites========================================== */
-.favourites{
+/* ==================================================favorites========================================== */
+.favorites {
   width: 60%;
 }
-.favourites .estate{
+
+.favorites .estate {
   width: 100%;
   display: flex;
   background-color: white;
-  
   margin-bottom: 15px;
+  border-radius: 0 5px 5px 0;
+  position: relative;
 }
-.favourites .slider{
+
+.favorites .estate .btn_container {
+  width: 20%;
+  position: absolute;
+  bottom: 15px;
+  right: 15px;
+}
+
+.favorites .estate .btn_container a {
+  width: 100%;
+  font-size: 2vmin;
+}
+
+.favorites .slider {
   width: 50% !important;
+  height: 100%;
 }
-.favourites .inf{
+
+.favorites .inf {
   padding: 20px;
   box-sizing: border-box;
-  border: 2px solid rgba(0, 0, 0, 0.285);
-  border-left: none;
+  /* border: 2px solid rgba(0, 0, 0, 0.285);
+  border-left: none; */
   flex-grow: 1;
   padding-left: 50px;
 }
-.favourites h3{
+
+.favorites .inf_text {
+  height: 50%;
+}
+
+.favorites h3 {
   font-size: 3vmin;
 }
-.favourites p{
+
+.favorites p {
   font-size: 2vmin;
 }
-/* ==================================================favourites========================================== */
+
+/* ==================================================favorites========================================== */

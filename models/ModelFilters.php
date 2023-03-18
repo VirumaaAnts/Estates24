@@ -1,8 +1,6 @@
 <?php
 class ModelFilters
 {
-    // IF AREA, ROOM_COUNT OR PRICE ARE NULL IN DB, 
-    // SO THE OBJECT WILL NOT APPEAR ON PAGE
     public static function getFilterObjects()
     {
         if (isset($_POST['towns'])) {
@@ -52,46 +50,37 @@ class ModelFilters
             return;
 
         if ($city != 0 && $city != 'none') {
-            $estates = $database->getAll("SELECT * FROM object
-                WHERE cityId=" . $city . "
-                AND roomCount >= " . $min_rooms . "
-                AND roomCount <= " . $max_rooms . "
-                OR roomCount is NULL
-                AND area >= " . $min_area . "
-                AND area <= " . $max_area . "
-                OR area is NULL
-                AND price >= " . $min_price . "
-                AND price <= " . $max_price . "
-                ORDER BY id ASC");
+            $estates = $database->getAll(
+                "SELECT * FROM object
+                WHERE cityId = $city
+                AND area BETWEEN $min_area AND $max_area
+                AND price BETWEEN $min_price AND $max_price
+                AND IFNULL(roomCount, 0) BETWEEN $min_rooms AND $max_rooms
+                ORDER BY id ASC"
+            );
         } elseif ($county != 0 && $county != 'none') {
-            $estates = $database->getAll("SELECT * FROM object
-                WHERE cityId IN (SELECT id FROM city WHERE countyId = " . $county . ")
-                AND roomCount >= " . $min_rooms . "
-                AND roomCount <= " . $max_rooms . "
-                OR roomCount is NULL
-                AND area >= " . $min_area . "
-                AND area <= " . $max_area . "
-                OR area is NULL
-                AND price >= " . $min_price . "
-                AND price <= " . $max_price . "
-                ORDER BY id ASC");
+            $estates = $database->getAll(
+                "SELECT * FROM object
+                WHERE cityId IN (SELECT id FROM city WHERE countyId = $county)
+                AND area BETWEEN $min_area AND $max_area
+                AND price BETWEEN $min_price AND $max_price
+                AND IFNULL(roomCount, 0) BETWEEN $min_rooms AND $max_rooms
+                ORDER BY id ASC"
+            );
         } else {
-            $estates = $database->getAll("SELECT * FROM object
-                WHERE roomCount >= " . $min_rooms . "
-                AND roomCount <= " . $max_rooms . "
-                OR roomCount is NULL
-                AND area >= " . $min_area . "
-                AND area <= " . $max_area . "
-                OR area is NULL
-                AND price >= " . $min_price . "
-                AND price <= " . $max_price . "
-                ORDER BY id ASC");
+            $estates = $database->getAll(
+                "SELECT * FROM object WHERE 
+                area BETWEEN $min_area AND $max_area
+                AND price BETWEEN $min_price AND $max_price
+                AND IFNULL(roomCount, 0) BETWEEN $min_rooms AND $max_rooms
+                ORDER BY id ASC"
+            );
         }
         if ($estates == null)
             return;
         for ($i = 0; $i < count($estates); $i++) {
             $cityId = $database->getOne("SELECT *, city.name as city FROM object
-                INNER JOIN city on object.cityId = city.id AND object.id = " . $estates[$i]['id']);
+                INNER JOIN city on object.cityId = city.id AND object.id = ". $estates[$i]['id']);
             $estates[$i]['city'] = $cityId['name'];
         }
         ;

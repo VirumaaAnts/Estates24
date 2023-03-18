@@ -1,7 +1,6 @@
 <?php
 class ModelUser
 {
-    // password_hash($password, PASSWORD_DEFAULT);
     public static function checkUser()
     {
         $test = false;

@@ -13,7 +13,7 @@
         <div class="ads">
             <h1 style="color: white;">All estates</h1>
             <?php
-            if(is_iterable($data)){
+            if(is_iterable($data)) {
                 foreach ($data[0] as $estate) {
                     if($estate['fav'] == 'none') {
                         echo "

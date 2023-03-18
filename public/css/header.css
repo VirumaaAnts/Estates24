@@ -104,5 +104,5 @@ h6 {
 
 .addAdv:hover, .addAdvToLog:hover {
     background-color: lightgrey;
-    color: black;
+    color: black !important;
 }

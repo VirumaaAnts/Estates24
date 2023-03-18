@@ -296,7 +296,7 @@ main .content {
   align-items: start;
 }
 
-main .content > h2 {
+main .content>h2 {
   font-size: 5vmin;
   width: 100%;
   text-align: center;
@@ -307,7 +307,7 @@ main .content > h2 {
 }
 
 /* ==================================aside for search===========================*/
-.content > aside {
+.content>aside {
   width: 25%;
   height: min-content;
   font-size: 1.8vmin;
@@ -321,18 +321,18 @@ main .content > h2 {
   margin-right: 5%;
 }
 
-.content > aside p {
+.content>aside p {
   margin: 0;
 }
 
-.content > aside .types {
+.content>aside .types {
   width: 100%;
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
 }
 
-.content > aside .types .type {
+.content>aside .types .type {
   width: 23%;
   display: flex;
   flex-direction: column;
@@ -347,19 +347,19 @@ main .content > h2 {
   margin-bottom: 1vmin;
 }
 
-.content > aside .types .type input {
+.content>aside .types .type input {
   display: none;
 }
 
-.content > aside .types .type:hover {
+.content>aside .types .type:hover {
   background-color: whitesmoke;
 }
 
-.content > aside .types .type img {
+.content>aside .types .type img {
   width: 80%;
 }
 
-.content > aside .types .type .name {
+.content>aside .types .type .name {
   width: 100%;
   text-align: center;
 }
@@ -423,44 +423,45 @@ main .ads h1 {
   width: 100%;
 }
 
-main .ads .ad {
+main .ads .ad, main .ads .offer {
   width: 31%;
   background-color: white;
   cursor: pointer;
   margin: 1%;
 }
 
-.ads .ad .estate_inf {
+.ads .ad .estate_inf, .ads .offer .estate_inf {
   display: flex;
   flex-direction: column;
   padding: 10px;
   box-sizing: border-box;
 }
 
-.ads .ad .estate_inf h2 {
+.ads .ad .estate_inf h2, .ads .offer .estate_inf h2 {
   font-size: 3vmin;
   text-transform: capitalize;
 }
 
-.ads .ad .estate_inf p:nth-child(2) {
+.ads .ad .estate_inf p:nth-child(2), 
+.ads .offer .estate_inf p:nth-child(2)  {
   text-transform: capitalize;
 }
 
-.ads .ad .estate_inf p {
+.ads .ad .estate_inf p, .ads .offer .estate_inf p {
   font-size: 2vmin;
 }
 
-.ads .ad .estate_inf h3 {
+.ads .ad .estate_inf h3, .ads .offer .estate_inf h3 {
   font-size: 2.5vmin;
   color: darkred;
   font-weight: 900;
 }
 
-.ads > .btn_container {
+.ads>.btn_container {
   width: 100%;
 }
 
-.ads > .btn_container a {
+.ads>.btn_container a {
   width: fit-content;
   height: 62px;
   margin: 10px 0px;
@@ -503,7 +504,7 @@ main .ads .ad {
   width: 70%;
 }
 
-.Ad .slider > img {
+.Ad .slider>img {
   width: 5% !important;
 }
 
@@ -663,7 +664,7 @@ main .ads .ad {
 }
 
 #registrationPage form div,
-#registrationPage form div > div {
+#registrationPage form div>div {
   width: 45%;
 }
 
@@ -716,12 +717,12 @@ main .ads .ad {
   position: sticky;
 }
 
-.createAdv > ul {
+.createAdv>ul {
   list-style: none;
   width: 25%;
 }
 
-.createAdv > ul li {
+.createAdv>ul li {
   width: 100%;
   display: flex;
   align-items: center;
@@ -732,7 +733,7 @@ main .ads .ad {
 }
 
 /* .createAdv > ul li:nth-child(2n-1){background-color: rgba(0, 0, 0, 0.02);} */
-.createAdv > ul li span {
+.createAdv>ul li span {
   height: 51.6px !important;
 }
 
@@ -913,6 +914,14 @@ main .ads .ad {
 /* =================================================profile======================================== */
 
 /* ==================================================favorites========================================== */
+.no_favorites {
+  width: 100%;
+  text-align: center;
+  margin-top: 25px;
+  font-size: 3vmin !important;
+  font-weight: 600;
+}
+
 .favorites {
   width: 60%;
 }

@@ -64,6 +64,8 @@ h6 {
     height: 100%;
     display: flex;
     align-items: center;
+    margin: 0 1.5vmin !important;
+    margin-top: -7px !important;
 }
 
 .favoritesContainer a {

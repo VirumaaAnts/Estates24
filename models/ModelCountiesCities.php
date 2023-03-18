@@ -9,7 +9,9 @@
 
             $typesCount = $database -> getAll("SELECT type, COUNT(type) as typeCount FROM object GROUP BY type ORDER BY id ASC");
             if($typesCount == null) return;
-            return [$county, $city, $typesCount];
+
+            $types = array('Apartment', 'House', 'Summer house', 'Garage', 'Land', 'Part');
+            return [$county, $city, $typesCount, $types];
        }
     }
 ?>

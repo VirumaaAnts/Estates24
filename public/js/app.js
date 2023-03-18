@@ -5,6 +5,12 @@ $(document).ready(function () {
             window.open($(this).attr("page"), "_blank")
         }
     });
+    $(".offer").click(function (e) {
+        e.preventDefault();
+        if (!$(e.target).hasClass("img_slider") && e.target.id != "right" && e.target.id != "left") {
+            window.open($(this).attr("page"), "_blank")
+        }
+    });
 });
 $(document).scroll(function () {
     let logoPos = 33.3;

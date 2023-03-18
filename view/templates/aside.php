@@ -1,138 +1,36 @@
 <aside>
     <form id="filters" action="findByFilters" method="POST">
         <div class="types">
-            <div class="type btn_filter">
-                <input type="checkbox" name="type" value="apartment">
-                <?php
-                if (is_iterable($countiesCities)) {
-                    $typeCheck = 0;
-                    foreach ($countiesCities[2] as $types) {
-                        if ($types['type'] == 'Apartment') {
-                            echo '<p class="types_count">' . $types['typeCount'] . '</p>';
-                            $typeCheck++;
-                            break;
+            <?php 
+            foreach ($countiesCities[3] as $type) {
+                echo "
+                    <div class='type btn_filter'>
+                        <input type='checkbox' name='type' value='".strtolower($type)."'>
+                        ";
+                        if (is_iterable($countiesCities)) {
+                            $typeCheck = 0;
+                            foreach ($countiesCities[2] as $types) {
+                                if ($types['type'] == $type) {
+                                    echo "<p class='types_count'>" . $types['typeCount'] . '</p>';
+                                    $typeCheck++;
+                                    break;
+                                }
+                            }
+                            if ($typeCheck == 0) {
+                                echo "<p>0</p>";
+                            }
+                        } else {
+                            echo "<p>0</p>";
                         }
-                    }
-                    if ($typeCheck == 0) {
-                        echo '<p>0</p>';
-                    }
-                } else {
-                    echo '<p>0</p>';
-                }
-                ?>
-                <img src="images/apartment.png" alt="">
-                <p class="name"><?php echo substr("Apartment", 0, 5) ?>...</p>
-            </div>
-            <div class="type btn_filter">
-                <input type="checkbox" name="type" value="house">
-                <?php
-                if (is_iterable($countiesCities)) {
-                    $typeCheck = 0;
-                    foreach ($countiesCities[2] as $types) {
-                        if ($types['type'] == 'House') {
-                            echo '<p class="types_count">' . $types['typeCount'] . '</p>';
-                            $typeCheck++;
-                            break;
-                        }
-                    }
-                    if ($typeCheck == 0) {
-                        echo '<p>0</p>';
-                    }
-                } else {
-                    echo '<p>0</p>';
-                }
-                ?>
-                <img src="images/home.png" alt="">
-                <p class="name"><?php echo substr("House", 0, 5) ?></p>
-            </div>
-            <div class="type btn_filter">
-                <input type="checkbox" name="type" value="summer house">
-                <?php
-                if (is_iterable($countiesCities)) {
-                    $typeCheck = 0;
-                    foreach ($countiesCities[2] as $types) {
-                        if ($types['type'] == 'Summer house') {
-                            echo '<p class="types_count">' . $types['typeCount'] . '</p>';
-                            $typeCheck++;
-                            break;
-                        }
-                    }
-                    if ($typeCheck == 0) {
-                        echo '<p>0</p>';
-                    }
-                } else {
-                    echo '<p>0</p>';
-                }
-                ?>
-                <img src="images/country_house.png" alt="">
-                <p class="name"><?php echo substr("Summer house", 0, 5) ?>...</p>
-            </div>
-            <div class="type btn_filter">
-                <input type="checkbox" name="type" value="garage">
-                <?php
-                if (is_iterable($countiesCities)) {
-                    $typeCheck = 0;
-                    foreach ($countiesCities[2] as $types) {
-                        if ($types['type'] == 'Garage') {
-                            echo '<p class="types_count">' . $types['typeCount'] . '</p>';
-                            $typeCheck++;
-                            break;
-                        }
-                    }
-                    if ($typeCheck == 0) {
-                        echo '<p>0</p>';
-                    }
-                } else {
-                    echo '<p>0</p>';
-                }
-                ?>
-                <img src="images/garage.png" alt="">
-                <p class="name"><?php echo substr("Garage", 0, 5) ?>...</p>
-            </div>
-            <div class="type btn_filter">
-                <input type="checkbox" name="type" value="land">
-                <?php
-                if (is_iterable($countiesCities)) {
-                    $typeCheck = 0;
-                    foreach ($countiesCities[2] as $types) {
-                        if ($types['type'] == 'Land') {
-                            echo '<p class="types_count">' . $types['typeCount'] . '</p>';
-                            $typeCheck++;
-                            break;
-                        }
-                    }
-                    if ($typeCheck == 0) {
-                        echo '<p>0</p>';
-                    }
-                } else {
-                    echo '<p>0</p>';
-                }
-                ?>
-                <img src="images/land.png" alt="">
-                <p class="name"><?php echo substr("Land", 0, 5) ?></p>
-            </div>
-            <div class="type btn_filter">
-                <input type="checkbox" name="type" value="part">
-                <?php
-                if (is_iterable($countiesCities)) {
-                    $typeCheck = 0;
-                    foreach ($countiesCities[2] as $types) {
-                        if ($types['type'] == 'Part') {
-                            echo '<p class="types_count">' . $types['typeCount'] . '</p>';
-                            $typeCheck++;
-                            break;
-                        }
-                    }
-                    if ($typeCheck == 0) {
-                        echo '<p>0</p>';
-                    }
-                } else {
-                    echo '<p>0</p>';
-                }
-                ?>
-                <img src="images/part.png" alt="">
-                <p class="name"><?php echo substr("Part", 0, 5) ?></p>
-            </div>
+                        $typeStrFormat = str_replace(' ', '_', strtolower($type));
+                        echo "
+                        <img src='images/$typeStrFormat.png' alt=''>
+                        <p class='name'>$type</p>
+                    </div>
+                ";
+            }
+            ?>
+            
         </div>
         <div class="place">
             <select name="county" id="county" class="form-control">

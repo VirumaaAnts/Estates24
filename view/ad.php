@@ -42,19 +42,33 @@ echo "
             </div>
         </div>
         <ul class='inf'>
-            <li><p>Местоположение: ".$data[0]['city']."</p></li>
-            <li><p>Тип недвижимости: ".$data[0]['type']."</p></li>
-            <li><p>Количество комнат: ".$data[0]['roomCount']."</p></li>
-            <li><p>Этажи: ".$data[0]['floorCount']."</p></li>
-            <li><p>Площадь: ".$data[0]['area']."m²</p></li>
-            <li><p>Цена: ".$data[0]['price']." €</p></li>
+            <li><p>Location: ".$data[0]['city'].", ".$data[0]['county']."maa</p></li>
+            <li><p>Property type: ".$data[0]['type']."</p></li>";
+            if($data[0]['basement'] == 1) {
+                $basement = 'available';
+            } else {
+                $basement = 'not available';
+            }
+            if($data[0]['type'] == 'House') {
+                echo "
+                    <li><p>Rooms: ".$data[0]['roomCount']."</p></li>
+                    <li><p>Floors: ".$data[0]['floorCount']."</p></li>
+                    <li><p>Heat system: ".$data[0]['heatSystem']."</p></li>
+                    <li><p>Conditions: ".$data[0]['conditions']."</p></li>
+                    <li><p>Basement: $basement</p></li>
+                    <li><p>Territory: ".$data[0]['territory']." m²</p></li>
+                ";
+            }
+            echo "
+            <li><p>Area: ".$data[0]['area']." m²</p></li>
+            <li><p>Price: ".$data[0]['price']." €</p></li>
             <li>
                 <form action=''>
-                    <h3>Запросить доп. информацию:</h3>
-                    <input type='text' name='name' class='form-control' id='name' placeholder='Имя' autocomplete='off'>
-                    <input type='email' name='email' class='form-control' id='email' placeholder='Е-мейл' autocomplete='off'>
-                    <input type='tel' name='tel' class='form-control' id='tel' placeholder='Телефон' autocomplete='off'>
-                    <textarea name='question' id='question' class='form-control' cols='30' rows='10' placeholder='Ваш вопрос'></textarea>
+                    <h3>Ask further information:</h3>
+                    <input type='text' name='name' class='form-control' id='name' placeholder='Name' autocomplete='off'>
+                    <input type='email' name='email' class='form-control' id='email' placeholder='Email' autocomplete='off'>
+                    <input type='tel' name='tel' class='form-control' id='tel' placeholder='Phone' autocomplete='off'>
+                    <textarea name='question' id='question' class='form-control' cols='30' rows='10' placeholder='Your question'></textarea>
                     <button class='btn btn-secondary w-100'>Send</button>
                 </form>
             </li>

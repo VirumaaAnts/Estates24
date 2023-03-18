@@ -45,9 +45,21 @@
                         </div>
                         <div class='estate_inf'>
                             <h2>".$estate['type']."</h2>
-                            <p>".$estate['city']."</p>
-                            <p>Number of rooms: ".$estate['roomCount']."</p>
-                            <p>Area: ".$estate['area']." m²</p>
+                            <p>".$estate['city']."</p>";
+                            if($estate['type'] == 'House' || $estate['type'] == 'Summer house' 
+                                || $estate['type'] == 'Apartment' || $estate['type'] == 'Part') {
+                                echo "<p>Number of rooms: ".$estate['roomCount']."</p>";
+                            } else if($estate['type'] == 'Garage') {
+                                echo "<p>Conditions: ".$estate['conditions']."</p>";
+                            } else if($estate['type'] == 'Land') {
+                                echo "<p>Territory: ".$estate['territory']."</p>";
+                            }
+                            if($estate['type'] == 'Apartment') {
+                                echo "<p>Floors: ".$estate['floorCount']."</p>";
+                            } else {
+                                echo "<p>Area: ".$estate['area']." m²</p>";
+                            }
+                            echo "
                             <h3>".$estate['price']." €</h3>
                         </div>
                     </div>

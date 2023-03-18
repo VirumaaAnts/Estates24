@@ -3,7 +3,7 @@ ob_start();
 ?>
 <script src="public/js/adForm.js"></script>
 <div class="content">
-    <h2>Добавить объявление</h2>
+    <h2>Create advertisement</h2>
     <form action="createObj" class="createAdv" enctype="multipart/form-data" method="post">
         <div class="picture">
             <div class='slider' show='1' scroll='1' time='200'>

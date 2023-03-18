@@ -10,6 +10,9 @@
                 $cityId = $database -> getOne("SELECT *, city.name as city FROM object 
                     INNER JOIN city on object.cityId = city.id AND object.id = ".$estates[$i]['id']);
                 $estates[$i]['city'] = $cityId['name'];
+                if($estates[$i]['roomCount'] == '') {
+                    $estates[$i]['roomCount'] = 1;
+                }
 
                 if(isset($_SESSION['userId'])) {
                     $fav = $database->getOne("SELECT * FROM fav 
@@ -35,6 +38,9 @@
                 $cityId = $database -> getOne("SELECT *, city.name as city FROM object 
                     INNER JOIN city on object.cityId = city.id AND object.id = ".$estates[$i]['id']);
                 $estates[$i]['city'] = $cityId['name'];
+                if($estates[$i]['roomCount'] == '') {
+                    $estates[$i]['roomCount'] = 1;
+                }
 
                 if(isset($_SESSION['userId'])) {
                     $fav = $database->getOne("SELECT * FROM fav 
@@ -60,6 +66,9 @@
                 $cityId = $database -> getOne("SELECT *, city.name as city FROM object 
                 INNER JOIN city on object.cityId = city.id AND object.id = ".$estates[$i]['id']);
                 $estates[$i]['city'] = $cityId['name'];
+                if($estates[$i]['roomCount'] == '') {
+                    $estates[$i]['roomCount'] = 1;
+                }
 
                 if(isset($_SESSION['userId'])) {
                     $fav = $database->getOne("SELECT * FROM fav 

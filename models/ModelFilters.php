@@ -50,32 +50,37 @@ class ModelFilters
             return;
 
         if ($city != 0 && $city != 'none') {
-            $estates = $database->getAll(
-                "SELECT * FROM object
+            $query = "SELECT * FROM object
                 WHERE cityId = $city
-                AND area BETWEEN $min_area AND $max_area
+                AND IFNULL(area, 0) BETWEEN $min_area AND $max_area
                 AND price BETWEEN $min_price AND $max_price
                 AND IFNULL(roomCount, 0) BETWEEN $min_rooms AND $max_rooms
-                ORDER BY id ASC"
-            );
+                AND offer = 0 ORDER BY id ASC";
+            if(isset($_GET['offers'])) {
+                $query = str_replace('offer = 0', 'offer = 1', $query);
+            }
         } elseif ($county != 0 && $county != 'none') {
-            $estates = $database->getAll(
-                "SELECT * FROM object
+            $query = "SELECT * FROM object
                 WHERE cityId IN (SELECT id FROM city WHERE countyId = $county)
-                AND area BETWEEN $min_area AND $max_area
+                AND IFNULL(area, 0) BETWEEN $min_area AND $max_area
                 AND price BETWEEN $min_price AND $max_price
                 AND IFNULL(roomCount, 0) BETWEEN $min_rooms AND $max_rooms
-                ORDER BY id ASC"
-            );
+                AND offer = 0 ORDER BY id ASC";
+            if(isset($_GET['offers'])) {
+                $query = str_replace('offer = 0', 'offer = 1', $query);
+            }
+
         } else {
-            $estates = $database->getAll(
-                "SELECT * FROM object WHERE 
-                area BETWEEN $min_area AND $max_area
+            $query = "SELECT * FROM object WHERE 
+                IFNULL(area, 0) BETWEEN $min_area AND $max_area
                 AND price BETWEEN $min_price AND $max_price
                 AND IFNULL(roomCount, 0) BETWEEN $min_rooms AND $max_rooms
-                ORDER BY id ASC"
-            );
+                AND offer = 0 OR offer = 1 ORDER BY id ASC";
+            if(isset($_GET['offers'])) {
+                $query = str_replace('offer = 0 OR ', '', $query);
+            }
         }
+        $estates = $database->getAll($query);
         if ($estates == null)
             return;
         for ($i = 0; $i < count($estates); $i++) {

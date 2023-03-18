@@ -2,13 +2,13 @@
     <form id="filters" action="findByFilters" method="POST">
         <div class="types">
             <div class="type btn_filter">
-                <input type="checkbox" name="type" value="apartmnent">
+                <input type="checkbox" name="type" value="apartment">
                 <?php
                 if (is_iterable($countiesCities)) {
                     $typeCheck = 0;
                     foreach ($countiesCities[2] as $types) {
                         if ($types['type'] == 'Apartment') {
-                            echo '<p>' . $types['typeCount'] . '</p>';
+                            echo '<p class="types_count">' . $types['typeCount'] . '</p>';
                             $typeCheck++;
                             break;
                         }
@@ -24,13 +24,13 @@
                 <p class="name"><?php echo substr("Apartment", 0, 5) ?>...</p>
             </div>
             <div class="type btn_filter">
-                <input type="checkbox" name="type" value="homes">
+                <input type="checkbox" name="type" value="house">
                 <?php
                 if (is_iterable($countiesCities)) {
                     $typeCheck = 0;
                     foreach ($countiesCities[2] as $types) {
                         if ($types['type'] == 'House') {
-                            echo '<p>' . $types['typeCount'] . '</p>';
+                            echo '<p class="types_count">' . $types['typeCount'] . '</p>';
                             $typeCheck++;
                             break;
                         }
@@ -46,13 +46,13 @@
                 <p class="name"><?php echo substr("House", 0, 5) ?></p>
             </div>
             <div class="type btn_filter">
-                <input type="checkbox" name="type" value="summer">
+                <input type="checkbox" name="type" value="summer house">
                 <?php
                 if (is_iterable($countiesCities)) {
                     $typeCheck = 0;
                     foreach ($countiesCities[2] as $types) {
                         if ($types['type'] == 'Summer house') {
-                            echo '<p>' . $types['typeCount'] . '</p>';
+                            echo '<p class="types_count">' . $types['typeCount'] . '</p>';
                             $typeCheck++;
                             break;
                         }
@@ -74,7 +74,7 @@
                     $typeCheck = 0;
                     foreach ($countiesCities[2] as $types) {
                         if ($types['type'] == 'Garage') {
-                            echo '<p>' . $types['typeCount'] . '</p>';
+                            echo '<p class="types_count">' . $types['typeCount'] . '</p>';
                             $typeCheck++;
                             break;
                         }
@@ -96,7 +96,7 @@
                     $typeCheck = 0;
                     foreach ($countiesCities[2] as $types) {
                         if ($types['type'] == 'Land') {
-                            echo '<p>' . $types['typeCount'] . '</p>';
+                            echo '<p class="types_count">' . $types['typeCount'] . '</p>';
                             $typeCheck++;
                             break;
                         }
@@ -118,7 +118,7 @@
                     $typeCheck = 0;
                     foreach ($countiesCities[2] as $types) {
                         if ($types['type'] == 'Part') {
-                            echo '<p>' . $types['typeCount'] . '</p>';
+                            echo '<p class="types_count">' . $types['typeCount'] . '</p>';
                             $typeCheck++;
                             break;
                         }

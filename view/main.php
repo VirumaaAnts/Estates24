@@ -67,11 +67,11 @@
                     foreach ($offers[0] as $estate) {
                         if($estate['fav'] == 'none') {
                             echo "
-                                <div class='ad' page='ad?user=".$estate['ownerId']."&ad=".$estate['id']."'>
+                                <div class='offer' page='ad?user=".$estate['ownerId']."&ad=".$estate['id']."'>
                             ";
                         } else {
                             echo "
-                                <div class='ad' page='ad?user=".$estate['ownerId']."&ad=".$estate['id']."&fav=".$estate['fav']."'>
+                                <div class='offer' page='ad?user=".$estate['ownerId']."&ad=".$estate['id']."&fav=".$estate['fav']."'>
                             ";
                         }
                         echo "

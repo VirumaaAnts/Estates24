@@ -910,9 +910,17 @@ main .ads .ad, main .ads .offer {
   margin-left: 5%;
 }
 
+.profile .data #changeProfile {
+  margin-top: 15px;
+}
+
 .profile .data input {
   width: 100%;
   margin-bottom: 10px;
+}
+
+.data hr {
+  margin: 7px;
 }
 /* =================================================profile======================================== */
 

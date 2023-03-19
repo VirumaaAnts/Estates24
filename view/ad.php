@@ -78,7 +78,7 @@ echo "
             if($data[0]['type'] == 'Garage') {
                 echo "
                     <li><p>Conditions: ".$data[0]['conditions']."</p></li>
-                    <li><p>Territory: ".$data[0]['territory']." m²</p></li>
+                    <li><p>Basement: $basement</p></li>
                 ";
             }
             if($data[0]['type'] == 'Land') {

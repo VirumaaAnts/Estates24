@@ -8,13 +8,19 @@ class SendController
         include_once 'view/registration.php';
     }
     public static function EditProfile() {
-        $response = ModelUser::editProfile();
-        if($response == true) {
-            $_SESSION['error'] = "<p style='color:green;font-weight:900;margin-left:20px'>Данные успешно изменены!</p>";
-        } else {
-            $_SESSION['error'] = "<p style='color:red;font-weight:900;margin-left:20px'>Заполните все обязательные поля!</p>";
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            $response = ModelUser::editProfile();
+                if($response == true) {
+                    if (isset($_POST['delete'])) {
+                        $_SESSION['error'] = "<p style='color:green;font-weight:900;margin-left:20px'>Данные успешно удалены!</p>";
+                    }else{
+                        $_SESSION['error'] = "<p style='color:green;font-weight:900;margin-left:20px'>Данные успешно изменены!</p>";
+                    }
+                }else{
+                    $_SESSION['error'] = "<p style='color:red;font-weight:900;margin-left:20px'>Попытка неудачна!</p>";
+                }
+            }
         }
-    }
     public static function Login()
     {
         $test = ModelUser::checkUser();

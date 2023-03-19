@@ -3,7 +3,7 @@
 ?>
 <script src="public/js/profile.js"></script>
 <form action="editProfile" method="POST" class="profile" enctype="multipart/form-data">
-    <h2>Update profile</h2>
+    <h2>Profile</h2>
     <div class="profile_img">
         <input type='file' name='picture' accept="image/png, image/jpeg, image/jpg" id='picture'>
         <?php 
@@ -22,7 +22,9 @@
             <input type='password' name='password' placeholder='Password' class='form-control'>
             "
         ?>
-        <button class="btn btn-primary" name="update">Update</button>
+        <button class="btn btn-primary" id = "changeProfile" name="update">Update</button>
+        <hr>
+        <button class="btn btn-danger" id = "deleteProfile" name="delete">Delete</button>
     </div>
 </form>
 <?php

@@ -879,6 +879,7 @@ main .ads .ad, main .ads .offer {
   width: 100%;
   text-align: center;
   font-size: 5vmin;
+  margin-bottom: 45px;
 }
 
 .profile .profile_img {
@@ -921,6 +922,68 @@ main .ads .ad, main .ads .offer {
 
 .data hr {
   margin: 7px;
+}
+
+.user_ads {
+  width: 60%;
+  margin: 0 auto;
+  margin-top: 80px;
+}
+
+.user_ads h2 {
+  text-align: center;
+  font-size: 4vmin;
+  margin: 50px;
+}
+
+.user_ads .estate {
+  width: 100%;
+  display: flex;
+  background-color: white;
+  margin-bottom: 15px;
+  border-radius: 0 5px 5px 0;
+  position: relative;
+  border: 1px solid #cccccc35;
+}
+
+.user_ads .estate .btn_container {
+  width: 45%;
+  position: absolute;
+  bottom: 15px;
+  right: 15px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.user_ads .estate .btn_container a {
+  width: 45%;
+  font-size: 2vmin;
+}
+
+.user_ads .slider {
+  width: 50% !important;
+  height: 100%;
+}
+
+.user_ads .inf {
+  padding: 20px;
+  box-sizing: border-box;
+  /* border: 2px solid rgba(0, 0, 0, 0.285);
+  border-left: none; */
+  flex-grow: 1;
+  padding-left: 50px;
+}
+
+.user_ads .inf_text {
+  height: 50%;
+}
+
+.user_ads h3 {
+  font-size: 3vmin;
+}
+
+.user_ads p {
+  font-size: 2vmin;
 }
 /* =================================================profile======================================== */
 

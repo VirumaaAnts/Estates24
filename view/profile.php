@@ -27,6 +27,49 @@
         <button class="btn btn-danger" id="deleteProfile" name="delete">Delete</button>
     </div>
 </form>
+<div class="user_ads">
+    <h2>My advertisements</h2>
+    <?php
+    if(is_iterable($userAds)) {
+        foreach ($userAds[0] as $estate) {
+            echo "
+            <div class='estate' page='ad?user=".$estate['ownerId']."&ad=".$estate['id']."'>
+                <div class='slider' show='1' scroll='1' time='200'>
+                    <ul>
+                        ";
+                            foreach ($userAds[1] as $photo) {
+                                if($photo['houseId'] == $estate['id']) {
+                                    echo "
+                                        <li>
+                                            <a href='public/uploads/user_".$estate['ownerId']."/ad_".$estate['id']."/".$photo['photo']."' data-lightbox='user1-9' data-title='".$photo['description']."'>
+                                                <div class='img_slider' style='background-image: url(public/uploads/user_".$estate['ownerId']."/ad_".$estate['id']."/".$photo['photo'].");'></div>
+                                            </a>
+                                        </li>
+                                    ";
+                                }
+                            }
+                        echo "
+                    </ul>
+                </div>
+                <div class='inf'>
+                    <div class='inf_text'>
+                        <h3>".$estate['address']."</h3>
+                        <p><span>City:</span> ".$estate['city']."</p>
+                        <p><span>Price:</span> ".$estate['price']." €</p>
+                    </div>
+                </div>
+                <div class='btn_container'>
+                    <a class='btn btn-primary' href='editAd'>Edit</a>
+                    <a class='btn btn-danger' href='deleteAd'>Delete</a>
+                </div>
+            </div>
+            ";
+        }
+    } else {
+        echo "<p class='no_favorites'>You do not have favorite estates yet.</p>";
+    }
+    ?>
+</div>
 <?php
     $content = ob_get_clean();
     include 'view/templates/main.php';

@@ -24,7 +24,7 @@
         ?>
         <button class="btn btn-primary" id="changeProfile" name="update">Update</button>
         <hr>
-        <button class="btn btn-danger" id="deleteProfile" name="delete">Delete</button>
+        <input type="button" class="btn btn-danger" id="deleteProfileCheck" name="deleteCheck" value="Delete">
     </div>
 </form>
 <div class="user_ads">
@@ -60,7 +60,7 @@
                 </div>
                 <div class='btn_container'>
                     <a class='btn btn-primary' href='editAd'>Edit</a>
-                    <a class='btn btn-danger' href='deleteAd'>Delete</a>
+                    <a class='btn btn-danger' href='deleteAd?ad=$estate[id]'>Delete</a>
                 </div>
             </div>
             ";

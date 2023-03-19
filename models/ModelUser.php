@@ -33,8 +33,8 @@ class ModelUser
     public static function editProfile()
     {
         $response = false;
+        $database = new database();
         if (isset($_POST['update'])) {
-            $database = new database();
             if(isset($_POST['password'])){
             } else {
                 $_POST['password'] = '';

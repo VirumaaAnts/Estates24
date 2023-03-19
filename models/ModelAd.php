@@ -78,6 +78,11 @@ class ModelAd
             }
         }
     }
+    public static function deleteAd()
+    {
+        $database = new database();
+        $database->executeRun("DELETE FROM `object` WHERE `ownerId` = $_SESSION[userId] AND `id` = $_GET[ad]");
+    }
     public static function GetCities()
     {
         $database = new database();

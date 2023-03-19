@@ -55,9 +55,12 @@ class ModelFilters
                 AND IFNULL(area, 0) BETWEEN $min_area AND $max_area
                 AND price BETWEEN $min_price AND $max_price
                 AND IFNULL(roomCount, 0) BETWEEN $min_rooms AND $max_rooms
-                AND offer = 0 ORDER BY id ASC";
+                ORDER BY id ASC";
             if(isset($_GET['offers'])) {
-                $query = str_replace('offer = 0', 'offer = 1', $query);
+                $query = str_replace(' ORDER BY id ASC', ' AND offer = 1 ORDER BY id ASC', $query);
+            }
+            if (isset($_POST['type'])) {
+                $query = str_replace(" AND price", "AND type = '".ucfirst($_POST['type'])."' AND price", $query);
             }
         } elseif ($county != 0 && $county != 'none') {
             $query = "SELECT * FROM object
@@ -65,19 +68,24 @@ class ModelFilters
                 AND IFNULL(area, 0) BETWEEN $min_area AND $max_area
                 AND price BETWEEN $min_price AND $max_price
                 AND IFNULL(roomCount, 0) BETWEEN $min_rooms AND $max_rooms
-                AND offer = 0 ORDER BY id ASC";
+                ORDER BY id ASC";
             if(isset($_GET['offers'])) {
-                $query = str_replace('offer = 0', 'offer = 1', $query);
+                $query = str_replace(' ORDER BY id ASC', ' AND offer = 1 ORDER BY id ASC', $query);
             }
-
+            if (isset($_POST['type'])) {
+                $query = str_replace(" AND price", "AND type = '".ucfirst($_POST['type'])."' AND price", $query);
+            }
         } else {
             $query = "SELECT * FROM object WHERE 
                 IFNULL(area, 0) BETWEEN $min_area AND $max_area
                 AND price BETWEEN $min_price AND $max_price
                 AND IFNULL(roomCount, 0) BETWEEN $min_rooms AND $max_rooms
-                AND offer = 0 OR offer = 1 ORDER BY id ASC";
+                ORDER BY id ASC";
             if(isset($_GET['offers'])) {
-                $query = str_replace('offer = 0 OR ', '', $query);
+                $query = str_replace(' ORDER BY id ASC', ' AND offer = 1 ORDER BY id ASC', $query);
+            }
+            if (isset($_POST['type'])) {
+                $query = str_replace(" AND price", "AND type = '".ucfirst($_POST['type'])."' AND price", $query);
             }
         }
         $estates = $database->getAll($query);
@@ -87,8 +95,19 @@ class ModelFilters
             $cityId = $database->getOne("SELECT *, city.name as city FROM object
                 INNER JOIN city on object.cityId = city.id AND object.id = ". $estates[$i]['id']);
             $estates[$i]['city'] = $cityId['name'];
+
+            if(isset($_SESSION['userId'])) {
+                $fav = $database->getOne("SELECT * FROM fav 
+                    WHERE userId = ".$_SESSION['userId']." AND objectId = ".$estates[$i]['id']);
+                if($fav == null) { 
+                    $estates[$i]['fav'] = 'no'; 
+                } else { 
+                    $estates[$i]['fav'] = 'yes';
+                }
+            } else {
+                $estates[$i]['fav'] = 'none';
+            }
         }
-        ;
         return [$estates, $photo];
     }
 }

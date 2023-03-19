@@ -35,8 +35,10 @@ class ModelUser
         $response = false;
         if (isset($_POST['update'])) {
             $database = new database();
-            $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
-
+            if(isset($_POST['password'])){
+            } else {
+                $_POST['password'] = '';
+            }
             // If user has cleared at least one important(NOT NULL) field then return
             if (
                 trim($_POST['name']) == '' || trim($_POST['surname']) == '' || trim($_POST['username']) == ''
@@ -55,35 +57,74 @@ class ModelUser
                         $folder = 'public/uploads/user_' . $_SESSION['userId'] . '/' . $_FILES['picture']['name'];
                         move_uploaded_file($_FILES['picture']['tmp_name'], $folder);
                     } else {
-                        $query = str_replace("`photo` = ''", "`photo` = '$currentPicture'", $query);
+                        $query = str_replace("`photo` = '".$_POST['picture']['name']. "'", "`photo` = '".$currentPicture."'", $query);
                     }
                     return $query;
                 }
-
                 if(trim($_POST['password']) == '') { 
                     $query = "UPDATE `user` SET 
                         `name` = '" . $_POST['name'] . "', `surname` = '" . $_POST['surname'] . "', 
                         `username` = '" . $_POST['username'] . "', `email` = '" . $_POST['email'] . "', 
                         `photo` = '" . $_FILES['picture']['name'] . "', `phone` = '" . $_POST['phone'] . "' 
                         WHERE `user`.`id` = " . $_SESSION['userId'] . "";
-                    $query = photoCheck($query);
+                        $query = photoCheck($query);
                 } else {
+                    $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
                     $query = "UPDATE `user` SET 
                         `name` = '" . $_POST['name'] . "', `surname` = '" . $_POST['surname'] . "', 
                         `username` = '" . $_POST['username'] . "', `email` = '" . $_POST['email'] . "', 
                         `password` = '" . $password . "', `photo` = '" . $_FILES['picture']['name'] . "', 
                         `phone` = '" . $_POST['phone'] . "' WHERE `user`.`id` = " . $_SESSION['userId'] . "";
-                    $query = photoCheck($query);
-                }
-
-                $runnedQuery = $database->executeRun($query);
-                if($runnedQuery == true) {
-                    $response = true;
+                        $query = photoCheck($query);
                 }
             }
-            header('Location: ./profile');
-            return $response;
+        }elseif(isset($_POST['delete'])) {
+
+            $database = new database();
+
+            $query0 = "DELETE FROM `fav`
+            WHERE `userId` = ".$_SESSION['userId'].";";
+
+            $runned0Query = $database->executeRun($query0);
+
+            $query1 = "DELETE FROM photo WHERE houseId
+            IN (SELECT id FROM object WHERE ownerId = ".$_SESSION['userId'].");";
+
+            $runned1Query = $database->executeRun($query1);
+
+            $query2 = "DELETE FROM object WHERE `ownerId` = ".$_SESSION['userId'];
+
+            $runned2Query = $database->executeRun($query2);
+
+            $query = "DELETE FROM `user` WHERE `id` = ".$_SESSION['userId'];
+
+            $runnedQuery = $database->executeRun($query);
+            if($runnedQuery) {
+                $response = true;
+                $folder = 'public/uploads/user_' . $_SESSION['userId'];
+                //Get a list of all of the file names and folders in the folder.
+                foreach(glob($folder . '/*') as $file) {
+                    if(is_dir($file)){
+                        foreach(glob($file . '/*') as $fileIn) {
+                            unlink($fileIn);
+                        }
+                        rmdir($file);
+                    }
+                    else{
+                        unlink($file);
+                    }
+                    rmdir($folder);
+                }
+                unset($_SESSION['status']);
+                unset($_SESSION['userId']);
+            }
         }
+        $runnedQuery = $database->executeRun($query);
+        if($runnedQuery == true) {
+            $response = true;
+        }
+        header('Location: ./profile');
+        return $response;
     }
     public static function UserLogout()
     {
@@ -91,5 +132,5 @@ class ModelUser
         unset($_SESSION['userId']);
         return;
     }
-}
+    }
 ?>

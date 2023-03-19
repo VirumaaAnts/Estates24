@@ -123,7 +123,6 @@ $(document).ready(function () {
             $('#adFloor').removeAttr('required', 'required');
 
             $('#adRoomCount').attr('required', 'required');
-            $('#adFloor').attr('required', 'required');
             $('#adTerritory').attr('required', 'required');
             $('#adYear').attr('required', 'required');
             $('#adConditions').attr('required', 'required');

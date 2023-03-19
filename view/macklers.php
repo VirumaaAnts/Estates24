@@ -16,30 +16,26 @@
         </form>
     </aside>
     <div class="macklers">
-        <div class="agent">
-            <div class="picture" style="background-image: url(public/uploads/user_1/about.png);"></div>
-            <div class="inf">
-                <h3>Aleksei Kozlov</h3>
-                <p><span>Email:</span> aleksei22891@gmail.com</p>
-                <p><span>Phone:</span> +37259024698</p>
-            </div>
-            <div class="inf">
-                <p><span>Count estates:</span>4</p>
-                <a href="users?user=MiFista">See user</a>
-            </div>
-        </div>
-        <div class="agent">
-            <div class="picture" style="background-image: url(public/uploads/user_1/about.png);"></div>
-            <div class="inf">
-                <p><span>Name:</span> Aleksei Kozlov</p>
-                <p><span>Email:</span> aleksei22891@gmail.com</p>
-                <p><span>Phone:</span> +37259024698</p>
-            </div>
-            <div class="inf">
-                <p><span>Count estates:</span>4</p>
-                <a href="users?user=MiFista">See user</a>
-            </div>
-        </div>
+        <?php 
+        if(is_iterable($macklers)) {
+            foreach ($macklers as $mackler) {
+                echo "
+                    <div class='agent'>
+                        <div class='picture' style='background-image: url(public/uploads/user_$mackler[id]/$mackler[photo]);'></div>
+                        <div class='inf'>
+                            <h3>$mackler[name] $mackler[surname]</h3>
+                            <p><span>Email:</span> $mackler[email]</p>
+                            <p><span>Phone:</span> $mackler[phone]</p>
+                        </div>
+                        <div class='inf'>
+                            <p><span>Count estates:</span> $mackler[adsCount]</p>
+                            <a href='users?user=$mackler[username]'>See user</a>
+                        </div>
+                    </div>
+                ";
+            }
+        }
+        ?>
     </div>
 </div>
 <?php

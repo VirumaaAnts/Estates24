@@ -59,6 +59,41 @@ echo "
                     <li><p>Territory: ".$data[0]['territory']." m²</p></li>
                 ";
             }
+            if($data[0]['type'] == 'Summer house') {
+                echo "
+                    <li><p>Rooms: ".$data[0]['roomCount']."</p></li>
+                    <li><p>Heat system: ".$data[0]['heatSystem']."</p></li>
+                    <li><p>Conditions: ".$data[0]['conditions']."</p></li>
+                    <li><p>Territory: ".$data[0]['territory']." m²</p></li>
+                ";
+            }
+            if($data[0]['type'] == 'Apartment') {
+                echo "
+                    <li><p>Rooms: ".$data[0]['roomCount']."</p></li>
+                    <li><p>Floors: ".$data[0]['floorCount']."</p></li>
+                    <li><p>Heat system: ".$data[0]['heatSystem']."</p></li>
+                    <li><p>Conditions: ".$data[0]['conditions']."</p></li>
+                ";
+            }
+            if($data[0]['type'] == 'Garage') {
+                echo "
+                    <li><p>Conditions: ".$data[0]['conditions']."</p></li>
+                    <li><p>Territory: ".$data[0]['territory']." m²</p></li>
+                ";
+            }
+            if($data[0]['type'] == 'Land') {
+                echo "
+                    <li><p>Territory: ".$data[0]['territory']." m²</p></li>
+                ";
+            }
+            if($data[0]['type'] == 'Part') {
+                echo "
+                    <li><p>Rooms: ".$data[0]['roomCount']."</p></li>
+                    <li><p>Floor: ".$data[0]['floor']."</p></li>
+                    <li><p>Heat system: ".$data[0]['heatSystem']."</p></li>
+                    <li><p>Conditions: ".$data[0]['conditions']."</p></li>
+                ";
+            }
             echo "
             <li><p>Area: ".$data[0]['area']." m²</p></li>
             <li><p>Price: ".$data[0]['price']." €</p></li>

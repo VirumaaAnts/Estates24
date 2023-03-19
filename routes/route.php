@@ -70,7 +70,7 @@
         return;
     }
     else if($route == 'macklers') {
-        RenderController::Maklers();
+        RenderController::Macklers();
         return;
     }
     else if($route == 'findByFilters') {

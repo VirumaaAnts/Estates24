@@ -15,8 +15,16 @@
             <?php
             if(isset($dataS[0]) || $dataS != null){
                 foreach ($dataS[0] as $estate) {
+                    if($estate['fav'] == 'none') {
+                        echo "
+                            <div class='offer' page='ad?user=".$estate['ownerId']."&ad=".$estate['id']."'>
+                        ";
+                    } else {
+                        echo "
+                            <div class='offer' page='ad?user=".$estate['ownerId']."&ad=".$estate['id']."&fav=".$estate['fav']."'>
+                        ";
+                    }
                     echo "
-                    <div class='ad' page='ad?user=".$estate['ownerId']."&ad=".$estate['id']."'>
                         <div class='slider' show='1' scroll='1' time='300'>
                             <ul>";
                                 foreach ($dataS[1] as $photo) {

@@ -22,9 +22,9 @@
             <input type='password' name='password' placeholder='Password' class='form-control'>
             "
         ?>
-        <button class="btn btn-primary" id = "changeProfile" name="update">Update</button>
+        <button class="btn btn-primary" id="changeProfile" name="update">Update</button>
         <hr>
-        <input type="button" class="btn btn-danger" id = "deleteProfileCheck" name="deleteCheck" value="Delete">
+        <button class="btn btn-danger" id="deleteProfile" name="delete">Delete</button>
     </div>
 </form>
 <?php

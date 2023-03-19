@@ -24,7 +24,7 @@
         ?>
         <button class="btn btn-primary" id = "changeProfile" name="update">Update</button>
         <hr>
-        <button class="btn btn-danger" id = "deleteProfile" name="delete">Delete</button>
+        <input type="button" class="btn btn-danger" id = "deleteProfileCheck" name="deleteCheck" value="Delete">
     </div>
 </form>
 <?php

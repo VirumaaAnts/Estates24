@@ -78,9 +78,17 @@ class ModelUser
                         $query = photoCheck($query);
                 }
             }
-        }elseif(isset($_POST['delete'])) {
-
-            $database = new database();
+        }
+        $runnedQuery = $database->executeRun($query);
+        if($runnedQuery == true) {
+            $response = true;
+        }
+        header('Location: ./profile');
+        return $response;
+    }
+    public static function deleteProfile() {
+        $database = new database();
+        if(isset($_POST['delete'])) {
 
             $query0 = "DELETE FROM `fav`
             WHERE `userId` = ".$_SESSION['userId'].";";

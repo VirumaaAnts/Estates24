@@ -126,3 +126,19 @@ $(".addAdvToLog").click(function (e) {
         login.show();
     }
 })
+
+var deleteModal = $modal_window({
+    title: 'Are you sure?',
+    content: `
+        <form action="deleteProfile" method='POST'>
+            <div class='login modal_window' style="width:100%">
+                <button style="width:100%" class="btn btn-danger" id = "deleteProfile" name="delete">Delete</button>
+            </div>
+        </form>
+        `
+});
+
+
+$("#deleteProfileCheck").click(function (e) {
+    deleteModal.show();
+})

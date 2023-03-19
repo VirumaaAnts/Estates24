@@ -28,6 +28,10 @@
             SendController::EditProfile();
             return;
         }
+        else if($route == 'deleteProfile') {
+            SendController::deleteProfile();
+            return;
+        }
         else if($route == 'logout') {
             SendController::Logout();
             return;

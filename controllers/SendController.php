@@ -10,17 +10,21 @@ class SendController
     public static function EditProfile() {
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $response = ModelUser::editProfile();
-                if($response == true) {
-                    if (isset($_POST['delete'])) {
-                        $_SESSION['error'] = "<p style='color:green;font-weight:900;margin-left:20px'>Данные успешно удалены!</p>";
-                    }else{
-                        $_SESSION['error'] = "<p style='color:green;font-weight:900;margin-left:20px'>Данные успешно изменены!</p>";
-                    }
-                }else{
-                    $_SESSION['error'] = "<p style='color:red;font-weight:900;margin-left:20px'>Попытка неудачна!</p>";
-                }
+            if($response == true) {
+                $_SESSION['error'] = "<p style='color:green;font-weight:900;margin-left:20px'>Данные успешно изменены!</p>";
+            }else{
+                $_SESSION['error'] = "<p style='color:red;font-weight:900;margin-left:20px'>Попытка неудачна!</p>";
             }
         }
+    }
+    public static function deleteProfile() {
+        $response = ModelUser::deleteProfile();
+        if($response == true) {
+            $_SESSION['error'] = "<p style='color:green;font-weight:900;margin-left:20px'>Данные успешно удалены!</p>";
+        }else{
+            $_SESSION['error'] = "<p style='color:red;font-weight:900;margin-left:20px'>Попытка неудачна!</p>";
+        }
+    }
     public static function Login()
     {
         $test = ModelUser::checkUser();

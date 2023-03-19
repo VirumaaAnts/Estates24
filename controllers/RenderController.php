@@ -48,7 +48,8 @@ class RenderController
         $countiesCities = ModelCountiesCities::getCountiesCities();
         include_once 'view/adForm.php';    
     }
-    public static function Maklers() {
+    public static function Macklers() {
+        $macklers = ModelMacklers::getMacklers();
         include_once 'view/macklers.php';    
     }
     public static function Profile() {

@@ -134,6 +134,19 @@ class ModelUser
         header('Location: ./profile');
         return $response;
     }
+    
+    public static function getUserAds()
+    {
+        $database = new database();
+        $userAds = $database->getAll(
+            "SELECT object.* FROM user as `user`, object as `object` 
+                WHERE user.id = object.ownerId AND object.ownerId = $_SESSION[userId] GROUP BY object.id ORDER BY object.id ASC"
+        );
+        if($userAds == null) return;
+
+        $pictures = $database->getAll("SELECT * FROM `photo` ORDER BY id ASC");
+        return [$userAds, $pictures];
+    }
     public static function UserLogout()
     {
         unset($_SESSION['status']);

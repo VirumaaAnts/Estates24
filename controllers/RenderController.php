@@ -54,6 +54,7 @@ class RenderController
     }
     public static function Profile() {
         $userInfo = ModelUser::getProfileInfo();
+        $userAds = ModelUser::getUserAds();
         include_once 'view/profile.php';    
     }
     public static function FilterPage() {

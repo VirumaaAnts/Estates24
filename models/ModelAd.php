@@ -94,6 +94,83 @@ class ModelAd
             }
         }
     }
+    public static function GetAdId(){
+        $database = new database();
+        $ids = $database->getAll("SELECT * FROM object WHERE ownerId = $_SESSION[userId]");
+        if(is_iterable($ids)){
+            foreach ($ids as $key => $value) {
+                if(hash('ripemd160', $value["id"]) == $_GET["ad"]){
+                    $city = $database->getOne("SELECT name FROM city WHERE id = $value[cityId]");
+                    $value['city'] = $city['name'];
+                    $photos = $database->getAll("SELECT photo FROM photo WHERE houseId = $value[id]");
+                    $value["photos"] = $photos;
+                    return $value;
+                }
+            }
+        }else{
+            return false;
+        }
+    }
+    public static function EditAd(){
+        $database = new database();
+        $ids = $database->getAll("SELECT * FROM object WHERE ownerId = $_SESSION[userId]");
+        if(is_iterable($ids)){
+            foreach ($ids as $key => $value) {
+                if($value["id"] == $_POST['id']){
+                    $database = new database();
+                    $id = $_POST['id'];
+                    unset($_POST['id']);
+                    $obj = array_filter($_POST, 'strlen');
+                    $setUpdate = '';
+                    foreach ($obj as $field => $value) {
+                        if ($field != "city") {
+                            $setUpdate .= $field;
+                            if (is_numeric($value)) {
+                                $setUpdate .= "=".$value;
+                            } else {
+                                $setUpdate .= "='" . str_replace("'", '"', $value) . "'";
+                            }
+                        } else {
+                            $cityId = $database->getOne("SELECT `id` FROM `city` WHERE `name` LIKE '$value'");
+                            if (is_bool($cityId)) {
+                                return array(false);
+                            } else {
+                                $setUpdate .= "cityId";
+                                $setUpdate .= "=".$cityId["id"];
+                            }
+                        }
+                        if(next($obj)!= null){
+                            $setUpdate .= ",";
+                        }
+                    }
+                    $database->executeRun("UPDATE object SET $setUpdate WHERE id = $id");
+                    $dir = "public/uploads/user_$_SESSION[userId]/ad_$id";
+                    if(is_dir($dir) && $_FILES['files']['name'][0] != ""){
+                        $files = glob($dir."/*");
+                        foreach($files as $file){ // iterate files
+                            if(is_file($file)) {
+                              unlink($file); // delete file
+                            }
+                        }
+                        $database->executeRun("DELETE FROM `photo` WHERE `houseId` = $id");
+                        foreach ($_FILES as $file) {
+                            $count = 0;
+                            foreach ($file["name"] as $name) {
+                                $filename = basename($name);
+                                $uploadfile = $dir . "/" . $filename;
+                                move_uploaded_file($file['tmp_name'][$count], $uploadfile);
+                                $count++;
+                                $database->executeRun("INSERT INTO `photo`(`photo`,`houseId`) VALUES ('$filename', $id)");
+                            }
+                        }
+                    }
+                    return $id;
+                }
+            }
+        }else{
+            return false;
+        }
+    }
     public static function RemoveFavIfExists($objectId)
     {
         $database = new database();

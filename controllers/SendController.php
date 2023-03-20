@@ -51,5 +51,10 @@ class SendController
         $obj = ModelAd::createAdv();
         header('Location: .');
     }
+    public static function EditAd(){
+        $obj = ModelAd::EditAd();
+        $id = hash('ripemd160', $obj);
+        header("Location: /editPageAd?ad=$id");
+    }
 }
 ?>

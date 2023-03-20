@@ -90,6 +90,10 @@
         RenderController::Macklers();
         return;
     }
+    else if($route == 'filterMacklers') {
+        RenderController::filteredMacklers();
+        return;
+    }
     else if($route == 'user') {
         RenderController::userAccount();
         return;

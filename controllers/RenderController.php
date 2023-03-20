@@ -52,6 +52,11 @@ class RenderController
         $macklers = ModelMacklers::getMacklers();
         include_once 'view/macklers.php';    
     }
+    public static function filteredMacklers()
+    {
+        $macklers = ModelMacklers::filterMacklers();
+        include_once 'view/macklers.php';
+    }
     public static function Profile() {
         $userInfo = ModelUser::getProfileInfo();
         $userAds = ModelUser::getUserAds();

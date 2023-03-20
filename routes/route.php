@@ -52,6 +52,10 @@
             SendController::EditAd();
             return;
         }
+        else if($route == 'user') {
+            RenderController::userAccount();
+            return;
+        }
         
     }
     if($route == 'index.php') {

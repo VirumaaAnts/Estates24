@@ -14,7 +14,7 @@ class ModelUser
                 $_SESSION['userId'] = $response['id'];
                 $test = true;
             } else {
-                if (strtolower($response2['username']) == strtolower($user) && $response2['password'] == password_verify($_POST['log_password'], $response2['password'])) {
+                if ($response2['username'] == $user && $response2['password'] == password_verify($_POST['log_password'], $response2['password'])) {
                     $_SESSION['status'] = session_id();
                     $_SESSION['userId'] = $response2['id'];
                     $test = true;
@@ -61,10 +61,28 @@ class ModelUser
                     }
                     return $query;
                 }
+                $res = $database -> getAll("SELECT * FROM user;");
+                $checkUser = 0;
+                if($res){
+                    foreach($res as $elem) {
+                        var_dump($elem['username']);
+                        // var_dump($_POST['username']);
+                        if($elem['username'] === $_POST['username'] && $elem['email'] === strtolower($_POST['email'])){
+                            $checkUser = 1;
+                            break;
+                        } else {
+                            $checkUser = 0;
+                        }
+                    }
+                }
+                if($checkUser != 0) {
+                    header('Location: ./profile');
+                    return $response;
+                }
                 if(trim($_POST['password']) == '') { 
                     $query = "UPDATE `user` SET 
                         `name` = '" . $_POST['name'] . "', `surname` = '" . $_POST['surname'] . "', 
-                        `username` = '" . $_POST['username'] . "', `email` = '" . $_POST['email'] . "', 
+                        `username` = '" . $_POST['username'] . "', `email` = '" . strtolower($_POST['email']) . "', 
                         `photo` = '" . $_FILES['picture']['name'] . "', `phone` = '" . $_POST['phone'] . "' 
                         WHERE `user`.`id` = " . $_SESSION['userId'] . "";
                         $query = photoCheck($query);
@@ -72,7 +90,7 @@ class ModelUser
                     $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
                     $query = "UPDATE `user` SET 
                         `name` = '" . $_POST['name'] . "', `surname` = '" . $_POST['surname'] . "', 
-                        `username` = '" . $_POST['username'] . "', `email` = '" . $_POST['email'] . "', 
+                        `username` = '" . $_POST['username'] . "', `email` = '" . strtolower($_POST['email']) . "', 
                         `password` = '" . $password . "', `photo` = '" . $_FILES['picture']['name'] . "', 
                         `phone` = '" . $_POST['phone'] . "' WHERE `user`.`id` = " . $_SESSION['userId'] . "";
                         $query = photoCheck($query);
@@ -134,7 +152,13 @@ class ModelUser
         header('Location: ./profile');
         return $response;
     }
-    
+    public static function getUser()
+    {
+        $database = new database();
+        $user = $database->getOne("SELECT * FROM user WHERE id = $_GET[id]");
+        if($user == null) return;
+        return $user;
+    }
     public static function getUserAds()
     {
         $database = new database();

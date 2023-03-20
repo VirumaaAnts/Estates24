@@ -8,16 +8,27 @@ class ModelRegistration
         if (isset($_POST['send'])) {
             $name = $_POST['name'];
             $surname = $_POST['surname'];
-            $email = $_POST['email'];
+            $email = strtolower($_POST['email']);
             $username = $_POST['username'];
             $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
             $photo = $_FILES['file']['name'];
-            $phone = "+372".$_POST['phone'];
+            $phone = $_POST['phone'];
 
             $database = new database();
-            $response = $database -> getOne("select id from user where `email` = '".$email."';");
-            if($response != null){
-                $message = '<p style="color:red;font-weight:900;margin-left:20px">Email exists!</p>';
+            $response = $database -> getAll("select * from user;");
+            $checkUser = 0;
+            if($response){
+                foreach($response as $elem) {
+                    if($elem['username'] === $username || $elem['email'] === $email){
+                        $checkUser = 1;
+                        break;
+                    } else {
+                        $checkUser = 0;
+                    }
+                }
+            }
+            if($checkUser == 1){
+                $message = '<p style="color:red;font-weight:900;margin-left:20px">Email or Username exists!</p>';
                 $data = array($result, $message, [$name,$surname,$email,$username,$password,$_FILES['file']['tmp_name'],$phone]);
                 return $data;
             }

@@ -35,8 +35,7 @@ class ModelUser
         $response = false;
         $database = new database();
         if (isset($_POST['update'])) {
-            if(isset($_POST['password'])){
-            } else {
+            if(!isset($_POST['password'])){
                 $_POST['password'] = '';
             }
             // If user has cleared at least one important(NOT NULL) field then return
@@ -45,7 +44,7 @@ class ModelUser
                 || trim($_POST['email']) == '' || trim($_POST['phone']) == ''
             ) {
                 header('Location: ./profile');
-                return;
+                return $response;
             } else {
                 function photoCheck($query) {
                     $currentPicture = $_POST['prev_picture'];
@@ -61,12 +60,23 @@ class ModelUser
                     }
                     return $query;
                 }
-                $res = $database -> getAll("SELECT * FROM user;");
+                $res = $database -> getAll("SELECT * FROM user");
                 $checkUser = 0;
                 if($res) {
                     foreach($res as $elem) {
-                        if($elem['username'] === $_POST['username'] && $elem['email'] === strtolower($_POST['email'])){
-                            $checkUser = 1;
+                        if($elem['username'] === $_POST['username'] && $elem['email'] === strtolower($_POST['email'])) {
+                            if($_SESSION['userId'] == $elem['id']) {
+                                $checkUser = 0;
+                            } else {
+                                $checkUser = 1;
+                            }
+                            break;
+                        } else if($elem['username'] === $_POST['username'] || $elem['email'] === strtolower($_POST['email'])) {
+                            if($_SESSION['userId'] == $elem['id']) {
+                                $checkUser = 0;
+                            } else {
+                                $checkUser = 1;
+                            }
                             break;
                         } else {
                             $checkUser = 0;

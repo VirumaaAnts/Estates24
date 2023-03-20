@@ -15,11 +15,11 @@ class ModelRegistration
             $phone = $_POST['phone'];
 
             $database = new database();
-            $response = $database -> getAll("select * from user;");
+            $response = $database->getAll("select * from user;");
             $checkUser = 0;
-            if($response){
-                foreach($response as $elem) {
-                    if($elem['username'] === $username || $elem['email'] === $email){
+            if ($response) {
+                foreach ($response as $elem) {
+                    if ($elem['username'] === $username || $elem['email'] === $email) {
                         $checkUser = 1;
                         break;
                     } else {
@@ -27,25 +27,24 @@ class ModelRegistration
                     }
                 }
             }
-            if($checkUser == 1){
+            if ($checkUser == 1) {
                 $message = '<p style="color:red;font-weight:900;margin-left:20px">Email or Username exists!</p>';
-                $data = array($result, $message, [$name,$surname,$email,$username,$password,$_FILES['file']['tmp_name'],$phone]);
+                $data = array($result, $message, [$name, $surname, $email, $username, $password, $_FILES['file']['tmp_name'], $phone]);
                 return $data;
-            }
-            else {
+            } else {
                 $query = "INSERT INTO `user` (`name`, `surname`, `email`, `username`, `password`, `photo`, `phone`, `mackler`)" .
                     " VALUES ('$name', '$surname', '$email', '$username', '$password', '$photo', '$phone', 0)";
-                $response = $database -> executeRun($query);
+                $response = $database->executeRun($query);
                 if ($response != null) {
-                    if(isset($_FILES['file'])) {
-                        $response = $database -> getOne("select id from user where `email` = '".$email."';");
-                        if($response != null) {
-                            $folder = 'public/uploads/user_'.$response['id'].'/'.$photo;
-                            $folderCheck = 'public/uploads/user_'.$response['id'];
-                            if(!is_dir($folderCheck)) {
+                    if (isset($_FILES['file'])) {
+                        $response = $database->getOne("select id from user where `email` = '" . $email . "';");
+                        if ($response != null) {
+                            $folder = 'public/uploads/user_' . $response['id'] . '/' . $photo;
+                            $folderCheck = 'public/uploads/user_' . $response['id'];
+                            if (!is_dir($folderCheck)) {
                                 mkdir($folderCheck);
                             }
-                            if(move_uploaded_file($_FILES['file']['tmp_name'], $folder)) {
+                            if (move_uploaded_file($_FILES['file']['tmp_name'], $folder)) {
                                 $result = true;
                             } else {
                                 $message = '<p style="color:red;font-weight:900;margin-left:20px">Cannot upload an image!</p>';
@@ -58,7 +57,7 @@ class ModelRegistration
             }
             $data = array($result, $message);
             return $data;
-            }
+        }
     }
 }
 ?>

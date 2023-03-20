@@ -4,25 +4,6 @@ $(document).ready(function () {
         let lastUrlPart = strUrl.substr(strUrl.lastIndexOf('/') + 1);
         if (lastUrlPart == 'findByFilters?offers' || lastUrlPart == 'offers') {
             $('#filters').attr('action', 'findByFilters?offers');
-
-            let estates = [];
-            let estateType = $('.ad').children().filter('.estate_inf').find('h2');
-            estateType.each(function(i, obj) {
-                estates.push(obj.textContent.toLowerCase());
-            });
-            $('.type').each(function(i, type) {
-                let val = type.querySelector('input').value;
-                let typesCount = type.querySelector('.types_count');
-                let count = 0;
-                for (let i = 0; i < estates.length; i++) {
-                    if(typesCount != null) {
-                        if(val == estates[i]) {
-                            count++;
-                        }
-                        typesCount.innerHTML = count;
-                    }
-                }
-            });
         }
     }
     changeFormAction();
@@ -30,10 +11,12 @@ $(document).ready(function () {
 
     $(".btn_filter").click(function (e) {
         e.preventDefault();
-        let btn = this
+        let btn = this;
         if ($($(btn).children()[0]).attr("checked") == undefined) {
             $($(btn).children()[0]).attr("checked", "");
+            $(this).addClass('active_type');
         } else {
+            $(this).removeClass('active_type');
             $($(btn).children()[0]).removeAttr("checked");
         }
     });

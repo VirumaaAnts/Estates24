@@ -6,7 +6,8 @@
 </div>
 <div class="content" >
     <h2 style="color: white; font-weight: 900;">The best place to sell real estate</h2>
-    <?php 
+    <?php
+        $offers = true;
         require 'templates/aside.php';
     ?>
     <div class="estates">

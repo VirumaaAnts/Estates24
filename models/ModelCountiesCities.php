@@ -11,7 +11,7 @@ class ModelCountiesCities
         if ($city == null)
             return;
 
-        $typesCount = $database->getAll("SELECT type, COUNT(type) as typeCount FROM object GROUP BY type ORDER BY id ASC");
+        $typesCount = $database->getAll("SELECT type, offer, COUNT(type) as typeCount FROM object GROUP BY type ORDER BY id ASC");
         if ($typesCount == null)
             return;
 

@@ -1,90 +1,103 @@
 <?php
 class RenderController
 {
-    public static function start() {
+    public static function start()
+    {
         $database = new database();
-        $result = $database -> getAll("SELECT * FROM city ORDER BY id ASC");
-        if($result == null) return;
+        $result = $database->getAll("SELECT * FROM city ORDER BY id ASC");
+        if ($result == null)
+            return;
         json_encode($result);
         $myfile = fopen("public/data/cities.json", "w") or die("Unable to open file!");
         $txt = json_encode($result);
         fwrite($myfile, $txt);
         fclose($myfile);
         $data = ModelEstates::getThreeEstates();
-        $offers = ModelEstates::getThreeOffers();
+        $offersList = ModelEstates::getThreeOffers();
         $countiesCities = ModelCountiesCities::getCountiesCities();
         include_once 'view/main.php';
     }
-    public static function AllEstates() {
+    public static function AllEstates()
+    {
         $data = ModelEstates::getEstates();
         $countiesCities = ModelCountiesCities::getCountiesCities();
         include_once 'view/estates.php';
     }
-    public static function AllOffers() {
+    public static function AllOffers()
+    {
         $data = ModelEstates::getEstates();
         $countiesCities = ModelCountiesCities::getCountiesCities();
         include_once 'view/offers.php';
     }
-    public static function registrationForm() {
+    public static function registrationForm()
+    {
         include_once 'view/registration.php';
     }
-    public static function Ad() {
+    public static function Ad()
+    {
         $data = ModelAd::getObjectData($_GET['ad'], $_GET['user']);
-        if(isset($_SESSION['userId'])) {
+        if (isset($_SESSION['userId'])) {
             $fav_status = null;
-            if(isset($_GET['fav_status'])) {
+            if (isset($_GET['fav_status'])) {
                 $fav_status = $_GET['fav_status'];
             }
-            if($fav_status != null) {
+            if ($fav_status != null) {
                 ModelAd::CreateFav($_GET['ad']);
             }
-            if($_GET['fav'] == 'no') {
+            if ($_GET['fav'] == 'no') {
                 ModelAd::RemoveFavIfExists($_GET['ad']);
             }
         }
         include_once 'view/ad.php';
     }
-    public static function adForm() {
+    public static function adForm()
+    {
         $countiesCities = ModelCountiesCities::getCountiesCities();
-        include_once 'view/adForm.php';    
+        include_once 'view/adForm.php';
     }
-    public static function Macklers() {
+    public static function Macklers()
+    {
         $macklers = ModelMacklers::getMacklers();
-        include_once 'view/macklers.php';    
+        include_once 'view/macklers.php';
     }
     public static function filteredMacklers()
     {
         $macklers = ModelMacklers::filterMacklers();
         include_once 'view/macklers.php';
     }
-    public static function Profile() {
+    public static function Profile()
+    {
         $userInfo = ModelUser::getProfileInfo();
         $userAds = ModelUser::getUserAds();
-        include_once 'view/profile.php';    
+        include_once 'view/profile.php';
     }
     public static function userAccount()
     {
         $user = ModelUser::getUser();
         include 'view/user.php';
     }
-    public static function FilterPage() {
+    public static function FilterPage()
+    {
         $dataS = ModelFilters::getFilterObjects();
         $countiesCities = ModelCountiesCities::getCountiesCities();
         include_once 'view/estatesByFilter.php';
     }
-    public static function Favorites() {
+    public static function Favorites()
+    {
         $favorites = ModelEstates::getFavorites();
         include_once 'view/favorites.php';
     }
-    public static function EditPage() {
+    public static function EditPage()
+    {
         $ad = ModelAd::GetAdId();
-        if(!$ad){
+        if (!$ad) {
             header("Location: .");
-        }else{
+        } else {
             include_once 'view/editAd.php';
         }
     }
-    public static function ErrorPage() {
+    public static function ErrorPage()
+    {
         include_once 'view/error.php';
     }
 }

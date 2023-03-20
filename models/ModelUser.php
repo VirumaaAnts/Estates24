@@ -63,10 +63,8 @@ class ModelUser
                 }
                 $res = $database -> getAll("SELECT * FROM user;");
                 $checkUser = 0;
-                if($res){
+                if($res) {
                     foreach($res as $elem) {
-                        var_dump($elem['username']);
-                        // var_dump($_POST['username']);
                         if($elem['username'] === $_POST['username'] && $elem['email'] === strtolower($_POST['email'])){
                             $checkUser = 1;
                             break;

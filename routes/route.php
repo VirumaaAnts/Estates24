@@ -52,10 +52,6 @@
             SendController::EditAd();
             return;
         }
-        else if($route == 'user') {
-            RenderController::userAccount();
-            return;
-        }
         
     }
     if($route == 'index.php') {
@@ -92,6 +88,10 @@
     }
     else if($route == 'macklers') {
         RenderController::Macklers();
+        return;
+    }
+    else if($route == 'user') {
+        RenderController::userAccount();
         return;
     }
     else if($route == 'findByFilters') {

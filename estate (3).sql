@@ -2,10 +2,10 @@
 -- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Хост: 127.0.0.1
--- Время создания: Мар 15 2023 г., 18:22
--- Версия сервера: 10.4.27-MariaDB
--- Версия PHP: 8.1.12
+-- Host: 127.0.0.1
+-- Generation Time: Mar 20, 2023 at 11:53 AM
+-- Server version: 10.4.25-MariaDB
+-- PHP Version: 8.1.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,23 +18,23 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- База данных: `estate`
+-- Database: `estate`
 --
 
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `city`
+-- Table structure for table `city`
 --
 
 CREATE TABLE `city` (
   `id` int(11) NOT NULL,
   `name` varchar(300) NOT NULL,
   `countyId` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Дамп данных таблицы `city`
+-- Dumping data for table `city`
 --
 
 INSERT INTO `city` (`id`, `name`, `countyId`) VALUES
@@ -137,16 +137,16 @@ INSERT INTO `city` (`id`, `name`, `countyId`) VALUES
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `county`
+-- Table structure for table `county`
 --
 
 CREATE TABLE `county` (
   `id` int(11) NOT NULL,
   `name` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Дамп данных таблицы `county`
+-- Dumping data for table `county`
 --
 
 INSERT INTO `county` (`id`, `name`) VALUES
@@ -169,19 +169,26 @@ INSERT INTO `county` (`id`, `name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `fav`
+-- Table structure for table `fav`
 --
 
 CREATE TABLE `fav` (
   `id` int(11) NOT NULL,
   `userId` int(11) NOT NULL,
   `objectId` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `fav`
+--
+
+INSERT INTO `fav` (`id`, `userId`, `objectId`) VALUES
+(1, 3, 5);
 
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `object`
+-- Table structure for table `object`
 --
 
 CREATE TABLE `object` (
@@ -203,22 +210,22 @@ CREATE TABLE `object` (
   `price` decimal(11,2) DEFAULT 0.00,
   `active` tinyint(1) NOT NULL DEFAULT 1,
   `offer` tinyint(1) DEFAULT 0
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Дамп данных таблицы `object`
+-- Dumping data for table `object`
 --
 
 INSERT INTO `object` (`id`, `type`, `address`, `ownerId`, `cityId`, `roomCount`, `floorCount`, `floor`, `area`, `territory`, `conditions`, `heatSystem`, `basement`, `description`, `year`, `price`, `active`, `offer`) VALUES
-(1, 'House', 'Aia tn 17', 1, 1, 20, 3, NULL, '127.0', '1200.0', 'good', 'air', 0, 'Это уютное и привлекательное место для проведения зимнего отпуска или отдыха на выходных. Дом расположен в красивом месте, окруженном заснеженными лесами и горами, что создает прекрасную атмосферу для отдыха и расслабления.\n\nВнутри дома есть все необходимое для комфортного проживания: просторная кухня с полным набором кухонной утвари и бытовой техникой, уютная гостиная с дровяной печью, где можно насладиться теплом камина и красивым видом на зимнюю природу.\n\nДом оборудован всеми необходимыми удобствами, включая современную ванную комнату с горячей водой и душем. В спальнях имеются удобные кровати, что обеспечивает хороший сон и отдых.', 1999, '115000.00', 1, 0),
-(2, 'Summer house', 'ROCCA TOWERS II-III', 2, 15, 2, NULL, 1, '50.0', '70.0', 'need repair', 'gas', 0, 'Загородный дом АВЛ-50 с полезной площадью 50 м², плюс антресоль 20 м².\r\nДом Pinhouse A53 с полезной площадью 53 м².\r\nДеревня Сааника находится в 10 км от центра Хаапсалу и всего в 1 часе езды от Таллинна.', 2012, '14999.49', 1, 0),
+(1, 'House', 'Aia tn 17', 1, 1, 20, 3, NULL, '127.0', '1200.0', 'good', 'air', 0, 'Это уютное и привлекательное место для проведения зимнего отпуска или отдыха на выходных. Дом расположен в красивом месте, окруженном заснеженными лесами и горами, что создает прекрасную атмосферу для отдыха и расслабления.\n\nВнутри дома есть все необходимое для комфортного проживания: просторная кухня с полным набором кухонной утвари и бытовой техникой, уютная гостиная с дровяной печью, где можно насладиться теплом камина и красивым видом на зимнюю природу.\n\nДом оборудован всеми необходимыми удобствами, включая современную ванную комнату с горячей водой и душем. В спальнях имеются удобные кровати, что обеспечивает хороший сон и отдых.', 1999, '115000.00', 1, 1),
+(2, 'Summer house', 'ROCCA TOWERS II-III', 2, 15, 2, NULL, 1, '50.0', '70.0', 'need repair', 'gas', 0, 'Загородный дом АВЛ-50 с полезной площадью 50 м², плюс антресоль 20 м².\r\nДом Pinhouse A53 с полезной площадью 53 м².\r\nДеревня Сааника находится в 10 км от центра Хаапсалу и всего в 1 часе езды от Таллинна.', 2012, '14999.49', 1, 1),
 (3, 'Apartment', 'Sinnimäe 1', 1, 1, 3, NULL, 4, '107.0', NULL, 'good', 'gas', 0, 'На улице Синимяэ в таллиннском районе Ласнамяэ только что построен новый, современный и энергоэффективный десятиэтажный многоквартирный дом Sinimäe Kodud. В доме 48 квартир от одной до пяти комнат площадью от 37,5 до 107 м², все они также имеют балкон.\r\n\r\nКвартиры на верхних этажах имеют интересное решение, состоящее из двух этажей, с гостиной с открытой кухней на нижнем этаже и спальнями на втором этаже.\r\n\r\nСолнечные батареи на крыше дома обеспечивают снижение общих затрат. Принудительная вентиляция с рекуперацией тепла позволяет снизить счета за отопление,\r\n\r\nв некоторых квартирах установлена ​​кухонная мебель.\r\n\r\n​Каждая квартира имеет кладовую на первом этаже здания, и в цену также входит парковочное место, квартиры на верхних этажах имеют два парковочных места, в том числе одно из них под тенью на первом этаже здания.', 2017, '359000.00', 1, 0),
 (4, 'Garage', 'Suur-Kaare 35g', 2, 6, NULL, NULL, NULL, '24.0', NULL, 'good', 'air', 0, 'Продается гараж в хорошем состоянии в Паалалинна, Суур-Кааре 35г.\r\nРазмеры пола гаража 7,25х3,40. Новая электрическая панель, проводка и светодиодные фонари в гараже (январь 2023 г.).\r\nНовая жестяная крыша установлена ​​в январе 2023 года.\r\nГараж свободен, ключи будут получены в день сделки.', 2023, '9000.00', 1, 0);
 
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `photo`
+-- Table structure for table `photo`
 --
 
 CREATE TABLE `photo` (
@@ -226,10 +233,10 @@ CREATE TABLE `photo` (
   `photo` text NOT NULL,
   `houseId` int(11) NOT NULL,
   `description` varchar(500) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Дамп данных таблицы `photo`
+-- Dumping data for table `photo`
 --
 
 INSERT INTO `photo` (`id`, `photo`, `houseId`, `description`) VALUES
@@ -255,7 +262,7 @@ INSERT INTO `photo` (`id`, `photo`, `houseId`, `description`) VALUES
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `user`
+-- Table structure for table `user`
 --
 
 CREATE TABLE `user` (
@@ -268,35 +275,35 @@ CREATE TABLE `user` (
   `phone` varchar(250) NOT NULL,
   `mackler` tinyint(1) NOT NULL DEFAULT 0,
   `photo` text DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Дамп данных таблицы `user`
+-- Dumping data for table `user`
 --
 
 INSERT INTO `user` (`id`, `name`, `surname`, `username`, `email`, `password`, `phone`, `mackler`, `photo`) VALUES
-(1, 'Aleksei', 'Kozlov', 'MiFista', 'aleksei22891@gmail.com', '$2y$10$XOJ.puAWB1KhaApyG7VDfOpPg4ietxLZ/trNfPNLd2tklXgCfZhiC', '59024698', 0, 'about.png'),
+(1, 'Aleksei', 'Kozlov', 'MiFista', 'aleksei22891@gmail.com', '$2y$10$XOJ.puAWB1KhaApyG7VDfOpPg4ietxLZ/trNfPNLd2tklXgCfZhiC', '59024698', 1, 'about.png'),
 (2, 'Maksim', 'Dzjubenko', 'mak7ilenin', 'maksondzjubenko@gmail.com', '$2y$10$.aMy6egTJKOf8sk.2LJ5LuxlVJX6yDU71dNFlMKTeZ.uerT3TDCFO', '+37253005207', 0, 'me.jpg');
 
 --
--- Индексы сохранённых таблиц
+-- Indexes for dumped tables
 --
 
 --
--- Индексы таблицы `city`
+-- Indexes for table `city`
 --
 ALTER TABLE `city`
   ADD PRIMARY KEY (`id`),
   ADD KEY `fk_county` (`countyId`);
 
 --
--- Индексы таблицы `county`
+-- Indexes for table `county`
 --
 ALTER TABLE `county`
   ADD PRIMARY KEY (`id`);
 
 --
--- Индексы таблицы `fav`
+-- Indexes for table `fav`
 --
 ALTER TABLE `fav`
   ADD PRIMARY KEY (`id`),
@@ -304,7 +311,7 @@ ALTER TABLE `fav`
   ADD KEY `userId` (`userId`);
 
 --
--- Индексы таблицы `object`
+-- Indexes for table `object`
 --
 ALTER TABLE `object`
   ADD PRIMARY KEY (`id`),
@@ -312,84 +319,86 @@ ALTER TABLE `object`
   ADD KEY `ownerId` (`ownerId`);
 
 --
--- Индексы таблицы `photo`
+-- Indexes for table `photo`
 --
 ALTER TABLE `photo`
   ADD PRIMARY KEY (`id`),
   ADD KEY `houseId` (`houseId`);
 
 --
--- Индексы таблицы `user`
+-- Indexes for table `user`
 --
 ALTER TABLE `user`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `username` (`username`),
+  ADD UNIQUE KEY `email` (`email`);
 
 --
--- AUTO_INCREMENT для сохранённых таблиц
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT для таблицы `city`
+-- AUTO_INCREMENT for table `city`
 --
 ALTER TABLE `city`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=96;
 
 --
--- AUTO_INCREMENT для таблицы `county`
+-- AUTO_INCREMENT for table `county`
 --
 ALTER TABLE `county`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
--- AUTO_INCREMENT для таблицы `fav`
+-- AUTO_INCREMENT for table `fav`
 --
 ALTER TABLE `fav`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT для таблицы `object`
+-- AUTO_INCREMENT for table `object`
 --
 ALTER TABLE `object`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT для таблицы `photo`
+-- AUTO_INCREMENT for table `photo`
 --
 ALTER TABLE `photo`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
--- AUTO_INCREMENT для таблицы `user`
+-- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- Ограничения внешнего ключа сохраненных таблиц
+-- Constraints for dumped tables
 --
 
 --
--- Ограничения внешнего ключа таблицы `city`
+-- Constraints for table `city`
 --
 ALTER TABLE `city`
   ADD CONSTRAINT `fk_county` FOREIGN KEY (`countyId`) REFERENCES `county` (`id`);
 
 --
--- Ограничения внешнего ключа таблицы `fav`
+-- Constraints for table `fav`
 --
 ALTER TABLE `fav`
   ADD CONSTRAINT `fav_ibfk_1` FOREIGN KEY (`objectId`) REFERENCES `object` (`id`),
   ADD CONSTRAINT `fav_ibfk_2` FOREIGN KEY (`userId`) REFERENCES `user` (`id`);
 
 --
--- Ограничения внешнего ключа таблицы `object`
+-- Constraints for table `object`
 --
 ALTER TABLE `object`
   ADD CONSTRAINT `object_ibfk_1` FOREIGN KEY (`cityId`) REFERENCES `city` (`id`),
   ADD CONSTRAINT `object_ibfk_2` FOREIGN KEY (`ownerId`) REFERENCES `user` (`id`);
 
 --
--- Ограничения внешнего ключа таблицы `photo`
+-- Constraints for table `photo`
 --
 ALTER TABLE `photo`
   ADD CONSTRAINT `photo_ibfk_1` FOREIGN KEY (`houseId`) REFERENCES `object` (`id`);

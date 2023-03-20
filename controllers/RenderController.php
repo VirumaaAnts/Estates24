@@ -57,6 +57,11 @@ class RenderController
         $userAds = ModelUser::getUserAds();
         include_once 'view/profile.php';    
     }
+    public static function userAccount()
+    {
+        $user = ModelUser::getUser();
+        include 'view/user.php';
+    }
     public static function FilterPage() {
         $dataS = ModelFilters::getFilterObjects();
         $countiesCities = ModelCountiesCities::getCountiesCities();

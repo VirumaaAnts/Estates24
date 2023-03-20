@@ -29,7 +29,7 @@
                         </div>
                         <div class='inf'>
                             <p><span>Count estates:</span> $mackler[adsCount]</p>
-                            <a href='users?user=$mackler[username]'>See user</a>
+                            <a href='user?id=$mackler[id]'>See user</a>
                         </div>
                     </div>
                 ";

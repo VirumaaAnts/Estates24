@@ -56,11 +56,21 @@ class ModelFilters
                 AND price BETWEEN $min_price AND $max_price
                 AND IFNULL(roomCount, 0) BETWEEN $min_rooms AND $max_rooms
                 ORDER BY id ASC";
-            if(isset($_GET['offers'])) {
-                $query = str_replace(' ORDER BY id ASC', ' AND offer = 1 ORDER BY id ASC', $query);
+            if (isset($_GET['offers'])) {
+                $query = str_replace(' AND IFNULL(area', ' AND offer = 1 AND IFNULL(area', $query);
             }
             if (isset($_POST['type'])) {
-                $query = str_replace(" AND price", "AND type = '".ucfirst($_POST['type'])."' AND price", $query);
+                $types = $_POST['type'];
+                $typesList = ' HAVING ';
+                for ($i = 0; $i < count($types); $i++) { 
+                    $type = ucfirst($types[$i]);
+                    if($i == count($types) - 1) {
+                        $typesList .= "type = '$type'";
+                    } else {
+                        $typesList .= "type = '$type' OR ";
+                    }
+                }
+                $query = str_replace(" ORDER BY id ASC", $typesList, $query);
             }
         } elseif ($county != 0 && $county != 'none') {
             $query = "SELECT * FROM object
@@ -69,11 +79,21 @@ class ModelFilters
                 AND price BETWEEN $min_price AND $max_price
                 AND IFNULL(roomCount, 0) BETWEEN $min_rooms AND $max_rooms
                 ORDER BY id ASC";
-            if(isset($_GET['offers'])) {
-                $query = str_replace(' ORDER BY id ASC', ' AND offer = 1 ORDER BY id ASC', $query);
+            if (isset($_GET['offers'])) {
+                $query = str_replace(' AND IFNULL(area', ' AND offer = 1 AND IFNULL(area', $query);
             }
             if (isset($_POST['type'])) {
-                $query = str_replace(" AND price", "AND type = '".ucfirst($_POST['type'])."' AND price", $query);
+                $types = $_POST['type'];
+                $typesList = ' HAVING ';
+                for ($i = 0; $i < count($types); $i++) { 
+                    $type = ucfirst($types[$i]);
+                    if($i == count($types) - 1) {
+                        $typesList .= "type = '$type'";
+                    } else {
+                        $typesList .= "type = '$type' OR ";
+                    }
+                }
+                $query = str_replace(" ORDER BY id ASC", $typesList, $query);
             }
         } else {
             $query = "SELECT * FROM object WHERE 
@@ -81,11 +101,21 @@ class ModelFilters
                 AND price BETWEEN $min_price AND $max_price
                 AND IFNULL(roomCount, 0) BETWEEN $min_rooms AND $max_rooms
                 ORDER BY id ASC";
-            if(isset($_GET['offers'])) {
-                $query = str_replace(' ORDER BY id ASC', ' AND offer = 1 ORDER BY id ASC', $query);
+            if (isset($_GET['offers'])) {
+                $query = str_replace('WHERE ', 'WHERE offer = 1 AND ', $query);
             }
             if (isset($_POST['type'])) {
-                $query = str_replace(" AND price", "AND type = '".ucfirst($_POST['type'])."' AND price", $query);
+                $types = $_POST['type'];
+                $typesList = ' HAVING ';
+                for ($i = 0; $i < count($types); $i++) { 
+                    $type = ucfirst($types[$i]);
+                    if($i == count($types) - 1) {
+                        $typesList .= "type = '$type'";
+                    } else {
+                        $typesList .= "type = '$type' OR ";
+                    }
+                }
+                $query = str_replace(" ORDER BY id ASC", $typesList, $query);
             }
         }
         $estates = $database->getAll($query);
@@ -93,15 +123,15 @@ class ModelFilters
             return;
         for ($i = 0; $i < count($estates); $i++) {
             $cityId = $database->getOne("SELECT *, city.name as city FROM object
-                INNER JOIN city on object.cityId = city.id AND object.id = ". $estates[$i]['id']);
+                INNER JOIN city on object.cityId = city.id AND object.id = " . $estates[$i]['id']);
             $estates[$i]['city'] = $cityId['name'];
 
-            if(isset($_SESSION['userId'])) {
+            if (isset($_SESSION['userId'])) {
                 $fav = $database->getOne("SELECT * FROM fav 
-                    WHERE userId = ".$_SESSION['userId']." AND objectId = ".$estates[$i]['id']);
-                if($fav == null) { 
-                    $estates[$i]['fav'] = 'no'; 
-                } else { 
+                    WHERE userId = " . $_SESSION['userId'] . " AND objectId = " . $estates[$i]['id']);
+                if ($fav == null) {
+                    $estates[$i]['fav'] = 'no';
+                } else {
                     $estates[$i]['fav'] = 'yes';
                 }
             } else {

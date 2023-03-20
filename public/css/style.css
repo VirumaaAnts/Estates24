@@ -347,6 +347,10 @@ main .content>h2 {
   margin-bottom: 1vmin;
 }
 
+.active_type {
+  background-color: whitesmoke;
+}
+
 .content>aside .types .type input {
   display: none;
 }

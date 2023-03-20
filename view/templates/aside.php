@@ -5,15 +5,25 @@
             foreach ($countiesCities[3] as $type) {
                 echo "
                     <div class='type btn_filter'>
-                        <input type='checkbox' name='type' value='".strtolower($type)."'>
+                        <input type='checkbox' name='type[]' value='".strtolower($type)."'>
                         ";
                         if (is_iterable($countiesCities)) {
                             $typeCheck = 0;
-                            foreach ($countiesCities[2] as $types) {
-                                if ($types['type'] == $type) {
-                                    echo "<p class='types_count'>" . $types['typeCount'] . '</p>';
-                                    $typeCheck++;
-                                    break;
+                            if(isset($_GET['offers']) || $offers == true) {
+                                foreach ($countiesCities[2] as $types) {
+                                    if ($types['type'] == $type && $types['offer'] == 1) {
+                                        echo "<p class='types_count'>" . $types['typeCount'] . '</p>';
+                                        $typeCheck++;
+                                        break;
+                                    }
+                                }
+                            } else {
+                                foreach ($countiesCities[2] as $types) {
+                                    if ($types['type'] == $type) {
+                                        echo "<p class='types_count'>" . $types['typeCount'] . '</p>';
+                                        $typeCheck++;
+                                        break;
+                                    }
                                 }
                             }
                             if ($typeCheck == 0) {

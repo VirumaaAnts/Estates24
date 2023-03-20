@@ -10,9 +10,9 @@ ob_start();
             <div class='slider' show='1' scroll='1' time='200'>
                 <ul>
                     <?php
-                        foreach ($ad['photos'] as $key => $value) {
-                            echo "<li><div class='img_slider' style='background-image: url(public/uploads/user_$_SESSION[userId]/ad_$ad[id]/$value[photo]);'></div></li>";
-                        }
+                    foreach ($ad['photos'] as $key => $value) {
+                        echo "<li><div class='img_slider' style='background-image: url(public/uploads/user_$_SESSION[userId]/ad_$ad[id]/$value[photo]);'></div></li>";
+                    }
                     ?>
                 </ul>
             </div>
@@ -22,14 +22,14 @@ ob_start();
         <ul>
             <li>
                 <select name="type" id="adType" class="form-control" required disabled>
-                    <option selected disabled value="<?php echo $ad['type'];?>"><?php echo $ad['type'];?></option>
+                    <option selected disabled value="<?php echo $ad['type']; ?>"><?php echo $ad['type']; ?></option>
                 </select>
             </li>
-            <li><input type="text" id="adAddress" name="address" class="form-control" placeholder="Address" autocomplete="off" required value="<?php echo $ad['address']?>"></li>
+            <li><input type="text" id="adAddress" name="address" class="form-control" placeholder="Address" autocomplete="off" required value="<?php echo $ad['address'] ?>"></li>
             <li>
-                <input type="text" name="city" list="cities" id="adTowns" placeholder="City" class="form-control" autocomplete="off" value="<?php echo $ad['city']?>">
+                <input type="text" name="city" list="cities" id="adTowns" placeholder="City" class="form-control" autocomplete="off" value="<?php echo $ad['city'] ?>">
                 <datalist id="cities">
-                    <?php 
+                    <?php
                     foreach (ModelAd::GetCities() as $key => $value) {
                         echo "<option value='$value[name]'></option>";
                     }
@@ -37,9 +37,9 @@ ob_start();
                 </datalist>
             </li>
             <?php
-                switch ($ad['type']) {
-                    case 'House':
-                        echo "<li><input class='form-control' type='number' id='adRoomCount' name='roomCount' value='$ad[roomCount]' placeholder='Room count'></li>
+            switch ($ad['type']) {
+                case 'House':
+                    echo "<li><input class='form-control' type='number' id='adRoomCount' name='roomCount' value='$ad[roomCount]' placeholder='Room count'></li>
                         <li><input class='form-control' type='number' id='adFloorCount' name='floorCount' value='$ad[floorCount]' placeholder='Floor count'></li>
                         <li class='input-group'>
                             <input class='form-control' type='number' id='adArea' name='area' placeholder='Area' required value='$ad[area]'>
@@ -59,25 +59,34 @@ ob_start();
                             <span class='input-group-text' id='basic-addon1'>€</span>
                         </li>
                         <li>
-                            <select name='conditions' id='adConditions' class='form-control'>
-                                <option selected disabled value=''>Conditions</option>
-                                <option value='good'>Good</option>
-                                <option value='need repair'>Need repair</option>
-                                <option value='need overhaul'>Need overhaul</option>
+                            <select name='conditions' id='adConditions' class='form-control'>";
+                                $conditions = array('good', 'need repair', 'need overhaul');
+                                for ($i = 0; $i < count($conditions); $i++) { 
+                                    if($ad['conditions'] == $conditions[$i]) {
+                                        echo "<option selected value='$ad[conditions]'>".ucfirst($ad['conditions'])."</option>";
+                                    } else {
+                                        echo "<option value='$conditions[$i]'>".ucfirst($conditions[$i])."</option>";
+                                    }
+                                }
+                                echo "
                             </select>
                         </li>
                         <li>
-                            <select name='heatSystem' id='adHeat' class='form-control'>
-                                <option selected disabled value=''>Heat system</option>
-                                <option value='water'>water</option>
-                                <option value='air'>air</option>
-                                <option value='electric'>electric</option>
-                                <option value='gas'>gas</option>
+                            <select name='heatSystem' id='adHeat' class='form-control'>";
+                                $heatSystems = array('water', 'air', 'electric', 'gas');
+                                for ($i = 0; $i < count($heatSystems); $i++) { 
+                                    if($ad['heatSystem'] == $heatSystems[$i]) {
+                                        echo "<option selected value='$ad[heatSystem]'>".ucfirst($ad['heatSystem'])."</option>";
+                                    } else {
+                                        echo "<option value='$heatSystems[$i]'>".ucfirst($heatSystems[$i])."</option>";
+                                    }
+                                }
+                                echo "
                             </select>
                         </li>";
-                        break;
-                    case 'Apartment':
-                        echo "<li><input class='form-control' type='number' id='adRoomCount' name='roomCount' value='$ad[roomCount]' placeholder='Room count'></li>
+                    break;
+                case 'Apartment':
+                    echo "<li><input class='form-control' type='number' id='adRoomCount' name='roomCount' value='$ad[roomCount]' placeholder='Room count'></li>
                         <li><input class='form-control' type='number' id='adFloorCount' name='floorCount' value='$ad[floorCount]' placeholder='Floor count'></li>
                         <li><input class='form-control' type='number' id='adFloor' name='floor' value='$ad[floor]' placeholder='Floor'></li>
                         <li class='input-group'>
@@ -90,26 +99,35 @@ ob_start();
                             <span class='input-group-text' id='basic-addon1'>€</span>
                         </li>
                         <li>
-                            <select name='conditions' id='adConditions' class='form-control'>
-                                <option selected disabled value=''>Conditions</option>
-                                <option value='good'>Good</option>
-                                <option value='need repair'>Need repair</option>
-                                <option value='need overhaul'>Need overhaul</option>
+                            <select name='conditions' id='adConditions' class='form-control'>";
+                                $conditions = array('good', 'need repair', 'need overhaul');
+                                for ($i = 0; $i < count($conditions); $i++) { 
+                                    if($ad['conditions'] == $conditions[$i]) {
+                                        echo "<option selected value='$ad[conditions]'>".ucfirst($ad['conditions'])."</option>";
+                                    } else {
+                                        echo "<option value='$conditions[$i]'>".ucfirst($conditions[$i])."</option>";
+                                    }
+                                }
+                                echo "
                             </select>
                         </li>
                         <li>
-                            <select name='heatSystem' id='adHeat' class='form-control'>
-                                <option selected disabled value=''>Heat system</option>
-                                <option value='water'>water</option>
-                                <option value='air'>air</option>
-                                <option value='electric'>electric</option>
-                                <option value='gas'>gas</option>
+                            <select name='heatSystem' id='adHeat' class='form-control'>";
+                                $heatSystems = array('water', 'air', 'electric', 'gas');
+                                for ($i = 0; $i < count($heatSystems); $i++) { 
+                                    if($ad['heatSystem'] == $heatSystems[$i]) {
+                                        echo "<option selected value='$ad[heatSystem]'>".ucfirst($ad['heatSystem'])."</option>";
+                                    } else {
+                                        echo "<option value='$heatSystems[$i]'>".ucfirst($heatSystems[$i])."</option>";
+                                    }
+                                }
+                                echo "
                             </select>
                         </li>";
-                        break;
-                    case 'Garage':
-                        echo "<li class='input-group'>
-                        <input class='form-control' type='number' id='adArea' name='area' placeholder='Area' required value='area'>
+                    break;
+                case 'Garage':
+                    echo "<li class='input-group'>
+                        <input class='form-control' type='number' id='adArea' name='area' placeholder='Area' required value='$ad[area]'>
                         <span class='input-group-text' id='basic-addon1'>m²</span>
                         </li>
                         <li class='adBasement_container'>
@@ -118,29 +136,38 @@ ob_start();
                         </li>
                         <li><input class='form-control' type='number' name='year' id='adYear' value='$ad[year]' placeholder='Year'></li>
                         <li class='input-group'>
-                            <input class='form-control' type='number' id='adPrice' name='price' step='.01' placeholder='Price' required value='price'>
+                            <input class='form-control' type='number' id='adPrice' name='price' step='.01' placeholder='Price' required value='$ad[price]'>
                             <span class='input-group-text' id='basic-addon1'>€</span>
                         </li>
                         <li>
-                            <select name='conditions' id='adConditions' class='form-control'>
-                                <option selected disabled value=''>Conditions</option>
-                                <option value='good'>Good</option>
-                                <option value='need repair'>Need repair</option>
-                                <option value='need overhaul'>Need overhaul</option>
+                            <select name='conditions' id='adConditions' class='form-control'>";
+                                $conditions = array('good', 'need repair', 'need overhaul');
+                                for ($i = 0; $i < count($conditions); $i++) { 
+                                    if($ad['conditions'] == $conditions[$i]) {
+                                        echo "<option selected value='$ad[conditions]'>".ucfirst($ad['conditions'])."</option>";
+                                    } else {
+                                        echo "<option value='$conditions[$i]'>".ucfirst($conditions[$i])."</option>";
+                                    }
+                                }
+                                echo "
                             </select>
                         </li>
                         <li>
-                            <select name='heatSystem' id='adHeat' class='form-control'>
-                                <option selected disabled value=''>Heat system</option>
-                                <option value='water'>water</option>
-                                <option value='air'>air</option>
-                                <option value='electric'>electric</option>
-                                <option value='gas'>gas</option>
+                            <select name='heatSystem' id='adHeat' class='form-control'>";
+                                $heatSystems = array('water', 'air', 'electric', 'gas');
+                                for ($i = 0; $i < count($heatSystems); $i++) { 
+                                    if($ad['heatSystem'] == $heatSystems[$i]) {
+                                        echo "<option selected value='$ad[heatSystem]'>".ucfirst($ad['heatSystem'])."</option>";
+                                    } else {
+                                        echo "<option value='$heatSystems[$i]'>".ucfirst($heatSystems[$i])."</option>";
+                                    }
+                                }
+                                echo "
                             </select>
                         </li>";
-                        break;
-                    case 'Land':
-                        echo "<li class='input-group'>
+                    break;
+                case 'Land':
+                    echo "<li class='input-group'>
                         <input class='form-control' type='number' id='adArea' name='area' placeholder='Area' required value='$ad[area]'>
                         <span class='input-group-text' id='basic-addon1'>m²</span>
                     </li>
@@ -152,11 +179,11 @@ ob_start();
                         <input class='form-control' type='number' id='adPrice' name='price' step='.01' placeholder='Price' required value='$ad[price]'>
                         <span class='input-group-text' id='basic-addon1'>€</span>
                     </li>";
-                        break;
-                    case 'Summer house':
-                        echo "<li><input class='form-control' type='number' id='adRoomCount' name='roomCount' value='$ad[roomCount]' placeholder='Room count'></li>
+                    break;
+                case 'Summer house':
+                    echo "<li><input class='form-control' type='number' id='adRoomCount' name='roomCount' value='$ad[roomCount]' placeholder='Room count'></li>
                         <li class='input-group'>
-                            <input class='form-control' type='number' id='adArea' name='area' placeholder='Area' required value='area'>
+                            <input class='form-control' type='number' id='adArea' name='area' placeholder='Area' required value='$ad[area]'>
                             <span class='input-group-text' id='basic-addon1'>m²</span>
                         </li>
                         <li class='input-group'>
@@ -173,25 +200,34 @@ ob_start();
                             <span class='input-group-text' id='basic-addon1'>€</span>
                         </li>
                         <li>
-                            <select name='conditions' id='adConditions' class='form-control'>
-                                <option selected disabled value=''>Conditions</option>
-                                <option value='good'>Good</option>
-                                <option value='need repair'>Need repair</option>
-                                <option value='need overhaul'>Need overhaul</option>
+                            <select name='conditions' id='adConditions' class='form-control'>";
+                                $conditions = array('good', 'need repair', 'need overhaul');
+                                for ($i = 0; $i < count($conditions); $i++) { 
+                                    if($ad['conditions'] == $conditions[$i]) {
+                                        echo "<option selected value='$ad[conditions]'>".ucfirst($ad['conditions'])."</option>";
+                                    } else {
+                                        echo "<option value='$conditions[$i]'>".ucfirst($conditions[$i])."</option>";
+                                    }
+                                }
+                                echo "
                             </select>
                         </li>
                         <li>
-                            <select name='heatSystem' id='adHeat' class='form-control'>
-                                <option selected disabled value=''>Heat system</option>
-                                <option value='water'>water</option>
-                                <option value='air'>air</option>
-                                <option value='electric'>electric</option>
-                                <option value='gas'>gas</option>
+                            <select name='heatSystem' id='adHeat' class='form-control'>";
+                                $heatSystems = array('water', 'air', 'electric', 'gas');
+                                for ($i = 0; $i < count($heatSystems); $i++) { 
+                                    if($ad['heatSystem'] == $heatSystems[$i]) {
+                                        echo "<option selected value='$ad[heatSystem]'>".ucfirst($ad['heatSystem'])."</option>";
+                                    } else {
+                                        echo "<option value='$heatSystems[$i]'>".ucfirst($heatSystems[$i])."</option>";
+                                    }
+                                }
+                                echo "
                             </select>
                         </li>";
-                        break;
-                    case 'Part':
-                        echo "<li><input class='form-control' type='number' id='adRoomCount' name='roomCount' value='$ad[roomCount]' placeholder='Room count'></li>
+                    break;
+                case 'Part':
+                    echo "<li><input class='form-control' type='number' id='adRoomCount' name='roomCount' value='$ad[roomCount]' placeholder='Room count'></li>
                         <li><input class='form-control' type='number' id='adFloor' name='floor' value='$ad[floor]' placeholder='Floor'></li>
                         <li class='input-group'>
                             <input class='form-control' type='number' id='adArea' name='area' placeholder='Area' required value='$ad[area]'>
@@ -211,28 +247,37 @@ ob_start();
                             <span class='input-group-text' id='basic-addon1'>€</span>
                         </li>
                         <li>
-                            <select name='conditions' id='adConditions' class='form-control'>
-                                <option selected disabled value=''>Conditions</option>
-                                <option value='good'>Good</option>
-                                <option value='need repair'>Need repair</option>
-                                <option value='need overhaul'>Need overhaul</option>
+                            <select name='conditions' id='adConditions' class='form-control'>";
+                                $conditions = array('good', 'need repair', 'need overhaul');
+                                for ($i = 0; $i < count($conditions); $i++) { 
+                                    if($ad['conditions'] == $conditions[$i]) {
+                                        echo "<option selected value='$ad[conditions]'>".ucfirst($ad['conditions'])."</option>";
+                                    } else {
+                                        echo "<option value='$conditions[$i]'>".ucfirst($conditions[$i])."</option>";
+                                    }
+                                }
+                                echo "
                             </select>
                         </li>
                         <li>
-                            <select name='heatSystem' id='adHeat' class='form-control'>
-                                <option selected disabled value=''>Heat system</option>
-                                <option value='water'>water</option>
-                                <option value='air'>air</option>
-                                <option value='electric'>electric</option>
-                                <option value='gas'>gas</option>
+                            <select name='heatSystem' id='adHeat' class='form-control'>";
+                                $heatSystems = array('water', 'air', 'electric', 'gas');
+                                for ($i = 0; $i < count($heatSystems); $i++) { 
+                                    if($ad['heatSystem'] == $heatSystems[$i]) {
+                                        echo "<option selected value='$ad[heatSystem]'>".ucfirst($ad['heatSystem'])."</option>";
+                                    } else {
+                                        echo "<option value='$heatSystems[$i]'>".ucfirst($heatSystems[$i])."</option>";
+                                    }
+                                }
+                                echo "
                             </select>
                         </li>";
-                        break;
-                }
+                    break;
+            }
             ?>
         </ul>
         <div class="des">
-            <textarea name="description" id="" cols="30" rows="10" placeholder="Description" class="form-control"><?php echo $ad['description']?></textarea>
+            <textarea name="description" id="" cols="30" rows="10" placeholder="Description" class="form-control"><?php echo $ad['description'] ?></textarea>
         </div>
         <button type="submit" class="btn btn-primary w-100">Edit ad</button>
     </form>

@@ -6,7 +6,8 @@
 </div>
 <div class="content">
     <h2>The best place to sell real estate</h2>
-    <?php 
+    <?php
+        $offers = false;
         require 'templates/aside.php';
     ?>
     <div class="estates">
@@ -75,8 +76,8 @@
         <div class="ads">
             <h1>Special offers</h1>
             <?php
-                if(is_iterable($offers)){
-                    foreach ($offers[0] as $estate) {
+                if(is_iterable($offersList)){
+                    foreach ($offersList[0] as $estate) {
                         if($estate['fav'] == 'none') {
                             echo "
                                 <div class='offer' page='ad?user=".$estate['ownerId']."&ad=".$estate['id']."'>
@@ -89,13 +90,13 @@
                         echo "
                             <div class='slider' show='1' scroll='1' time='300'>
                                 <ul>";
-                                    foreach ($offers[1] as $photo) {
+                                    foreach ($offersList[1] as $photo) {
                                         if($estate['id'] == $photo['houseId']) {
                                             echo "
                                             <li>
                                                 <a 
                                                     href='public/uploads/user_".$estate['ownerId']."/ad_".$estate['id']."/".$photo['photo']."' 
-                                                    data-lightbox='user".$estate['ownerId']."-".count($offers[1])."' data-title='".$photo['description']."'
+                                                    data-lightbox='user".$estate['ownerId']."-".count($offersList[1])."' data-title='".$photo['description']."'
                                                 >
                                                     <div class='img_slider' style='background-image: url(public/uploads/user_".$estate['ownerId']."/ad_".$estate['id']."/".$photo['photo'].");'></div>
                                                 </a>
@@ -127,7 +128,7 @@
                         </div>
                         ";
                     }
-                    if(count($offers[0]) == 0) {
+                    if(count($offersList[0]) == 0) {
                         echo "<p class='no_offers'>There are currently no offers here.</p>";
                     }
                 }

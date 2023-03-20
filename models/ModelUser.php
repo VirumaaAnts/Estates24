@@ -35,7 +35,7 @@ class ModelUser
         $response = false;
         $database = new database();
         if (isset($_POST['update'])) {
-            if(!isset($_POST['password'])){
+            if (!isset($_POST['password'])) {
                 $_POST['password'] = '';
             }
             // If user has cleared at least one important(NOT NULL) field then return
@@ -46,7 +46,8 @@ class ModelUser
                 header('Location: ./profile');
                 return $response;
             } else {
-                function photoCheck($query) {
+                function photoCheck($query)
+                {
                     $currentPicture = $_POST['prev_picture'];
                     $file = 'public/uploads/user_' . $_SESSION['userId'] . '/' . $currentPicture;
                     if (($_FILES['picture']['size'] != 0)) {
@@ -56,23 +57,23 @@ class ModelUser
                         $folder = 'public/uploads/user_' . $_SESSION['userId'] . '/' . $_FILES['picture']['name'];
                         move_uploaded_file($_FILES['picture']['tmp_name'], $folder);
                     } else {
-                        $query = str_replace("`photo` = '".$_POST['picture']['name']. "'", "`photo` = '".$currentPicture."'", $query);
+                        $query = str_replace("`photo` = '" . $_POST['picture']['name'] . "'", "`photo` = '" . $currentPicture . "'", $query);
                     }
                     return $query;
                 }
-                $res = $database -> getAll("SELECT * FROM user");
+                $res = $database->getAll("SELECT * FROM user");
                 $checkUser = 0;
-                if($res) {
-                    foreach($res as $elem) {
-                        if($elem['username'] === $_POST['username'] && $elem['email'] === strtolower($_POST['email'])) {
-                            if($_SESSION['userId'] == $elem['id']) {
+                if ($res) {
+                    foreach ($res as $elem) {
+                        if ($elem['username'] === $_POST['username'] && $elem['email'] === strtolower($_POST['email'])) {
+                            if ($_SESSION['userId'] == $elem['id']) {
                                 $checkUser = 0;
                             } else {
                                 $checkUser = 1;
                             }
                             break;
-                        } else if($elem['username'] === $_POST['username'] || $elem['email'] === strtolower($_POST['email'])) {
-                            if($_SESSION['userId'] == $elem['id']) {
+                        } else if ($elem['username'] === $_POST['username'] || $elem['email'] === strtolower($_POST['email'])) {
+                            if ($_SESSION['userId'] == $elem['id']) {
                                 $checkUser = 0;
                             } else {
                                 $checkUser = 1;
@@ -83,17 +84,17 @@ class ModelUser
                         }
                     }
                 }
-                if($checkUser != 0) {
+                if ($checkUser != 0) {
                     header('Location: ./profile');
                     return $response;
                 }
-                if(trim($_POST['password']) == '') { 
+                if (trim($_POST['password']) == '') {
                     $query = "UPDATE `user` SET 
                         `name` = '" . $_POST['name'] . "', `surname` = '" . $_POST['surname'] . "', 
                         `username` = '" . $_POST['username'] . "', `email` = '" . strtolower($_POST['email']) . "', 
                         `photo` = '" . $_FILES['picture']['name'] . "', `phone` = '" . $_POST['phone'] . "' 
                         WHERE `user`.`id` = " . $_SESSION['userId'] . "";
-                        $query = photoCheck($query);
+                    $query = photoCheck($query);
                 } else {
                     $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
                     $query = "UPDATE `user` SET 
@@ -101,50 +102,50 @@ class ModelUser
                         `username` = '" . $_POST['username'] . "', `email` = '" . strtolower($_POST['email']) . "', 
                         `password` = '" . $password . "', `photo` = '" . $_FILES['picture']['name'] . "', 
                         `phone` = '" . $_POST['phone'] . "' WHERE `user`.`id` = " . $_SESSION['userId'] . "";
-                        $query = photoCheck($query);
+                    $query = photoCheck($query);
                 }
             }
         }
         $runnedQuery = $database->executeRun($query);
-        if($runnedQuery == true) {
+        if ($runnedQuery == true) {
             $response = true;
         }
         header('Location: ./profile');
         return $response;
     }
-    public static function deleteProfile() {
+    public static function deleteProfile()
+    {
         $database = new database();
-        if(isset($_POST['delete'])) {
+        if (isset($_POST['delete'])) {
 
             $query0 = "DELETE FROM `fav`
-            WHERE `userId` = ".$_SESSION['userId'].";";
+            WHERE `userId` = " . $_SESSION['userId'] . ";";
 
             $runned0Query = $database->executeRun($query0);
 
             $query1 = "DELETE FROM photo WHERE houseId
-            IN (SELECT id FROM object WHERE ownerId = ".$_SESSION['userId'].");";
+            IN (SELECT id FROM object WHERE ownerId = " . $_SESSION['userId'] . ");";
 
             $runned1Query = $database->executeRun($query1);
 
-            $query2 = "DELETE FROM object WHERE `ownerId` = ".$_SESSION['userId'];
+            $query2 = "DELETE FROM object WHERE `ownerId` = " . $_SESSION['userId'];
 
             $runned2Query = $database->executeRun($query2);
 
-            $query = "DELETE FROM `user` WHERE `id` = ".$_SESSION['userId'];
+            $query = "DELETE FROM `user` WHERE `id` = " . $_SESSION['userId'];
 
             $runnedQuery = $database->executeRun($query);
-            if($runnedQuery) {
+            if ($runnedQuery) {
                 $response = true;
                 $folder = 'public/uploads/user_' . $_SESSION['userId'];
                 //Get a list of all of the file names and folders in the folder.
-                foreach(glob($folder . '/*') as $file) {
-                    if(is_dir($file)){
-                        foreach(glob($file . '/*') as $fileIn) {
+                foreach (glob($folder . '/*') as $file) {
+                    if (is_dir($file)) {
+                        foreach (glob($file . '/*') as $fileIn) {
                             unlink($fileIn);
                         }
                         rmdir($file);
-                    }
-                    else{
+                    } else {
                         unlink($file);
                     }
                     rmdir($folder);
@@ -154,7 +155,7 @@ class ModelUser
             }
         }
         $runnedQuery = $database->executeRun($query);
-        if($runnedQuery == true) {
+        if ($runnedQuery == true) {
             $response = true;
         }
         header('Location: ./profile');
@@ -164,7 +165,8 @@ class ModelUser
     {
         $database = new database();
         $user = $database->getOne("SELECT * FROM user WHERE id = $_GET[id]");
-        if($user == null) return;
+        if ($user == null)
+            return;
         return $user;
     }
     public static function getUserAds()
@@ -174,7 +176,8 @@ class ModelUser
             "SELECT object.* FROM user as `user`, object as `object` 
                 WHERE user.id = object.ownerId AND object.ownerId = $_SESSION[userId] GROUP BY object.id ORDER BY object.id ASC"
         );
-        if($userAds == null) return;
+        if ($userAds == null)
+            return;
         $countyCities = $database->getAll(
             "SELECT city.id, city.name AS city, county.name AS county 
                 FROM city AS city, county AS county WHERE city.countyId = county.id ORDER BY city.id"
@@ -188,5 +191,5 @@ class ModelUser
         unset($_SESSION['userId']);
         return;
     }
-    }
+}
 ?>

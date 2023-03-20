@@ -33,8 +33,8 @@ class ModelUser
     public static function editProfile()
     {
         $response = false;
+        $database = new database();
         if (isset($_POST['update'])) {
-            $database = new database();
             if(isset($_POST['password'])){
             } else {
                 $_POST['password'] = '';
@@ -143,6 +143,17 @@ class ModelUser
                 WHERE user.id = object.ownerId AND object.ownerId = $_SESSION[userId] GROUP BY object.id ORDER BY object.id ASC"
         );
         if($userAds == null) return;
+
+        foreach ($userAds as $object) {
+            $city = $database->getOne(
+                "SELECT name, countyId FROM city WHERE id = $object[cityId]"
+            );
+            $county = $database->getOne(
+                "SELECT name FROM county WHERE id = $city[countyId]"
+            );
+            $object["city"] = $city["name"];
+            $object["county"] = $county["name"];
+        }
 
         $pictures = $database->getAll("SELECT * FROM `photo` ORDER BY id ASC");
         return [$userAds, $pictures];

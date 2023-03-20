@@ -36,6 +36,10 @@
             SendController::deleteProfile();
             return;
         }
+        else if($route == 'deleteAd') {
+            SendController::deleteAd();
+            return;
+        }
         else if($route == 'logout') {
             SendController::Logout();
             return;

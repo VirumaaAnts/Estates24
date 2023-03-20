@@ -142,3 +142,19 @@ var deleteModal = $modal_window({
 $("#deleteProfileCheck").click(function (e) {
     deleteModal.show();
 })
+
+
+$(".deleteAdCheck").click(function (e) {
+    let adId = $(this).attr('data-id');
+    var deleteAd = $modal_window({
+        title: 'Are you sure?',
+        content: `
+            <form action="deleteAd?id=${adId}" method='POST'>
+                <div class='login modal_window' style="width:100%">
+                    <button style="width:100%" class="btn btn-danger" id = "deleteAd" name="delete">Delete</button>
+                </div>
+            </form>
+            `
+    });
+    deleteAd.show();
+});

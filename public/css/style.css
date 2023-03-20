@@ -960,7 +960,10 @@ main .ads .ad, main .ads .offer {
 
 .user_ads .slider {
   width: 50% !important;
-  height: 100%;
+}
+
+.user_ads .slider ul {
+  height: 15.13vw !important;
 }
 
 .user_ads .inf {

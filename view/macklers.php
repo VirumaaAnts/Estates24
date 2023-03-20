@@ -7,11 +7,9 @@
     </div>
     <h2 class="topic">A real estate agent can help you fulfill your dreams!</h2>
     <aside class="mackler">
-        <form action="">
-            <div class="fields">
-                    
-            </div>
-            <input type="text" name="query" id="query" class="form-control" placeholder="Search query">
+        <form action="filterMacklers" method="POST">
+            <div class="fields"></div>
+            <input type="text" name="query" id="query" class="form-control" value="" placeholder="Search query">
             <button class="btn btn-primary">Find</button>
         </form>
     </aside>

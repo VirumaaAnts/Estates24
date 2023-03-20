@@ -66,6 +66,14 @@ class RenderController
         $favorites = ModelEstates::getFavorites();
         include_once 'view/favorites.php';
     }
+    public static function EditPage() {
+        $ad = ModelAd::GetAdId();
+        if(!$ad){
+            header("Location: .");
+        }else{
+            include_once 'view/editAd.php';
+        }
+    }
     public static function ErrorPage() {
         include_once 'view/error.php';
     }

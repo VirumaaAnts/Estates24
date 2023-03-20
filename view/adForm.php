@@ -53,7 +53,7 @@ ob_start();
             </li>
             <li><input class="form-control" type="number" name="year" id="adYear" value="" placeholder="Year"></li>
             <li class="input-group">
-                <input class="form-control" type="number" id="adPrice" name="price" step=".01" placeholder="Price" required />
+                <input class="form-control" type="number" id="adPrice" name="price" step=".01" placeholder="Price" required>
                 <span class="input-group-text" id="basic-addon1">€</span>
             </li>
             <li>

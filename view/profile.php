@@ -32,6 +32,7 @@
     <?php
     if(is_iterable($userAds)) {
         foreach ($userAds[0] as $estate) {
+            $id = hash('ripemd160', $estate["id"]);
             echo "
             <div class='estate' page='ad?user=".$estate['ownerId']."&ad=".$estate['id']."'>
                 <div class='slider' show='1' scroll='1' time='200'>
@@ -59,7 +60,7 @@
                     </div>
                 </div>
                 <div class='btn_container'>
-                    <a class='btn btn-primary' href='editAd'>Edit</a>
+                    <a class='btn btn-primary' href='editPageAd?ad=$id'>Edit</a>
                     <a class='btn btn-danger deleteAdCheck' data-id='$estate[id]'>Delete</a>
                 </div>
             </div>

@@ -54,8 +54,14 @@
                 </div>
                 <div class='inf'>
                     <div class='inf_text'>
-                        <h3>".$estate['address']."</h3>
-                        <p><span>City:</span> ".$estate['city']."</p>
+                        <h3>".$estate['address']."</h3>";
+                        foreach ($userAds[2] as $city) {
+                            if($city['id'] == $estate['cityId']) {
+                                echo "<p><span>Location:</span> ".$city['city'].", ".$city['county']."maa</p>";
+                                break;
+                            }
+                        }
+                        echo "
                         <p><span>Price:</span> ".$estate['price']." €</p>
                     </div>
                 </div>

@@ -60,7 +60,7 @@
                 </div>
                 <div class='btn_container'>
                     <a class='btn btn-primary' href='editAd'>Edit</a>
-                    <a class='btn btn-danger' href='deleteAd?ad=$estate[id]'>Delete</a>
+                    <a class='btn btn-danger deleteAdCheck' data-id='$estate[id]'>Delete</a>
                 </div>
             </div>
             ";

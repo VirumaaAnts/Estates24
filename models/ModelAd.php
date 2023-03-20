@@ -81,7 +81,27 @@ class ModelAd
     public static function deleteAd()
     {
         $database = new database();
-        $database->executeRun("DELETE FROM `object` WHERE `ownerId` = $_SESSION[userId] AND `id` = $_GET[ad]");
+        $response = false;
+        $runnedQuery = $database->executeRun("DELETE FROM `fav` WHERE objectId = $_GET[id]");
+        $runnedQuery = $database->executeRun("DELETE FROM `photo` WHERE houseId = $_GET[id]");
+        $delQuery = "DELETE FROM `object` WHERE `ownerId` = $_SESSION[userId] AND `id` = $_GET[id]";
+        $runnedQueryEnd = $database->executeRun($delQuery);
+        $folder = "public/uploads/user_$_SESSION[userId]/ad_$_GET[id]";
+        // Get a list of all of the file names and folders in the folder.
+        foreach(glob($folder . '/*') as $file) {
+            if(is_dir($file)){
+                foreach(glob($file . '/*') as $fileIn) {
+                    unlink($fileIn);
+                }
+                rmdir($file);
+            }
+            else{
+                unlink($file);
+            }
+            rmdir($folder);
+        }
+        $response = true;
+        return $response;
     }
     public static function GetCities()
     {

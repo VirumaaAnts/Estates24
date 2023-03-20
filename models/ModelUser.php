@@ -144,6 +144,17 @@ class ModelUser
         );
         if($userAds == null) return;
 
+        foreach ($userAds as $object) {
+            $city = $database->getOne(
+                "SELECT name, countyId FROM city WHERE id = $object[cityId]"
+            );
+            $county = $database->getOne(
+                "SELECT name FROM county WHERE id = $city[countyId]"
+            );
+            $object["city"] = $city["name"];
+            $object["county"] = $county["name"];
+        }
+
         $pictures = $database->getAll("SELECT * FROM `photo` ORDER BY id ASC");
         return [$userAds, $pictures];
     }

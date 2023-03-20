@@ -25,6 +25,17 @@ class SendController
             $_SESSION['error'] = "<p style='color:red;font-weight:900;margin-left:20px'>Попытка неудачна!</p>";
         }
     }
+    public static function deleteAd()
+    {
+        $response = ModelAd::deleteAd();
+        if($response == true) {
+            $_SESSION['error'] = "<p style='color:green;font-weight:900;margin-left:20px'>Объявление успешно удалено!</p>";
+            header('Location: ./profile');
+        }else{
+            $_SESSION['error'] = "<p style='color:red;font-weight:900;margin-left:20px'>Попытка неудачна!</p>";
+            header('Location: ./profile');
+        }
+    }
     public static function Login()
     {
         $test = ModelUser::checkUser();

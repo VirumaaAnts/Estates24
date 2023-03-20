@@ -718,9 +718,13 @@ main .ads .ad, main .ads .offer {
 
 .createAdv .picture {
   width: 70%;
-  position: sticky;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-
+.createAdv .picture p{
+  width: 100%;
+}
 .createAdv>ul {
   list-style: none;
   width: 25%;
@@ -739,12 +743,6 @@ main .ads .ad, main .ads .offer {
 /* .createAdv > ul li:nth-child(2n-1){background-color: rgba(0, 0, 0, 0.02);} */
 .createAdv>ul li span {
   height: 51.6px !important;
-}
-
-.createAdv p {
-  margin: 0;
-  position: absolute;
-  right: 0px;
 }
 
 .createAdv input {

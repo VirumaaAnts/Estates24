@@ -24,6 +24,10 @@
             RenderController::Favorites();
             return;
         }
+        else if($route == 'editPageAd') {
+            RenderController::EditPage();
+            return;
+        }
         else if($route == 'editProfile') {
             SendController::EditProfile();
             return;
@@ -40,6 +44,11 @@
             SendController::CreateObj();
             return;
         }
+        else if($route == 'editAd') {
+            SendController::EditAd();
+            return;
+        }
+        
     }
     if($route == 'index.php') {
         RenderController::start();

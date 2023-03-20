@@ -2,10 +2,10 @@
 -- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Mar 20, 2023 at 11:53 AM
--- Server version: 10.4.25-MariaDB
--- PHP Version: 8.1.10
+-- Хост: 127.0.0.1
+-- Время создания: Мар 20 2023 г., 13:01
+-- Версия сервера: 10.4.24-MariaDB
+-- Версия PHP: 8.1.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `estate`
+-- База данных: `estate`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `city`
+-- Структура таблицы `city`
 --
 
 CREATE TABLE `city` (
@@ -34,7 +34,7 @@ CREATE TABLE `city` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `city`
+-- Дамп данных таблицы `city`
 --
 
 INSERT INTO `city` (`id`, `name`, `countyId`) VALUES
@@ -137,7 +137,7 @@ INSERT INTO `city` (`id`, `name`, `countyId`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `county`
+-- Структура таблицы `county`
 --
 
 CREATE TABLE `county` (
@@ -146,7 +146,7 @@ CREATE TABLE `county` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `county`
+-- Дамп данных таблицы `county`
 --
 
 INSERT INTO `county` (`id`, `name`) VALUES
@@ -169,7 +169,7 @@ INSERT INTO `county` (`id`, `name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `fav`
+-- Структура таблицы `fav`
 --
 
 CREATE TABLE `fav` (
@@ -179,7 +179,7 @@ CREATE TABLE `fav` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `fav`
+-- Дамп данных таблицы `fav`
 --
 
 INSERT INTO `fav` (`id`, `userId`, `objectId`) VALUES
@@ -188,7 +188,7 @@ INSERT INTO `fav` (`id`, `userId`, `objectId`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `object`
+-- Структура таблицы `object`
 --
 
 CREATE TABLE `object` (
@@ -213,7 +213,7 @@ CREATE TABLE `object` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `object`
+-- Дамп данных таблицы `object`
 --
 
 INSERT INTO `object` (`id`, `type`, `address`, `ownerId`, `cityId`, `roomCount`, `floorCount`, `floor`, `area`, `territory`, `conditions`, `heatSystem`, `basement`, `description`, `year`, `price`, `active`, `offer`) VALUES
@@ -225,7 +225,7 @@ INSERT INTO `object` (`id`, `type`, `address`, `ownerId`, `cityId`, `roomCount`,
 -- --------------------------------------------------------
 
 --
--- Table structure for table `photo`
+-- Структура таблицы `photo`
 --
 
 CREATE TABLE `photo` (
@@ -236,7 +236,7 @@ CREATE TABLE `photo` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `photo`
+-- Дамп данных таблицы `photo`
 --
 
 INSERT INTO `photo` (`id`, `photo`, `houseId`, `description`) VALUES
@@ -262,7 +262,7 @@ INSERT INTO `photo` (`id`, `photo`, `houseId`, `description`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user`
+-- Структура таблицы `user`
 --
 
 CREATE TABLE `user` (
@@ -278,7 +278,7 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `user`
+-- Дамп данных таблицы `user`
 --
 
 INSERT INTO `user` (`id`, `name`, `surname`, `username`, `email`, `password`, `phone`, `mackler`, `photo`) VALUES
@@ -286,24 +286,24 @@ INSERT INTO `user` (`id`, `name`, `surname`, `username`, `email`, `password`, `p
 (2, 'Maksim', 'Dzjubenko', 'mak7ilenin', 'maksondzjubenko@gmail.com', '$2y$10$.aMy6egTJKOf8sk.2LJ5LuxlVJX6yDU71dNFlMKTeZ.uerT3TDCFO', '+37253005207', 0, 'me.jpg');
 
 --
--- Indexes for dumped tables
+-- Индексы сохранённых таблиц
 --
 
 --
--- Indexes for table `city`
+-- Индексы таблицы `city`
 --
 ALTER TABLE `city`
   ADD PRIMARY KEY (`id`),
   ADD KEY `fk_county` (`countyId`);
 
 --
--- Indexes for table `county`
+-- Индексы таблицы `county`
 --
 ALTER TABLE `county`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `fav`
+-- Индексы таблицы `fav`
 --
 ALTER TABLE `fav`
   ADD PRIMARY KEY (`id`),
@@ -311,7 +311,7 @@ ALTER TABLE `fav`
   ADD KEY `userId` (`userId`);
 
 --
--- Indexes for table `object`
+-- Индексы таблицы `object`
 --
 ALTER TABLE `object`
   ADD PRIMARY KEY (`id`),
@@ -319,89 +319,67 @@ ALTER TABLE `object`
   ADD KEY `ownerId` (`ownerId`);
 
 --
--- Indexes for table `photo`
+-- Индексы таблицы `photo`
 --
 ALTER TABLE `photo`
   ADD PRIMARY KEY (`id`),
   ADD KEY `houseId` (`houseId`);
 
 --
--- Indexes for table `user`
+-- Индексы таблицы `user`
 --
 ALTER TABLE `user`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `username` (`username`),
-  ADD UNIQUE KEY `email` (`email`);
+  ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT для сохранённых таблиц
 --
 
 --
--- AUTO_INCREMENT for table `city`
+-- AUTO_INCREMENT для таблицы `city`
 --
 ALTER TABLE `city`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=96;
 
 --
--- AUTO_INCREMENT for table `county`
+-- AUTO_INCREMENT для таблицы `county`
 --
 ALTER TABLE `county`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
--- AUTO_INCREMENT for table `fav`
+-- AUTO_INCREMENT для таблицы `fav`
 --
 ALTER TABLE `fav`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `object`
+-- AUTO_INCREMENT для таблицы `object`
 --
 ALTER TABLE `object`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT for table `photo`
+-- AUTO_INCREMENT для таблицы `photo`
 --
 ALTER TABLE `photo`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
--- AUTO_INCREMENT for table `user`
+-- AUTO_INCREMENT для таблицы `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- Constraints for dumped tables
+-- Ограничения внешнего ключа сохраненных таблиц
 --
 
 --
--- Constraints for table `city`
+-- Ограничения внешнего ключа таблицы `city`
 --
 ALTER TABLE `city`
   ADD CONSTRAINT `fk_county` FOREIGN KEY (`countyId`) REFERENCES `county` (`id`);
-
---
--- Constraints for table `fav`
---
-ALTER TABLE `fav`
-  ADD CONSTRAINT `fav_ibfk_1` FOREIGN KEY (`objectId`) REFERENCES `object` (`id`),
-  ADD CONSTRAINT `fav_ibfk_2` FOREIGN KEY (`userId`) REFERENCES `user` (`id`);
-
---
--- Constraints for table `object`
---
-ALTER TABLE `object`
-  ADD CONSTRAINT `object_ibfk_1` FOREIGN KEY (`cityId`) REFERENCES `city` (`id`),
-  ADD CONSTRAINT `object_ibfk_2` FOREIGN KEY (`ownerId`) REFERENCES `user` (`id`);
-
---
--- Constraints for table `photo`
---
-ALTER TABLE `photo`
-  ADD CONSTRAINT `photo_ibfk_1` FOREIGN KEY (`houseId`) REFERENCES `object` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -25,8 +25,9 @@ class ModelMacklers
         $database = new database();
         $query = $_POST['query'];
         $macklers = $database->getAll(
-            "SELECT *, 0 AS adsCount, CONCAT_WS(' ', name, surname) AS fullName FROM user 
-                WHERE mackler = 1 HAVING fullName LIKE '$query' OR email LIKE '%$query%' 
+            "SELECT *, 0 AS adsCount, CONCAT_WS(' ', name, surname) AS fullName, 
+                CONCAT_WS(' ', surname, name) AS surnameName FROM user 
+                WHERE mackler = 1 HAVING fullName LIKE '%$query%' OR surnameName LIKE '%$query%' OR email LIKE '%$query%' 
                 OR name LIKE '%$query%' OR surname LIKE '%$query%' ORDER BY id DESC;"
         );
         $macklersCount = $database->getAll(

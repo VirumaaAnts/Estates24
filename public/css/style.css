@@ -764,6 +764,8 @@ main .ads .ad, main .ads .offer {
 
 .createAdv input[type="file"] {
   border: none;
+  height: auto !important;
+  margin-bottom: 18px;
 }
 
 .createAdv select {

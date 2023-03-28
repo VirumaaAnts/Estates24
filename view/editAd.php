@@ -17,7 +17,7 @@ ob_start();
                 </ul>
             </div>
             <input type="file" name="files[]" accept="image/png, image/jpeg, image/jpg" class="form-control" id="files" multiple>
-            <p>files are overwritten in the folder, so be careful</p>
+            <p style="margin-bottom: 0"><b>Files are overwritten in the folder, so be careful</b></p>
         </div>
         <ul>
             <li>
@@ -60,28 +60,28 @@ ob_start();
                         </li>
                         <li>
                             <select name='conditions' id='adConditions' class='form-control'>";
-                                $conditions = array('good', 'need repair', 'need overhaul');
-                                for ($i = 0; $i < count($conditions); $i++) { 
-                                    if($ad['conditions'] == $conditions[$i]) {
-                                        echo "<option selected value='$ad[conditions]'>".ucfirst($ad['conditions'])."</option>";
-                                    } else {
-                                        echo "<option value='$conditions[$i]'>".ucfirst($conditions[$i])."</option>";
-                                    }
-                                }
-                                echo "
+                    $conditions = array('good', 'need repair', 'need overhaul');
+                    for ($i = 0; $i < count($conditions); $i++) {
+                        if ($ad['conditions'] == $conditions[$i]) {
+                            echo "<option selected value='$ad[conditions]'>" . ucfirst($ad['conditions']) . "</option>";
+                        } else {
+                            echo "<option value='$conditions[$i]'>" . ucfirst($conditions[$i]) . "</option>";
+                        }
+                    }
+                    echo "
                             </select>
                         </li>
                         <li>
                             <select name='heatSystem' id='adHeat' class='form-control'>";
-                                $heatSystems = array('water', 'air', 'electric', 'gas');
-                                for ($i = 0; $i < count($heatSystems); $i++) { 
-                                    if($ad['heatSystem'] == $heatSystems[$i]) {
-                                        echo "<option selected value='$ad[heatSystem]'>".ucfirst($ad['heatSystem'])."</option>";
-                                    } else {
-                                        echo "<option value='$heatSystems[$i]'>".ucfirst($heatSystems[$i])."</option>";
-                                    }
-                                }
-                                echo "
+                    $heatSystems = array('water', 'air', 'electric', 'gas');
+                    for ($i = 0; $i < count($heatSystems); $i++) {
+                        if ($ad['heatSystem'] == $heatSystems[$i]) {
+                            echo "<option selected value='$ad[heatSystem]'>" . ucfirst($ad['heatSystem']) . "</option>";
+                        } else {
+                            echo "<option value='$heatSystems[$i]'>" . ucfirst($heatSystems[$i]) . "</option>";
+                        }
+                    }
+                    echo "
                             </select>
                         </li>";
                     break;
@@ -100,28 +100,28 @@ ob_start();
                         </li>
                         <li>
                             <select name='conditions' id='adConditions' class='form-control'>";
-                                $conditions = array('good', 'need repair', 'need overhaul');
-                                for ($i = 0; $i < count($conditions); $i++) { 
-                                    if($ad['conditions'] == $conditions[$i]) {
-                                        echo "<option selected value='$ad[conditions]'>".ucfirst($ad['conditions'])."</option>";
-                                    } else {
-                                        echo "<option value='$conditions[$i]'>".ucfirst($conditions[$i])."</option>";
-                                    }
-                                }
-                                echo "
+                    $conditions = array('good', 'need repair', 'need overhaul');
+                    for ($i = 0; $i < count($conditions); $i++) {
+                        if ($ad['conditions'] == $conditions[$i]) {
+                            echo "<option selected value='$ad[conditions]'>" . ucfirst($ad['conditions']) . "</option>";
+                        } else {
+                            echo "<option value='$conditions[$i]'>" . ucfirst($conditions[$i]) . "</option>";
+                        }
+                    }
+                    echo "
                             </select>
                         </li>
                         <li>
                             <select name='heatSystem' id='adHeat' class='form-control'>";
-                                $heatSystems = array('water', 'air', 'electric', 'gas');
-                                for ($i = 0; $i < count($heatSystems); $i++) { 
-                                    if($ad['heatSystem'] == $heatSystems[$i]) {
-                                        echo "<option selected value='$ad[heatSystem]'>".ucfirst($ad['heatSystem'])."</option>";
-                                    } else {
-                                        echo "<option value='$heatSystems[$i]'>".ucfirst($heatSystems[$i])."</option>";
-                                    }
-                                }
-                                echo "
+                    $heatSystems = array('water', 'air', 'electric', 'gas');
+                    for ($i = 0; $i < count($heatSystems); $i++) {
+                        if ($ad['heatSystem'] == $heatSystems[$i]) {
+                            echo "<option selected value='$ad[heatSystem]'>" . ucfirst($ad['heatSystem']) . "</option>";
+                        } else {
+                            echo "<option value='$heatSystems[$i]'>" . ucfirst($heatSystems[$i]) . "</option>";
+                        }
+                    }
+                    echo "
                             </select>
                         </li>";
                     break;
@@ -141,28 +141,28 @@ ob_start();
                         </li>
                         <li>
                             <select name='conditions' id='adConditions' class='form-control'>";
-                                $conditions = array('good', 'need repair', 'need overhaul');
-                                for ($i = 0; $i < count($conditions); $i++) { 
-                                    if($ad['conditions'] == $conditions[$i]) {
-                                        echo "<option selected value='$ad[conditions]'>".ucfirst($ad['conditions'])."</option>";
-                                    } else {
-                                        echo "<option value='$conditions[$i]'>".ucfirst($conditions[$i])."</option>";
-                                    }
-                                }
-                                echo "
+                    $conditions = array('good', 'need repair', 'need overhaul');
+                    for ($i = 0; $i < count($conditions); $i++) {
+                        if ($ad['conditions'] == $conditions[$i]) {
+                            echo "<option selected value='$ad[conditions]'>" . ucfirst($ad['conditions']) . "</option>";
+                        } else {
+                            echo "<option value='$conditions[$i]'>" . ucfirst($conditions[$i]) . "</option>";
+                        }
+                    }
+                    echo "
                             </select>
                         </li>
                         <li>
                             <select name='heatSystem' id='adHeat' class='form-control'>";
-                                $heatSystems = array('water', 'air', 'electric', 'gas');
-                                for ($i = 0; $i < count($heatSystems); $i++) { 
-                                    if($ad['heatSystem'] == $heatSystems[$i]) {
-                                        echo "<option selected value='$ad[heatSystem]'>".ucfirst($ad['heatSystem'])."</option>";
-                                    } else {
-                                        echo "<option value='$heatSystems[$i]'>".ucfirst($heatSystems[$i])."</option>";
-                                    }
-                                }
-                                echo "
+                    $heatSystems = array('water', 'air', 'electric', 'gas');
+                    for ($i = 0; $i < count($heatSystems); $i++) {
+                        if ($ad['heatSystem'] == $heatSystems[$i]) {
+                            echo "<option selected value='$ad[heatSystem]'>" . ucfirst($ad['heatSystem']) . "</option>";
+                        } else {
+                            echo "<option value='$heatSystems[$i]'>" . ucfirst($heatSystems[$i]) . "</option>";
+                        }
+                    }
+                    echo "
                             </select>
                         </li>";
                     break;
@@ -201,28 +201,28 @@ ob_start();
                         </li>
                         <li>
                             <select name='conditions' id='adConditions' class='form-control'>";
-                                $conditions = array('good', 'need repair', 'need overhaul');
-                                for ($i = 0; $i < count($conditions); $i++) { 
-                                    if($ad['conditions'] == $conditions[$i]) {
-                                        echo "<option selected value='$ad[conditions]'>".ucfirst($ad['conditions'])."</option>";
-                                    } else {
-                                        echo "<option value='$conditions[$i]'>".ucfirst($conditions[$i])."</option>";
-                                    }
-                                }
-                                echo "
+                    $conditions = array('good', 'need repair', 'need overhaul');
+                    for ($i = 0; $i < count($conditions); $i++) {
+                        if ($ad['conditions'] == $conditions[$i]) {
+                            echo "<option selected value='$ad[conditions]'>" . ucfirst($ad['conditions']) . "</option>";
+                        } else {
+                            echo "<option value='$conditions[$i]'>" . ucfirst($conditions[$i]) . "</option>";
+                        }
+                    }
+                    echo "
                             </select>
                         </li>
                         <li>
                             <select name='heatSystem' id='adHeat' class='form-control'>";
-                                $heatSystems = array('water', 'air', 'electric', 'gas');
-                                for ($i = 0; $i < count($heatSystems); $i++) { 
-                                    if($ad['heatSystem'] == $heatSystems[$i]) {
-                                        echo "<option selected value='$ad[heatSystem]'>".ucfirst($ad['heatSystem'])."</option>";
-                                    } else {
-                                        echo "<option value='$heatSystems[$i]'>".ucfirst($heatSystems[$i])."</option>";
-                                    }
-                                }
-                                echo "
+                    $heatSystems = array('water', 'air', 'electric', 'gas');
+                    for ($i = 0; $i < count($heatSystems); $i++) {
+                        if ($ad['heatSystem'] == $heatSystems[$i]) {
+                            echo "<option selected value='$ad[heatSystem]'>" . ucfirst($ad['heatSystem']) . "</option>";
+                        } else {
+                            echo "<option value='$heatSystems[$i]'>" . ucfirst($heatSystems[$i]) . "</option>";
+                        }
+                    }
+                    echo "
                             </select>
                         </li>";
                     break;
@@ -248,28 +248,28 @@ ob_start();
                         </li>
                         <li>
                             <select name='conditions' id='adConditions' class='form-control'>";
-                                $conditions = array('good', 'need repair', 'need overhaul');
-                                for ($i = 0; $i < count($conditions); $i++) { 
-                                    if($ad['conditions'] == $conditions[$i]) {
-                                        echo "<option selected value='$ad[conditions]'>".ucfirst($ad['conditions'])."</option>";
-                                    } else {
-                                        echo "<option value='$conditions[$i]'>".ucfirst($conditions[$i])."</option>";
-                                    }
-                                }
-                                echo "
+                    $conditions = array('good', 'need repair', 'need overhaul');
+                    for ($i = 0; $i < count($conditions); $i++) {
+                        if ($ad['conditions'] == $conditions[$i]) {
+                            echo "<option selected value='$ad[conditions]'>" . ucfirst($ad['conditions']) . "</option>";
+                        } else {
+                            echo "<option value='$conditions[$i]'>" . ucfirst($conditions[$i]) . "</option>";
+                        }
+                    }
+                    echo "
                             </select>
                         </li>
                         <li>
                             <select name='heatSystem' id='adHeat' class='form-control'>";
-                                $heatSystems = array('water', 'air', 'electric', 'gas');
-                                for ($i = 0; $i < count($heatSystems); $i++) { 
-                                    if($ad['heatSystem'] == $heatSystems[$i]) {
-                                        echo "<option selected value='$ad[heatSystem]'>".ucfirst($ad['heatSystem'])."</option>";
-                                    } else {
-                                        echo "<option value='$heatSystems[$i]'>".ucfirst($heatSystems[$i])."</option>";
-                                    }
-                                }
-                                echo "
+                    $heatSystems = array('water', 'air', 'electric', 'gas');
+                    for ($i = 0; $i < count($heatSystems); $i++) {
+                        if ($ad['heatSystem'] == $heatSystems[$i]) {
+                            echo "<option selected value='$ad[heatSystem]'>" . ucfirst($ad['heatSystem']) . "</option>";
+                        } else {
+                            echo "<option value='$heatSystems[$i]'>" . ucfirst($heatSystems[$i]) . "</option>";
+                        }
+                    }
+                    echo "
                             </select>
                         </li>";
                     break;
